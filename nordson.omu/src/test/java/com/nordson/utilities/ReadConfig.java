@@ -57,12 +57,14 @@ public class ReadConfig {
 		return MDSpath;
 
 	}
+
 	public String getExcelMDSpathPressure() {
 		String MDSpath = pro.getProperty("MDSpathPressure");
 		return MDSpath;
 
 	}
-	//Temperature Properties to be fetched for MDS Validations
+
+	// Temperature Properties to be fetched for MDS Validations
 	public String getUIfieldTobefetched_GP() {
 
 		String UIfildTobefetchedGP = pro.getProperty("UIfildTobefetched_GP");
@@ -111,7 +113,7 @@ public class ReadConfig {
 		return UIfildTobefetchedtmpstbck;
 
 	}
-	
+
 	public String getUIfieldTobefetched_SMTTmeDly() {
 
 		String UIfildTobefetchedsmttimedly = pro.getProperty("UIfildTobefetched_SMTTmeDly");
@@ -129,7 +131,7 @@ public class ReadConfig {
 		String UIfildTobefetchedsystemsetbckdly = pro.getProperty("UIfildTobefetched_SystemSetbckDly");
 		return UIfildTobefetchedsystemsetbckdly;
 	}
-	
+
 // Pressure Properties to be fetched from config file
 	public String getUIfieldTobefetched_MinimumPressureAlrt() {
 		return pro.getProperty("UIfildTobefetched_MinPA");
@@ -187,7 +189,11 @@ public class ReadConfig {
 		return pro.getProperty("UIfildTobefetched_FullScaleLineSpeed");
 
 	}
-	
-	
+
+// Sign up url method to fetch the signup url
+	public String getSignUpURL() {
+		String url = pro.getProperty("SignupUrl");
+		return url;
+	}
 
 }

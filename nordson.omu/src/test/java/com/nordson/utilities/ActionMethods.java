@@ -36,87 +36,94 @@ public class ActionMethods extends BaseClass {
 		return (generatedString2);
 	}
 
+// Generic Method to create random email id
+	public static String emailID() {
+		String genEmailId = RandomStringUtils.randomAlphabetic(4) + "@yopmail.com";
+		return (genEmailId);
+	}
+
 	public void waitForAnElementPresence(By string) {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.presenceOfElementLocated((string)));
-		}
-	
+	}
+
 	public void waitForAnElementClickable(By string) {
 		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.elementToBeClickable((string)));
-		}
-	public void waitFortexttoBePresent(final By byObject)
-	{
-		
+	}
+
+	public void waitFortexttoBePresent(final By byObject) {
+
 		WebDriverWait wait = new WebDriverWait(driver, 40);
 
 		wait.until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return (d.findElement(byObject).getAttribute ("value").length() >= 1);
-            }
-        }); 
+			public Boolean apply(WebDriver d) {
+				return (d.findElement(byObject).getAttribute("value").length() >= 1);
+			}
+		});
 	}
 
 	public void waitForAnElementPresence(WebElement element) {
 		// TODO Auto-generated method stub
-		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf((element)));
 	}
-	public void waitForAnElementIsInVisible(By element) throws Error 
-	{
+
+	public void waitForAnElementIsInVisible(By element) throws Error {
 		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
-    }
+	}
 
-	public static String getConversionToFahrenheit(String celsiustemp)
-	{
-		double fahrenheittemp=0;
-		String fahrheittemp="";
-		
-		   int ctemp = Integer.parseInt(celsiustemp);
-		   fahrenheittemp = ctemp *1.8 +32;
-		   fahrheittemp= String.valueOf((int) Math.round(fahrenheittemp));
-		   return fahrheittemp;
-		
+	public static String getConversionToFahrenheit(String celsiustemp) {
+		double fahrenheittemp = 0;
+		String fahrheittemp = "";
+
+		int ctemp = Integer.parseInt(celsiustemp);
+		fahrenheittemp = ctemp * 1.8 + 32;
+		fahrheittemp = String.valueOf((int) Math.round(fahrenheittemp));
+		return fahrheittemp;
+
 	}
-	
-	public static String getConversionToCelsius(String farnhittemp)
-	{
-		double celsiustemp=0;
-		String celsius ="";
-		
-		   int ctemp = Integer.parseInt(farnhittemp);
-		   celsiustemp = (ctemp-32) *5/9;
-		   celsius= String.valueOf((int) Math.round(celsiustemp));
-		   return celsius;
-		
+
+	public static String getConversionToCelsius(String farnhittemp) {
+		double celsiustemp = 0;
+		String celsius = "";
+
+		int ctemp = Integer.parseInt(farnhittemp);
+		celsiustemp = (ctemp - 32) * 5 / 9;
+		celsius = String.valueOf((int) Math.round(celsiustemp));
+		return celsius;
+
 	}
-	
-	public static String getConversionToCelsiusSys(String farnhittemp)
-	{
-		double celsiustemp=0;
-		String celsius ="";
-		
-		   int ctemp = Integer.parseInt(farnhittemp);
-		   celsiustemp = ctemp *5/9;
-		   celsius= String.valueOf((int) Math.round(celsiustemp));
-		   return celsius;
-		
+
+	public static String getConversionToCelsiusSys(String farnhittemp) {
+		double celsiustemp = 0;
+		String celsius = "";
+
+		int ctemp = Integer.parseInt(farnhittemp);
+		celsiustemp = ctemp * 5 / 9;
+		celsius = String.valueOf((int) Math.round(celsiustemp));
+		return celsius;
+
 	}
-	
-	public static String getConversionToFahrenheitSys(String celsiustemp)
-	{
-		double fahrenheittemp=0;
-		String farntemp="";
-		   int ctemp = Integer.parseInt(celsiustemp);
-		   fahrenheittemp = ctemp *1.8;
-		   farntemp= String.valueOf((int) Math.round(fahrenheittemp));
-		   return farntemp;
+
+	public static String getConversionToFahrenheitSys(String celsiustemp) {
+		double fahrenheittemp = 0;
+		String farntemp = "";
+		int ctemp = Integer.parseInt(celsiustemp);
+		fahrenheittemp = ctemp * 1.8;
+		farntemp = String.valueOf((int) Math.round(fahrenheittemp));
+		return farntemp;
 	}
-	
+
 	public void waitForAnElementToBeClickable(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable((element)));
+	}
+
+	public void waitForAnElementToBeVisible(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 }
