@@ -103,40 +103,31 @@ public class XLUtils {
 		row = ws.getRow(0);
 		int colindx=0;
 		for(Cell cell:row){
-		 if(cell.getStringCellValue().equalsIgnoreCase(Colnm))
+		 if(cell.getStringCellValue().equalsIgnoreCase(Colnm)) 
 			 colindx = cell.getColumnIndex();
-		 else
-			 System.out.println("Colnname not found");}
+		}
 		return colindx;
 	}
 	public static List<String> getCellDataColindx(String xlfile, String xlsheet, int rownum, int colnum)
 			throws IOException {
-
+	
 		fi = new FileInputStream(xlfile);
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
-
 		List<String> UIlabl = new ArrayList<String>();
-
+        
 		if (colnum != 0) {
 			for (Row row : ws) {
 				Cell c = row.getCell(colnum);
 				CellType ctype = c.getCellType();
-
 				if (c != null && ctype != CellType.BLANK && ctype == CellType.STRING) {
 					String cllvalue = c.getStringCellValue();
+					System.out.println(cllvalue);
 					UIlabl.add(cllvalue);
-
-				}
-
-				else if (c != null && ctype != CellType.BLANK && ctype == CellType.NUMERIC) {
-					double cllvalue = c.getNumericCellValue();
-					UIlabl.add(String.valueOf(cllvalue));
-				}
-			}
-
-		}
-
+				} } }
+				  /*if(row.getRowNum()==32) 
+				  break;
+					}*/
 		return UIlabl;
 
 	}
@@ -153,7 +144,6 @@ public class XLUtils {
 
 				if (ctype == CellType.STRING) {
 					if (cell.getStringCellValue().equals(UIfild)) {
-
 						rwindx = row.getRowNum();
 						
 					}

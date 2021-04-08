@@ -6,7 +6,9 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -117,6 +119,17 @@ public class ActionMethods extends BaseClass {
 	public void waitForAnElementToBeClickable(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable((element)));
+	}
+	
+	public int getXcoordinatetoclick(WebElement element)
+	{
+		System.out.println(element.getSize().getWidth());
+		return element.getSize().getWidth()-2;
+	}
+	public int getYcoordinatetoclick(WebElement element)
+	{
+		System.out.println(element.getLocation().y-4);
+		return element.getLocation().y-4;
 	}
 
 }
