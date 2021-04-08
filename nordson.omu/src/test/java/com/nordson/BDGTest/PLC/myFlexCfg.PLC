@@ -1,0 +1,17 @@
+<?xml version="1.0"?> 
+ <FileCRC>0077383bf3</FileCRC>
+<Mapping>
+  <DBVersion Value="1792"/>
+  <inADIs>
+    <ADI id="10" pos="0"/>
+    <ADI id="100" pos="4"/>
+    <ADI id="10000" pos="8"/>
+    <ADI id="13000" pos="12"/>
+  </inADIs>
+  <outADIs>
+    <ADI id="11" pos="0"/>
+    <ADI id="101" pos="4"/>
+    <ADI id="10001" pos="8"/>
+    <ADI id="13001" pos="12"/>
+  </outADIs>
+</Mapping>

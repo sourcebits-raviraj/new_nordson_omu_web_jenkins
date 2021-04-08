@@ -1,0 +1,24 @@
+Settings\RecipeCurrent.xml
+.\Settings\RecipeCurrent.xml	0	11857	164393	3768544093
+
+PLC\myFlexCfg.PLC
+.\PLC\myFlexCfg.PLC	11887	169	383	2313005554
+
+Licenses\Licenses.lic
+.\Licenses\Licenses.lic	266938328	0	0	0
+
+Logs\EventLog01.csv
+.\Logs\EventLog01.csv	12077	8429	126755	3693301339
+
+Logs\EventLog02.csv
+.\Logs\EventLog02.csv	20529	2509	29792	3377855212
+
+Logs\TemperatureLog01.csv
+.\Logs\TemperatureLog01.csv	23061	8948	44222	1416032264
+
+Logs\TemperatureLog02.csv
+.\Logs\TemperatureLog02.csv	266938328	0	0	0
+
+NSL.csv
+.\NSL.csv	266938328	0	0	0
+

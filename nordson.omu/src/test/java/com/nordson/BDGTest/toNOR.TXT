@@ -1,0 +1,2 @@
+.\BlueDatAppl\BlueDatGenerator -N FileList.txt PROBLUEFLEX_0019_12_30_1100.nor -S "."
+
