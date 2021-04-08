@@ -122,7 +122,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 4,enabled = true)
 	@Feature("Verify MDS values for Mod and Tank with Fill System")
 	@Description("Verification of default,min and max values for Lid Open Alert Threshold field in System Settings")
-	public void TC_OMU_2192_Verify__LidOpenAlert_MDSvalidation_default_min_max() throws InterruptedException, IOException {
+	public void TC_OMU_2194_Verify__LidOpenAlert_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_LidOpenAlertTime());
 		// Verifying the default value of LidOpenAlert field
 		softAssert.assertEquals(fss.getLidOpenAlertTimeout(), fmds.getDefault1(),
@@ -188,7 +188,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	
 	@Test(priority = 6,enabled = true)
 	@Description("Verification of default,min and max values for Lid Open Alert Threshold field in System Settings")
-	public void TC_OMU_2196_Verify__LidOpenAlert_MDSvalidation_default_min_max() throws InterruptedException, IOException {
+	public void TC_OMU_2197_Verify__LidOpenAlert_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_LidOpenAlertTime());
 		Thread.sleep(1000);
