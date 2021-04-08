@@ -124,7 +124,15 @@ public class XLUtils {
 					String cllvalue = c.getStringCellValue();
 					
 					UIlabl.add(cllvalue);
-				} } }
+				}
+
+				else if (c != null && ctype != CellType.BLANK && ctype == CellType.NUMERIC) {
+					double cllvalue = c.getNumericCellValue();
+					UIlabl.add(String.valueOf(cllvalue));
+				}
+			}
+
+		}
 				  
 		return UIlabl;
 
