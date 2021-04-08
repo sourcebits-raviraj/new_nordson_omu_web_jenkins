@@ -118,5 +118,59 @@ public class ActionMethods extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable((element)));
 	}
+	
+	public void copyFile(String filnm) throws IOException
+	{
+		// creating two channels
+        // one input and other output  
+		String srcfilepth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+filnm;
+		String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
+        File src = new File(srcfilepth);
+        File dest = new File(destnationpth); 
+              
+        // using copy(InputStream,Path Target); method 
+        try {
+            FileUtils.copyFileToDirectory(src,dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public String getlatestDownloadedNorFilenm()
+	{
+		String flnm="";
+		   String norfilpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
+			File dir = new File(norfilpth);
+		    File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
+		    // Listing all the included files
+		    File lastModifiedFile = fileList[0];
+		    if(fileList.length==1)
+		    {
+		    	flnm=lastModifiedFile.getName();
+		    }
+		    	
+		    else {
+		    	    for (int i = 0; i < fileList.length; i++)	{
+		    		System.out.println(fileList[i]);
+		    	       if(lastModifiedFile.lastModified()<fileList[i].lastModified())
+		    	       {
+		    	           lastModifiedFile=fileList[i];
+		  	               System.out.println(lastModifiedFile.getName());
+		  	               flnm=lastModifiedFile.getName();
+		    	        }
+		    	      else
+		    		System.out.println("Nor file not found");
+		    	  }                                                }
+		return flnm;
+	}
+
+	public void ConversionfromNorToXML(String flnm) throws IOException
+	{
+		  ProcessBuilder builder =new ProcessBuilder("cmd.exe", "/c","cd \""+System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U "+flnm);
+		  builder.redirectErrorStream(true); 
+		  builder.start();
+		  System.out.println("Converted NOR "+flnm+"to XML file Done");
+
+	}
 
 }
