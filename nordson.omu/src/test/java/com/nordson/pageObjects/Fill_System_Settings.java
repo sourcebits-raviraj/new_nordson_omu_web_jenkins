@@ -5,7 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -72,7 +71,9 @@ public class Fill_System_Settings {
 			Dashboard.click();
 		}
 		public void clickSetUpToolBtn() {
-			Am.waitForAnElementToBeClickable(SetUpToolButton);
+			Am.waitForAnElementPresence(By.id("bt"));
+			//Am.waitForAnElementToBeClickable(SetUpToolButton);
+			((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getXcoordinatetoclick(SetUpToolButton)+")");
 			SetUpToolButton.click();
 		}
 		public void clickCreateNewBtn() {
@@ -93,9 +94,11 @@ public class Fill_System_Settings {
 			// SystemSettings.click();
 		}
 		
-		public void clickFillbtn() {
+		public void clickFillbtn() throws InterruptedException {
 			Am.waitForAnElementPresence(By.xpath("//a[contains(@class,'uppercase')]//*[normalize-space()='Fill']"));
-			Am.waitForAnElementToBeClickable(Fillbtn);
+			Thread.sleep(800);
+			//Am.waitForAnElementToBeClickable(Fillbtn);
+			((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getXcoordinatetoclick(Fillbtn)+")");
 			Fillbtn.click();
 		}
 		
@@ -187,10 +190,10 @@ public class Fill_System_Settings {
 		public void clickSavebtn() {
 			Am.waitForAnElementPresence(SAVE);
 			Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
-			Am.waitForAnElementToBeClickable(SAVE);
+			//Am.waitForAnElementToBeClickable(SAVE);
 			//SAVE.click();
-			Actions act = new Actions(ldriver);
-		    act.moveToElement(SAVE).moveByOffset((Am.getXcoordinatetoclick(SAVE)), 0).click().perform();
+			((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getYcoordinatetoclick(SAVE)+")");
+			SAVE.click();
 		}
 		public void createNewNORfile() throws InterruptedException {
 			clickSetUpToolBtn();

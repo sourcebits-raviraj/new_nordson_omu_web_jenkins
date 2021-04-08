@@ -122,12 +122,10 @@ public class XLUtils {
 				CellType ctype = c.getCellType();
 				if (c != null && ctype != CellType.BLANK && ctype == CellType.STRING) {
 					String cllvalue = c.getStringCellValue();
-					System.out.println(cllvalue);
+					
 					UIlabl.add(cllvalue);
 				} } }
-				  /*if(row.getRowNum()==32) 
-				  break;
-					}*/
+				  
 		return UIlabl;
 
 	}

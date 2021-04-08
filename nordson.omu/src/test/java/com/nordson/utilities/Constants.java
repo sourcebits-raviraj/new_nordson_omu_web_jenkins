@@ -63,6 +63,7 @@ public class Constants {
 		
 		
 		public static final String Sucssmsg="Temperature Settings updated successfully";
+		public static final String Fillsucssmsg="Pump updated successfully";
 
 	}
 
