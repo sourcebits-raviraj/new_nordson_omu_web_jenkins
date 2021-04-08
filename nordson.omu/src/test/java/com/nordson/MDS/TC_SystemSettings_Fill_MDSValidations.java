@@ -26,7 +26,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 1,enabled = true)
 	@Feature("Verify MDS values for Mod and Tank with Fill System")
 	@Description("Verification of default,min and max values for Maximum Fill time field in System Settings")
-	public void Test_Systemsettings_MaximumFillTime_MDS() throws InterruptedException, IOException {
+	public void TC_OMU_2190_Verify_MaximumFillTime_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		fss = new Fill_System_Settings (driver);
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumFillTime());
 		fss.createNewNORfile();
@@ -60,7 +60,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 2,enabled = true)
 	@Feature("Verify MDS values for Mod and Tank with Fill System")
 	@Description("Verification of default,min and max values for Target Fill Level field in System Settings")
-	public void Test_Systemsettings_TargetFillLevel_MDS() throws InterruptedException, IOException {
+	public void TC_OMU_2192_Verify_TargetFillLevel_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_TargetFillLevel());
 		// Verifying the default value of TargetFillLevel field
@@ -92,7 +92,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 3,enabled = true)
 	@Feature("Verify MDS values for Mod and Tank with Fill System")
 	@Description("Verification of default,min and max values for Low LevelAlert Threshold field in System Settings")
-	public void Test_Systemsettings_Fill_LowLevelThreshold_MDS() throws InterruptedException, IOException {
+	public void TC_OMU_2193_Verify_LowLevelThreshold_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		rmds.getMDSDataVal(rcf.getUIfiledTobefetched_LowLevelThreshold());
 		// Verifying the default value of LowLevelAlertThreshold field
 		softAssert.assertEquals(fss.getLowLevelAlertThreshold(), fmds.getDefault1(),
@@ -122,7 +122,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 4,enabled = true)
 	@Feature("Verify MDS values for Mod and Tank with Fill System")
 	@Description("Verification of default,min and max values for Lid Open Alert Threshold field in System Settings")
-	public void Test_Systemsettings_Fill_LidOpenAlert_MDS() throws InterruptedException, IOException {
+	public void TC_OMU_2192_Verify__LidOpenAlert_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_LidOpenAlertTime());
 		// Verifying the default value of LidOpenAlert field
 		softAssert.assertEquals(fss.getLidOpenAlertTimeout(), fmds.getDefault1(),
@@ -152,7 +152,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 5,enabled = true)
 	@Feature("Verify MDS values for Tank Only Fill System settings")
 	@Description("Verification of default,min and max values for Low LevelAlert Threshold field in System Settings")
-	public void Test_Systemsettings_FillTankOnly_LowLevelThreshold_MDS() throws InterruptedException, IOException {
+	public void TC_OMU_2195_Verify_LowLevelThreshold_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		fss.clickDashboard();
 		rmds.getMDSDataVal(rcf.getUIfiledTobefetched_LowLevelThreshold());
 		fss.createNewNORfile();
@@ -188,7 +188,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	
 	@Test(priority = 6,enabled = true)
 	@Description("Verification of default,min and max values for Lid Open Alert Threshold field in System Settings")
-	public void Test_Systemsettings_FillTankOnly_LidOpenAlert_MDS() throws InterruptedException, IOException {
+	public void TC_OMU_2196_Verify__LidOpenAlert_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_LidOpenAlertTime());
 		Thread.sleep(1000);
