@@ -1,9 +1,7 @@
 package com.nordson.utilities;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
-
 public class Constants {
-		
+
 		// Default Value settings
 	
 		public static final String Tank = "177";
@@ -65,6 +63,7 @@ public class Constants {
 		public static final String Sucssmsg="Temperature Settings updated successfully";
 		public static final String Fillsucssmsg="Pump updated successfully";
 
-	}
+	  // Successful Message after User MOdel Registration
+	  public static final String SucssText = "We have sent you a link!";
 
-
+}

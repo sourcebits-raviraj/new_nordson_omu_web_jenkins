@@ -53,13 +53,16 @@ public class ReadConfig {
 	public String getExcelMDSpathTemperature() {
 		return pro.getProperty("MDSpathtemp");
 	}
+
 	public String getExcelMDSpathPressure() {
 		return pro.getProperty("MDSpathPressure");
 	}
 	public String getExcelMDSpathFill() {
 		return pro.getProperty("MDSpathFill");
 	}
+
 	//Temperature Properties to be fetched for MDS Validations from config file
+
 	public String getUIfieldTobefetched_GP() {
 		return pro.getProperty("UIfildTobefetched_GP");
 	}
@@ -91,6 +94,7 @@ public class ReadConfig {
 		return pro.getProperty("UIfildTobefetched_SystemSetbckDly");
 	}
 // Pressure Properties to be fetched from config file for validations
+
 	public String getUIfieldTobefetched_MinimumPressureAlrt() {
 		return pro.getProperty("UIfildTobefetched_MinPA");
 	}
@@ -146,4 +150,9 @@ public class ReadConfig {
 	public String getUIfieldTobefetched_LidOpenAlertTime() {
 		return pro.getProperty("UIfildTobefetched_LidOpenAlertTime");
 	}	
+  // Sign up url method to fetch the signup url
+	public String getSignUpURL() {
+		String url = pro.getProperty("SignupUrl");
+		return url;
+	}
 }

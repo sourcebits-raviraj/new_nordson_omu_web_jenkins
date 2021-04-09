@@ -86,6 +86,7 @@ public class XLUtils {
 		fi.close();
 		fo.close();
 	}
+
 	public static int getColumnindexnum(String xlfile, String xlsheet, int rownum) throws IOException {
 		fi = new FileInputStream(xlfile);
 		wb = new XSSFWorkbook(fi);
@@ -108,6 +109,7 @@ public class XLUtils {
 		}
 		return colindx;
 	}
+
 	public static List<String> getCellDataColindx(String xlfile, String xlsheet, int rownum, int colnum)
 			throws IOException {
 	
@@ -151,7 +153,7 @@ public class XLUtils {
 				if (ctype == CellType.STRING) {
 					if (cell.getStringCellValue().equals(UIfild)) {
 						rwindx = row.getRowNum();
-						
+
 					}
 
 				}
@@ -161,6 +163,7 @@ public class XLUtils {
 		return rwindx;
 
 	}
+
 	@DataProvider(name = "GlobalPointValues_Celsius")
 	public static String[][] getDataGP_Celsius() throws IOException {
 		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/Temperature.xlsx";
@@ -424,7 +427,7 @@ public class XLUtils {
 		}
 		return tempdata;
 	}
-	
+
 	@DataProvider(name = "PressureValuesMinMax0_0")
 	public static String[][] getData_0_0() throws IOException {
 
@@ -642,5 +645,25 @@ public class XLUtils {
 		}
 		return pressuredata;
 	}
-	
+
+	@DataProvider(name = "RegistrationTestData")
+	String[][] getData() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/RegistrationTestData.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "Registration");
+		int colcount = XLUtils.getCellCount(path, "Registration", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String regdata[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				regdata[i - 1][j] = XLUtils.getCellData(path, "Registration", i, j);// 1 0
+			}
+
+		}
+		return regdata;
+	}
 }
