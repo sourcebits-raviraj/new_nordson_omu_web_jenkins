@@ -123,12 +123,10 @@ public class ActionMethods extends BaseClass {
 	
 	public int getXcoordinatetoclick(WebElement element)
 	{
-		System.out.println(element.getSize().getWidth());
-		return element.getSize().getWidth()-2;
+		return element.getLocation().x-2;
 	}
 	public int getYcoordinatetoclick(WebElement element)
 	{
-		System.out.println(element.getLocation().y-4);
 		return element.getLocation().y-4;
 	}
 
