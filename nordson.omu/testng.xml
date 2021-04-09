@@ -12,12 +12,12 @@
   <test name="Nordson OMU Web App Regression Tests on Chrome">
       <parameter name="browser" value="chrome"/>
        <classes>
-     <!--<class name="com.nordson.testCases.TC_LoginTest_001"/> -->
+     <!--<class name="com.nordson.testCases.TC_LoginTest_001"/>
      
      <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>  
-     <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>   
+     <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>    -->
         
-     <!--   <class name="com.nordson.testCases.TC_Registration_DDT_002"/> -->
+    <class name="com.nordson.testCases.TC_Registration_DDT_002"/>
       </classes>
      
        </test> 
