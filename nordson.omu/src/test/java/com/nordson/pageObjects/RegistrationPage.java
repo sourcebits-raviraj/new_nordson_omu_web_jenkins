@@ -5,13 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.nordson.utilities.ActionMethods;
 
 public class RegistrationPage {
 
 	WebDriver ldriver;
 	WebDriverWait wait;
+	ActionMethods Am;
 
 	// Constructor of the LoginPage to initiate driver
 	public RegistrationPage(WebDriver rdriver) {
@@ -100,12 +102,15 @@ public class RegistrationPage {
 	@FindBy(xpath = "//div[@class='mat-checkbox-inner-container']")
 	WebElement AgreeCheckBox;
 
-	@FindBy(xpath = "//button[normalize-space()='Accept and Sign Up']")
-	@CacheLookup
+	@FindBy(xpath = "//button[contains(text(),'Accept and Sign Up')]")
 	WebElement AcceptAndSignup;
 
+	@FindBy(xpath = "//p[contains(text(),'We have sent you a link!')]")
+	WebElement sentYouLink;
+
 	// Page Action Methods for all the WebElements declared
-	public void clickSingUp() {
+	public void clickSingUp() throws InterruptedException {
+		Thread.sleep(2000);
 		SignUp.click();
 
 	}
@@ -125,8 +130,6 @@ public class RegistrationPage {
 		CompanyType.click();
 		Thread.sleep(2000);
 		CompanyTypeValue.click();
-		// Select comptypes = new Select(CompanyType);
-		// comptypes.selectByVisibleText("Nordson");
 
 	}
 
@@ -141,8 +144,7 @@ public class RegistrationPage {
 		Country.click();
 		Thread.sleep(1000);
 		CountryValue.click();
-		// countries.selectByVisibleText("Iraq");
-		// Select countries = new Select(Country);
+
 	}
 
 	public void setPlant(String plant) {
@@ -158,7 +160,8 @@ public class RegistrationPage {
 		Continue.click();
 	}
 
-	public void addSerialNo(String sno) {
+	public void addSerialNo(String sno) throws InterruptedException {
+		Thread.sleep(2000);
 		SerialNo.sendKeys(sno);
 	}
 
@@ -174,13 +177,10 @@ public class RegistrationPage {
 		Continue2.click();
 	}
 
-	public void setEmailId(String emailid) {
-
-		EmailAddress.sendKeys(emailid);
-	}
-
-	public void setConfirmEmail(String confemail) {
-		ConfirmEmailAddress.sendKeys(confemail);
+	public void setEmailId() {
+		String genEmail = ActionMethods.emailID();
+		EmailAddress.sendKeys(genEmail);
+		ConfirmEmailAddress.sendKeys(genEmail);
 	}
 
 	public void setPassword(String pass) {
@@ -193,22 +193,23 @@ public class RegistrationPage {
 
 	public void checkboxAgreeTerms() {
 		AgreeCheckBox.click();
+
 	}
 
 	public boolean acceptAndSignUPEnabled() {
+
 		return AcceptAndSignup.isEnabled();
 
 	}
 
-	public void waitForElementClickabled() {
-		WebDriverWait wait = new WebDriverWait(ldriver, 45);
-		wait.until(ExpectedConditions.elementToBeClickable(AcceptAndSignup));
+	public void acceptAndSignUP() throws InterruptedException {
+
+		AcceptAndSignup.click();
 
 	}
 
-	public void acceptAndSignUP() {
-		AcceptAndSignup.click();
-
+	public String getTextSentYouText() {
+		return sentYouLink.getText();
 	}
 
 }

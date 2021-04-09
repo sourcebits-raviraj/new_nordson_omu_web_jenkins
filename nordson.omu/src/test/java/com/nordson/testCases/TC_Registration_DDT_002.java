@@ -4,28 +4,31 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.nordson.pageObjects.RegistrationPage;
 import com.nordson.utilities.ActionMethods;
-import com.nordson.utilities.XLUtils;
+import com.nordson.utilities.Constants;
+import com.nordson.utilities.ReadConfig;
 
 public class TC_Registration_DDT_002 extends BaseClass {
 
 	RegistrationPage rp;
-	ActionMethods Am;
+
+	ActionMethods Am = new ActionMethods();
+	ReadConfig readconfig = new ReadConfig();
 	private SoftAssert softAssert = new SoftAssert();
 
-	@Test(dataProvider = "RegistrationTestData")
+	@Test(dataProvider = "RegistrationTestData", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void RegistrationDDT(String fname, String companyname, String address, String plant, String phoneno,
-			String serial, String uniqueid, String desc, String email, String cemail, String pass, String cpass)
+			String serial, String uniqueid, String desc, String pass, String cpass)
 			throws InterruptedException, IOException {
 
 		log.info("URL is launched");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		log.info("Wait for the page load time out");
 
 		// Driver Object Instantiation
@@ -72,11 +75,8 @@ public class TC_Registration_DDT_002 extends BaseClass {
 		log.info("Clicked on Continue button SECOND");
 		Thread.sleep(1000);
 
-		rp.setEmailId(email);
-		log.info("email provided");
-
-		rp.setConfirmEmail(cemail);
-		log.info(" confirm email provided");
+		rp.setEmailId();
+		log.info("emailID provided");
 
 		rp.setPassword(pass);
 		log.info(" password provided");
@@ -85,58 +85,40 @@ public class TC_Registration_DDT_002 extends BaseClass {
 		log.info(" confirm password provided");
 
 		rp.checkboxAgreeTerms();
+
 		log.info("Checked the Terms and Conditions");
+		Thread.sleep(3000);
 
 		if (rp.acceptAndSignUPEnabled() == true) {
 			rp.acceptAndSignUP();
-			Thread.sleep(5000);
 			log.info("Accept and Sign Up Button is enabled");
+
 		}
 
 		else {
-
-			// rp.waitForElementClickabled();
 			log.info("Accept and Sign Up Button is disbaled");
-		}
 
-		// verify the Registration is successful
-		if (driver.getPageSource().contains("Please check your email and click on a confirmation link.")) {
-			System.out.println("Registration Successful");
-			Am = new ActionMethods();
+		}
+		String text = rp.getTextSentYouText();
+		softAssert.assertEquals(Constants.SucssText, text);
+
+		if (readconfig.getSignUpURL().equals(driver.getCurrentUrl())) {
+			System.out.println(driver.getCurrentUrl());
+			log.info("Registration Successful");
+			// Am = new ActionMethods();
 			Am.captureScreen(driver, "RegistrationDDTPass");
 			Assert.assertTrue(true);
-
 		}
 
 		else {
 
-			Am = new ActionMethods();
+			// Am = new ActionMethods();
 			Am.captureScreen(driver, "RegistrationDDTFail");
 			System.out.println("Registration Failed");
-			softAssert.assertTrue(true);
+			Assert.assertTrue(false);
 			log.info("Registration failed");
 
 		}
-	}
-
-	@DataProvider(name = "RegistrationTestData")
-	String[][] getData() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/RegistrationTestData.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, "Registration");
-		int colcount = XLUtils.getCellCount(path, "Registration", 1);
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcount);
-		String regdata[][] = new String[rownum][colcount];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 0; j < colcount; j++) {
-				regdata[i - 1][j] = XLUtils.getCellData(path, "Registration", i, j);// 1 0
-			}
-
-		}
-		return regdata;
 	}
 
 }
