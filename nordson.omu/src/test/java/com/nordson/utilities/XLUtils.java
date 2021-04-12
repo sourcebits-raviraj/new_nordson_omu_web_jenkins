@@ -106,28 +106,27 @@ public class XLUtils {
 		for (Cell cell : row) {
 			if (cell.getStringCellValue().equalsIgnoreCase(Colnm))
 				colindx = cell.getColumnIndex();
+
 		}
 		return colindx;
 	}
 
 	public static List<String> getCellDataColindx(String xlfile, String xlsheet, int rownum, int colnum)
 			throws IOException {
-
+	
 		fi = new FileInputStream(xlfile);
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
-
 		List<String> UIlabl = new ArrayList<String>();
-
+        
 		if (colnum != 0) {
 			for (Row row : ws) {
 				Cell c = row.getCell(colnum);
 				CellType ctype = c.getCellType();
-
 				if (c != null && ctype != CellType.BLANK && ctype == CellType.STRING) {
 					String cllvalue = c.getStringCellValue();
+					
 					UIlabl.add(cllvalue);
-
 				}
 
 				else if (c != null && ctype != CellType.BLANK && ctype == CellType.NUMERIC) {
@@ -137,7 +136,7 @@ public class XLUtils {
 			}
 
 		}
-
+				  
 		return UIlabl;
 
 	}
@@ -154,7 +153,6 @@ public class XLUtils {
 
 				if (ctype == CellType.STRING) {
 					if (cell.getStringCellValue().equals(UIfild)) {
-
 						rwindx = row.getRowNum();
 
 					}

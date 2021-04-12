@@ -6,6 +6,3 @@
 /test-output/
 *.html
 *.png
-*testng.xml
-index.html
-testng-results.xml

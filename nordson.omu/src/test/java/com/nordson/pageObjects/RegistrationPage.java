@@ -126,7 +126,6 @@ public class RegistrationPage {
 	}
 
 	public void setCompanyType() throws InterruptedException {
-
 		CompanyType.click();
 		Thread.sleep(2000);
 		CompanyTypeValue.click();
