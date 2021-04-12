@@ -55,7 +55,10 @@ public class Constants {
 	public static final String UTTErrmsgFH = "Under Temperature Threshold should be between 16 and 108";
 	public static final String TempstbckErrmsgFH = "Temperature Setback should be between 9 and 108";
 	public static final String Sucssmsg = "Temperature Settings updated successfully";
-
+  
+	//Sucessful message for Flow
+	public static final String FlowSucssmsg ="Flow Updated Successfully";
+	
 	// Successful Message after User MOdel Registration
 	public static final String SucssText = "We have sent you a link!";
 
