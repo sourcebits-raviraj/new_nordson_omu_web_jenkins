@@ -52,18 +52,16 @@ public class ReadConfig {
 	}
 
 	public String getExcelMDSpathTemperature() {
-
 		String MDSpath = pro.getProperty("MDSpathtemp");
 		return MDSpath;
-
 	}
-
 	public String getExcelMDSpathPressure() {
 		String MDSpath = pro.getProperty("MDSpathPressure");
 		return MDSpath;
-
 	}
-
+	public String getExcelMDSpathFlow() {
+		return pro.getProperty("MDSpathFlow");
+	}
 	// Temperature Properties to be fetched for MDS Validations
 	public String getUIfieldTobefetched_GP() {
 
@@ -187,7 +185,6 @@ public class ReadConfig {
 
 	public String getUIfieldTobefetched_FullScaleLineSpeed() {
 		return pro.getProperty("UIfildTobefetched_FullScaleLineSpeed");
-
 	}
 
 // Sign up url method to fetch the signup url
@@ -195,5 +192,21 @@ public class ReadConfig {
 		String url = pro.getProperty("SignupUrl");
 		return url;
 	}
+// Flow Properties to be fetched from config file
+	public String getUIfieldTobefetched_TargetAddOn() {
+		return pro.getProperty("UIfildTobefetched_TargetAddOn");
+	}
+	public String getUIfieldTobefetched_LowAlertThreshold() {
+		return pro.getProperty("UIfildTobefetched_LowAlertThreshold");}
+	
+	public String getUIfieldTobefetched_HighAlertThreshold() {
+	return pro.getProperty("UIfildTobefetched_HighAlertThreshold");}
+	
+	public String getUIfieldTobefetched_LowStopThreshold() {
+		return pro.getProperty("UIfildTobefetched_LowStopThreshold");}
+    
+	public String getUIfieldTobefetched_HighStopThreshold() {
+		return pro.getProperty("UIfildTobefetched_LowStopThreshold");}
+    
 
 }

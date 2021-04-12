@@ -106,8 +106,6 @@ public class XLUtils {
 		for (Cell cell : row) {
 			if (cell.getStringCellValue().equalsIgnoreCase(Colnm))
 				colindx = cell.getColumnIndex();
-			else
-				System.out.println("Colnname not found");
 		}
 		return colindx;
 	}
