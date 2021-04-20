@@ -75,27 +75,25 @@ public class RetriveMDSdata_Flow {
 						   if (colnms.equalsIgnoreCase(UIfieldTobefetched)) {
 							mdsgs.setUnits1(XLUtils.getCellData(path, "ProBlue Flex", rwindx, units1));
 							String dflt1="";
-							dflt1=XLUtils.getCellData(path, "ProBlue Flex", rwindx, default1indx).replaceAll("[-+]*","");	
+							dflt1=XLUtils.getCellData(path, "ProBlue Flex", rwindx, default1indx);
 							if(dflt1.equalsIgnoreCase("As teached or user entered")&& UIfieldTobefetched.equalsIgnoreCase("Target Add-On"))
 							dflt1="1000";
-							else if(dflt1.contains("target_add_on")) {
-								String dfltval[]=dflt1.split(" ");
-								dflt1=String.valueOf((int) Math.round(Double.parseDouble(dfltval[0])*Integer.parseInt(mdsgs.getTargetAddon())));
-								System.out.println(dflt1+"default val");}
+							else if(dflt1.contains("target")||dflt1.contains("add")) {
+								String fy=dflt1.replaceAll("[-+a-zA-Z//*_]*","");
+								dflt1=String.valueOf((int) Math.round(Double.parseDouble(fy)*Integer.parseInt(mdsgs.getTargetAddon())));
+								}
 							mdsgs.setDefault1(dflt1);
-							min1 = XLUtils.getCellData(path, "ProBlue Flex", rwindx, min1indx).replaceAll("[-+]*","");
-							if(min1.contains("target_add_on")) {
-								String min1val[]=min1.split(" ");
-								min1=String.valueOf((int) Math.round(Double.parseDouble(min1val[0])*Integer.parseInt(mdsgs.getTargetAddon())));
-								System.out.println(min1+"min1 val");}
+							min1 = XLUtils.getCellData(path,"ProBlue Flex", rwindx, min1indx).replaceAll("[-+]", "");
+							if(min1.contains("target")||min1.contains("add")) {
+								String aftrrplc=min1.replaceAll("[a-zA-Z//*_]*","");
+								min1=String.valueOf((int) Math.round(Double.parseDouble(aftrrplc)*Integer.parseInt(mdsgs.getTargetAddon())));}
 							mdsgs.setMin1(min1);
-							max1=XLUtils.getCellData(path, "ProBlue Flex", rwindx, max1indx).replaceAll("[-+]*","");
-							if(max1.contains("target_add_on")) {
-								String max1val[]=max1.split(" ");
-								max1=String.valueOf((int) Math.round(Double.parseDouble(max1val[0])*Integer.parseInt(mdsgs.getTargetAddon())));
-								System.out.println(max1+"max1 val");}
-							mdsgs.setMax1(max1);
-							} } } } } }
+							max1 = XLUtils.getCellData(path,"ProBlue Flex", rwindx, max1indx).replaceAll("[-+]","");
+							if(max1.contains("target")||max1.contains("add")) {
+								String aftrrplc=max1.replaceAll("[-+a-zA-Z//*_]*","");
+							max1=String.valueOf((int) Math.round(Double.parseDouble(aftrrplc)*Integer.parseInt(mdsgs.getTargetAddon())));}
+						    mdsgs.setMax1(max1);
+							} } } } }}
 							
 	public void setUIfieldTobefetched(String UIfieldTobefetched) {
 		this.UIfildtobefetched = UIfieldTobefetched;

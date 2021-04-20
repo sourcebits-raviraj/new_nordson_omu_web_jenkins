@@ -175,6 +175,30 @@ public class ReadConfig {
 		return pro.getProperty("UIfildTobefetched_LowStopThreshold");}
     
 	public String getUIfieldTobefetched_HighStopThreshold() {
-		return pro.getProperty("UIfildTobefetched_LowStopThreshold");}
+		return pro.getProperty("UIfildTobefetched_HighStopThreshold");}
+	
+	public String getUIfieldTobefetched_AlertDelayCount() {
+		return pro.getProperty("UIfildTobefetched_AlertDelayCount");}
+	
+	public String getUIfieldTobefetched_StopDelayCount() {
+		return pro.getProperty("UIfildTobefetched_StopDelayCount");}
+	
+	public String getUIfieldTobefetched_SpecificGravity() {
+		return pro.getProperty("UIfildTobefetched_SpecificGravity");}
+	
+	public String getUIfieldTobefetched_CalibrationConstantSetting() {
+		return pro.getProperty("UIfildTobefetched_CalibrationConstantSetting");}
+	
+	public String getUIfieldTobefetched_ProductSkipCount() {
+		return pro.getProperty("UIfildTobefetched_ProductSkipCount");}
+	
+	public String getUIfieldTobefetched_ProductstoAverage() {
+		return pro.getProperty("UIfildTobefetched_ProductstoAverage");}
+	
+	public String getUIfieldTobefetched_IdleSkipTime() {
+		return pro.getProperty("UIfildTobefetched_IdleSkipTime");}
+	
+	public String getUIfieldTobefetched_StartupSkipCount() {
+		return pro.getProperty("UIfildTobefetched_StartupSkipCount");}
     
 }

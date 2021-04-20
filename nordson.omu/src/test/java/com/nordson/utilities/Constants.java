@@ -35,8 +35,8 @@ public class Constants {
 	// Runtime Setting Toast msgs
 
 	public static final String TnkpntnullErrmsg = "Enter Valid Tank Set Points";
-	public static final String TnkpntErrmsg = "Manifold should be between 40 and 204";
-	public static final String TnkpntErrmsgFH = "Manifold should be between 100 and 400";
+	public static final String TnkpntErrmsg = "Tank & Manifold should be between 40 and 204";
+	public static final String TnkpntErrmsgFH = "Tank & Manifold should be between 100 and 400";
 
 	public static final String Hose1 = "Hose 1 should be between 40 and 232";
 	public static final String Applictor1 = "Applicator 1 should be between 40 and 232";

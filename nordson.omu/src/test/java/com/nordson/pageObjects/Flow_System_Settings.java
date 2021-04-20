@@ -216,7 +216,7 @@ public class Flow_System_Settings {
 	}
    
    public void clearStopDelayCount() {
-	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSStopDelay']"));
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSFaultDelay']"));
 	   StopDelayCount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}	
    public void setStopDelayCount(String alrtdlycnt) {
@@ -228,6 +228,90 @@ public class Flow_System_Settings {
 		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSFaultDelay']"));
 		return StopDelayCount.getAttribute("value");
 	}
+   
+   public void clearSpecificgravity() {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSSpecificGravity']"));
+	   SpecificGravity.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}	
+   public void setSpecificGravity(String specificGravity) {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSSpecificGravity']"));
+	   SpecificGravity.sendKeys(specificGravity);
+	}
+   public String getSpecificGravity() throws InterruptedException {
+		Am.waitForAnElementPresence(By.cssSelector("*[name='ATSSpecificGravity']"));
+		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSSpecificGravity']"));
+		return SpecificGravity.getAttribute("value");
+	}
+   
+   public void clearCalibrationConstantSetting() {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSKFactor']"));
+	   CallibrationConstantSetting.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}	
+   public void setCalibrationConstantSetting(String calibrationConstantSetting) {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSKFactor']"));
+	   CallibrationConstantSetting.sendKeys(calibrationConstantSetting);
+	}
+   public String getCalibrationConstantSetting() throws InterruptedException {
+		Am.waitForAnElementPresence(By.cssSelector("*[name='ATSKFactor']"));
+		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSKFactor']"));
+		return CallibrationConstantSetting.getAttribute("value");
+	}
+   
+   public void clearProductSkipCount() {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSNumProdToSkip']"));
+	   ProductSkipCount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}	
+   public void setProductSkipCount(String productSkipCount) {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSNumProdToSkip']"));
+	   ProductSkipCount.sendKeys(productSkipCount);
+	}
+   public String getProductSkipCount() throws InterruptedException {
+		Am.waitForAnElementPresence(By.cssSelector("*[name='ATSNumProdToSkip']"));
+		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSNumProdToSkip']"));
+		return ProductSkipCount.getAttribute("value");
+	}
+   
+   public void clearProductstoAverage() {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSNumProdToAverage']"));
+	   ProductToAverage.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}	
+   public void setProductstoAverage(String productstoAverage) {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSNumProdToAverage']"));
+	   ProductToAverage.sendKeys(productstoAverage);
+	}
+   public String getProductstoAverage() throws InterruptedException {
+		Am.waitForAnElementPresence(By.cssSelector("*[name='ATSNumProdToAverage']"));
+		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSNumProdToAverage']"));
+		return ProductToAverage.getAttribute("value");
+	}
+   
+   public void clearIdleSkipTime() {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSProdSkipTime']"));
+	   IdleSkipTime.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}	
+   public void setIdleSkipTime(String idleSkipTime) {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSProdSkipTime']"));
+	   IdleSkipTime.sendKeys(idleSkipTime);
+	}
+   public String getIdleSkipTime() throws InterruptedException {
+		Am.waitForAnElementPresence(By.cssSelector("*[name='ATSProdSkipTime']"));
+		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSProdSkipTime']"));
+		return IdleSkipTime.getAttribute("value");
+	}
+   public void clearStartupSkipCount() {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSStartupSkipCount']"));
+	   StartUpSkipCount.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}	
+   public void setStartupSkipCount(String startupSkipCount) {
+	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSStartupSkipCount']"));
+	   StartUpSkipCount.sendKeys(startupSkipCount);
+	}
+   public String getStartupSkipCount() throws InterruptedException {
+		Am.waitForAnElementPresence(By.cssSelector("*[name='ATSStartupSkipCount']"));
+		Am.waitFortexttoBePresent(By.cssSelector("*[name='ATSStartupSkipCount']"));
+		return StartUpSkipCount.getAttribute("value");
+	}
+   
    
    public String getToastmsg() {
 		Am.waitForAnElementPresence(Toastmsg);
