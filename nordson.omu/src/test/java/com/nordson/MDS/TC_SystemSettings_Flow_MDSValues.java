@@ -240,6 +240,10 @@ public class TC_SystemSettings_Flow_MDSValues extends TC_LoginTest_DDT_001 {
 	@Description("Verification of default,min and max value for Alert Delay Count in System Settings")
 	public void TC_OMU_Verify_AlertDelayCount_MDSvalidation_default_min_max() throws InterruptedException, IOException {
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_AlertDelayCount());
+		fss.clickDashboard();
+		Thread.sleep(2000);
+		fss.createNewNORfile();
+		fss.clickFlowSystemsettingsbtn();
 		// Verifying the Default value of Alert Delay Count field
 		softAssert.assertEquals(fss.getAlertDelayCount(), fmds.getDefault1(),
 				"Alert Delay Count is not set to Default value : " + fmds.getDefault1());

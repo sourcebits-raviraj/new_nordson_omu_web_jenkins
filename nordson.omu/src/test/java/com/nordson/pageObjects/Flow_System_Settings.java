@@ -102,20 +102,23 @@ public class Flow_System_Settings {
 	public void clickCreateNewBtn() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'CREATE NEW')]"));
 		Am.waitForAnElementToBeClickable(CreateNewButton);
-		CreateNewButton.click();
+		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
+		executor.executeScript("arguments[0].click();", CreateNewButton);
 	}
 	public void clickSubmitBtn() throws InterruptedException {
 		Am.waitForAnElementPresence(By.xpath("//*[@class='btn-set-up submit-btn-color']"));
-		Am.waitForAnElementToBeClickable(SubmitButton);
+		//Am.waitForAnElementToBeClickable(SubmitButton);
+		((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getYcoordinatetoclick(SubmitButton)+")");
 		SubmitButton.click();
 	}
 	
 	public void clickSystemSettingsBtn() {
+		
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
 		Am.waitForAnElementToBeClickable(SystemSettings);
 		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
 		executor.executeScript("arguments[0].click();", SystemSettings);
-		// SystemSettings.click();
+	
 	}
 	
 	public void clickFlowRuntimesettingsbtn() throws InterruptedException {
@@ -341,6 +344,7 @@ public class Flow_System_Settings {
 	public void createNewNORfile() throws InterruptedException {
 		clickSetUpToolBtn();
 		clickCreateNewBtn();
+		Thread.sleep(1000);
 		clickSubmitBtn();
 		clickSystemSettingsBtn();
 	}
