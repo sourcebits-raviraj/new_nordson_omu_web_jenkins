@@ -56,8 +56,7 @@ public class Flow_Runtime_Settings {
 	}
 	public void clickSetUpToolBtn() {
 		Am.waitForAnElementPresence(By.id("bt"));
-		//Am.waitForAnElementToBeClickable(SetUpToolButton);
-		
+	    Am.waitForAnElementToBeClickable(SetUpToolButton);
 		SetUpToolButton.click();
 	}
 	public void clickCreateNewBtn() {
