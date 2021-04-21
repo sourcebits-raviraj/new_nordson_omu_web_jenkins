@@ -2,6 +2,10 @@ package com.nordson.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -14,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.google.common.io.Files;
 import com.nordson.testCases.BaseClass;
 
 public class ActionMethods extends BaseClass {
@@ -21,11 +26,13 @@ public class ActionMethods extends BaseClass {
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		File target = new File(System.getProperty("user.dir") + "/Screenshots/" + tname + ".png");
+		File target = new File(System.getProperty("user.dir") + "/Screenshots/" + tname +timestamp()+ ".png");
 		FileUtils.copyFile(source, target);
 		System.out.println("Screenshot taken");
 	}
-
+	public static String timestamp() {
+        return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+	}
 	public String randomestring() {
 		String generatedstring = RandomStringUtils.randomAlphabetic(8);
 		return (generatedstring);
@@ -37,12 +44,12 @@ public class ActionMethods extends BaseClass {
 	}
 
 	public void waitForAnElementPresence(By string) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 1000);
 		wait.until(ExpectedConditions.presenceOfElementLocated((string)));
 		}
 	
 	public void waitForAnElementClickable(By string) {
-		WebDriverWait wait = new WebDriverWait(driver, 40);
+		WebDriverWait wait = new WebDriverWait(driver, 1000);
 		wait.until(ExpectedConditions.elementToBeClickable((string)));
 		}
 	public void waitFortexttoBePresent(final By byObject)
@@ -59,7 +66,7 @@ public class ActionMethods extends BaseClass {
 
 	public void waitForAnElementPresence(WebElement element) {
 		// TODO Auto-generated method stub
-		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOf((element)));
 	}
 	public void waitForAnElementIsInVisible(By element) throws Error 
@@ -134,6 +141,8 @@ public class ActionMethods extends BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        System.out.println("new filename"+filnm.replace(" ", ""));
 	}
 	
 	public String getlatestDownloadedNorFilenm()
@@ -141,7 +150,8 @@ public class ActionMethods extends BaseClass {
 		String flnm="";
 		   String norfilpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
 			File dir = new File(norfilpth);
-		    File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
+		   File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
+		
 		    // Listing all the included files
 		    File lastModifiedFile = fileList[0];
 		    if(fileList.length==1)
@@ -163,6 +173,42 @@ public class ActionMethods extends BaseClass {
 		    	  }                                                }
 		return flnm;
 	}
+	
+	
+	  public String removeSpaces(String flnm) { 
+		  String path =System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\"+flnm; 
+	  File newfile= new File(path); 
+	  
+	 
+	  String newflnm=flnm.replace(" ", ""); 
+	  String path2 = System.getProperty("user.dir")+ "\\src\\test\\java\\com\\nordson\\BDGTest\\"+newflnm; 
+	  File newfile2 = new File(path2); 
+	  boolean newfileStatus= newfile.renameTo(newfile2);
+	  
+	  System.out.println("file successfuly renamed");
+	  return newflnm;
+	  }
+	  
+		/*
+		 * public String removeSpacesfromdownload(String flnm) { String path =
+		 * System.getProperty("user.dir")+
+		 * "\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+flnm; File newfile=
+		 * new File(path); String newflnm2=flnm.replace(" ", ""); String path2 =
+		 * System.getProperty("user.dir")+
+		 * "\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+newflnm2; File
+		 * newfile2 = new File(path2); boolean newfileStatus=
+		 * newfile.renameTo(newfile2);
+		 * 
+		 * System.out.println("file successfuly renamed");
+		 * 
+		 * return newflnm2;
+		 * 
+		 * }
+		 */
+			 
+	 
+	
+	
 
 	public void ConversionfromNorToXML(String flnm) throws IOException
 	{
@@ -170,7 +216,22 @@ public class ActionMethods extends BaseClass {
 		  builder.redirectErrorStream(true); 
 		  builder.start();
 		  System.out.println("Converted NOR "+flnm+"to XML file Done");
-
+		// String destpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\Settings\\";
+		//  File dest = new File(destpth); 
+		  //Files.copy(Paths.get(flnm), Paths.get(flnm), StandardCopyOption.REPLACE_EXISTING);
+		  
+	}
+	
+	public String conversion_of_App_vlaue_for_Norfile_comparision(String value_To_Be_Converted) {
+		
+		double prValue=Double.parseDouble(value_To_Be_Converted);
+		double newValue =prValue * 1000;
+		System.out.println(newValue);
+		return String.valueOf(newValue);
+		
+		
+		
+		
 	}
 
 }
