@@ -64,3 +64,4 @@ log4j has three main components:
 - Verify all the links in the portal
 - Login Test Cases using Data Driver (.xls file)
 - Registration Test Case (.xls file)
+- Pressure MDS File
