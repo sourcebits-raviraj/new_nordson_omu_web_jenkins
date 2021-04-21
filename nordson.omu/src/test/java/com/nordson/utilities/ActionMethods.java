@@ -2,13 +2,12 @@ package com.nordson.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +18,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.nordson.testCases.BaseClass;
 
 public class ActionMethods extends BaseClass {
+
+	ArrayList<String> tabs;
 
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;
@@ -122,19 +123,30 @@ public class ActionMethods extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable((element)));
 	}
-	
-	public int getXcoordinatetoclick(WebElement element)
-	{
-		return element.getLocation().x-2;
+
+	public int getXcoordinatetoclick(WebElement element) {
+		return element.getLocation().x - 2;
 	}
-	public int getYcoordinatetoclick(WebElement element)
-	{
-		return element.getLocation().y-4;
+
+	public int getYcoordinatetoclick(WebElement element) {
+		return element.getLocation().y - 4;
 	}
 
 	public void waitForAnElementToBeVisible(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
+	public void switchToNexttab() {
+		tabs = new ArrayList<String>(driver.getWindowHandles());
+		System.out.println("No of tabs opened=" + tabs.size());
+		driver.switchTo().window(tabs.get(1));
+	}
+
+	public void closeCurrentTab_SwitchtoPrevioustab() throws InterruptedException {
+		driver.close();
+		Thread.sleep(1000);
+		driver.switchTo().window(tabs.get(0));
 	}
 
 }
