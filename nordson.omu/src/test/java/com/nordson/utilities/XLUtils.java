@@ -102,10 +102,11 @@ public class XLUtils {
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
 		row = ws.getRow(0);
-		int colindx=0;
-		for(Cell cell:row){
-		 if(cell.getStringCellValue().equalsIgnoreCase(Colnm)) 
-			 colindx = cell.getColumnIndex();
+		int colindx = 0;
+		for (Cell cell : row) {
+			if (cell.getStringCellValue().equalsIgnoreCase(Colnm))
+				colindx = cell.getColumnIndex();
+
 		}
 		return colindx;
 	}
