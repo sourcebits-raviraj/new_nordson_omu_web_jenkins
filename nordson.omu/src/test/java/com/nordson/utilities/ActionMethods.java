@@ -46,7 +46,7 @@ public class ActionMethods extends BaseClass {
 	}
 
 	public void waitForAnElementPresence(By string) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.presenceOfElementLocated((string)));
 	}
 
@@ -69,7 +69,7 @@ public class ActionMethods extends BaseClass {
 	public void waitForAnElementPresence(WebElement element) {
 		// TODO Auto-generated method stub
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.visibilityOf((element)));
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public void waitForAnElementIsInVisible(By element) throws Error {
@@ -136,6 +136,8 @@ public class ActionMethods extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+	
+	
 
 	public void switchToNexttab() {
 		tabs = new ArrayList<String>(driver.getWindowHandles());

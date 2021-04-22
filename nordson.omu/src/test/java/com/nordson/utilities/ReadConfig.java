@@ -56,7 +56,13 @@ public class ReadConfig {
 	}
 
 	public String getExcelMDSpathPressure() {
-		return pro.getProperty("MDSpathPressure");
+
+		String MDSpath = pro.getProperty("MDSpathPressure");
+		return MDSpath;
+	}
+
+	public String getExcelMDSpathFlow() {
+		return pro.getProperty("MDSpathFlow");
 	}
 
 	public String getExcelMDSpathFill() {
@@ -195,4 +201,58 @@ public class ReadConfig {
 		String cookiesurl = pro.getProperty("CookiesUrl");
 		return cookiesurl;
 	}
+
+// Flow Properties to be fetched from config file
+	public String getUIfieldTobefetched_TargetAddOn() {
+		return pro.getProperty("UIfildTobefetched_TargetAddOn");
+	}
+
+	public String getUIfieldTobefetched_LowAlertThreshold() {
+		return pro.getProperty("UIfildTobefetched_LowAlertThreshold");
+	}
+
+	public String getUIfieldTobefetched_HighAlertThreshold() {
+		return pro.getProperty("UIfildTobefetched_HighAlertThreshold");
+	}
+
+	public String getUIfieldTobefetched_LowStopThreshold() {
+		return pro.getProperty("UIfildTobefetched_LowStopThreshold");
+	}
+
+	public String getUIfieldTobefetched_HighStopThreshold() {
+		return pro.getProperty("UIfildTobefetched_HighStopThreshold");
+	}
+
+	public String getUIfieldTobefetched_AlertDelayCount() {
+		return pro.getProperty("UIfildTobefetched_AlertDelayCount");
+	}
+
+	public String getUIfieldTobefetched_StopDelayCount() {
+		return pro.getProperty("UIfildTobefetched_StopDelayCount");
+	}
+
+	public String getUIfieldTobefetched_SpecificGravity() {
+		return pro.getProperty("UIfildTobefetched_SpecificGravity");
+	}
+
+	public String getUIfieldTobefetched_CalibrationConstantSetting() {
+		return pro.getProperty("UIfildTobefetched_CalibrationConstantSetting");
+	}
+
+	public String getUIfieldTobefetched_ProductSkipCount() {
+		return pro.getProperty("UIfildTobefetched_ProductSkipCount");
+	}
+
+	public String getUIfieldTobefetched_ProductstoAverage() {
+		return pro.getProperty("UIfildTobefetched_ProductstoAverage");
+	}
+
+	public String getUIfieldTobefetched_IdleSkipTime() {
+		return pro.getProperty("UIfildTobefetched_IdleSkipTime");
+	}
+
+	public String getUIfieldTobefetched_StartupSkipCount() {
+		return pro.getProperty("UIfildTobefetched_StartupSkipCount");
+	}
+
 }
