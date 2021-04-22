@@ -6,3 +6,4 @@
 /test-output/
 *.html
 *.png
+Selenium.logs
