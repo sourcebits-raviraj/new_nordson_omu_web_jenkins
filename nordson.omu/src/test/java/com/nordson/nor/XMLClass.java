@@ -39,6 +39,7 @@ public class XMLClass {
 		          		       }
 		}catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}     
 		
 		 return key;
