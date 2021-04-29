@@ -106,26 +106,25 @@ public class XLUtils {
 		for (Cell cell : row) {
 			if (cell.getStringCellValue().equalsIgnoreCase(Colnm))
 				colindx = cell.getColumnIndex();
-
 		}
 		return colindx;
 	}
 
 	public static List<String> getCellDataColindx(String xlfile, String xlsheet, int rownum, int colnum)
 			throws IOException {
-	
+
 		fi = new FileInputStream(xlfile);
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
 		List<String> UIlabl = new ArrayList<String>();
-        
+
 		if (colnum != 0) {
 			for (Row row : ws) {
 				Cell c = row.getCell(colnum);
 				CellType ctype = c.getCellType();
 				if (c != null && ctype != CellType.BLANK && ctype == CellType.STRING) {
 					String cllvalue = c.getStringCellValue();
-					
+
 					UIlabl.add(cllvalue);
 				}
 
@@ -136,7 +135,7 @@ public class XLUtils {
 			}
 
 		}
-				  
+
 		return UIlabl;
 
 	}
@@ -648,9 +647,51 @@ public class XLUtils {
 	}
 
 	@DataProvider(name = "RegistrationTestData")
-	String[][] getData() throws IOException {
+	public static String[][] getDataregistration() throws IOException {
 
 		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/RegistrationTestData.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "Registration");
+		int colcount = XLUtils.getCellCount(path, "Registration", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String regdata[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				regdata[i - 1][j] = XLUtils.getCellData(path, "Registration", i, j);// 1 0
+			}
+
+		}
+		return regdata;
+	}
+
+	@DataProvider(name = "LoginLinksTestData")
+	public static String[][] getDataLogin() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/LoginData.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "Login");
+		int colcount = XLUtils.getCellCount(path, "Login", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String logindata[][] = new String[rownum][colcount];
+
+		// For Loop to get the array values in Logindata
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				logindata[i - 1][j] = XLUtils.getCellData(path, "Login", i, j);// 1 0
+			}
+
+		}
+		return logindata;
+	}
+
+	@DataProvider(name = "RegistrationContine")
+	public static String[][] getRegistrationContinue() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/RegistrationContinue.xlsx";
 
 		int rownum = XLUtils.getRowCount(path, "Registration");
 		int colcount = XLUtils.getCellCount(path, "Registration", 1);
