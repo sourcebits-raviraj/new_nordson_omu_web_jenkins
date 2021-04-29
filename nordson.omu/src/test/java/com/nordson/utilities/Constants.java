@@ -2,7 +2,6 @@ package com.nordson.utilities;
 
 public class Constants {
 
-
 	// Default Value settings
 
 	public static final String Tank = "177";
@@ -55,17 +54,20 @@ public class Constants {
 	public static final String OTTErrmsgFH = "Over Temperature Threshold should be between 9 and 108";
 	public static final String UTTErrmsgFH = "Under Temperature Threshold should be between 16 and 108";
 	public static final String TempstbckErrmsgFH = "Temperature Setback should be between 9 and 108";
+
 	public static final String Sucssmsg = "Temperature Settings updated successfully";
-	
-	public static final String Fillsucssmsg="Pump updated successfully";
-	
-	//Sucessful message for Flow
-	public static final String FlowSucssmsg ="Flow Updated Successfully";
-	
+	public static final String Fillsucssmsg = "Pump updated successfully";
+
 	// Successful Message after User MOdel Registration
 	public static final String SucssText = "We have sent you a link!";
+	public static final String copyRight = "© 2021 Nordson Corporation";
+	public static final String privacyPolicy = "Privacy Policy";
+	public static final String termsOfServices = "Terms of Service";
+	public static final String CookiesText = "Cookies";
+	public static final String ContactUs = "Cookies";
+	public static final String ContactUsHeader = "Contact Us";
 
-	
-	
+	// Sucessfull message for Flow
+	public static final String FlowSucssmsg = "Flow Updated Successfully";
 
 }

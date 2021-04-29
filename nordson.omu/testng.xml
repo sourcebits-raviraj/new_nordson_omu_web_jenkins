@@ -17,7 +17,9 @@
      <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>  
      <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>    -->
         
-    <class name="com.nordson.testCases.TC_Registration_DDT_002"/>
+    <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
+    
+    
       </classes>
      
        </test> 
