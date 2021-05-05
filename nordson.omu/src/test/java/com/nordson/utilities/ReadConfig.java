@@ -202,6 +202,16 @@ public class ReadConfig {
 		return cookiesurl;
 	}
 
+	public String getManageLincenseURL() {
+		String lincensesurl = pro.getProperty("LincenseUrl");
+		return lincensesurl;
+	}
+
+	public String getHelpCenterURL() {
+		String HCurl = pro.getProperty("HelpCenterUrl");
+		return HCurl;
+	}
+
 // Flow Properties to be fetched from config file
 	public String getUIfieldTobefetched_TargetAddOn() {
 		return pro.getProperty("UIfildTobefetched_TargetAddOn");

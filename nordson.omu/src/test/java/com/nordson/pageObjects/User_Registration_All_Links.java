@@ -96,25 +96,25 @@ public class User_Registration_All_Links {
 	WebElement AcceptAndSignup;
 
 	@FindBy(xpath = "//span[@class='copyright']")
-	WebElement CopyRight;
+	public WebElement CopyRight;
 
 	@FindBy(xpath = "//a[normalize-space()='Privacy Policy']")
-	WebElement PrivacyPolicy;
+	public WebElement PrivacyPolicy;
 
 	@FindBy(linkText = "Terms of Service")
-	WebElement TermsofService;
+	public WebElement TermsofService;
 
 	@FindBy(xpath = "//a[normalize-space()='Cookies']")
-	WebElement Cookies;
+	public WebElement Cookies;
 
 	@FindBy(xpath = "//div[@class='right footer-text cursor-pointer pad-responsive-signup']")
-	WebElement ContactUs;
+	public WebElement ContactUs;
 
 	@FindBy(xpath = "//a[normalize-space()='Terms of Service']")
-	WebElement TermsService;
+	public WebElement TermsService;
 
 	@FindBy(xpath = "//div[@class='contact-head']")
-	WebElement ContactUsHeader;
+	public WebElement ContactUsHeader;
 
 	// Page Action Methods for all the WebElements declared
 	public void clickSingUp() throws InterruptedException {

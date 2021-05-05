@@ -166,7 +166,7 @@ public class ActionMethods extends BaseClass {
 
 	public void drawBorder(WebElement element, WebDriver driver) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("arguments[0].style.border='3px solid green'", element);
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
 	public void drawBorder(List<WebElement> element, WebDriver driver) {

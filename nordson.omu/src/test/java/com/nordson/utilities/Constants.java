@@ -58,7 +58,7 @@ public class Constants {
 	public static final String Sucssmsg = "Temperature Settings updated successfully";
 	public static final String Fillsucssmsg = "Pump updated successfully";
 
-	// Successful Message after User MOdel Registration
+	// Successful Message after User Model Registration
 	public static final String SucssText = "We have sent you a link!";
 	public static final String copyRight = "© 2021 Nordson Corporation";
 	public static final String privacyPolicy = "Privacy Policy";
@@ -69,5 +69,25 @@ public class Constants {
 
 	// Sucessfull message for Flow
 	public static final String FlowSucssmsg = "Flow Updated Successfully";
+
+	public static final String CreateNewNor = "CREATE NEW";
+	public static final String PreviousFileText = "USE PREVIOUS FILE";
+	public static final String LoadFromUSB = "LOAD FROM USB/COMPUTER";
+
+	public static final String MediaCenterText = "MEDIA CENTER";
+	public static final String HelpCenterText = "MANAGE LICENSES";
+	public static final String LincenseText = "HELP CENTER";
+	public static final String ProfileText = "Profile";
+	public static final String FullName = "Full Name";
+	public static final String Email = "Email";
+	public static final String Country = "Country";
+	public static final String PhoneNumber = "Phone Number";
+	public static final String PlantName = "Plant Name";
+	public static final String CompanyName = "Company Name";
+	public static final String CompanyType = "Company Type";
+	public static final String Address = "Address";
+	public static final String NordosnAccountNumber = "Nordson Account Number";
+	public static final String ChangePassword = "Change Password ";
+	public static final String EditProfile = "Edit Profile";
 
 }

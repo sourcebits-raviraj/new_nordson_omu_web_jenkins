@@ -1,18 +1,25 @@
 package com.nordson.testCases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.nordson.pageObjects.Pressure_Min_Max_Validations;
 import com.nordson.pageObjects.User_Dashboard_Details_Landing_Page;
+import com.nordson.pageObjects.User_Registration_All_Links;
 import com.nordson.utilities.ActionMethods;
+import com.nordson.utilities.Constants;
 import com.nordson.utilities.ReadConfig;
 
 public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 {
 
 	ActionMethods Am = new ActionMethods();
 	Actions action;
+	Pressure_Min_Max_Validations pmv;
+	User_Registration_All_Links rpl;
 
 	private SoftAssert softAssert = new SoftAssert();
 
@@ -158,5 +165,392 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			log.info("Sub User Account not Text displayed");
 			Assert.assertTrue(false);
 		}
+	}
+
+	@Test(priority = 9, enabled = true)
+	public void Set_Up_Tool() throws Exception {
+
+		if (lp.SetUpTool().equalsIgnoreCase("SETUP TOOL")) {
+
+			Am.sleepTime(1000);
+			log.info("Clicked on Set Up Tool Link");
+			lp.clickOnSetUpTool();
+			Am.drawBorder(lp.SetUpToolLink, driver);
+
+			Assert.assertEquals(lp.CreateNewFile(), Constants.CreateNewNor);
+			Am.drawBorder(lp.CreateNewNorFileButton, driver);
+
+			Assert.assertEquals(lp.LoadFromUSB(), Constants.LoadFromUSB);
+			Am.drawBorder(lp.LoadFromUSB, driver);
+
+			Assert.assertEquals(lp.PreviousFileText(), Constants.PreviousFileText);
+			Am.drawBorder(lp.PreviousFile, driver);
+
+			log.info("Set Up tool Displayed");
+			softAssert.assertTrue(true);
+
+		} else {
+			log.info("Set Up tool not  Displayed");
+			Assert.assertTrue(false);
+		}
+	}
+
+	@Test(priority = 10, enabled = true)
+	public void MediaCenter() throws Exception {
+
+		if (lp.MediaCenterText().equalsIgnoreCase("Media Center")) {
+
+			Am.sleepTime(1000);
+			log.info("Clicked on Media Center Link");
+			lp.pageRefresh();
+			Am.sleepTime(1000);
+			lp.MediaCenterClick();
+			Assert.assertEquals(lp.MediaCenterText(), Constants.MediaCenterText);
+			Am.drawBorder(lp.MediaCenter, driver);
+			Am.sleepTime(3000);
+
+			// Am.drawBorder(lp.CreateNewNorFileButton, driver);
+			// Am.drawBorder(lp.LoadFromUSB, driver);
+			// Am.drawBorder(lp.PreviousFile, driver);
+			// Am.sleepTime(1000);
+			log.info("Set Up tool Displayed");
+			softAssert.assertTrue(true);
+
+		} else {
+			log.info("Set Up tool not  Displayed");
+			Assert.assertTrue(false);
+		}
+	}
+
+	@Test(priority = 11, enabled = true)
+	public void Manage_Lincenses() throws InterruptedException, IOException {
+
+		if (lp.manageLincenseDisplayed() == true) {
+
+			log.info("Manage License Link Displayed");
+			softAssert.assertTrue(true);
+			String LincenseText = lp.getLincenseText();
+			softAssert.assertEquals(Constants.LincenseText, LincenseText);
+			System.out.println("Cookies link is displayed");
+			Am.drawBorder(lp.ManageLincense, driver);
+			lp.clickManageLincense();
+			Am.switchToNexttab();
+			// tab1 = new ArrayList<String>(driver.getWindowHandles());
+			// driver.switchTo().window(tab1.get(1));
+
+		}
+
+		else {
+
+			log.info("Manage Lincense Link not Displayed");
+			System.out.println("Cookies Link is not displayed");
+			Assert.assertTrue(false);
+		}
+
+		if (readconfig.getManageLincenseURL().equals(driver.getCurrentUrl())) {
+
+			// Am = new ActionMethods();
+			softAssert.assertTrue(true);
+			Am.captureScreen(driver, "ManageLicensePass");
+			System.out.println(driver.getCurrentUrl());
+			System.out.println("Manage Lincense link is opened and navigated");
+			log.info("Manage Lincense link is opened and navigated");
+			Am.closeCurrentTab_SwitchtoPrevioustab();
+			// driver.close();
+			// driver.switchTo().window(tabs.get(0));
+
+		}
+
+		else {
+
+			log.info("Manage Lincense link is not displayed ");
+			// Am = new ActionMethods();
+			Am.captureScreen(driver, "ManageLicenseFail");
+			System.out.println("Manage Lincense Link not opened");
+			Assert.assertTrue(false);
+
+		}
+
+	}
+
+	@Test(priority = 12, enabled = true)
+	public void Help_Center() throws Exception {
+
+		if (lp.helpCenterDisplayed() == true) {
+
+			log.info("Help Center Link Displayed");
+			softAssert.assertTrue(true);
+			String HelpCenterText = lp.getHelpCenterText();
+			softAssert.assertEquals(Constants.HelpCenterText, HelpCenterText);
+			System.out.println("Help Center link is displayed");
+			Am.drawBorder(lp.HelpCenter, driver);
+			lp.clickHelpCenter();
+			Am.switchToNexttab();
+			// tab1 = new ArrayList<String>(driver.getWindowHandles());
+			// driver.switchTo().window(tab1.get(1));
+
+		}
+
+		else {
+
+			log.info("Help Center Link not Displayed");
+			System.out.println("Help Center Link is not displayed");
+			Assert.assertTrue(false);
+		}
+
+		if (readconfig.getHelpCenterURL().equals(driver.getCurrentUrl())) {
+
+			// Am = new ActionMethods();
+			softAssert.assertTrue(true);
+			Am.captureScreen(driver, "ManageLicensePass");
+			System.out.println(driver.getCurrentUrl());
+			System.out.println("Manage Lincense link is opened and navigated");
+			log.info("Manage Lincense link is opened and navigated");
+			Am.closeCurrentTab_SwitchtoPrevioustab();
+			// driver.close();
+			// driver.switchTo().window(tabs.get(0));
+
+		}
+
+		else {
+
+			log.info("Manage Lincense link is not displayed ");
+			// Am = new ActionMethods();
+			Am.captureScreen(driver, "ManageLicenseFail");
+			System.out.println("Manage Lincense Link not opened");
+			Assert.assertTrue(false);
+			Am.sleepTime(3000);
+
+		}
+
+	}
+
+	@Test(priority = 13, enabled = true)
+	public void Langauges() throws Exception {
+
+		lp.clickLanguage();
+		Am.sleepTime(1000);
+
+		if (lp.LanguageDropdownsCount() == 9) {
+
+			log.info("Language count is 9");
+			softAssert.assertTrue(true);
+
+			System.out.println("Language count is = 9");
+			Am.drawBorder(lp.ClickLanguage, driver);
+
+		}
+
+		else {
+
+			log.info("Language count is not equal 8");
+			System.out.println("Language count is not equal 8");
+			Assert.assertTrue(false);
+		}
+
+		String EnglishText = lp.LanaguageDropdowns.get(0).getText();
+
+		if (EnglishText.equalsIgnoreCase("English")) {
+
+			System.out.println("English Language is present");
+			log.info("English Language is present");
+			softAssert.assertTrue(true);
+			Am.captureScreen(driver, "EnglisDropdownPass");
+
+		} else {
+
+			System.out.println("English Language is not present");
+			log.info("English Language is not present ");
+			// Am = new ActionMethods();
+			Am.captureScreen(driver, "EnglisDropdownFail");
+			System.out.println("English Language is not present");
+			Assert.assertTrue(false);
+
+		}
+
+	}
+
+	@Test(priority = 14, enabled = true)
+	public void Profile() throws Exception {
+
+		lp.LanaguageDropdowns.get(0).click();
+
+		lp.clickProfile();
+		Am.sleepTime(4000);
+
+		if (lp.profileDisplayed() == true) {
+
+			log.info("Profile Displayed");
+			softAssert.assertTrue(true);
+
+			softAssert.assertEquals(Constants.ProfileText, lp.profileText());
+			Am.drawBorder(lp.ProfileDetails, driver);
+
+			softAssert.assertEquals(Constants.FullName, lp.FullNameProfile());
+			Am.drawBorder(lp.FullName, driver);
+
+			softAssert.assertEquals(Constants.Email, lp.EmailText());
+			Am.drawBorder(lp.Email, driver);
+
+			softAssert.assertEquals(Constants.Country, lp.CountryText());
+			Am.drawBorder(lp.Country, driver);
+
+			softAssert.assertEquals(Constants.PhoneNumber, lp.PhoneNumberText());
+			Am.drawBorder(lp.PhoneNumber, driver);
+
+			softAssert.assertEquals(Constants.PlantName, lp.PlantNameText());
+			Am.drawBorder(lp.PlantName, driver);
+
+			softAssert.assertEquals(Constants.CompanyName, lp.CompanyNameText());
+			Am.drawBorder(lp.CompanyName, driver);
+
+			softAssert.assertEquals(Constants.CompanyType, lp.CompanyTypeText());
+			Am.drawBorder(lp.CompanyType, driver);
+
+			softAssert.assertEquals(Constants.Address, lp.AddressText());
+			Am.drawBorder(lp.Address, driver);
+
+			softAssert.assertEquals(Constants.NordosnAccountNumber, lp.NordsonAccountNumberText());
+			Am.drawBorder(lp.NordsonAccountNumber, driver);
+
+			softAssert.assertEquals(Constants.ChangePassword, lp.ChangePasswordText());
+			Am.drawBorder(lp.ChangePassword, driver);
+
+			softAssert.assertEquals(Constants.EditProfile, lp.EditProfileText());
+			Am.drawBorder(lp.EditProfile, driver);
+
+			System.out.println("All the profile fields are displayed");
+
+		}
+
+		else {
+
+			log.info("Profile not Displayed");
+			Am.captureScreen(driver, "ProfileFile");
+			System.out.println("Profile not opened");
+			softAssert.assertTrue(false);
+		}
+
+	}
+
+	@Test(priority = 15, enabled = true)
+	public void CopyRightText() throws Exception {
+
+		rpl = new User_Registration_All_Links(driver);
+		if (rpl.getCopyRightDisplayed() == true) {
+
+			log.info("Copy Right Displayed Nordson Corporation");
+			softAssert.assertTrue(true);
+			String copytext = rpl.getCopyRightText();
+			Am.drawBorder(rpl.CopyRight, driver);
+
+			softAssert.assertEquals(Constants.copyRight, copytext);
+			Am = new ActionMethods();
+			Am.captureScreen(driver, "CopyRightPassDashboard");
+
+		}
+
+		else {
+			log.info("Copy Right not Displayed");
+			softAssert.assertTrue(true);
+			Am = new ActionMethods();
+			Am.captureScreen(driver, "CopyRightFailDashboard");
+			System.out.println("Copy Right Not Present");
+			softAssert.assertTrue(false);
+
+		}
+
+	}
+
+	@Test(priority = 16, enabled = true)
+	public void Registration_Nordson_Privacy_Policy() throws Exception {
+
+		if (rpl.PrivacyPolicyDisplayed() == true) {
+
+			log.info("Privacy Link Displayed");
+			softAssert.assertTrue(true);
+			String PrivacyPolicyText = rpl.getPrivacyPolicyText();
+			Am.drawBorder(rpl.PrivacyPolicy, driver);
+			softAssert.assertEquals(Constants.privacyPolicy, PrivacyPolicyText);
+			System.out.println("Privacy Policy link is displayed");
+
+		}
+
+		else {
+			softAssert.assertTrue(false);
+			log.info("Privacy Link not Displayed");
+			System.out.println("Privacy Policy link is not displayed");
+
+		}
+	}
+
+	@Test(priority = 17, enabled = true)
+	public void Registration_Nordosn_Terms_of_Services() throws Exception {
+
+		if (rpl.TermsOfServiceDisplayed() == true) {
+
+			log.info("Terms Of Service text is Displayed");
+			softAssert.assertTrue(true);
+			String TermsServicesText = rpl.getTermsOFServiceText();
+			Am.drawBorder(rpl.TermsService, driver);
+			softAssert.assertEquals(Constants.termsOfServices, TermsServicesText);
+			System.out.println("Terms of Service text is displayed");
+
+		}
+
+		else {
+
+			softAssert.assertTrue(false);
+			log.info("Terms of Service text is displayed");
+			System.out.println("Terms of Service text is displayed");
+		}
+
+	}
+
+	@Test(priority = 18, enabled = true)
+	public void Registration_Nordson_Cookies() throws Exception {
+
+		if (rpl.cookiesDisplayed() == true) {
+
+			log.info("Cookies Link Displayed");
+			softAssert.assertTrue(true);
+			String CookiesText = rpl.getCookiesText();
+			Am.drawBorder(rpl.Cookies, driver);
+			softAssert.assertEquals(Constants.CookiesText, CookiesText);
+			System.out.println("Cookies link is displayed");
+
+		}
+
+		else {
+
+			log.info("Cookies Link not Displayed");
+			System.out.println("Cookies Link is not displayed");
+			softAssert.assertTrue(false);
+		}
+
+	}
+
+	@Test(priority = 19, enabled = true)
+	public void Registration_Nordson_Contact_Us() throws Exception {
+
+		if (rpl.contactUsDisplayed() == true) {
+
+			log.info("Contact Us Link Displayed");
+			softAssert.assertTrue(true);
+			String ContactUsText = rpl.getContactUsText();
+			Am.drawBorder(rpl.ContactUs, driver);
+			softAssert.assertEquals(Constants.ContactUs, ContactUsText);
+			System.out.println("Contact Us link is displayed");
+
+		}
+
+		else {
+
+			log.info("Contact us link not Displayed");
+			Am.captureScreen(driver, "CookiesFail");
+			System.out.println("Cookies Link not opened");
+			softAssert.assertTrue(false);
+		}
+
 	}
 }
