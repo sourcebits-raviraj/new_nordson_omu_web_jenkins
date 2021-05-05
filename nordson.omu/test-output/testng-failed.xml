@@ -9,20 +9,18 @@
   <test thread-count="1" name="Nordson OMU Web App Regression Tests on Chrome(failed)" parallel="methods">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nordson.testCases.TC_LoginTest_DDT_001">
+      <class name="com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links">
         <methods>
+          <include name="Registration_Nordson_Contact_Us"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="loginDDT"/>
+          <include name="Registration_Nordson_Cookies"/>
+          <include name="Registration_Nordson_Privacy_Policy"/>
+          <include name="Registration_Continue_Link" invocation-numbers="0"/>
+          <include name="Registration_Nordosn_Terms_of_Services"/>
+          <include name="Registration_Nordson_CopyRightText"/>
         </methods>
-      </class> <!-- com.nordson.testCases.TC_LoginTest_DDT_001 -->
-      <class name="com.nordson.testCases.TC_VerifyLinkTests_003">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="LinksLoginDDT"/>
-        </methods>
-      </class> <!-- com.nordson.testCases.TC_VerifyLinkTests_003 -->
+      </class> <!-- com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links -->
     </classes>
   </test> <!-- Nordson OMU Web App Regression Tests on Chrome(failed) -->
 </suite> <!-- Failed suite [Nordson OMU Web App Regression Tests on Chrome] -->

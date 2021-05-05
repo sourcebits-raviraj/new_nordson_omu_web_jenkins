@@ -3,10 +3,13 @@ package com.nordson.utilities;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -46,7 +49,7 @@ public class ActionMethods extends BaseClass {
 	}
 
 	public void waitForAnElementPresence(By string) {
-		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.presenceOfElementLocated((string)));
 	}
 
@@ -136,8 +139,6 @@ public class ActionMethods extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
-	
-	
 
 	public void switchToNexttab() {
 		tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -149,6 +150,28 @@ public class ActionMethods extends BaseClass {
 		driver.close();
 		Thread.sleep(1000);
 		driver.switchTo().window(tabs.get(0));
+	}
+
+	public void sleepTime(int milliseconds) throws Exception {
+
+		try {
+
+			TimeUnit.MILLISECONDS.sleep(milliseconds);
+		}
+
+		catch (Exception e) {
+			throw new Exception("Pause between steps was interrupted", e);
+		}
+	}
+
+	public void drawBorder(WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
+	}
+
+	public void drawBorder(List<WebElement> element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
 }
