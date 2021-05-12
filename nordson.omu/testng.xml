@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Nordson OMU Web App Regression Tests on Chrome" thread-count="1" parallel="methods">
+<suite name="Nordson OMU Web App Regression Tests on Chrome">
 
 <listeners>
 <listener class-name="com.nordson.utilities.Reporting" />
@@ -15,9 +15,19 @@
      <!--<class name="com.nordson.testCases.TC_LoginTest_001"/>
      
      <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>  
-     <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>    -->
+     <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>    
         
-    <class name="com.nordson.testCases.TC_Registration_DDT_002"/>
+    <class name="com.nordson.testCases.TC_Registration_DDT_002"/> -->
+    
+     
+       <class name="com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations"/>  
+       <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations"/> 
+        <class name="com.nordson.NORXML.TC_NOR_XML_Comparsion_File"/>  
+      <!--  <class name="com.nordson.MDS.TC_SystemSettings_Fill_MDSValidations"/> 
+       <class name="com.nordson.MDS.TC_RuntimeSettings_Flow_MDSValidations"/>
+       <class name="com.nordson.MDS.TC_SystemSettings_Flow_MDSValues"/> 
+       <class name="com.nordson.MDS.TC_RuntimeSettings_Pressure_MDS_Validations"/>  -->
+    
       </classes>
      
        </test> 
