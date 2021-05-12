@@ -12,6 +12,8 @@ import org.testng.annotations.Parameters;
 
 import com.nordson.utilities.ReadConfig;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseClass {
 
 	ReadConfig readconfig = new ReadConfig();
@@ -34,11 +36,16 @@ public class BaseClass {
 		// Launch the Chrome Browser
 		if (br.equalsIgnoreCase("chrome")) {
 
+			// ChromeOptions chromeOptions = new ChromeOptions();
+			// ChromeOptions chromeOptions = new ChromeOptions();
+			//
 			// Defining System Property for the ChromeDriver
-			System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
+			// System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
 
 			// Instantiate a FireFox class.
-			driver = new ChromeDriver();
+			// driver = new ChromeDriver();
 			log.info("New Chrome driver Instantiated");
 		}
 
@@ -46,8 +53,8 @@ public class BaseClass {
 		else if (br.equalsIgnoreCase("firefox")) {
 
 			// Defining System Property for the FireFoxDriver
-			System.setProperty("webdriver.gecko.driver", readconfig.getFirepath());
-
+			// System.setProperty("webdriver.gecko.driver", readconfig.getFirepath());
+			WebDriverManager.firefoxdriver().setup();
 			// Instantiate a FireFox class.
 			driver = new FirefoxDriver();
 			log.info("New Firefox driver Instantiated");
@@ -57,11 +64,12 @@ public class BaseClass {
 		else if (br.equalsIgnoreCase("IE")) {
 
 			// Defining System Property for the IEDriver
-			System.setProperty("webdriver.ie.driver", readconfig.getIEpath());
+			// System.setProperty("webdriver.ie.driver", readconfig.getIEpath());
 
 			// DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 			// caps.setCapability("ignoreZoomSetting", true);
 			// driver = new InternetExplorerDriver(caps);
+			WebDriverManager.iedriver().setup();
 
 			// Instantiate a IEDriver class.
 			driver = new InternetExplorerDriver();

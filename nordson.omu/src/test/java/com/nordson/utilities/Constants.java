@@ -89,5 +89,13 @@ public class Constants {
 	public static final String NordosnAccountNumber = "Nordson Account Number";
 	public static final String ChangePassword = "Change Password ";
 	public static final String EditProfile = "Edit Profile";
+	public static final String AddSubUserHeader = "ADD SUB-USER";
+	public static final String SubUserFullName = " Full Name ";
+	public static final String SubUserEmail = " Email ";
+	public static final String AddButton = "ADD";
+	public static final String CancelButton = "CANCEL";
+	public static final String ReadWriteText = "Read/Write";
+	public static final String ReadOnly = "Read Only";
+	public static final String SubUsersmsg = "Sub User Added Successfully";
 
 }
