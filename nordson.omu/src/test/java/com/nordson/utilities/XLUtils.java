@@ -871,4 +871,46 @@ public class XLUtils {
 
 		fo.close();
 	}
+
+	@DataProvider(name = "AddSubUser")
+	public static String[][] getAddSubUSer() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/AddSubUser.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "AddSubUser");
+		int colcount = XLUtils.getCellCount(path, "AddSubUser", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String subuser[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				subuser[i - 1][j] = XLUtils.getCellData(path, "AddSubUser", i, j);// 1 0
+			}
+
+		}
+		return subuser;
+	}
+
+	@DataProvider(name = "SubUserData")
+	public static String[][] getAddSubUSerLoginData() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/LoginData.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "UserData");
+		int colcount = XLUtils.getCellCount(path, "UserData", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String subuser[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				subuser[i - 1][j] = XLUtils.getCellData(path, "UserData", i, j);// 1 0
+			}
+
+		}
+		return subuser;
+	}
 }

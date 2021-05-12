@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results skipped="0" failed="0" ignored="0" total="24" passed="24">
   <reporter-output>
   </reporter-output>
@@ -8,6 +9,17 @@
     <test name="Nordson OMU Web App Regression Tests on Chrome" duration-ms="1345287" started-at="2021-04-30T10:50:50 IST" finished-at="2021-04-30T11:13:15 IST">
       <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations">
         <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations@245b4bdc]" name="setUp" is-config="true" duration-ms="20822" started-at="2021-04-30T11:05:10 IST" finished-at="2021-04-30T11:05:31 IST">
+=======
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Nordson OMU Web App Regression Tests on Chrome" duration-ms="22891" started-at="2021-04-29T16:08:45 IST" finished-at="2021-04-29T16:09:07 IST">
+    <groups>
+    </groups>
+    <test name="Nordson OMU Web App Regression Tests on Chrome" duration-ms="22891" started-at="2021-04-29T16:08:45 IST" finished-at="2021-04-29T16:09:07 IST">
+      <class name="com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="setUp" is-config="true" duration-ms="7270" started-at="2021-04-29T16:08:45 IST" finished-at="2021-04-29T16:08:52 IST">
+>>>>>>> b18861e9db588213abab951c94d0f11af2475f2d
           <params>
             <param index="0">
               <value>
@@ -18,6 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
+<<<<<<< HEAD
         <test-method status="PASS" signature="loginDDT(java.lang.String, java.lang.String)[pri:0, instance:com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations@245b4bdc]" name="loginDDT" duration-ms="7302" started-at="2021-04-30T11:05:31 IST" data-provider="LoginTestData" finished-at="2021-04-30T11:05:38 IST">
           <params>
             <param index="0">
@@ -77,15 +90,39 @@
       </class> <!-- com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations -->
       <class name="com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations">
         <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations@dd8ba08]" name="setUp" is-config="true" duration-ms="13874" started-at="2021-04-30T10:50:50 IST" finished-at="2021-04-30T10:51:04 IST">
+=======
+        <test-method status="PASS" signature="Registration_Continue_Link(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="Registration_Continue_Link" duration-ms="7296" started-at="2021-04-29T16:08:53 IST" data-provider="RegistrationContine" finished-at="2021-04-29T16:09:00 IST">
+>>>>>>> b18861e9db588213abab951c94d0f11af2475f2d
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[RegistrationContinue]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Company Name]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test Address]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Test Plant]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[9888272727]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- setUp -->
         <test-method status="PASS" signature="loginDDT(java.lang.String, java.lang.String)[pri:0, instance:com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations@dd8ba08]" name="loginDDT" duration-ms="7584" started-at="2021-04-30T10:51:05 IST" data-provider="LoginTestData" finished-at="2021-04-30T10:51:13 IST">
           <params>
@@ -225,6 +262,34 @@
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.nordson.NORXML.TC_NOR_XML_Comparsion_File -->
+=======
+        </test-method> <!-- Registration_Continue_Link -->
+        <test-method status="PASS" signature="Registration_Nordson_CopyRightText()[pri:2, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="Registration_Nordson_CopyRightText" duration-ms="234" started-at="2021-04-29T16:09:01 IST" finished-at="2021-04-29T16:09:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration_Nordson_CopyRightText -->
+        <test-method status="PASS" signature="Registration_Nordson_Privacy_Policy()[pri:3, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="Registration_Nordson_Privacy_Policy" duration-ms="3455" started-at="2021-04-29T16:09:01 IST" finished-at="2021-04-29T16:09:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration_Nordson_Privacy_Policy -->
+        <test-method status="PASS" signature="Registration_Nordosn_Terms_of_Services()[pri:4, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="Registration_Nordosn_Terms_of_Services" duration-ms="56" started-at="2021-04-29T16:09:04 IST" finished-at="2021-04-29T16:09:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration_Nordosn_Terms_of_Services -->
+        <test-method status="PASS" signature="Registration_Nordson_Cookies()[pri:5, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="Registration_Nordson_Cookies" duration-ms="2347" started-at="2021-04-29T16:09:04 IST" finished-at="2021-04-29T16:09:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration_Nordson_Cookies -->
+        <test-method status="PASS" signature="Registration_Nordson_Contact_Us()[pri:6, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="Registration_Nordson_Contact_Us" duration-ms="186" started-at="2021-04-29T16:09:07 IST" finished-at="2021-04-29T16:09:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration_Nordson_Contact_Us -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links@329a1243]" name="tearDown" is-config="true" duration-ms="658" started-at="2021-04-29T16:09:07 IST" finished-at="2021-04-29T16:09:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links -->
+>>>>>>> b18861e9db588213abab951c94d0f11af2475f2d
     </test> <!-- Nordson OMU Web App Regression Tests on Chrome -->
   </suite> <!-- Nordson OMU Web App Regression Tests on Chrome -->
 </testng-results>
