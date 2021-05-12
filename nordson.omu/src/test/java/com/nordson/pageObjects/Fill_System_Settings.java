@@ -79,6 +79,7 @@ public class Fill_System_Settings {
 		public void clickCreateNewBtn() {
 			Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'CREATE NEW')]"));
 			Am.waitForAnElementToBeClickable(CreateNewButton);
+			((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", CreateNewButton);
 			CreateNewButton.click();
 		}
 		public void clickSubmitBtn() throws InterruptedException {

@@ -37,6 +37,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		else
 			log.info("Global set point is not set to Default celsius unit");
 		// Verification of min value
+        //  sleep for demo 
+		Thread.sleep(3000);
 		trs.setGlobalSetPoint(mds.getMin1());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -64,6 +66,9 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 
 		// Verification of max value
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_GP());
+		 //  sleep for demo 
+		Thread.sleep(3000);
+		
 		trs.setGlobalSetPoint(mds.getMax1());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -88,6 +93,9 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All the Hoses are set to max value for maxium global set point");
 		trs.getApplicatorsSettempStatus(mds.getMax1());
 		log.info("All the Applicators are set to max value for maximun global set point");
+		
+		// Sleep for demo purpose
+		Thread.sleep(3000);
 
 	}
 
@@ -100,12 +108,21 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		Thread.sleep(1000);
 		trs.createNewNORfile();
 		// Default Value Validations
+		
+		// Sleep for demo purpose
+	     Thread.sleep(3000);
+		
 		softAssert.assertEquals(trs.getTankSetPoint(), mds.getDefault1(),
 				"Tank set point is not set to Default value for celsius unit");
 		log.info("Tank set point is set to Default value for celsius unit");
 		// Min value validations for Tank point in celsius
+		
 		trs.clearTanktemperature();
 		log.info("Tank temperature cleared to enter min mds val for Celsius unit");
+		
+		// Sleep for demo purpose
+				Thread.sleep(3000);
+				
 		trs.setTankSetPoint(mds.getMin1());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -117,6 +134,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		// Max value validations for Tank point in celsius
 		trs.clearTanktemperature();
 		log.info("Tank temperature cleared to enter Max Tankset point value for Celsius unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setTankSetPoint(mds.getMax1());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -137,12 +156,16 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		Thread.sleep(1000);
 		trs.createNewNORfile();
 		// Default Value Validations
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		softAssert.assertEquals(trs.getManifold(), mds.getDefault1(),
 				"Manifold set point is not set to Default value for celsius unit");
 		log.info("Manifold set point is set to Default value for celsius unit");
 		// Min value validations for Manifold point in celsius
 		trs.clearManifoldtemperature();
 		log.info("Manifold temperature cleared to enter min mds val for Celsius unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setManifoldSetPoint(mds.getMin1());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -154,6 +177,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		// Max value validations for Manifold point in celsius
 		trs.clearManifoldtemperature();
 		log.info("Manifold temperature cleared to enter Max Manifoldset point value for Celsius unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setManifoldSetPoint(mds.getMax1());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -175,6 +200,9 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		Thread.sleep(1000);
 		trs.createNewNORfile();
 		// Default Values verification for Hoses and Applicators
+		
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.getHosesSettempStatus(mds.getDefault1());
 		log.info("All Hoses are set to MDS default values");
 		trs.getApplicatorsSettempStatus(mds.getDefault1());
@@ -213,6 +241,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		Thread.sleep(1000);
 		trs.ZoneTemperatureBtn();
 		log.info("Clicked on Runtime settings button");
+		
 		// Verfication default temp unt
 		if (trs.getTemperatureunt().contains(mds.getScndryunt()))
 			log.info("Global set point is set to Default  Fahrenheit unit");
@@ -220,6 +249,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 			log.info("Global set point is not set to Default Fahrenheit unit");
 
 		// Verification of min value
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setGlobalSetPoint(mds.getMin2());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -245,8 +276,12 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All the Hoses are set to min value for minium global set point for Fahrenheit unit");
 		trs.getApplicatorsSettempStatus(mds.getMin2());
 		log.info("All the Applicators are set to min value for minimun global set point for Fahrenheit unit");
+		
+		
 		// Verification of max value
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_GP());
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setGlobalSetPoint(mds.getMax2());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -298,12 +333,17 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("Clicked on Runtime settings button");
 		
 		// Default Value Validations
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		softAssert.assertEquals(trs.getTankSetPoint(), mds.getDefault2(),
 				"Tank set point is not set to Default value for Fahrenheit unit");
 		log.info("Tank set point is set to Default value for Fahrenheit unit");
+		
 		// Min value validations for Tank point in Fahrenheit
 		trs.clearTanktemperature();
 		log.info("Tank temperature cleared to enter min mds val for Fahrenheit unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setTankSetPoint(mds.getMin2());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -315,6 +355,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		// Max value validations for Tank point in Fahrenheit
 		trs.clearTanktemperature();
 		log.info("Tank temperature cleared to enter Max Tankset point value for Fahrenheit unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setTankSetPoint(mds.getMax2());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -349,12 +391,16 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("Clicked on Runtime settings button");
 		
 		// Default Value Validations
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		softAssert.assertEquals(trs.getManifold(), mds.getDefault2(),
 				"Manifold set point is not set to Default value for Fahrenheit unit");
 		log.info("Manifold set point is set to Default value for Fahrenheit unit");
 		// Min value validations for Manifold point in Fahrenheit
 		trs.clearManifoldtemperature();
 		log.info("Manifold temperature cleared to enter min mds val for Fahrenheit unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setManifoldSetPoint(mds.getMin2());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -366,6 +412,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		// Max value validations for Manifold point in Fahrenheit
 		trs.clearManifoldtemperature();
 		log.info("Manifold temperature cleared to enter Max Manifoldset point value for Fahrenheit unit");
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.setManifoldSetPoint(mds.getMax2());
 		trs.clickSavebtn();
 		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
@@ -402,6 +450,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("Clicked on Runtime settings button");
 		
 		// Default Values verification for Hoses and Applicators
+		// Sleep for demo purpose
+				Thread.sleep(3000);
 		trs.getHosesSettempStatus(mds.getDefault1());
 		log.info("All Hoses are set to MDS default values for Fahrenheit unit");
 		trs.getApplicatorsSettempStatus(mds.getDefault1());

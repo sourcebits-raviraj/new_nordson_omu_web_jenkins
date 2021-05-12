@@ -150,5 +150,103 @@ public class ActionMethods extends BaseClass {
 		Thread.sleep(1000);
 		driver.switchTo().window(tabs.get(0));
 	}
+	
+	public void copyFile(String filnm) throws IOException
+	{
+		// creating two channels
+        // one input and other output  
+		String srcfilepth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+filnm;
+		String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
+        File src = new File(srcfilepth);
+        File dest = new File(destnationpth); 
+              
+        // using copy(InputStream,Path Target); method 
+        try {
+            FileUtils.copyFileToDirectory(src,dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("new filename"+filnm.replace(" ", ""));
+	}
+	
+	public String getlatestDownloadedNorFilenm()
+	{
+		String flnm="";
+		   String norfilpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
+			File dir = new File(norfilpth);
+		   File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
+		
+		    // Listing all the included files
+		    File lastModifiedFile = fileList[0];
+		    if(fileList.length==1)
+		    {
+		    	flnm=lastModifiedFile.getName();
+		    }
+		    	
+		    else {
+		    	    for (int i = 0; i < fileList.length; i++)	{
+		    		System.out.println(fileList[i]);
+		    	       if(lastModifiedFile.lastModified()<fileList[i].lastModified())
+		    	       {
+		    	           lastModifiedFile=fileList[i];
+		  	               System.out.println(lastModifiedFile.getName());
+		  	               flnm=lastModifiedFile.getName();
+		    	        }
+		    	      else
+		    		System.out.println("Nor file not found");
+		    	  }                                                }
+		return flnm;
+	}
+	
+	
+	  public String removeSpaces(String flnm) { 
+		  String path =System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\"+flnm; 
+	  File newfile= new File(path); 
+	  
+	 
+	  String newflnm=flnm.replace(" ", ""); 
+	  String path2 = System.getProperty("user.dir")+ "\\src\\test\\java\\com\\nordson\\BDGTest\\"+newflnm; 
+	  File newfile2 = new File(path2); 
+	  boolean newfileStatus= newfile.renameTo(newfile2);
+	  if(newfileStatus==true)
+	  System.out.println("file successfuly renamed");
+	  else
+		  System.out.println("file not renamed");
+	  return newflnm;
+	  }
+
+	public void ConversionfromNorToXML(String flnm) throws IOException
+	{
+		  ProcessBuilder builder =new ProcessBuilder("cmd.exe", "/c","cd \""+System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U "+flnm);
+		  builder.redirectErrorStream(true); 
+		  builder.start();
+		  System.out.println("Converted NOR "+flnm+"to XML file Done");  
+	}
+	
+	public String conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+		
+		double prValue=Double.parseDouble(value_To_Be_Converted);
+		double newValue =prValue * 1000;
+		System.out.println(newValue);
+		return String.valueOf(newValue);
+	}
+	
+  public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+		
+		double prValue=Double.parseDouble(value_To_Be_Converted);
+		double newValue =((1/0.0689475728)*prValue) * 1000;
+		System.out.println(newValue);
+		return String.valueOf(Math.round(newValue));
+	}
+  
+  public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+		
+		double prValue=Double.parseDouble(value_To_Be_Converted);
+		double newValue =((1/6.89475728)*prValue) * 1000;
+		System.out.println(newValue);
+		return String.valueOf(Math.round(newValue));
+	}	
+	
 
 }

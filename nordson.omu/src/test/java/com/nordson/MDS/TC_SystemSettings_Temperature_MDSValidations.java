@@ -37,11 +37,14 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		log.info("Clicked on Temperature in System settings button");
 
 		// check for default values
+		//sleep for demo
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getOTTemperature(), mds.getDefault1(),
 				"Over  Temperature threshold temp is not set to Default value : " + mds.getDefault1());
 		log.info("Over Temperature threshold temp is set to Default value  :" + mds.getDefault1());
 		// check for Min value for OTT Celsius
 		tss.clearOTTemperature();
+		Thread.sleep(3000);
 		tss.setOTTemperature(mds.getMin1());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg, "Minimum MDS value not saved for Celsius unit");
@@ -52,6 +55,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Max values for OTT Celsius
 		tss.clearOTTemperature();
+		Thread.sleep(3000);
 		tss.setOTTemperature(mds.getMax1());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg, "Maxmium MDS value not saved for Celsius unit");
@@ -80,6 +84,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Min value for UTT Celsius
 		tss.clearUTTemperature();
+		Thread.sleep(3000);
 		tss.setUTTemperature(mds.getMin1());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg, "Minimum MDS value not saved for Celsius unit");
@@ -90,6 +95,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Max values for UTT Celsius
 		tss.clearUTTemperature();
+		Thread.sleep(3000);
 		tss.setUTTemperature(mds.getMax1());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg, "Maxmium MDS value not saved for Celsius unit");
@@ -113,6 +119,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Min value for Temperature set back Celsius
 		tss.clearTemperaturesetbck();
+		Thread.sleep(3000);
 		tss.setSetbckTemperature(mds.getMin1());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg, "Minimum MDS value not saved for Celsius unit");
@@ -123,6 +130,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Max values for Temperature set back Celsius
 		tss.clearTemperaturesetbck();
+		Thread.sleep(3000);
 		tss.setSetbckTemperature(mds.getMax1());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg, "Maxmium MDS value not saved for Celsius unit");
@@ -159,11 +167,13 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 			log.info("Preferences not updated sucessfully");
 		tss.clickTemperatureBtn();
 		// check for default values
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getOTTemperature(), mds.getDefault2(),
 				"Over Temperature threshold temp is not set to Default value : " + mds.getDefault2());
 		log.info("Over Temperature threshold temp is set to Default value  :" + mds.getDefault2());
 		// check for Minimum MDS value
 		tss.clearOTTemperature();
+		Thread.sleep(3000);
 		tss.setOTTemperature(mds.getMin2());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg,
@@ -176,6 +186,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Maximum MDS value
 		tss.clearOTTemperature();
+		Thread.sleep(3000);
 		tss.setOTTemperature(mds.getMax2());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg,
@@ -202,12 +213,14 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_UTT());
 		// check for default values
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getUTTemperature(), mds.getDefault2(),
 				"Under Temperature threshold temp is not set to Default value : " + mds.getDefault2());
 		log.info("Under Temperature threshold  temp is set to Default value  :" + mds.getDefault2());
 
 		// check for Minimum MDS value
 		tss.clearUTTemperature();
+		Thread.sleep(3000);
 		tss.setUTTemperature(mds.getMin2());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg,
@@ -220,6 +233,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Maximum MDS value
 		tss.clearUTTemperature();
+		Thread.sleep(3000);
 		tss.setUTTemperature(mds.getMax2());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg,
@@ -246,12 +260,14 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_Tmpstbck());
 		// check for default values
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getTemperatureSetback(), mds.getDefault2(),
 				"Over Temperature threshold global temp is not set to Default value : " + mds.getDefault2());
 		log.info("Over Temperature threshold global temp is set to Default value  :" + mds.getDefault2());
 
 		// check for Minimum MDS value
 		tss.clearTemperaturesetbck();
+		Thread.sleep(3000);
 		tss.setSetbckTemperature(mds.getMin2());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg,
@@ -264,6 +280,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 
 		// check for Maximum MDS value
 		tss.clearTemperaturesetbck();
+		Thread.sleep(3000);
 		tss.setSetbckTemperature(mds.getMax2());
 		tss.clickSavebtn();
 		softAssert.assertEquals(tss.getToastmsg(), Constants.Sucssmsg,
@@ -290,11 +307,13 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_SMTTmeDly());
 
 		// check for Smart Melt Time delay default value
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getSmartMeltTimeDly(), mds.getDefault1(),
 				"Smart Melt Time delay is not set to Default time : " + mds.getDefault1());
 		log.info("Smart Melt Time delay is set to Default time  :" + mds.getDefault1());
 
 		// check for Smart Melt Time delay Min value
+		Thread.sleep(3000);
 		tss.clearSmartMeltTimeDly();
 		tss.setSmartMeltTimeDly(mds.getMin1());
 		tss.clickSavebtn();
@@ -307,6 +326,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		log.info("Save button is disabled for minimum Smart melt time delay MDS val");
 
 		// check for Smart Melt Time delay Max value
+		Thread.sleep(3000);
 		tss.clearSmartMeltTimeDly();
 		tss.setSmartMeltTimeDly(mds.getMax1());
 		tss.clickSavebtn();
@@ -329,11 +349,13 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_SystemSetbckDly());
 
 		// check for System Set Back Delay delay default value
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getSystemSetbackTmeDly(), mds.getDefault1(),
 				"System Set Back delay is not set to Default time : " + mds.getDefault1());
 		log.info("System Set Back delay is set to Default time  :" + mds.getDefault1());
 
 		// check for System Set Back Delay delay Min value
+		Thread.sleep(3000);
 		tss.clearSystemsetbckTmeDly();
 		tss.setSystemsetbckTmeDly(mds.getMin1());
 		tss.clickSavebtn();
@@ -346,6 +368,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		log.info("Save button is disabled for minimum System Set Back delay MDS val");
 
 		// check for System Set Back Delay delay Max value
+		Thread.sleep(3000);
 		tss.clearSystemsetbckTmeDly();
 		tss.setSystemsetbckTmeDly(mds.getMax1());
 		tss.clickSavebtn();
@@ -367,11 +390,13 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_AutoHeaterOffTme());
 
 		// check for Auto HeaterOff Time delay default value
+		Thread.sleep(3000);
 		softAssert.assertEquals(tss.getAutoHeatersOffTme(), mds.getDefault1(),
 				"Auto HeaterOff Time delay is not set to Default time : " + mds.getDefault1());
 		log.info("Auto HeaterOff Time delay is set to Default time  :" + mds.getDefault1());
 
 		// check for Auto HeaterOff Time delay Min value
+		Thread.sleep(3000);
 		tss.clearAutoHeatersOffTme();
 		tss.setAutoHeatersOffTme(mds.getMin1());
 		tss.clickSavebtn();
@@ -384,6 +409,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		log.info("Save button is disabled for minimum Auto HeaterOff Time delay MDS val");
 
 		// check for Auto HeaterOff Time delay Max value
+		Thread.sleep(3000);
 		tss.clearAutoHeatersOffTme();
 		tss.setAutoHeatersOffTme(mds.getMax1());
 		tss.clickSavebtn();

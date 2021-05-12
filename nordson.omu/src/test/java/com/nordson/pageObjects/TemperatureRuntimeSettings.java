@@ -428,7 +428,7 @@ public void clickDashboard() {
 
 	public String getToastmsg() {
 
-		Am.waitForAnElementPresence(Toastmsg);
+		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		String toastmsg = "";
 		if (Toastmsg.isDisplayed()) {
 			toastmsg = Toastmsg.getText();
@@ -569,7 +569,8 @@ public void clickDashboard() {
 			Applcator = "//*[text()='Applicator " + i
 					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
 			if(ldriver.findElements(By.xpath(Applcator)).size()==1)
-				ldriver.findElement(By.xpath(Applcator)).click();
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", ldriver.findElement(By.xpath(Applcator)));
+				//ldriver.findElement(By.xpath(Applcator)).click();
 			else
 				System.out.println("applicator"+i+"already enabled");
 				

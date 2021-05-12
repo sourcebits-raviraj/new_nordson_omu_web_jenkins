@@ -2,6 +2,7 @@ package com.nordson.pageObjects;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -166,7 +167,9 @@ public class Pressure_Min_Max_Validations {
 	@FindBy(css = "div[class='logout-sub-head pad-tp']")
 	WebElement DownwardSlopingRunupContent;
 	
-
+	@FindBy(xpath = "//*[@class='download']")
+	WebElement Download;
+	
 	// Page Action Methods for all the WebElements declared
 	public void clickDashboard() throws InterruptedException {
 		customwait.waitForAnElementPresence(By.xpath("//span[contains(text(), 'DASHBOARD')]"));
@@ -177,12 +180,14 @@ public class Pressure_Min_Max_Validations {
 
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),' SETUP TOOL ')]"));
 		customwait.waitForAnElementClickable(By.xpath("//div[contains(text(),' SETUP TOOL ')]"));
-		SetUpToolLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", SetUpToolLink);
+		//SetUpToolLink.click();
 	}
 	public void clickCreateNewFile() {
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),'CREATE NEW')]"));
 		customwait.waitForAnElementClickable(By.xpath("//div[contains(text(),'CREATE NEW')]"));
-		CreateNewNorFileButton.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", CreateNewNorFileButton);
+		//CreateNewNorFileButton.click();
 	}
 
 	public void addDescription() {
@@ -206,7 +211,8 @@ public class Pressure_Min_Max_Validations {
 	public void ClickPreferencesLink() throws InterruptedException {
 		Thread.sleep(3000);
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),'Preferences')]"));
-		PreferencesLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",PreferencesLink);
+		//PreferencesLink.click();
 	}
 	public void SelectKPAUnit() throws InterruptedException {
 		Thread.sleep(2000);
@@ -372,15 +378,12 @@ public class Pressure_Min_Max_Validations {
 		return tm;
 	}
 	public void CreatNewNORfile() throws InterruptedException {
-		Thread.sleep(1000);
+		
 		clickSetUpToolLink();
-		Thread.sleep(1000);
 		clickCreateNewFile();
-		Thread.sleep(1000);
 		addDescription();
-		Thread.sleep(1000);
 		clickSubmit();
-		Thread.sleep(1000);
+		
 	}
 	public String getkPaMinSetPoint() throws InterruptedException {
 		// customwait.waitForAnElementPresence(By.xpath(
@@ -488,9 +491,12 @@ public class Pressure_Min_Max_Validations {
 		customwait.waitForAnElementPresence(
 				By.xpath("//*[@formcontrolname='selectPressure']//div[@class='mat-select-arrow']"));
 		customwait.waitForAnElementClickable(By.xpath("//*[@formcontrolname='selectPressure']//div[@class='mat-select-arrow']"));
-		MainPressureModeSelection.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", MainPressureModeSelection);
+		//MainPressureModeSelection.click();
 		customwait.waitForAnElementPresence(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
-		ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
+		WebElement ele = ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",ele);
+		//ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
 	}
 	public void clickAcceptalert() {
 		customwait.waitForAnElementPresence(changesAlert);
@@ -625,4 +631,8 @@ public class Pressure_Min_Max_Validations {
     	else
     		System.out.println("Downward Sloping Runup curve content is not displayed");
     }
+    
+    public void clickdownload() {
+		Download.click();
+	}
 }
