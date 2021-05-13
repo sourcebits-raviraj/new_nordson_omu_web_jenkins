@@ -2,7 +2,9 @@ package com.nordson.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -23,13 +25,30 @@ import com.nordson.testCases.BaseClass;
 public class ActionMethods extends BaseClass {
 
 	ArrayList<String> tabs;
+	// public WebDriver driver;
 
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File target = new File(System.getProperty("user.dir") + "/Screenshots/" + tname + ".png");
 		FileUtils.copyFile(source, target);
-		System.out.println("Screenshot taken");
+		// System.out.println("Screenshot taken");
+	}
+
+	public String takeSnapShot() throws Exception {
+
+		// below line is just to append the date format with the screenshot name to
+		// avoid duplicate names
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		// after execution, you could see a folder "FailedTestsScreenshots" under src
+		// folder
+		String destination = System.getProperty("user.dir") + "/Screenshots/" + dateName + ".png";
+		File finalDestination = new File(destination);
+		FileUtils.copyFile(source, finalDestination);
+		// Returns the captured file path
+		return destination;
 	}
 
 	public String randomestring() {
@@ -70,7 +89,7 @@ public class ActionMethods extends BaseClass {
 	}
 
 	public void waitForAnElementPresence(WebElement element) {
-		// TODO Auto-generated method stub
+
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -250,11 +269,11 @@ public class ActionMethods extends BaseClass {
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
 	}
 
-	public void drawBorderFail(List<WebElement> element, WebDriver driver) {
+	public void drawBorderFail(WebElement element, WebDriver driver) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
+
 	}
-	
 public String conversion_of_App_vlaue_for_Norfile_comparision(String value_To_Be_Converted) {
 		
 		double prValue=Double.parseDouble(value_To_Be_Converted);

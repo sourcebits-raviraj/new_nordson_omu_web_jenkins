@@ -124,6 +124,27 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//span[@class='pointer']")
 	public WebElement EditProfile;
 
+	@FindBy(xpath = "//span[@class='copyright']")
+	public WebElement CopyRight;
+
+	@FindBy(xpath = "//a[normalize-space()='Privacy Policy']")
+	public WebElement PrivacyPolicy;
+
+	@FindBy(linkText = "Terms of Service")
+	public WebElement TermsofService;
+
+	@FindBy(xpath = "//a[normalize-space()='Cookies']")
+	public WebElement Cookies;
+
+	@FindBy(xpath = "//div[@class='right footer-text cursor-pointer pad-responsive-signup']")
+	public WebElement ContactUs;
+
+	@FindBy(xpath = "//a[normalize-space()='Terms of Service']")
+	public WebElement TermsService;
+
+	@FindBy(xpath = "//div[@class='contact-head']")
+	public WebElement ContactUsHeader;
+
 	// Page Action Methods for all the WebElements declared
 	public boolean logoDisplayed() throws InterruptedException {
 
@@ -230,6 +251,12 @@ public class User_Dashboard_Details_Landing_Page {
 	public void pageRefresh() {
 
 		ldriver.navigate().refresh();
+	}
+
+	public void clickDashboard() throws InterruptedException {
+
+		dashbaord.click();
+
 	}
 
 	public String MediaCenterText() {
@@ -364,6 +391,69 @@ public class User_Dashboard_Details_Landing_Page {
 
 	public String EditProfileText() {
 		return EditProfile.getText();
+
+	}
+
+	public boolean getCopyRightDisplayed() {
+		return CopyRight.isDisplayed();
+	}
+
+	public String getCopyRightText() {
+		return CopyRight.getText();
+	}
+
+	public String getPrivacyPolicyText() {
+		return PrivacyPolicy.getText();
+
+	}
+
+	public boolean PrivacyPolicyDisplayed() {
+		return PrivacyPolicy.isDisplayed();
+	}
+
+	public void clickPrivacy() {
+		PrivacyPolicy.click();
+	}
+
+	public boolean TermsOfServiceDisplayed() {
+		return TermsService.isDisplayed();
+	}
+
+	public String getTermsOFServiceText() {
+		return TermsService.getText();
+
+	}
+
+	public boolean cookiesDisplayed() {
+		return Cookies.isDisplayed();
+
+	}
+
+	public String getCookiesText() {
+		return Cookies.getText();
+
+	}
+
+	public void clickCookies() {
+		Cookies.click();
+	}
+
+	public boolean contactUsDisplayed() {
+		return ContactUs.isDisplayed();
+
+	}
+
+	public String getContactUsText() {
+		return ContactUs.getText();
+
+	}
+
+	public void clickContactUs() {
+		ContactUs.click();
+	}
+
+	public String getContactUsHeaderText() {
+		return ContactUsHeader.getText();
 
 	}
 

@@ -26,35 +26,35 @@ public class User_Registration_All_Links {
 	WebElement SignUp;
 
 	@FindBy(xpath = "//input[@id='fname']")
-	WebElement FullName;
+	public WebElement FullName;
 
 	@FindBy(xpath = "//input[@id='cname']")
-	WebElement CompanyName;
+	public WebElement CompanyName;
 
 	@FindBy(xpath = "//input[@id='cname']/following::span[1]")
-	WebElement CompanyType;
+	public WebElement CompanyType;
 
 	@FindBy(xpath = "//span[contains(@class,'mat-option-text')][normalize-space()='End User']")
-	WebElement CompanyTypeValue;
+	public WebElement CompanyTypeValue;
 
 	@FindBy(id = "address")
-	WebElement Address;
+	public WebElement Address;
 
 	@FindBy(xpath = "//mat-form-field[@id='register-mat-sel-1']//div[@class='mat-form-field-infix']")
-	WebElement Country;
+	public WebElement Country;
 
 	@FindBy(xpath = "//span[normalize-space()='Afghanistan']")
-	WebElement CountryValue;
+	public WebElement CountryValue;
 
 	@FindBy(id = "plant")
-	WebElement Plant;
+	public WebElement Plant;
 
 	@FindBy(xpath = "//input[@id='padding-left-66']")
-	WebElement PhoneNumber;
+	public WebElement PhoneNumber;
 
 	@FindBy(xpath = "//button[normalize-space()='Continue']")
 	@CacheLookup
-	WebElement Continue;
+	public WebElement Continue;
 
 	@FindBy(xpath = "//button[normalize-space()='Continue']")
 	@CacheLookup
@@ -62,38 +62,38 @@ public class User_Registration_All_Links {
 
 	@FindBy(id = "sno")
 	@CacheLookup
-	WebElement SerialNo;
+	public WebElement SerialNo;
 
 	@FindBy(name = "uid")
 	@CacheLookup
-	WebElement UnqiueID;
+	public WebElement UnqiueID;
 
 	@FindBy(name = "description")
 	@CacheLookup
-	WebElement Desc;
+	public WebElement Desc;
 
 	@FindBy(name = "email")
 	@CacheLookup
-	WebElement EmailAddress;
+	public WebElement EmailAddress;
 
 	@FindBy(name = "cemail")
 	@CacheLookup
-	WebElement ConfirmEmailAddress;
+	public WebElement ConfirmEmailAddress;
 
 	@FindBy(name = "password")
 	@CacheLookup
-	WebElement Password;
+	public WebElement Password;
 
 	@FindBy(id = "ccpwd")
 	@CacheLookup
-	WebElement ConfirmPassword;
+	public WebElement ConfirmPassword;
 
 	@FindBy(xpath = "//div[@class='mat-checkbox-inner-container']")
-	WebElement AgreeCheckBox;
+	public WebElement AgreeCheckBox;
 
 	@FindBy(xpath = "//button[normalize-space()='Accept and Sign Up']")
 	@CacheLookup
-	WebElement AcceptAndSignup;
+	public WebElement AcceptAndSignup;
 
 	@FindBy(xpath = "//span[@class='copyright']")
 	public WebElement CopyRight;
