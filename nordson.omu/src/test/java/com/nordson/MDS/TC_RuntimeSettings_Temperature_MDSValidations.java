@@ -209,13 +209,34 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All Applicators are set to MDS default values");
 		// Minium Values Verification for Hoses and Applicators
 		trs.setHosestemp(mds.getMin1());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Hoses set to Minimum values are saved successfully");	 
+		else
+			System.out.println("Hose set to Minimum values are not saved successfully");	
 		log.info("All Hoses are set to min MDS value and save successfully");
 		trs.setApplicatorstemp(mds.getMin1());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Applicators set to Minimum values are saved successfully");	 
+		else
+			System.out.println("Applicators set to Minimum values are not saved successfully");
 		log.info("All Applicators are set to min value and save successfully");
+		
 		// Maximum Values Verification for Hoses and Applicators
 		trs.setHosestemp(mds.getMax1());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Hoses set to Maximum values are saved successfully");	 
+		else
+			System.out.println("Hoses set to Maximum values are not saved successfully");
 		log.info("All Hoses are set to Max MDS value and saved successfully");
 		trs.setApplicatorstemp(mds.getMax1());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Applicators set to Maximum values are saved successfully");	 
+		else
+			System.out.println("Applicators set to Maximum values are not saved successfully");
 		log.info("All Applicators are set to max value and save successfully");
 	}
 
@@ -458,13 +479,35 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All Applicators are set to MDS default values for Fahrenheit unit");
 		// Minium Values Verification for Hoses and Applicators
 		trs.setHosestemp(mds.getMin2());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Hoses set to Minimum values are saved successfully for Fahrenheit unit");	 
+		else
+			System.out.println("Hoses set to Minimum values are not saved successfully Fahrenheit unit");
+		log.info("All Applicators are set to min value and save successfully for Fahrenheit unit");
 		log.info("All Hoses are set to min MDS value and save successfully for Fahrenheit unit");
 		trs.setApplicatorstemp(mds.getMin2());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Applicators set to Minimum values are saved successfully Fahrenheit unit");	 
+		else
+			System.out.println("Applicators set to Minimum values are not saved successfully Fahrenheit unit");
 		log.info("All Applicators are set to min value and save successfully for Fahrenheit unit");
+		
 		// Maximum Values Verification for Hoses and Applicators
 		trs.setHosestemp(mds.getMax2());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Hoses set to Maximum values are saved successfully");	 
+		else
+			System.out.println("Hoses set to Maximum values are not saved successfully");
 		log.info("All Hoses are set to Max MDS value and saved successfully for Fahrenheit unit");
 		trs.setApplicatorstemp(mds.getMax2());
+		trs.clickSavebtn();
+		if(trs.getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
+			System.out.println("Applicators set to Maximum values are saved successfully");	 
+		else
+			System.out.println("Applicators set to Maximum values are not saved successfully");
 		log.info("All Applicators are set to max MDS value and save successfully for Fahrenheit unit");
 
 	}

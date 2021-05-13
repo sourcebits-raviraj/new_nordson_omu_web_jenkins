@@ -12,27 +12,22 @@
   <test name="Nordson OMU Web App Regression Tests on Chrome">
       <parameter name="browser" value="chrome"/>
        <classes>
-     <!--<class name="com.nordson.testCases.TC_LoginTest_001"/>
-     
+     <!--<class name="com.nordson.
+     testCases.TC_LoginTest_001"/>
      <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>  
      <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>    
-        
-<<<<<<< HEAD
     <class name="com.nordson.testCases.TC_Registration_DDT_002"/> -->
-    
      
-       <class name="com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations"/>  
-       <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations"/> 
-        <class name="com.nordson.NORXML.TC_NOR_XML_Comparsion_File"/>  
+       <class name="com.nordson.MDS.TC_RuntimeSettings_Pressure_MDS_Validations"/>
+      <!-- <class name="com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations"/>  
+        <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations"/>  -->
+      <!--  <class name="com.nordson.NORXML.TC_NOR_XML_Comparsion_File"/>   -->
+       
+       
       <!--  <class name="com.nordson.MDS.TC_SystemSettings_Fill_MDSValidations"/> 
        <class name="com.nordson.MDS.TC_RuntimeSettings_Flow_MDSValidations"/>
        <class name="com.nordson.MDS.TC_SystemSettings_Flow_MDSValues"/> 
        <class name="com.nordson.MDS.TC_RuntimeSettings_Pressure_MDS_Validations"/>  -->
-=======
-    <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
-    
->>>>>>> b18861e9db588213abab951c94d0f11af2475f2d
-    
       </classes>
      
        </test> 

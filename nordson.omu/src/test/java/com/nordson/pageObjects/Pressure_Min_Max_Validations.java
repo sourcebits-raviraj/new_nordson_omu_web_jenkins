@@ -31,25 +31,25 @@ public class Pressure_Min_Max_Validations {
 	public WebElement SetUpToolLink;
 
 	@FindBy(xpath = "//div[contains(text(),'CREATE NEW')]")
-	WebElement CreateNewNorFileButton;
+	public WebElement CreateNewNorFileButton;
 
 	@FindBy(xpath = "//textarea[@placeholder='Write Description here...']")
-	WebElement AddDescriptionText;
+	public WebElement AddDescriptionText;
 
 	@FindBy(xpath = "//button[normalize-space()='SUBMIT']")
-	WebElement SubmitButton;
+	public WebElement SubmitButton;
 
 	@FindBy(xpath = "//span[@class='heading-text-sidenav']/following::mat-expansion-panel-header[2]")
-	WebElement SystemSettingsLink;
+	public WebElement SystemSettingsLink;
 
 	@FindBy(xpath = "//div[contains(text(),'Preferences')]")
-	WebElement PreferencesLink;
+	public WebElement PreferencesLink;
 
 	@FindBy(xpath = "//article[normalize-space()='Pressure Unit']/following::div[2]")
-	WebElement KPAUnit;
+	public WebElement KPAUnit;
 
 	@FindBy(xpath = "//button[normalize-space()='SAVE']")
-	WebElement SaveButton;
+	public WebElement SaveButton;
 
 	/*
 	 * @FindBy(xpath =
@@ -58,121 +58,125 @@ public class Pressure_Min_Max_Validations {
 	 */
 
 	@FindBy(xpath = "//*[contains(text(), ' Runtime settings ')]")
-	WebElement RunTimeSettings;
+	public WebElement RunTimeSettings;
 
 	@FindBy(xpath = "//div[normalize-space()='Pressure']//..")
-	WebElement Pressure;
+	public WebElement Pressure;
 
 	@FindBy(xpath = "//input[contains(@name,'ulPressureMinSetPoint')]")
-	WebElement clearKPAMinSetPoint;
+	public WebElement clearKPAMinSetPoint;
 
 	@FindBy(xpath = "//input[contains(@name,'ulPressureMaxSetPoint')]")
-	WebElement clearKPAMaxSetPoint;
+	public WebElement clearKPAMaxSetPoint;
 
 	@FindBy(xpath = "//input[contains(@name,'ulPressureMinSetPoint')]/following::span[1]")
-	WebElement kPaText;
+	public WebElement kPaText;
 
 	@FindBy(xpath = "//input[contains(@name,'ulPressureMinSetPoint')]/following::span[1]")
-	WebElement BARText;
+	public WebElement BARText;
 
 	@FindBy(xpath = "//article[normalize-space()='Pressure Unit']/following::div[8]")
-	WebElement BARUnit;
+	public WebElement BARUnit;
 
 	@FindBy(xpath = "//div[contains(@class,'row row-margin')]//span[contains(@class,'min')][normalize-space()='BAR']/preceding::input[1]")
-	WebElement BARMinSetPoint;
+	public WebElement BARMinSetPoint;
 
 	@FindBy(xpath = "//div[contains(@class,'row display-flex-align-center')]//span[contains(@class,'min')][normalize-space()='BAR']/preceding::input[1]")
-	WebElement BARMaxSetPoint;
+	public WebElement BARMaxSetPoint;
 
 	@FindBy(xpath = "//article[normalize-space()='Pressure Unit']/following::div[14]")
-	WebElement PSIUnit;
+	public WebElement PSIUnit;
 
 	@FindBy(xpath = "//div[contains(@class,'row row-margin')]//span[contains(@class,'min')][normalize-space()='PSI']/preceding::input[1]")
-	WebElement PSIMinSetPoint;
+	public WebElement PSIMinSetPoint;
 
 	@FindBy(xpath = "//div[contains(@class,'row display-flex-align-center')]//span[contains(@class,'min')][normalize-space()='PSI']/preceding::input[1]")
-	WebElement PSIMaxSetPoint;
+	public WebElement PSIMaxSetPoint;
 
 	@FindBy(xpath = "//div[contains(@class,'row row-margin')]//span[contains(@class,'min')][normalize-space()='PSI']")
-	WebElement PSIText;
+	public WebElement PSIText;
 
 	@FindBy(xpath = "//span[contains(text(),'Pneumatic')]")
-	WebElement SelectHydaulic;
+	public WebElement SelectHydaulic;
 
 	@FindBy(xpath = "//span[@class='mat-option-text'][normalize-space()='Hydraulic']")
-	WebElement SelectHydaulicValue;
+	public WebElement SelectHydaulicValue;
 
 	@FindBy(css = "div#toast-container")
-	WebElement ToastMessage;
+	public WebElement ToastMessage;
 
 	@FindBy(xpath = "//span[contains(text(), 'DASHBOARD')]")
-	WebElement Dashboard;
+	public WebElement Dashboard;
 
 	@FindBy(xpath = "//div[contains(@class,'row row-margin')]//span[contains(@class,'min')][normalize-space()='kPa']/preceding::input[1]")
-	WebElement MinSetPoint;
+	public WebElement MinSetPoint;
 
 	@FindBy(xpath = "//div[contains(@class,'row display-flex-align-center')]//span[contains(@class,'min')][normalize-space()='kPa']/preceding::input[1]")
-	WebElement MaxSetPoint;
+	public WebElement MaxSetPoint;
 
 	@FindBy(xpath = "//*[@name='ulPressureSetPoint']")
-	WebElement PressureSetPoint;
+	public WebElement PressureSetPoint;
 
 	@FindBy(xpath = "//*[@name='ulLowPressureAlertDelta']")
-	WebElement LowPressureAlertThreshold;
+	public WebElement LowPressureAlertThreshold;
 
 	@FindBy(xpath = "//*[@name='ulHighPressureAlertDelta']")
-	WebElement HighPressureAlertThreshold;
+	public WebElement HighPressureAlertThreshold;
 
 	@FindBy(xpath = "//*[@name='ulLowPressureAlertThreshold']")
-	WebElement MinimumPressureSetPointRange;
+	public WebElement MinimumPressureSetPointRange;
 
 	@FindBy(xpath = "//*[@name='ulHighPressureAlertThreshold']")
-	WebElement MaximumPressureSetPointRange;
+	public WebElement MaximumPressureSetPointRange;
 
 	@FindBy(xpath = "//*[@formcontrolname='selectPressure']//div[@class='mat-select-arrow']")
-	WebElement MainPressureModeSelection;
+	public WebElement MainPressureModeSelection;
 
 	@FindBy(xpath = "//*[@id='logout-modal']//button[contains(@class,'button-logout logout')]")
-	WebElement changesAlert;
+	public WebElement changesAlert;
 
 	@FindBy(css = "input[name='lowSpeedPresSett']")
-	WebElement LowSpeedPressureSettings;
+	public WebElement LowSpeedPressureSettings;
 
 	@FindBy(css = "input[name='lowLineSpeedSett']")
-	WebElement LowLineSpeedSetting;
+	public WebElement LowLineSpeedSetting;
 
 	@FindBy(css = "input[name='highSpeedPresSett']")
-	WebElement HighSpeedPressureSettings;
+	public WebElement HighSpeedPressureSettings;
 
 	@FindBy(css = "input[name='highLineSpeedSett']")
-	WebElement HighLineSpeedSetting;
+	public WebElement HighLineSpeedSetting;
 
 	@FindBy(css = "input[name='maxPressureLimit']")
-	WebElement SetMaximumPressurelimit;
+	public WebElement SetMaximumPressurelimit;
 
 	@FindBy(css = "input[name='minPressureLimit']")
-	WebElement SetMinimumPressureLimit;
+	public WebElement SetMinimumPressureLimit;
 
 	@FindBy(css = "input[name='fullScaleLineSpeed']")
-	WebElement FullScaleLineSpeed;
+	public WebElement FullScaleLineSpeed;
 
 	@FindBy(xpath = "//mat-radio-button[not(contains(@class,'mat-radio-checked'))]//*[text()='ft/min']")
-	WebElement LineSpeedftmin;
+	public WebElement LineSpeedftmin;
 
 	@FindBy(xpath = "//mat-radio-button[not(contains(@class,'mat-radio-checked'))]//*[text()='m/min']")
-	WebElement LineSpeedmmin;
+	public WebElement LineSpeedmmin;
 
 	@FindBy(css = "div[class='logout-sub-head pad-tp']")
-	WebElement DownwardSlopingRunupContent;
+	public WebElement DownwardSlopingRunupContent;
 
 	@FindBy(xpath = "//*[@class='download']")
-	WebElement Download;
+	public WebElement Download;
+	
+	@FindBy(xpath = "//*[@formcontrolname='PressureUnits']//*[contains(@class,'mat-radio-checked')]//span")
+	public WebElement PrefPressureunitSelected;
 	
 	// Page Action Methods for all the WebElements declared
 	public void clickDashboard() throws InterruptedException {
 		customwait.waitForAnElementPresence(By.xpath("//span[contains(text(), 'DASHBOARD')]"));
 		customwait.waitForAnElementClickable(By.xpath("//span[contains(text(), 'DASHBOARD')]"));
-		Dashboard.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", Dashboard);
+		//Dashboard.click();
 	}
 
 	public void clickSetUpToolLink() throws InterruptedException {
@@ -204,11 +208,11 @@ public class Pressure_Min_Max_Validations {
 	}
 
 	public void ClickSystemSettingsLink() throws InterruptedException {
-		Thread.sleep(3000);
+	
 		customwait.waitForAnElementPresence(
 				By.xpath("//span[@class='heading-text-sidenav']/following::mat-expansion-panel-header[2]"));
-		Thread.sleep(3000);
-		SystemSettingsLink.click();
+		//SystemSettingsLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",SystemSettingsLink);
 	}
 
 	public void ClickPreferencesLink() throws InterruptedException {
@@ -219,7 +223,7 @@ public class Pressure_Min_Max_Validations {
 	}
 
 	public void SelectKPAUnit() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		customwait.waitForAnElementPresence(By.xpath("//article[normalize-space()='Pressure Unit']/following::div[2]"));
 		KPAUnit.click();
 	}
@@ -399,12 +403,10 @@ public class Pressure_Min_Max_Validations {
 	}
 
 	public void CreatNewNORfile() throws InterruptedException {
-		
 		clickSetUpToolLink();
 		clickCreateNewFile();
 		addDescription();
 		clickSubmit();
-		
 	}
 
 	public String getkPaMinSetPoint() throws InterruptedException {
@@ -535,6 +537,7 @@ public class Pressure_Min_Max_Validations {
 		//MainPressureModeSelection.click();
 		customwait.waitForAnElementPresence(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
 		WebElement ele = ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
+		customwait.drawBorder(ele, ldriver);
 		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",ele);
 		//ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
 	}
@@ -702,4 +705,13 @@ public class Pressure_Min_Max_Validations {
     public void clickdownload() {
 		Download.click();
 	}
+    
+    public void checkBARPressureUnitSelected() throws InterruptedException {
+
+    	if (PrefPressureunitSelected.getText().equalsIgnoreCase("BAR")) 
+    		System.out.println("BAR unit selected by default");
+    		else
+    			SelectBARUnit();
+    	}
+       
 }

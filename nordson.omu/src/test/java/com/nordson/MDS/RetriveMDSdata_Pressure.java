@@ -161,7 +161,7 @@ public class RetriveMDSdata_Pressure {
 						   String  mx2 = max2.replaceAll("[-+]*", "");
 							for(int j=0;j<mx2.length();j++) {
 								  if (Character.isDigit(mx2.charAt(j)) && j==3) {
-									  if(mx2.charAt(3)=='0'||mx2.length()>=4) {
+									  if(mx2.charAt(3)=='0') {
 										  DecimalFormat df = new DecimalFormat("#.#");
 										mx2=sbf.append(df.format(Double.parseDouble(mx2))).toString(); }  } }
 						    mdsp.setMax2(mx2);			  

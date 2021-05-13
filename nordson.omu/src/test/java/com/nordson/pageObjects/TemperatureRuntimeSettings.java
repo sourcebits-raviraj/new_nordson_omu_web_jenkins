@@ -125,9 +125,11 @@ public void clickDashboard() {
 		Dashboard.click();
 	}
 
-	public void clickSetUpToolBtn() {
+	public void clickSetUpToolBtn() throws InterruptedException {
+		Thread.sleep(2000);
 		Am.waitForAnElementToBeClickable(SetUpToolButton);
-		SetUpToolButton.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SetUpToolButton);
+		//SetUpToolButton.click();
 	}
 
 	public void clickCreateNewBtn() {
@@ -144,8 +146,7 @@ public void clickDashboard() {
 	public void clickSystemSettingsBtn() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
 		Am.waitForAnElementToBeClickable(SystemSettings);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", SystemSettings);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SystemSettings);
 		// SystemSettings.click();
 	}
 
@@ -183,11 +184,9 @@ public void clickDashboard() {
 		CelsiusTemperatureunit.click();
 	}
 	public void clickFarhenitUnit() {
-
 		Am.waitForAnElementPresence(
 				By.xpath("//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div"));
 		FarhenitTemperatureunit.click();
-
 	}
 	public void clickSave() {
 
@@ -198,11 +197,10 @@ public void clickDashboard() {
 	}
 
 	public void clickSavebtn() {
-
-		Am.waitForAnElementPresence(SAVE1);
 		Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
 		Am.waitForAnElementToBeClickable(SAVE1);
-		SAVE1.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SAVE1);
+		//SAVE1.click();
 
 	}
 
@@ -210,8 +208,7 @@ public void clickDashboard() {
 
 		Am.waitForAnElementPresence(RuntimeSettings);
 		Am.waitForAnElementToBeClickable(RuntimeSettings);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", RuntimeSettings);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", RuntimeSettings);
 
 		// RuntimeSettings.click();
 	}
@@ -427,7 +424,6 @@ public void clickDashboard() {
 	}
 
 	public String getToastmsg() {
-
 		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		String toastmsg = "";
 		if (Toastmsg.isDisplayed()) {
@@ -442,7 +438,7 @@ public void clickDashboard() {
 
 	public Boolean getToastmsgststus() {
 
-		Am.waitForAnElementPresence(Toastmsg);
+		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		Boolean toastmsg = false;
 		if (Toastmsg.isDisplayed()) {
 			toastmsg = true;
@@ -549,16 +545,13 @@ public void clickDashboard() {
 					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
 			String hosesetbx = "//*[@name='hose" + i + "']";
 			if(ldriver.findElements(By.xpath(hose)).size()==1)
-				ldriver.findElement(By.xpath(hose)).click();
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", ldriver.findElement(By.xpath(hose)));
+			//ldriver.findElement(By.xpath(hose)).click();
+			
 			else
 				System.out.println("hose"+i+"already enabled");
 				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(hosesettemp);
-				clickSavebtn();
-				if(getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
-					System.out.println("Hose"+i+" set to Maxmium values are saved successfully");	 
-				else
-					System.out.println("Hose"+i+" set to Maxmium values are not saved successfully");	
 		}
 	}
 
@@ -576,11 +569,6 @@ public void clickDashboard() {
 				
 			ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 				ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(appsettemp);
-				clickSavebtn();
-				if(getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
-					System.out.println("applicator"+i+" set to Maxmium values are saved successfully");	 
-				else
-					System.out.println("applicators"+i+"set to Maxmium values are not saved successfully");	
 		}
 		
 	}

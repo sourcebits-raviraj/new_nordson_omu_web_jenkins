@@ -53,8 +53,6 @@ public class BaseClass {
              options.setExperimentalOption("prefs", chromeprefs);
              System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
           // Instantiate a FireFox class.
-             driver = new ChromeDriver(options);
-             log.info("New Chrome driver Instantiated");
 
 			// ChromeOptions chromeOptions = new ChromeOptions();
 			// ChromeOptions chromeOptions = new ChromeOptions();
@@ -62,7 +60,7 @@ public class BaseClass {
 			// Defining System Property for the ChromeDriver
 			// System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
 
 			// Instantiate a FireFox class.
 			// driver = new ChromeDriver();

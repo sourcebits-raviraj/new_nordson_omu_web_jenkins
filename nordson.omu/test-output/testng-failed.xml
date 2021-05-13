@@ -9,29 +9,18 @@
   <test thread-count="5" name="Nordson OMU Web App Regression Tests on Chrome(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-<<<<<<< HEAD
-      <class name="com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations">
+      <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations">
         <methods>
-          <include name="Test_RuntimeSetting_HoseAppSetPoint_MDS_Celsius"/>
+          <include name="Test_Systemsettings_UnderTempThreshold_MDS_Fahrenheit"/>
           <include name="tearDown"/>
+          <include name="Test_Systemsettings_TemperatureSetbck_MDS_Fahrenheit"/>
           <include name="setUp"/>
-          <include name="Test_RuntimeSetting_HoseAppSetPoint_MDS_Fahrenheit"/>
+          <include name="Test_Systemsettings_AutoHeaterOffTime_MDS"/>
+          <include name="Test_Systemsettings_OverTempThreshold_MDS_Fahrenheit"/>
+          <include name="Test_Systemsettings_SmartMeltTimeDelay_MDS"/>
+          <include name="Test_Systemsettings_SystemSetBackDelay_MDS"/>
         </methods>
-      </class> <!-- com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations -->
-=======
-      <class name="com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links">
-        <methods>
-          <include name="Registration_Nordson_Contact_Us"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="Registration_Nordson_Cookies"/>
-          <include name="Registration_Nordson_Privacy_Policy"/>
-          <include name="Registration_Continue_Link" invocation-numbers="0"/>
-          <include name="Registration_Nordosn_Terms_of_Services"/>
-          <include name="Registration_Nordson_CopyRightText"/>
-        </methods>
-      </class> <!-- com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links -->
->>>>>>> b18861e9db588213abab951c94d0f11af2475f2d
+      </class> <!-- com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations -->
     </classes>
   </test> <!-- Nordson OMU Web App Regression Tests on Chrome(failed) -->
 </suite> <!-- Failed suite [Nordson OMU Web App Regression Tests on Chrome] -->
