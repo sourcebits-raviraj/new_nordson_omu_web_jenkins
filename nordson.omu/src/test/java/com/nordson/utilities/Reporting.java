@@ -1,10 +1,9 @@
 package com.nordson.utilities;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
@@ -15,6 +14,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Reporting extends TestListenerAdapter {
@@ -22,15 +22,21 @@ public class Reporting extends TestListenerAdapter {
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest logger;
+	ActionMethods Am;
+	public static WebDriver driver;
 
 	public void onStart(ITestContext testContext) {
 
 		// Date Format
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		String repName = "Nordson OMU Test-Report-" + timeStamp + ".html";
-
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExtentReports/" + repName);
+		ExtentSparkReporter htmlReporter = new ExtentSparkReporter(
+				System.getProperty("user.dir") + "/test-output/ExtentReports/" + repName);
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir") + "/extent-config.xml");
+		// htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
+		// "/test-output/ExtentReports/" + repName);
+		// htmlReporter.loadXMLConfig(System.getProperty("user.dir") +
+		// "/extent-config.xml");
 
 		extent = new ExtentReports();
 
@@ -66,18 +72,30 @@ public class Reporting extends TestListenerAdapter {
 		// send the passed information to the report with RED color highlighted
 		logger.log(Status.FAIL, MarkupHelper.createLabel(tr.getName(), ExtentColor.RED));
 
-		// Attach Screenshots
-		String screenshotPath = System.getProperty("user.dir") + "\\Screenshots\\" + tr.getName() + ".png";
+		if (ITestResult.FAILURE == tr.getStatus()) {
 
-		File f = new File(screenshotPath);
-
-		if (f.exists()) {
+			Am = new ActionMethods();
 			try {
-				logger.fail("Screenshot is below:" + logger.addScreenCaptureFromPath(screenshotPath));
-			} catch (IOException e) {
+
+				String screenShotPath = Am.takeSnapShot();
+				logger.log(Status.FAIL, tr.getThrowable());
+				logger.log(Status.FAIL, "Snapshot below: " + logger.addScreenCaptureFromPath(screenShotPath));
+			} catch (Exception e) {
+
 				e.printStackTrace();
 			}
+
 		}
+		/*
+		 * // Attach Screenshots String screenshotPath = System.getProperty("user.dir")
+		 * + "\\Screenshots\\" + tr.getName() + ".png";
+		 * 
+		 * File f = new File(screenshotPath);
+		 * 
+		 * if (f.exists()) { try { logger.fail("Screenshot is below:" +
+		 * logger.addScreenCaptureFromPath(screenshotPath)); } catch (IOException e) {
+		 * e.printStackTrace(); } }
+		 */
 
 	}
 

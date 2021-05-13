@@ -17,8 +17,6 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 
 	ActionMethods Am = new ActionMethods();
 	Actions action;
-	// ArrayList<String> tabs;
-	// ArrayList<String> tab1;
 	private SoftAssert softAssert = new SoftAssert();
 
 	// Driver Object Instantiation
@@ -27,7 +25,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 
 	@Test(dataProvider = "RegistrationContine", dataProviderClass = com.nordson.utilities.XLUtils.class, priority = 1, enabled = true)
 	public void Registration_Continue_Link(String fname, String companyname, String address, String plant,
-			String phoneno) throws InterruptedException, IOException {
+			String phoneno) throws Exception {
 
 		log.info("URL is launched");
 		driver.manage().window().maximize();
@@ -35,41 +33,51 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 		log.info("Wait for the page load time out");
 
 		rpl = new User_Registration_All_Links(driver);
-
-		// driver.get("http://omupreprod.azurewebsites.net/register");
+		Am = new ActionMethods();
 
 		rpl.clickSingUp();
 		log.info("Sign Up Page is opened");
+		Am.sleepTime(3000);
 
+		Am.drawBorder(rpl.FullName, driver);
 		rpl.setFullName(fname);
 		log.info("first name provided");
 
+		Am.drawBorder(rpl.CompanyName, driver);
 		rpl.setCompanyName(companyname);
 		log.info("Company name provided");
 
+		Am.drawBorder(rpl.CompanyType, driver);
 		rpl.setCompanyType();
 		log.info("Company type provided");
 
+		Am.drawBorder(rpl.Address, driver);
 		rpl.setAddress(address);
 		log.info("Address provided");
 
+		Am.drawBorder(rpl.Country, driver);
 		rpl.selectCountry();
 		log.info("Country provided");
 
+		Am.drawBorder(rpl.Plant, driver);
 		rpl.setPlant(plant);
 		log.info("plant provided");
 
+		Am.drawBorder(rpl.PhoneNumber, driver);
 		rpl.setPhoneNumber(phoneno);
 		log.info("Phone number provided");
 
 		if (rpl.clickContinue() == true) {
+			Am.drawBorder(rpl.Continue, driver);
 			log.info("Continue button is enabled");
 			System.out.println("Clicked on Continue button is  enabled");
-			Assert.assertTrue(true);
+			softAssert.assertTrue(true);
+
 		} else {
+			Am.drawBorderFail(rpl.Continue, driver);
 			log.info("Clicked on Continue button is not enabled");
 			System.out.println("Clicked on Continue button is not enabled");
-			softAssert.assertTrue(false);
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -78,6 +86,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 
 		if (rpl.getCopyRightDisplayed() == true) {
 
+			Am.drawBorder(rpl.CopyRight, driver);
 			log.info("Copy Right Displayed Nordson Corporation");
 			softAssert.assertTrue(true);
 			String copytext = rpl.getCopyRightText();
@@ -88,12 +97,12 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 		}
 
 		else {
+			Am.drawBorderFail(rpl.CopyRight, driver);
 			log.info("Copy Right not Displayed");
-			softAssert.assertTrue(true);
+			Assert.assertTrue(true);
 			Am = new ActionMethods();
 			Am.captureScreen(driver, "CopyRightFail");
 			System.out.println("Copy Right Not Present");
-			softAssert.assertTrue(false);
 
 		}
 
@@ -104,6 +113,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 
 		if (rpl.PrivacyPolicyDisplayed() == true) {
 
+			Am.drawBorder(rpl.PrivacyPolicy, driver);
 			log.info("Privacy Link Displayed");
 			softAssert.assertTrue(true);
 			String PrivacyPolicyText = rpl.getPrivacyPolicyText();
@@ -111,17 +121,12 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 			System.out.println("Privacy Policy link is displayed");
 
 			rpl.clickPrivacy();
-
 			Am.switchToNexttab();
-			// tabs = new ArrayList<String>(driver.getWindowHandles());
-			// System.out.println(tabs.size());
-			// driver.switchTo().window(tabs.get(1));
 
-			// action.keyDown(Keys.CONTROL).sendKeys(Keys.TAB).build().perform();
-			// Thread.sleep(3000);
 		}
 
 		else {
+			Am.drawBorderFail(rpl.PrivacyPolicy, driver);
 			softAssert.assertTrue(false);
 			log.info("Privacy Link not Displayed");
 			System.out.println("Privacy Policy link is not displayed");
@@ -129,26 +134,22 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 		}
 
 		if (readconfig.getPrivacyPolicyURL().equals(driver.getCurrentUrl())) {
-			// Am = new ActionMethods();
+
 			softAssert.assertTrue(true);
 			Am.captureScreen(driver, "PrivacyPolicyPass");
 			System.out.println(driver.getCurrentUrl());
 			System.out.println("Privacy Policy link is opened and naviagated");
 			log.info("Privacy Policy link");
 			Am.closeCurrentTab_SwitchtoPrevioustab();
-			// driver.close();
-			// driver.switchTo().window(tabs.get(0));
-			// action = new Actions(driver);
-			// action.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).sendKeys(Keys.TAB).build().perform();
 
 		}
 
 		else {
 			log.info("Privacy Policy link not displayed ");
-			// Am
+
 			Am.captureScreen(driver, "PrivacyPolicyFail");
 			System.out.println("Privacy Policy not naviagted");
-			softAssert.assertTrue(false);
+			Assert.assertTrue(false);
 
 		}
 
@@ -159,6 +160,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 
 		if (rpl.TermsOfServiceDisplayed() == true) {
 
+			Am.drawBorder(rpl.TermsService, driver);
 			log.info("Terms Of Service text is Displayed");
 			softAssert.assertTrue(true);
 			String TermsServicesText = rpl.getTermsOFServiceText();
@@ -168,8 +170,8 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 		}
 
 		else {
-
-			softAssert.assertTrue(false);
+			Am.drawBorderFail(rpl.TermsService, driver);
+			Assert.assertTrue(false);
 			log.info("Terms of Service text is displayed");
 			System.out.println("Terms of Service text is displayed");
 		}
@@ -180,7 +182,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	public void Registration_Nordson_Cookies() throws InterruptedException, IOException {
 
 		if (rpl.cookiesDisplayed() == true) {
-
+			Am.drawBorder(rpl.Cookies, driver);
 			log.info("Cookies Link Displayed");
 			softAssert.assertTrue(true);
 			String CookiesText = rpl.getCookiesText();
@@ -188,39 +190,33 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 			System.out.println("Cookies link is displayed");
 			rpl.clickCookies();
 			Am.switchToNexttab();
-			// tab1 = new ArrayList<String>(driver.getWindowHandles());
-			// driver.switchTo().window(tab1.get(1));
 
 		}
 
 		else {
-
+			Am.drawBorderFail(rpl.Cookies, driver);
 			log.info("Cookies Link not Displayed");
 			System.out.println("Cookies Link is not displayed");
-			softAssert.assertTrue(false);
+			Assert.assertTrue(false);
 		}
 
 		if (readconfig.getCookiesURL().equals(driver.getCurrentUrl())) {
 
-			// Am = new ActionMethods();
 			softAssert.assertTrue(true);
 			Am.captureScreen(driver, "CookiesPass");
 			System.out.println(driver.getCurrentUrl());
 			System.out.println("Cookies link is opened and navigated");
 			log.info("Cookies link is opened and navigated");
 			Am.closeCurrentTab_SwitchtoPrevioustab();
-			// driver.close();
-			// driver.switchTo().window(tabs.get(0));
 
 		}
 
 		else {
 
 			log.info("Cookies link not displayed ");
-			// Am = new ActionMethods();
 			Am.captureScreen(driver, "CookiesFail");
 			System.out.println("Cookies Link not opened");
-			softAssert.assertTrue(false);
+			Assert.assertTrue(false);
 
 		}
 
@@ -230,9 +226,9 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	public void Registration_Nordson_Contact_Us() throws InterruptedException, IOException {
 
 		if (rpl.contactUsDisplayed() == true) {
-
+			Am.drawBorder(rpl.ContactUs, driver);
 			log.info("Contact Us Link Displayed");
-			softAssert.assertTrue(true);
+			Assert.assertTrue(true);
 			String ContactUsText = rpl.getContactUsText();
 			softAssert.assertEquals(Constants.ContactUs, ContactUsText);
 			System.out.println("Contact Us link is displayed");
@@ -240,17 +236,17 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 		}
 
 		else {
-
+			Am.drawBorderFail(rpl.ContactUs, driver);
 			log.info("Contact us link not Displayed");
-			Am.captureScreen(driver, "CookiesFail");
-			System.out.println("Cookies Link not opened");
-			softAssert.assertTrue(false);
+			Am.captureScreen(driver, "ContactusFail");
+			System.out.println("Contact Link not opened");
+			Assert.assertTrue(false);
 		}
 
 		rpl.clickContactUs();
 		String ContactHeader = rpl.getContactUsHeaderText();
 		softAssert.assertEquals(Constants.ContactUsHeader, ContactHeader);
-		softAssert.assertTrue(true);
+		Assert.assertTrue(true);
 
 	}
 

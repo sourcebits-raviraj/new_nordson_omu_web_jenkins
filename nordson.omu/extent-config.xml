@@ -3,7 +3,7 @@
     <configuration>
         <!-- report theme -->
         <!-- standard, dark -->
-        <theme>standard</theme>
+        <theme>dark</theme>
     
         <!-- enables timeline -->
         <!-- defaults to true -->
@@ -21,7 +21,7 @@
         <documentTitle>Extent Framework</documentTitle>
         
         <!-- report name - displayed at top-nav -->
-        <reportName>Build 1</reportName>
+        <reportName>Test Automation Report</reportName>
 
         <!-- custom javascript -->
         <scripts>
