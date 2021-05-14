@@ -2,6 +2,7 @@ package com.nordson.testCases;
 
 import java.io.IOException;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +17,7 @@ import com.nordson.utilities.ReadConfig;
 public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 {
 
 	ActionMethods Am = new ActionMethods();
-	Actions action;
+
 	Pressure_Min_Max_Validations pmv;
 	private SoftAssert softAssert = new SoftAssert();
 
@@ -318,6 +319,9 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			Am.drawBorder(lp.PreviousFile, driver);
 
 			log.info("Set Up tool Displayed");
+			Am.sleepTime(1000);
+			driver.navigate().back();
+
 			softAssert.assertTrue(true);
 
 		} else {
@@ -339,8 +343,8 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 			Am.sleepTime(1000);
 			log.info("Clicked on Media Center Link");
-			lp.pageRefresh();
-			Am.sleepTime(1000);
+			// lp.pageRefresh();
+			// Am.sleepTime(1000);
 			lp.MediaCenterClick();
 			Assert.assertEquals(lp.MediaCenterText(), Constants.MediaCenterText);
 			Am.drawBorder(lp.MediaCenter, driver);
@@ -514,7 +518,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		lp.LanaguageDropdowns.get(0).click();
 
 		lp.clickProfile();
-		Am.sleepTime(4000);
+		Am.sleepTime(3000);
 
 		if (lp.profileDisplayed() == true) {
 
@@ -558,6 +562,8 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			Am.drawBorder(lp.EditProfile, driver);
 
 			System.out.println("All the profile fields are displayed");
+			Actions action = new Actions(driver);
+			action.sendKeys(Keys.ESCAPE).build().perform();
 
 		}
 
