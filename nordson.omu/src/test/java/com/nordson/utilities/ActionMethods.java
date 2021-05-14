@@ -253,28 +253,39 @@ public class ActionMethods extends BaseClass {
 	}
 	
 	public void sleepTime(int milliseconds) throws Exception {
-
 		try {
-
 			TimeUnit.MILLISECONDS.sleep(milliseconds);
 		}
-
 		catch (Exception e) {
 			throw new Exception("Pause between steps was interrupted", e);
 		}
 	}
 
-	public void drawBorder(WebElement element, WebDriver driver) {
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("arguments[0].style.border='3px solid green'", element);
-	}
+	
+	  public void drawBorder(WebElement element, WebDriver driver) throws InterruptedException {
 
+	   JavascriptExecutor js = ((JavascriptExecutor) driver);
+	   js.executeScript("arguments[0].style.border='3px solid blue'", element);
+	   Thread.sleep(1500);
+	   js.executeScript("arguments[0].style.border='3px solid transparent'", element);
+	  }
+	 
 	public void drawBorderFail(WebElement element, WebDriver driver) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
-
+		try {
+			  Thread.sleep(500);
+		}catch (InterruptedException e) {
+			// TODO: handle exception
+		}
 	}
-public String conversion_of_App_vlaue_for_Norfile_comparision(String value_To_Be_Converted) {
+	public void changeColor(String color,WebElement element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.backgroundColor='"+color+"'", element);
+		
+	}
+	
+	public String conversion_of_App_vlaue_for_Norfile_comparision(String value_To_Be_Converted) {
 		
 		double prValue=Double.parseDouble(value_To_Be_Converted);
 		double newValue =prValue * 1000;

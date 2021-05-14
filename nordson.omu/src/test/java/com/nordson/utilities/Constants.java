@@ -57,6 +57,10 @@ public class Constants {
 
 	public static final String Sucssmsg = "Temperature Settings updated successfully";
 	public static final String Fillsucssmsg = "Pump updated successfully";
+	
+	// Pressure preferences message
+	public static final String Pressuresucssmsg = "Pressure updated successfully";
+	public static final String Preferencessucssmsg = "Preferences updated successfully";
 
 	// Successful Message after User Model Registration
 	public static final String SucssText = "We have sent you a link!";

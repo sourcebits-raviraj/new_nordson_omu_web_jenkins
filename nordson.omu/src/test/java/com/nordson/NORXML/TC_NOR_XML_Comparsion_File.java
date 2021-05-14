@@ -32,7 +32,7 @@ public class TC_NOR_XML_Comparsion_File extends TC_LoginTest_DDT_001 {
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for KPA Unit")
 	@Test(priority = 1, enabled = true, dataProvider = "min_max_Presure_for_norfile_KPA_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void Min_Max_Pressure_Value_comparision_with_NorFile_KPA_Manualadjust(String Min, String Max)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 		
 		rsp = new Pressure_Min_Max_Validations(driver);
 		rsp.CreatNewNORfile();
@@ -115,7 +115,7 @@ public class TC_NOR_XML_Comparsion_File extends TC_LoginTest_DDT_001 {
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for BAR Unit")
 	@Test(priority = 2, enabled = true, dataProvider = "min_max_Presure_for_norfile_BAR_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void Min_Max_Pressure_Value_comparision_with_NorFile_BAR_Manualadjust(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -193,7 +193,7 @@ public class TC_NOR_XML_Comparsion_File extends TC_LoginTest_DDT_001 {
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for PSI Unit")
 	@Test(priority = 3, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void Min_Max_Pressure_Value_comparision_with_NorFile_PSI_Manualadjust(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -277,7 +277,7 @@ public class TC_NOR_XML_Comparsion_File extends TC_LoginTest_DDT_001 {
 	@Test(priority = 4, enabled = true, dataProvider = "Presure_for_norfile_KPA_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_electronicadjust_KPA_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -398,7 +398,7 @@ public class TC_NOR_XML_Comparsion_File extends TC_LoginTest_DDT_001 {
 	@Test(priority = 5, enabled = true, dataProvider = "Presure_for_norfile_BAR_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_electronicadjust_BAR_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -518,7 +518,7 @@ public class TC_NOR_XML_Comparsion_File extends TC_LoginTest_DDT_001 {
 	@Test(priority = 6, enabled = true, dataProvider = "Presure_for_norfile_PSI_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_electronicadjust_PSI_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
