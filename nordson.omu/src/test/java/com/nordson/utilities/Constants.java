@@ -61,7 +61,9 @@ public class Constants {
 	// Pressure preferences message
 	public static final String Pressuresucssmsg = "Pressure updated successfully";
 	public static final String Preferencessucssmsg = "Preferences updated successfully";
-
+	public static final String ElctnicadjstPSImaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
+	public static final String ElctnicadjstBARmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
+	public static final String ElctnicadjstKPAmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
 	// Successful Message after User Model Registration
 	public static final String SucssText = "We have sent you a link!";
 	public static final String copyRight = "© 2021 Nordson Corporation";

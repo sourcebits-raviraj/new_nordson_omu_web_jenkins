@@ -1,5 +1,7 @@
 package com.nordson.pageObjects;
 
+import java.sql.Driver;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -105,7 +107,8 @@ public class Pressure_Min_Max_Validations {
 	@FindBy(xpath = "//span[@class='mat-option-text'][normalize-space()='Hydraulic']")
 	public WebElement SelectHydaulicValue;
 
-	@FindBy(css = "div#toast-container")
+	//@FindBy(css = "div#toast-container")
+	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
 	public WebElement ToastMessage;
 
 	@FindBy(xpath = "//span[contains(text(), 'DASHBOARD')]")
@@ -392,13 +395,12 @@ public class Pressure_Min_Max_Validations {
 	}
 
 	public boolean toastmessageDisplayed() {
-		customwait.waitForAnElementPresence(ToastMessage);
-		System.out.println("Value of toast message displayed"+ToastMessage.isDisplayed());
+		customwait.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		return ToastMessage.isDisplayed();
 	}
-
 	public String getToastMessageText() {
-		String tm = ToastMessage.getText();
+		WebElement tstmsg=ldriver.findElement(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
+		String tm = tstmsg.getText();
 		System.out.println("Value of the toast message is=" + tm);
 		//customwait.waitForAnElementIsInVisible(By.cssSelector("div#toast-container"));
 		return tm;
@@ -546,7 +548,7 @@ public class Pressure_Min_Max_Validations {
 	}
 
 	public void clickAcceptalert() {
-		customwait.waitForAnElementPresence(changesAlert);
+		customwait.waitForAnElementPresence(By.xpath("//*[@id='logout-modal']//button[contains(@class,'button-logout logout')]"));
 		changesAlert.click();
 	}
 

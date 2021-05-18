@@ -3,7 +3,6 @@ package com.nordson.pageObjects;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -11,15 +10,14 @@ import org.openqa.selenium.Keys;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.nordson.utilities.ActionMethods;
-import com.nordson.utilities.Constants;
+
 
 public class TemperatureRuntimeSettings {
 
@@ -36,97 +34,101 @@ public class TemperatureRuntimeSettings {
 	}
 
 	@FindBy(id = "bt")
-	WebElement SetUpToolButton;
+	public WebElement SetUpToolButton;
 
 	@FindBy(xpath = "//*[contains(text(),'CREATE NEW')]")
-	WebElement CreateNewButton;
+	public WebElement CreateNewButton;
 
 	@FindBy(xpath = "//*[@class='btn-set-up submit-btn-color']")
-	WebElement SubmitButton;
+	public WebElement SubmitButton;
 
 	@FindBy(xpath = "//*[contains(text(),'System Settings')]/ancestor::span")
-	WebElement SystemSettings;
-
+	public WebElement SystemSettings;
+	
+	@FindBy(xpath = "//*[contains(text(),'System Settings')]")
+	public WebElement SystemSettingsLnk;
+	
 	@FindBy(xpath = "//*[contains(text(),'Preferences')]")
-	WebElement Preferences;
+	public WebElement Preferences;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-container']")
-	List<WebElement> Temperatureunit;
+	public List< WebElement> Temperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']/*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-label-content']")
-	WebElement SelectedTemperatureunit;
+   public WebElement SelectedTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'C')]//preceding-sibling::div")
-	WebElement CelsiusTemperatureunit;
+	public WebElement CelsiusTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div")
-	WebElement FarhenitTemperatureunit;
+	public WebElement FarhenitTemperatureunit;
 
 	@FindBy(xpath = "(//span[@class='min'])[1]")
-	WebElement Temperatureunt;
+	public WebElement Temperatureunt;
 
 	@FindBy(xpath = "//*[@class='btn apply']")
-	WebElement SAVE;
+	public WebElement SAVE;
 
 	@FindBy(xpath = "//*[@class='apply btn submit-bt']")
-	WebElement SAVE1;
+	public WebElement SAVE1;
 
 	@FindBy(xpath = "//*[contains(text(),'Runtime settings')]")
-	WebElement RuntimeSettings;
+	public WebElement RuntimeSettings;
 
 	@FindBy(xpath = "//*[contains(@routerlink,'settings/temp-zone')]")
-	WebElement ZoneTemperature;
+	public WebElement ZoneTemperature;
 
 	@FindBy(xpath = "//*[contains(text(),'Global Setpoint')]/../following-sibling::tr/td//input")
-	WebElement GlobalSetPoint;
+	public WebElement GlobalSetPoint;
 
 	@FindBy(xpath = "//*[@formcontrolname='globalSetPoint']")
-	WebElement MinmaxGlobalSetPoint;
+	public WebElement MinmaxGlobalSetPoint;
 
 	@FindBy(xpath = "//*[contains(text(),'Tank')]/../following-sibling::tr/td//input")
-	WebElement Tank;
+	public WebElement Tank;
 
 	@FindBy(xpath = "//*[contains(text(),'Manifold')]/../following-sibling::tr/td//input")
-	WebElement Manifold;
+	public WebElement Manifold;
 	@FindBy(xpath = "//*[contains(text(),'Hose')]")
-	List<WebElement> Hose;
+	List< WebElement> Hose;
 
 	@FindBy(xpath = "//*[contains(text(),'Applicator')]")
-	List<WebElement> Applicator;
+	List< WebElement> Applicator;
 
 	@FindBy(xpath = "//*[contains(@name,'hose')]")
-	List<WebElement> HoseSetpoint;
+	List< WebElement> HoseSetpoint;
 
 	@FindBy(xpath = "//*[contains(@name,'applicator')]")
-	List<WebElement> ApplicatorSetpoint;
+	List< WebElement> ApplicatorSetpoint;
 
 	@FindBy(xpath = "//*[@name='hose1']")
-	WebElement Hose1;
+	public WebElement Hose1;
 
 	@FindBy(xpath = "//*[@name='applicator1']")
-	WebElement Applicator1;
+	public WebElement Applicator1;
 
 	@FindBy(xpath = "//*[text()='Hose 1']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..")
-	WebElement HoseEnbbtn;
+	public WebElement HoseEnbbtn;
 
 	@FindBy(xpath = "//*[text()='Applicator 1']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..")
-	WebElement ApplicatorEnbbtn;
+	public WebElement ApplicatorEnbbtn;
 
 	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
-	WebElement Toastmsg;
+	public WebElement Toastmsg;
 	
 	@FindBy(xpath = "//*[contains(text(),'DASHBOARD')]")
-	WebElement Dashboard;
+	public WebElement Dashboard;
 
 	
 public void clickDashboard() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'DASHBOARD')]"));
 		Am.waitForAnElementToBeClickable(Dashboard);
-		Dashboard.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", Dashboard);
+		//Dashboard.click();
 	}
 
 	public void clickSetUpToolBtn() throws InterruptedException {
-		Thread.sleep(2000);
+		Am.waitForAnElementPresence(By.xpath("//*[@id='bt']"));
 		Am.waitForAnElementToBeClickable(SetUpToolButton);
 		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SetUpToolButton);
 		//SetUpToolButton.click();
@@ -135,16 +137,19 @@ public void clickDashboard() {
 	public void clickCreateNewBtn() {
 		Am.waitForAnElementPresence(CreateNewButton);
 		Am.waitForAnElementToBeClickable(CreateNewButton);
-		CreateNewButton.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", CreateNewButton);
+		//CreateNewButton.click();
 	}
 
 	public void clickSubmitBtn() throws InterruptedException {
 		Am.waitForAnElementPresence(SubmitButton);
 		Am.waitForAnElementToBeClickable(SubmitButton);
-		SubmitButton.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SubmitButton);
+		//SubmitButton.click();
 	}
-	public void clickSystemSettingsBtn() {
+	public void clickSystemSettingsBtn() throws Exception {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
+		Am.drawBorder(SystemSettingsLnk, ldriver);
 		Am.waitForAnElementToBeClickable(SystemSettings);
 		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SystemSettings);
 		// SystemSettings.click();
@@ -232,10 +237,9 @@ public void clickDashboard() {
 	}
 
 	public void setGlobalSetPoint(String globalpnt) {
-
 		Am.waitForAnElementPresence(GlobalSetPoint);
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",ldriver.findElement(By.xpath("(//*[contains(@class,'set-light-blue table-one')])[1]")));
 		GlobalSetPoint.sendKeys(globalpnt);
-
 	}
 
 	public void MinmaxsetGlobalSetPoint(String globalpnt) {
@@ -304,30 +308,42 @@ public void clickDashboard() {
 		return applicatorlscunt;
 	}
 
-	public List<String> getHoseSetTemp() throws InterruptedException {
+	public List<String> getHoseSetTemp() throws Exception {
 		String hosesetpnt = "";
 		List<String> Hosesetpointslst = new ArrayList<String>();
 
 		for (int i = 1; i <= HoseSetpoint.size(); i++) {
 			hosesetpnt = "//*[@name='hose" + i + "']";
-			WebElement el = ldriver.findElement(By.xpath(hosesetpnt));
+		    WebElement el = ldriver.findElement(By.xpath(hosesetpnt));
 			Am.waitFortexttoBePresent(By.xpath(hosesetpnt));
+			Am.sleepTime(2200);
+			if(el.isDisplayed()==true) {
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",el);
+				Am.drawBorder(el, ldriver);}
+				else
+					Am.drawBorderFail(el, ldriver);
 			String hosesettemppnt = el.getAttribute("value");
 			Hosesetpointslst.add(hosesettemppnt);
-
 		}
 
 		return Hosesetpointslst;
 	}
 
-	public List<String> getApplicatorSetTemp() throws InterruptedException {
+	public List<String> getApplicatorSetTemp() throws Exception {
 		String applicatorsetpnt = "";
 		List<String> Applicatorsetpointslst = new ArrayList<String>();
 
 		for (int i = 1; i <= Applicator.size(); i++) {
 			applicatorsetpnt = "//*[@name='applicator" + i + "']";
-			WebElement el = ldriver.findElement(By.xpath(applicatorsetpnt));
+			 WebElement el = ldriver.findElement(By.xpath(applicatorsetpnt));
 			Am.waitFortexttoBePresent(By.xpath(applicatorsetpnt));
+			Am.sleepTime(2200);
+			if(el.isDisplayed()==true) {
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",el);
+				Am.drawBorder(el, ldriver);
+			}
+				else
+					Am.drawBorderFail(el, ldriver);
 			String hosesettemppnt = el.getAttribute("value");
 			Applicatorsetpointslst.add(hosesettemppnt);
 		}
@@ -424,30 +440,16 @@ public void clickDashboard() {
 	}
 
 	public String getToastmsg() {
-		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-		String toastmsg = "";
-		if (Toastmsg.isDisplayed()) {
-			toastmsg = Toastmsg.getText();
+		    
+			String toastmsg = Toastmsg.getText();
+			System.err.println("Value of toast message is"+toastmsg);
 			Am.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-
-		} else
-			System.out.println("toast msg not displayed");
-
 		return toastmsg;
 	}
 
 	public Boolean getToastmsgststus() {
-
 		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-		Boolean toastmsg = false;
-		if (Toastmsg.isDisplayed()) {
-			toastmsg = true;
-			Am.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-
-		} else
-			toastmsg = false;
-
-		return toastmsg;
+		return Toastmsg.isDisplayed();
 	}
 
 	public void clickCelsiusTempUnit() {
@@ -462,7 +464,7 @@ public void clickDashboard() {
 
 			}
 		} else
-			System.out.println("Temperature not selected");
+			System.out.println("Temperature already selected");
 	}
 
 	public void clickFarnheitTempUnit() {
@@ -470,7 +472,6 @@ public void clickDashboard() {
 		Boolean tempvalue = getTemperatureunitstut();
 
 		if (tempvalue == true) {
-
 			String tempunt = getSelectedTemperatureunit();
 			if (!(tempunt.equalsIgnoreCase("oF"))) {
 				clickFarhenitUnit();
@@ -510,7 +511,7 @@ public void clickDashboard() {
 
 	}
 
-	public void getHosesSettempStatus(String defaulttemp) throws InterruptedException {
+	public void getHosesSettempStatus(String defaulttemp) throws Exception {
 		List<String> hosestpnt = getHoseSetTemp();
 		int hosestpntsz = hosestpnt.size();
 		int count = 1;
@@ -518,13 +519,12 @@ public void clickDashboard() {
 			if (hosestpnt.get(i).equals(defaulttemp)) {
 				System.out.println("Hose" + count + "set point temperature set to " + hosestpnt.get(i) + " value");
 			} else
-
 				System.out.println("Hose" + count + "set point temperature not set" + hosestpnt.get(i) + " value ");
 			count++;
 		}
 	}
 
-	public void getApplicatorsSettempStatus(String defsettemp) throws InterruptedException {
+	public void getApplicatorsSettempStatus(String defsettemp) throws Exception {
 		List<String> applicatorsetpnt = getApplicatorSetTemp();
 		int count = 1;
 		for (int i = 0; i < applicatorsetpnt.size(); i++) {
@@ -573,14 +573,14 @@ public void clickDashboard() {
 		
 	}
 
-	public void createNewNORfile() throws InterruptedException {
+	public void createNewNORfile() throws Exception {
 		clickSetUpToolBtn();
-		Thread.sleep(1000);
+		Am.sleepTime(1000);
 		clickCreateNewBtn();
-		Thread.sleep(1000);
+		Am.sleepTime(1000);
 		clickSubmitBtn();
-		clickSystemSettingsBtn();
-		Thread.sleep(800);
+		Am.sleepTime(1000);
 	}
+
 
 }

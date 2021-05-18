@@ -26,7 +26,7 @@ public class TC_RuntimeDefaultSettings_TemperatureTest extends TC_LoginTest_DDT_
 
 	@Test(priority = 1, enabled = true)
 	@Description("Verify the Default Values for Celsius Temperature Unit")
-	public void Test_Celsius_RuntimeSettingDefaultTempValidations() throws InterruptedException, IOException {
+	public void Test_Celsius_RuntimeSettingDefaultTempValidations() throws Exception {
 
 		Trs = new TemperatureRuntimeSettings(driver);
 		
@@ -94,7 +94,7 @@ public class TC_RuntimeDefaultSettings_TemperatureTest extends TC_LoginTest_DDT_
 
 	@Test(priority = 2, enabled = true)
 	@Description("Verify the Default Values for Farnheit Temperature Unit")
-	public void Test_Farnhenit_RuntimeSettingDefaultTempValidations() throws InterruptedException, IOException
+	public void Test_Farnhenit_RuntimeSettingDefaultTempValidations() throws Exception
 
 	{
 

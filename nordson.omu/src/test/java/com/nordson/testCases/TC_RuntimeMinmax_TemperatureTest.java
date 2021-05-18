@@ -34,7 +34,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Story("Temperature Runtimesettings Global Point validations with boundary values in celsius unit")
 	@Test(priority = 1, dataProvider = "GlobalPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void Test_Celsius_RuntimeMinmaxGlobalPointValidations(String lessminval, String moremaxval, String Inrng)
-			throws InterruptedException, IOException {
+			throws Exception {
 
 		Trs = new TemperatureRuntimeSettings(driver);
 
@@ -159,7 +159,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Test(priority = 2, dataProvider = "GlobalPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Global Point validations with boundary values in Farnheit unit")
 	public void Test_Runtime_Farnhit_MinmaxGlobalPointValidations(String lessfhminval, String maxplusfhval,
-			String Inrngfh) throws InterruptedException, IOException {
+			String Inrngfh) throws Exception {
 
 		// setting global point to Min-1 value and validating tank,Manifold,hose and
 		// applicator values for farnheit unit
@@ -294,7 +294,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Test(priority = 3, dataProvider = "TankPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Tank set Point validations with boundary values in celsius unit")
 	public void Test_Celsius_RuntimeMinmaxTankval(String minlsvalue, String maxplusval, String Inrngval)
-			throws InterruptedException, IOException {
+			throws Exception {
 
 		Trs = new TemperatureRuntimeSettings(driver);
 
@@ -399,7 +399,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Test(priority = 4, dataProvider = "TankPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Tank set Point validations with boundary values in Farnheit unit")
 	public void Test_Farnhit_RuntimeMinmaxTankval(String minlsvaluefh, String maxplusvalfh, String Inrngvaluefh)
-			throws InterruptedException, IOException {
+			throws Exception {
 
 		{
 			// clearing the Tank Point and verifying the Error for Farnheit unit
@@ -504,7 +504,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Test(priority = 5, dataProvider = "HoseAppPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Hoseand Applicator1 set Point validations with boundary values in celsius unit")
 	public void Test_Celsius_RuntimeMinmaxHoseval(String minlsvalue, String maxplusval, String Inrngval)
-			throws InterruptedException, IOException {
+			throws Exception {
 
 		// Verfiying the values by checking the status and enabling hose for celsius
 		// unit
@@ -684,7 +684,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Test(priority = 6, dataProvider = "HoseAppPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Hoseand Applicator1 set Point validations with boundary values in Farnheit unit")
 	public void Test_Farnhit_RuntimeMinmaxHoseApplicator1val(String minlsvaluefh, String maxplusvalfh,
-			String Inrngvaluefh) throws InterruptedException, IOException {
+			String Inrngvaluefh) throws Exception {
 
 		Thread.sleep(2000);
 		Trs.clickSystemSettingsBtn();
@@ -857,7 +857,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	@Severity(SeverityLevel.CRITICAL)
 	@Test(priority = 7)
 	@Story("Temperature Runtimesettings Farnheit  to celsius unit conversion")
-	public void Test_farnhit_ToCelsius_RuntimeSetttings_Conversion() throws InterruptedException {
+	public void Test_farnhit_ToCelsius_RuntimeSetttings_Conversion() throws Exception {
 
 		Trs.clickSystemSettingsBtn();
 
