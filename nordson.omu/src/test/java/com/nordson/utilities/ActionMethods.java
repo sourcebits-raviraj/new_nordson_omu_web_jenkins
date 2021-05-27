@@ -224,9 +224,9 @@ public class ActionMethods extends BaseClass {
 		email.setAuthenticator(new DefaultAuthenticator("Devteamascendum@gmail.com", "Welcome@2020"));
 		email.setSSLOnConnect(true);
 		email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
-		// email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
-		// email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
-		// email.addTo("Jayasena.Mallikarjun@ascendum.com", "Jayasena");
+		email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
+		email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
+		email.addTo("Jayasena.Mallikarjun@ascendum.com", "Jayasena");
 		email.setFrom("Devteamascendum@gmail.com", "Automation Team");
 		email.setSubject("Nordson Test Automation Reports-" + new Date());
 		email.setMsg("Please find the attached Nordson Test Automation Reports");
