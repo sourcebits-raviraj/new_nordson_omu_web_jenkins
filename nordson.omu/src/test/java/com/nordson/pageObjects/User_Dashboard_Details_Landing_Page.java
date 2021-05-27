@@ -43,7 +43,8 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//div[contains(text(),'Recently Created or Imported Setting Files')]")
 	public WebElement EventLogFiles;
 
-	@FindBy(xpath = "//div[normalize-space()='DASHBOARD']")
+	//@FindBy(xpath = "//div[normalize-space()='DASHBOARD']")
+	@FindBy(xpath = "(//*[@routerlink='/dashboard']//div)[3]")
 	public WebElement DashBoard;
 
 	@FindBy(xpath = "//div[normalize-space()='Model Registration']")

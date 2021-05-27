@@ -1,0 +1,12 @@
+.\Settings\RecipeCurrent.xml
+.\PLC\myFlexCfg.PLC
+.\Licenses\Licenses.lic
+.\Logs\EventLog01.csv
+.\Logs\EventLog02.csv
+.\Logs\TemperatureLog01.csv
+.\Logs\TemperatureLog02.csv
+.\NSL.csv
+
+
+
+

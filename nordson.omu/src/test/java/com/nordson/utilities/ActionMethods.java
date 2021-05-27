@@ -1,6 +1,7 @@
 package com.nordson.utilities;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -183,9 +185,11 @@ public class ActionMethods extends BaseClass {
 		}
 	}
 
-	public void drawBorder(WebElement element, WebDriver driver) {
+	public void drawBorder(WebElement element, WebDriver driver) throws Exception {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
+		sleepTime(1500);
+		   js.executeScript("arguments[0].style.border='3px solid transparent'", element);
 	}
 
 	public void drawBorderFail(WebElement element, WebDriver driver) {
@@ -193,9 +197,143 @@ public class ActionMethods extends BaseClass {
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
-	public void drawBorder(List<WebElement> element, WebDriver driver) {
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("arguments[0].style.border='3px solid red'", element);
-	}
+	  public void drawBorder(List<WebElement> element, WebDriver driver) {
+	  JavascriptExecutor js = ((JavascriptExecutor) driver);
+	  js.executeScript("arguments[0].style.border='3px solid red'", element); }
+	  
+	  public String conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic() {
+			double newValue =14.93889 * 1000;
+			return String.valueOf((int)Math.round(newValue));
+		}
+	  
+	  public String conversion_of_App_PSI_Default_vlaue_Max_for_Norfile_comparision_Pneumatic() {
+			return String.valueOf(100*1000);
+		}
+		public String conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+			
+			double prValue=Double.parseDouble(value_To_Be_Converted);
+			double newValue =prValue * 1000;
+			return String.valueOf((int)newValue);
+		}
+		
+	  public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+			
+			double prValue=Double.parseDouble(value_To_Be_Converted);
+			double newValue =((1/0.0689475728)*prValue) * 1000;
+			System.out.println(newValue);
+			return String.valueOf((int)Math.round(newValue));
+		}
+	  
+	  public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+			
+			double prValue=Double.parseDouble(value_To_Be_Converted);
+			double newValue =((1/6.89475728)*prValue) * 1000;
+			return String.valueOf((int)Math.round(newValue));
+		}
+	  public String conversion_LineSpeed_mpermin(String value_To_Be_Converted) {
+		  double prValue=Double.parseDouble(value_To_Be_Converted); 
+		  double newValue =((1/0.3048)*prValue) * 100; 
+		  return String.valueOf((int)(newValue));
+		  
+		  }
+	 public String conversion_LineSpeed_ftpermin(String value_To_Be_Converted) {
+
+		 double prValue=Double.parseDouble(value_To_Be_Converted);
+		   double newValue =prValue * 100;
+		   return String.valueOf((int)newValue);
+		  }
+	 
+	  public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
+			
+			double prValue=Double.parseDouble(value_To_Be_Converted);
+			double newValue =((1/6.89475728)*prValue) * 1000/Double.parseDouble(Pumpratio);
+			return String.valueOf((int)Math.round(newValue));
+		}
+	  public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
+			
+			double prValue=Double.parseDouble(value_To_Be_Converted);
+			double newValue =((1/0.0689475728)*prValue) * 1000/ Double.parseDouble(Pumpratio);
+			System.out.println(newValue);
+			return String.valueOf((int)Math.round(newValue));
+		}
+	  
+	  public String conversion_of_PSI_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
+			
+		  double prValue=Double.parseDouble(value_To_Be_Converted);
+			double newValue =(prValue*1000) / Double.parseDouble(Pumpratio);
+			return String.valueOf((int)Math.round(newValue));
+		}
+	  
+	  public String getlatestDownloadedNorFilenm()
+		{
+			String flnm="";
+			   String norfilpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
+				File dir = new File(norfilpth);
+				FileFilter fileFilter = new WildcardFileFilter("*.nor");
+				File[] fileList = dir.listFiles(fileFilter);
+			  // File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
+			  
+			    // Listing all the included files
+			    File lastModifiedFile = fileList[0];
+			    if(fileList.length==1)
+			    {
+			    	flnm=lastModifiedFile.getName();
+			    }
+			    	
+			    else {
+			    	    for (int i = 0; i < fileList.length; i++)	{
+			    		System.out.println(fileList[i]);
+			    	       if(lastModifiedFile.lastModified()<fileList[i].lastModified())
+			    	       {
+			    	           lastModifiedFile=fileList[i];
+			  	               System.out.println(lastModifiedFile.getName());
+			  	               flnm=lastModifiedFile.getName();
+			    	        }
+			    	      else
+			    		System.out.println("Nor file not found");
+			    	  }                                                }
+			return flnm;
+		}
+	  
+	  public void copyFile(String filnm) throws IOException
+		{
+			// creating two channels
+	        // one input and other output  
+			String srcfilepth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+filnm;
+			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
+	        File src = new File(srcfilepth);
+	        File dest = new File(destnationpth); 
+	              
+	        // using copy(InputStream,Path Target); method 
+	      
+	        FileUtils.copyFileToDirectory(src,dest);
+	        
+	        System.out.println("new filename"+filnm.replace(" ", ""));
+		}
+	
+		  public String removeSpaces(String flnm) { 
+			  String path =System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\"+flnm; 
+		  File newfile= new File(path); 
+		  
+		 
+		  String newflnm=flnm.replace(" ", ""); 
+		  String path2 = System.getProperty("user.dir")+ "\\src\\test\\java\\com\\nordson\\BDGTest\\"+newflnm; 
+		  File newfile2 = new File(path2); 
+		  boolean newfileStatus= newfile.renameTo(newfile2);
+		  if(newfileStatus==true)
+		  System.out.println("file successfuly renamed");
+		  else
+			  System.out.println("file not renamed");
+		  return newflnm;
+		  }
+
+		public void ConversionfromNorToXML(String flnm) throws IOException
+		{
+			  ProcessBuilder builder =new ProcessBuilder("cmd.exe", "/c","cd \""+System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U "+flnm);
+			  builder.redirectErrorStream(true); 
+			  builder.start();
+			  System.out.println("Converted NOR "+flnm+"to XML file Done");  
+		}
+			  
 
 }

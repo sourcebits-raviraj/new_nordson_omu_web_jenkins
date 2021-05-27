@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ReadConfig {
 
-	Properties pro;
+  Properties pro;
 
 	public ReadConfig() {
 		File src = new File("./configs/config.properties");
@@ -51,10 +51,29 @@ public class ReadConfig {
 
 	}
 
-	public String getExcelMDSpathTemperature() {
-		return pro.getProperty("MDSpathtemp");
+	// Locale properties
+	public String getLocaleLanguage() {
+		return pro.getProperty("locale.language");
+	}
+	
+	public String getLocaleCountry() {
+		return pro.getProperty("locale.country");
+	}
+	
+// Endevaour file path
+	
+	public String getExcelEndevaourStringfilepath() {
+		return pro.getProperty("EndevaourStringfile");
 	}
 
+// MDS properties
+	
+	public String getExcelMDSpathTemperature() {
+
+		String MDSpath = pro.getProperty("MDSpathtemp");
+		return MDSpath;
+	}
+	
 	public String getExcelMDSpathPressure() {
 
 		String MDSpath = pro.getProperty("MDSpathPressure");
