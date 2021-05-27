@@ -265,4 +265,23 @@ public class ReadConfig {
 		return pro.getProperty("UIfildTobefetched_StartupSkipCount");
 	}
 
+	public String getDashboardPath() {
+		return pro.getProperty("DashboardPath");
+	}
+
+	public String getExceptionPath() {
+		return pro.getProperty("ExceptionPath");
+	}
+
+	public String getIndexPath() {
+		return pro.getProperty("IndexPath");
+	}
+
+	public String getNordsonOMUPath() {
+		return pro.getProperty("RegressionReportsPath");
+	}
+
+	public String getEmailableReport() {
+		return pro.getProperty("EmailableReportsPath");
+	}
 }
