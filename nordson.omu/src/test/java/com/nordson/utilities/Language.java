@@ -103,8 +103,7 @@ public class Language {
 	            System.out.println("Portuguse language selected");
 	            break;
 
-	        default:
-	        	System.out.println("user input Language doesnt exsists");
+	 
 
 	        }
 	}

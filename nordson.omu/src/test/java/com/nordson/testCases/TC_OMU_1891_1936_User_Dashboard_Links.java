@@ -365,7 +365,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	}
 
 	@Test(priority = 16, enabled = true)
-	public void Manage_Lincenses() throws InterruptedException, IOException {
+	public void Manage_Lincenses() throws Exception {
 
 		if (lp.manageLincenseDisplayed() == true) {
 

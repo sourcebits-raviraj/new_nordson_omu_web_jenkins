@@ -3,16 +3,13 @@ package com.nordson.ui.testcases;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 
-import org.bytedeco.javacpp.annotation.Const;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import org.xml.sax.SAXException;
 
 import com.nordson.NORXML.XMLClass;
-import com.nordson.pageObjects.ui.Pressure_Min_Max_Validations;
+
 import com.nordson.pageObjects.ui.User_Dashboard_Details_Landing_Page;
 import com.nordson.testCases.TC_LoginTest_DDT_001;
 import com.nordson.utilities.ActionMethods;
@@ -31,7 +28,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	ActionMethods Am = new ActionMethods();
 	XMLClass xmlval = new XMLClass();
 
-	Pressure_Min_Max_Validations pmv;
+	
 	private SoftAssert softAssert = new SoftAssert();
 
 	// Driver Object Instantiation

@@ -82,7 +82,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	}
 
 	@Test(priority = 2, enabled = true)
-	public void Registration_Nordson_CopyRightText() throws InterruptedException, IOException {
+	public void Registration_Nordson_CopyRightText() throws Exception {
 
 		if (rpl.getCopyRightDisplayed() == true) {
 
