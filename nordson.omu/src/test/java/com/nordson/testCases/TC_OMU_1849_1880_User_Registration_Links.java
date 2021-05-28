@@ -109,7 +109,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	}
 
 	@Test(priority = 3, enabled = true)
-	public void Registration_Nordson_Privacy_Policy() throws InterruptedException, IOException {
+	public void Registration_Nordson_Privacy_Policy() throws Exception {
 
 		if (rpl.PrivacyPolicyDisplayed() == true) {
 
@@ -156,7 +156,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	}
 
 	@Test(priority = 4, enabled = true)
-	public void Registration_Nordosn_Terms_of_Services() throws InterruptedException, IOException {
+	public void Registration_Nordosn_Terms_of_Services() throws Exception {
 
 		if (rpl.TermsOfServiceDisplayed() == true) {
 
@@ -179,7 +179,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	}
 
 	@Test(priority = 5, enabled = true)
-	public void Registration_Nordson_Cookies() throws InterruptedException, IOException {
+	public void Registration_Nordson_Cookies() throws Exception {
 
 		if (rpl.cookiesDisplayed() == true) {
 			Am.drawBorder(rpl.Cookies, driver);
@@ -223,7 +223,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	}
 
 	@Test(priority = 6, enabled = true)
-	public void Registration_Nordson_Contact_Us() throws InterruptedException, IOException {
+	public void Registration_Nordson_Contact_Us() throws Exception {
 
 		if (rpl.contactUsDisplayed() == true) {
 			Am.drawBorder(rpl.ContactUs, driver);
