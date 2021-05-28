@@ -12,6 +12,10 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.MultiPartEmail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -335,5 +339,44 @@ public class ActionMethods extends BaseClass {
 			  System.out.println("Converted NOR "+flnm+"to XML file Done");  
 		}
 			  
+
+	public static void sendEmail() throws EmailException {
+		ReadConfig readconfig = new ReadConfig();
+
+		EmailAttachment attachment = new EmailAttachment();
+		String omuPath = System.getProperty("user.dir") + readconfig.getNordsonOMUPath();
+		attachment.setPath(omuPath);
+		attachment.setDisposition(EmailAttachment.ATTACHMENT);
+
+		EmailAttachment attachment1 = new EmailAttachment();
+		String emailpath = System.getProperty("user.dir") + readconfig.getEmailableReport();
+		attachment1.setPath(emailpath);
+		attachment1.setDisposition(EmailAttachment.ATTACHMENT);
+
+		// Create the email message
+		MultiPartEmail email = new MultiPartEmail();
+
+		// HtmlEmail email = new HtmlEmail();
+		email.setHostName("smtp.gmail.com");
+		email.setSmtpPort(587);
+		email.setAuthenticator(new DefaultAuthenticator("Devteamascendum@gmail.com", "Welcome@2020"));
+		email.setSSLOnConnect(true);
+		/*
+		 * email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
+		 * email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
+		 * email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
+		 */
+		email.addTo("Jayasena.Mallikarjun@ascendum.com", "Jayasena");
+		email.setFrom("Devteamascendum@gmail.com", "Automation Team");
+		email.setSubject("Nordson Test Automation Reports-" + new Date());
+		email.setMsg("Please find the attached Nordson Test Automation Reports");
+
+		// add the attachment
+		email.attach(attachment);
+		email.attach(attachment1);
+
+		// send the email
+		email.send();
+	}
 
 }

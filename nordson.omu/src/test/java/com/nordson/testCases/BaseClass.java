@@ -1,8 +1,9 @@
 package com.nordson.testCases;
 
+
 import java.io.File;
 import java.util.HashMap;
-
+import org.apache.commons.mail.EmailException;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import com.nordson.utilities.ActionMethods;
 import com.nordson.utilities.ReadConfig;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -111,8 +113,8 @@ public class BaseClass {
 	// Tear Down Method Before Class Testng Annotations launching of the Web
 	// application
 	@AfterClass
-	public void tearDown() {
-
+	public void tearDown() throws EmailException {
+		ActionMethods.sendEmail();
 		driver.quit();
 		log.info("All the tabs are closed");
 
