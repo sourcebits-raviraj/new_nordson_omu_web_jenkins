@@ -193,7 +193,7 @@ public class ActionMethods extends BaseClass {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
 		sleepTime(1500);
-		   js.executeScript("arguments[0].style.border='3px solid transparent'", element);
+		 //  js.executeScript("arguments[0].style.border='3px solid transparent'", element);
 	}
 
 	public void drawBorderFail(WebElement element, WebDriver driver) {
@@ -268,7 +268,7 @@ public class ActionMethods extends BaseClass {
 			return String.valueOf((int)Math.round(newValue));
 		}
 	  
-	  public String getlatestDownloadedNorFilenm()
+	  public String getlatestDownloadedNorFilenm() throws Exception
 		{
 			String flnm="";
 			   String norfilpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
@@ -276,7 +276,7 @@ public class ActionMethods extends BaseClass {
 				FileFilter fileFilter = new WildcardFileFilter("*.nor");
 				File[] fileList = dir.listFiles(fileFilter);
 			  // File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
-			  
+			   sleepTime(2500);
 			    // Listing all the included files
 			    File lastModifiedFile = fileList[0];
 			    if(fileList.length==1)
@@ -299,15 +299,17 @@ public class ActionMethods extends BaseClass {
 			return flnm;
 		}
 	  
-	  public void copyFile(String filnm) throws IOException
+	  public void copyFile(String filnm) throws Exception
 		{
 			// creating two channels
 	        // one input and other output  
 			String srcfilepth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+filnm;
 			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
 	        File src = new File(srcfilepth);
+	        sleepTime(2500);
 	        File dest = new File(destnationpth); 
-	              
+	        sleepTime(2500); 
+	        
 	        // using copy(InputStream,Path Target); method 
 	      
 	        FileUtils.copyFileToDirectory(src,dest);
@@ -358,15 +360,14 @@ public class ActionMethods extends BaseClass {
 
 		// HtmlEmail email = new HtmlEmail();
 		email.setHostName("smtp.gmail.com");
-		email.setSmtpPort(587);
+		email.setSmtpPort(465);
 		email.setAuthenticator(new DefaultAuthenticator("Devteamascendum@gmail.com", "Welcome@2020"));
 		email.setSSLOnConnect(true);
-		/*
-		 * email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
-		 * email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
-		 * email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
-		 */
-		email.addTo("Jayasena.Mallikarjun@ascendum.com", "Jayasena");
+	    email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
+		email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
+		email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
+		 
+		email.addTo("jayasena.mallikarjun@ascendum.com", "Jayasena");
 		email.setFrom("Devteamascendum@gmail.com", "Automation Team");
 		email.setSubject("Nordson Test Automation Reports-" + new Date());
 		email.setMsg("Please find the attached Nordson Test Automation Reports");
