@@ -97,5 +97,7 @@ public class Constants {
 	public static final String ReadWriteText = "Read/Write";
 	public static final String ReadOnly = "Read Only";
 	public static final String SubUsersmsg = "Sub User Added Successfully";
+	
+	public static final String Pressuresucssmsg = "Pressure updated successfully";
 
 }

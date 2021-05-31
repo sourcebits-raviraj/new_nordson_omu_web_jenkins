@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Nordson OMU Web App Regression Tests on Chrome" thread-count="1" parallel="methods">
+<suite name="Nordson OMU Web App Regression Tests on Chrome">
 
 <listeners>
 <listener class-name="com.nordson.utilities.Reporting" />
@@ -12,14 +12,9 @@
   <test name="Nordson OMU Web App Regression Tests on Chrome">
       <parameter name="browser" value="chrome"/>
        <classes>
-     <!--<class name="com.nordson.testCases.TC_LoginTest_001"/>
-     
-     <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>  
-     <class name="com.nordson.testCases.TC_LoginTest_DDT_001"/>    -->
-        
-    <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
-    
-    
+          <!--  <class name="com.nordson.utilities.Language"/> -->
+           <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links"/>
+            
       </classes>
      
        </test> 
