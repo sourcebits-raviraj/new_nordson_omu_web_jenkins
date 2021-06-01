@@ -31,6 +31,7 @@ import com.nordson.testCases.BaseClass;
 public class ActionMethods extends BaseClass {
 
 	ArrayList<String> tabs;
+	ReadConfig rcf=new ReadConfig();
 	// public WebDriver driver;
 
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
@@ -271,7 +272,7 @@ public class ActionMethods extends BaseClass {
 	  public String getlatestDownloadedNorFilenm() throws Exception
 		{
 			String flnm="";
-			   String norfilpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
+			   String norfilpth=rcf.getDownloadPath();
 				File dir = new File(norfilpth);
 				FileFilter fileFilter = new WildcardFileFilter("*.nor");
 				File[] fileList = dir.listFiles(fileFilter);
@@ -299,11 +300,11 @@ public class ActionMethods extends BaseClass {
 			return flnm;
 		}
 	  
-	  public void copyFile(String filnm) throws Exception
+	  public void NorcopyFile(String filnm) throws Exception
 		{
 			// creating two channels
 	        // one input and other output  
-			String srcfilepth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\"+filnm;
+			String srcfilepth=rcf.getDownloadPath()+filnm;
 			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
 	        File src = new File(srcfilepth);
 	        sleepTime(2500);

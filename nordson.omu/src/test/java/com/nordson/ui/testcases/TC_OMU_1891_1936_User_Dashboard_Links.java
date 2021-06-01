@@ -695,10 +695,11 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				// Storing the downloaded file to the projec tlocation and converting it to XML
 		
 		  String flnm = Am.getlatestDownloadedNorFilenm(); 
-		  Thread.sleep(2500);
-		  Am.copyFile(flnm); 
+		  Am.sleepTime(4000);
+		  Am.NorcopyFile(flnm); 
+		  Am.sleepTime(2000); 
 		  String newfilename = Am.removeSpaces(flnm);
-		  Thread.sleep(2500); 
+		  Am.sleepTime(3500); 
 		  Am.ConversionfromNorToXML(newfilename);
 		 
 				Thread.sleep(3500);
@@ -781,10 +782,11 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		Thread.sleep(4000);
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
-		Thread.sleep(4000);
-		Am.copyFile(flnm);
-		String newfilename = Am.removeSpaces(flnm);
-		Thread.sleep(3000);
+		 Am.sleepTime(4000);
+		  Am.NorcopyFile(flnm); 
+		  Am.sleepTime(2000); 
+		  String newfilename = Am.removeSpaces(flnm);
+		  Am.sleepTime(3500); 
 		Am.ConversionfromNorToXML(newfilename);
 		Thread.sleep(4000);
 		// Getting the value from RecipeCurrent.XML
@@ -867,11 +869,12 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		Thread.sleep(2500);
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
-		Thread.sleep(2500);
-		Am.copyFile(flnm);
-		String newfilename = Am.removeSpaces(flnm);
-		Thread.sleep(2500);
-		Am.ConversionfromNorToXML(newfilename);
+		  Am.sleepTime(4000);
+		  Am.NorcopyFile(flnm); 
+		  Am.sleepTime(2000); 
+		  String newfilename = Am.removeSpaces(flnm);
+		  Am.sleepTime(3500); 
+		  Am.ConversionfromNorToXML(newfilename);
 		Thread.sleep(3500);
 		// Getting the value from RecipeCurrent.XML
 		System.out.println(xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert));
