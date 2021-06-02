@@ -2,7 +2,6 @@ package com.nordson.utilities;
 
 public class Constants {
 
-
 	// Default Value settings
 
 	public static final String Tank = "177";
@@ -55,17 +54,50 @@ public class Constants {
 	public static final String OTTErrmsgFH = "Over Temperature Threshold should be between 9 and 108";
 	public static final String UTTErrmsgFH = "Under Temperature Threshold should be between 16 and 108";
 	public static final String TempstbckErrmsgFH = "Temperature Setback should be between 9 and 108";
-	public static final String Sucssmsg = "Temperature Settings updated successfully";
-	
-	public static final String Fillsucssmsg="Pump updated successfully";
-	
-	//Sucessful message for Flow
-	public static final String FlowSucssmsg ="Flow Updated Successfully";
-	
-	// Successful Message after User MOdel Registration
-	public static final String SucssText = "We have sent you a link!";
 
+	public static final String Sucssmsg = "Temperature Settings updated successfully";
+	public static final String Fillsucssmsg = "Pump updated successfully";
+
+	// Successful Message after User Model Registration
+	public static final String SucssText = "We have sent you a link!";
+	public static final String copyRight = "© 2021 Nordson Corporation";
+	public static final String privacyPolicy = "Privacy Policy";
+	public static final String termsOfServices = "Terms of Service";
+	public static final String CookiesText = "Cookies";
+	public static final String ContactUs = "Cookies";
+	public static final String ContactUsHeader = "Contact Us";
+
+	// Sucessfull message for Flow
+	public static final String FlowSucssmsg = "Flow Updated Successfully";
+
+	public static final String CreateNewNor = "CREATE NEW";
+	public static final String PreviousFileText = "USE PREVIOUS FILE";
+	public static final String LoadFromUSB = "LOAD FROM USB/COMPUTER";
+
+	public static final String MediaCenterText = "MEDIA CENTER";
+	public static final String HelpCenterText = "MANAGE LICENSES";
+	public static final String LincenseText = "HELP CENTER";
+	public static final String ProfileText = "Profile";
+	public static final String FullName = "Full Name";
+	public static final String Email = "Email";
+	public static final String Country = "Country";
+	public static final String PhoneNumber = "Phone Number";
+	public static final String PlantName = "Plant Name";
+	public static final String CompanyName = "Company Name";
+	public static final String CompanyType = "Company Type";
+	public static final String Address = "Address";
+	public static final String NordosnAccountNumber = "Nordson Account Number";
+	public static final String ChangePassword = "Change Password ";
+	public static final String EditProfile = "Edit Profile";
+	public static final String AddSubUserHeader = "ADD SUB-USER";
+	public static final String SubUserFullName = " Full Name ";
+	public static final String SubUserEmail = " Email ";
+	public static final String AddButton = "ADD";
+	public static final String CancelButton = "CANCEL";
+	public static final String ReadWriteText = "Read/Write";
+	public static final String ReadOnly = "Read Only";
+	public static final String SubUsersmsg = "Sub User Added Successfully";
 	
-	
+	public static final String Pressuresucssmsg = "Pressure updated successfully";
 
 }

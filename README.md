@@ -59,8 +59,16 @@ log4j has three main components:
 
 5. Verify the HTML reports under test-output (testng-reports.xml, html folder > nordson*.html file, reportNG reports (index.html))
 
+
+# Execution
+- Run through testng.xml (Adding all the testcases)
+- Run through mvn clean test
+- Run through jenkins build - mvn clean install
+
+
 # Sample Test Cases covered are:
 - Login Test case with properties values
 - Verify all the links in the portal
 - Login Test Cases using Data Driver (.xls file)
 - Registration Test Case (.xls file)
+- Pressure MDS File

@@ -2,7 +2,8 @@
 /test-output/
 /allure-results/
 /Screenshots/
-/allure-results/
-/test-output/
+**/allure-results
+**/test-output
 *.html
 *.png
+Selenium.logs.*
