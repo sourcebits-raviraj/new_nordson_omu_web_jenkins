@@ -13,7 +13,7 @@
       <parameter name="browser" value="chrome"/>
        <classes>
           <!--  <class name="com.nordson.utilities.Language"/> -->
-           <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links"/>
+           <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
             
       </classes>
      
