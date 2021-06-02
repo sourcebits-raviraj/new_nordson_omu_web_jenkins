@@ -112,7 +112,6 @@ public class LocalisationReadWriteLocaleProperties {
 		// Creating a new Properties object
 		Properties props = new Properties();
 		
-		
 		// Creating a File object which will point to location of properties file
 		File propertiesFile = new File(System.getProperty("user.dir")+"/src/test/resources/ApplicationResources_"+rcf.getLocaleLanguage()+".properties");
 		try {

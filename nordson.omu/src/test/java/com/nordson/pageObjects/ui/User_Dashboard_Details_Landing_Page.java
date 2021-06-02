@@ -162,6 +162,10 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//*[@class='download']")
 	public WebElement Download;
 	
+	@FindBy(xpath = "//*[@class='download']/img")
+	public WebElement Downloadtxt;
+	
+	
 	@FindBy(xpath = "//button[@class='apply btn submit-bt']")
 	public WebElement Savebutton;
 	
@@ -568,6 +572,16 @@ public class User_Dashboard_Details_Landing_Page {
 			}
 		  
 		
-
+		  public boolean DownloadISDisplayed() {
+			   
+			  Am.waitForAnElementClickable(By.xpath("//*[@class='download']"));
+				return Download.isDisplayed();
+			}
+		  
+			public String getDownloadtext() {
+				
+				System.out.println(Download.getText());
+				return Download.getText().trim();
+			}
 	
 }
