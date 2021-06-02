@@ -147,12 +147,12 @@
   <eDateFmt Value="1" />
   <eTimeFmt Value="1" />
   <TimeZone Value="0" />
-  <ClockHour Value="13" />
-  <ClockMinutes Value="47" />
-  <ClockSeconds Value="42" />
+  <ClockHour Value="10" />
+  <ClockMinutes Value="23" />
+  <ClockSeconds Value="46" />
   <DateYear Value="2021" />
-  <DateMonth Value="05" />
-  <DateDay Value="27" />
+  <DateMonth Value="06" />
+  <DateDay Value="01" />
   <bDayLightSavings Value="0" />
   <iDayLightSavStat Value="0" />
   <bWizardRan Value="1" />

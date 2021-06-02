@@ -214,7 +214,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				log.info("Load from USB text is displayed in UI :" + lp.getLoadFromUSB_ComputerText());
 				Am.drawBorder(lp.LoadFromUSBText, driver);
 				lp.clickLoadFromUSB();
-				Am.sleepTime(2000);
+				Am.sleepTime(2500);
 				Robot robot = new Robot();
 				robot.keyPress(KeyEvent.VK_ESCAPE);
 				robot.keyRelease(KeyEvent.VK_ESCAPE);
@@ -667,23 +667,39 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		System.out.println(LocaleMSgReader.getString("MANUAL_ADJUST") + "MANUAL_ADJUST text from locale properties file ");
 		Am.sleepTime(1500);
 		lp.SelectMainPressureModeSelectionDropdown(LocaleMSgReader.getString("MANUAL_ADJUST"));
+		Am.sleepTime(4500);
+		// Verifying the Download text
+		if (lp.DownloadISDisplayed()== true) {
+			log.info("Download Link Displayed");
+			if (lp.getDownloadtext().equalsIgnoreCase(LocaleMSgReader.getString("DOWNLOAD_NOR_FILE"))) {
+				log.info("DOWNLOAD .NOR File text is displayed in UI :" + lp.getDownloadtext());
+				Am.drawBorder(lp.Download, driver);
+				Assert.assertTrue(true);
+			} else {
+				log.info("DOWNLOAD .NOR File text is not matched with String file");
+				Am.drawBorderFail(lp.Download, driver);
+				Assert.assertTrue(false);
+			}
+		} else {
+			Am.drawBorderFail(lp.Download, driver);
+			log.info("DOWNLOAD .NOR File  is not Displayed");
+			System.out.println("DOWNLOAD .NOR File is not dispalyed");
+			Assert.assertTrue(false);
+		}
 		
-		Am.sleepTime(4000);
 		
-		String pressminVal = lp.getMinimumPressureAlertValue();
-		String pressmaxVal = lp.getMaximumPressureAlertValue();
-		
-		
+	
 		// Downloading the .Nor file
 				lp.clickdownload();
 				Am.sleepTime(3000);
 				// Storing the downloaded file to the projec tlocation and converting it to XML
 		
 		  String flnm = Am.getlatestDownloadedNorFilenm(); 
-		  Thread.sleep(2500);
-		  Am.copyFile(flnm); 
+		  Am.sleepTime(4000);
+		  Am.NorcopyFile(flnm); 
+		  Am.sleepTime(2000); 
 		  String newfilename = Am.removeSpaces(flnm);
-		  Thread.sleep(2500); 
+		  Am.sleepTime(3500); 
 		  Am.ConversionfromNorToXML(newfilename);
 		 
 				Thread.sleep(3500);
@@ -699,14 +715,14 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 				// Comparsion of old tags
 				Am.sleepTime(3000);
-				System.out.println("Default Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+"App converted value");
-				System.out.println(("Default Value of old tag Maxmium Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert)));
+				System.out.println("Default Value of old tag Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value");
+				System.out.println(("Default Value of old tag for Minimum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert)));
 				Assert.assertEquals(Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic(), xmlval
 						.XMLParser(XMLTagConstants.MinimumPressureAlert));
 				
 				
-				System.out.println("Default Value of Maximum Pressure Alert in UI ="+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+"App converted value");
-				System.out.println(("Default Value of old tag Maxmium Pressure Alert in XML ="+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlert)));
+				System.out.println("Default Value of old tag Maximum Pressure Alert in UI ="+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value");
+				System.out.println(("Default Value of old tag for Maxmium Pressure Alert in XML ="+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlert)));
 				
 				Assert.assertEquals(Am.conversion_of_App_PSI_Default_vlaue_Max_for_Norfile_comparision_Pneumatic(), xmlval
 						.XMLParser(XMLTagConstants.MaximumPressureAlert));
@@ -719,17 +735,17 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 						xmlval.XMLParser(XMLTagConstants.MinimumPressureAlertNative),
 						xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative));
 				
-				System.out.println("Default Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+"App converted value");
-				System.out.println(("Default Value of Native tag Maxmium Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlertNative)));
+				System.out.println("Default Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value");
+				System.out.println(("Default Value of Native tag Minimum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlertNative)));
+				
 				Assert.assertEquals(Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic(), xmlval
 						.XMLParser(XMLTagConstants.MinimumPressureAlertNative));
 				
 				System.out.println("Default Value of Maximum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+"App converted value");
-				System.out.println(("Default Value of Native tag Maxmium Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative)));
+				System.out.println(("Default Value of Native tag for Maxmium Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative)));
 				
 				Assert.assertEquals(Am.conversion_of_App_PSI_Default_vlaue_Max_for_Norfile_comparision_Pneumatic(), xmlval
 						.XMLParser(XMLTagConstants.MaximumPressureAlertNative));
-				
 				
 	}
 	
@@ -756,25 +772,28 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		
 		lp.saveButton();
 		Assert.assertEquals(lp.getToastMessageText(),Constants.Pressuresucssmsg);
-		Am.sleepTime(3000);
+		Am.sleepTime(3500);
 		// getting the minimum and max value from the UI String
 		String pressminVal = lp.getMinimumPressureAlertValue();
 		String pressmaxVal = lp.getMaximumPressureAlertValue();
 		
 		// Downloading the .Nor file
 		lp.clickdownload();
-		Thread.sleep(2500);
+		Thread.sleep(4000);
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
-		Thread.sleep(2500);
-		Am.copyFile(flnm);
-		String newfilename = Am.removeSpaces(flnm);
-		Thread.sleep(2500);
+		 Am.sleepTime(4000);
+		  Am.NorcopyFile(flnm); 
+		  Am.sleepTime(2000); 
+		  String newfilename = Am.removeSpaces(flnm);
+		  Am.sleepTime(3500); 
 		Am.ConversionfromNorToXML(newfilename);
-		Thread.sleep(3500);
+		Thread.sleep(4000);
 		// Getting the value from RecipeCurrent.XML
 		System.out.println(xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert));
 		System.out.println(xmlval.XMLParser(XMLTagConstants.MaximumPressureAlert));
+		
+		
 		// writing the value to excel sheet
 		XLUtils.setNorXMLValues_Pressure_Min_and_Max("Output_Manualadjust_PSI_Minvals",
 				XMLTagConstants.MinimumPressureAlert, XMLTagConstants.MaximumPressureAlert,
@@ -784,9 +803,14 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		// Comparison of old tags
 		
 		//Verification of ulLowPressureAlertThreshold tag with Pressure Unit as -PSI
+		
+		System.out.println("Min Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Min Value of old tag Minimum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert)));
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressminVal), xmlval
 				.XMLParser(XMLTagConstants.MinimumPressureAlert));
 		
+		System.out.println("Min Value of Maximum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Min Value of old tag Maximum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlert)));
 		//Verification of ulHighPressureAlertThreshold tag with Pressure Unit as -PSI
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressmaxVal), xmlval
 				.XMLParser(XMLTagConstants.MaximumPressureAlert));
@@ -798,14 +822,17 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative));
 
 		//Verification of ulLowPressureAlertThresholdNative tag with Pressure Unit as -PSI
+		System.out.println("Min Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Min Value of Native tag Minimum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlertNative)));
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressminVal), xmlval
 				.XMLParser(XMLTagConstants.MinimumPressureAlertNative));
 		
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -PSI
+		System.out.println("Min Value of Maximum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Min Value of Native tag Maximum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative)));
+		
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressmaxVal), xmlval
 				.XMLParser(XMLTagConstants.MaximumPressureAlertNative));
-		
-
 	}
 	
 	@Test(priority = 25)
@@ -842,11 +869,12 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		Thread.sleep(2500);
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
-		Thread.sleep(2500);
-		Am.copyFile(flnm);
-		String newfilename = Am.removeSpaces(flnm);
-		Thread.sleep(2500);
-		Am.ConversionfromNorToXML(newfilename);
+		  Am.sleepTime(4000);
+		  Am.NorcopyFile(flnm); 
+		  Am.sleepTime(2000); 
+		  String newfilename = Am.removeSpaces(flnm);
+		  Am.sleepTime(3500); 
+		  Am.ConversionfromNorToXML(newfilename);
 		Thread.sleep(3500);
 		// Getting the value from RecipeCurrent.XML
 		System.out.println(xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert));
@@ -861,11 +889,16 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 		// Comparison of old tags
 		
+		System.out.println("Max Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Max Value of old tag Minimum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert)));
 		//Verification of ulLowPressureAlertThreshold tag with Pressure Unit as -PSI
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressminVal), xmlval
 				.XMLParser(XMLTagConstants.MinimumPressureAlert));
 		
 		//Verification of ulHighPressureAlertThreshold tag with Pressure Unit as -PSI
+		System.out.println("Max Value of Maximum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Max Value of old tag Maximum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlert)));
+		
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressmaxVal), xmlval
 				.XMLParser(XMLTagConstants.MaximumPressureAlert));
 
@@ -876,8 +909,14 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative));
 
 		//Verification of ulLowPressureAlertThresholdNative tag with Pressure Unit as -PSI
+		System.out.println("Max Value of Minimum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Max Value of Native tag Minimum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MinimumPressureAlert)));
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressminVal), xmlval
 				.XMLParser(XMLTagConstants.MinimumPressureAlertNative));
+		
+		
+		System.out.println("Max Value of Maximum Pressure Alert in UI = "+Am.conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic()+" App converted value ");
+		System.out.println(("Max Value of Native tag Maximum Pressure Alert in XML = "+xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative)));
 		
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -PSI
 		Assert.assertEquals(Am.conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(pressmaxVal), xmlval
