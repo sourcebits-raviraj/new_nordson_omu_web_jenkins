@@ -32,6 +32,7 @@ public class TC_Pressure_Min_Max_Data_Validations extends TC_LoginTest_DDT_001 {
 		pmv = new Pressure_Min_Max_Validations(driver);
 		log.info("Clicked on Set Up Tool Link");
 		pmv.clickSetUpToolLink();
+		Thread.sleep(1000);
 
 		log.info("Clicked on Create New .NOR file button");
 		pmv.clickCreateNewFile();

@@ -284,6 +284,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		trs.createNewNORfile();
 		trs.clickPreferencesBtn();
 		log.info("Clicked on Preferences button");
+		Thread.sleep(2000);
 		trs.clickFarhenitUnit();
 		log.info("Clicked on Fahrenheit temperature button");
 		trs.clickSave();

@@ -149,6 +149,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		Thread.sleep(1000);
 		tss.createNewNORfile();
 		tss.clickPreferencesBtn();
+		Thread.sleep(1000);
 		tss.clickFahrenheit();
 		log.info("Temperature Unit Fahrenheit is selected by clicking");
 		tss.clickSave();
@@ -158,6 +159,7 @@ public class TC_SystemSettings_Temperature_MDSValidations extends TC_LoginTest_D
 		else
 			log.info("Preferences not updated sucessfully");
 		tss.clickTemperatureBtn();
+		Thread.sleep(2000);
 		// check for default values
 		softAssert.assertEquals(tss.getOTTemperature(), mds.getDefault2(),
 				"Over Temperature threshold temp is not set to Default value : " + mds.getDefault2());

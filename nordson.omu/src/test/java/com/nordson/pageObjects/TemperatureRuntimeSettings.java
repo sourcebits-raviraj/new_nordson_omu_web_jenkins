@@ -126,10 +126,10 @@ public void clickDashboard() {
 	}
 
 	public void clickSetUpToolBtn() {
+		Am.waitForAnElementPresence(By.id("bt"));
 		Am.waitForAnElementToBeClickable(SetUpToolButton);
 		SetUpToolButton.click();
 	}
-
 	public void clickCreateNewBtn() {
 		Am.waitForAnElementPresence(CreateNewButton);
 		Am.waitForAnElementToBeClickable(CreateNewButton);
@@ -236,7 +236,7 @@ public void clickDashboard() {
 
 	public void setGlobalSetPoint(String globalpnt) {
 
-		Am.waitForAnElementPresence(GlobalSetPoint);
+		Am.waitForAnElementToBeClickable(GlobalSetPoint);
 		GlobalSetPoint.sendKeys(globalpnt);
 
 	}
@@ -541,26 +541,7 @@ public void clickDashboard() {
 			count++;
 		}
 	}
-	public void setHosestemp(String hosesettemp) throws InterruptedException {
-		String hose="";
-		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'Hose')]"));
-		for (int i = 1; i <= Hose.size(); i++) {
-			hose = "//*[text()='Hose " + i
-					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
-			String hosesetbx = "//*[@name='hose" + i + "']";
-			if(ldriver.findElements(By.xpath(hose)).size()==1)
-				ldriver.findElement(By.xpath(hose)).click();
-			else
-				System.out.println("hose"+i+"already enabled");
-				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(hosesettemp);
-				clickSavebtn();
-				if(getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
-					System.out.println("Hose"+i+" set to Maxmium values are saved successfully");	 
-				else
-					System.out.println("Hose"+i+" set to Maxmium values are not saved successfully");	
-		}
-	}
+	
 
 	public void setApplicatorstemp(String appsettemp) throws InterruptedException {
 		String Applcator="";
@@ -594,4 +575,69 @@ public void clickDashboard() {
 		Thread.sleep(800);
 	}
 
+	
+	public void setHosestemp(String hosesettemp) throws InterruptedException {
+		String hose="";
+		String tstmsg="";
+		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'Hose')]"));
+		for (int i = 1; i <= Hose.size(); i++) {
+			hose = "//*[text()='Hose " + i
+					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
+			String hosesetbx = "//*[@name='hose" + i + "']";
+			String bfrval=ldriver.findElement(By.xpath(hosesetbx)).getAttribute("value");
+			System.out.println(bfrval);
+			if(ldriver.findElements(By.xpath(hose)).size()==1)
+				ldriver.findElement(By.xpath(hose)).click();
+			else
+				System.out.println("hose"+i+"already enabled");
+				
+			    ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(hosesettemp);
+				clickSavebtn();
+				tstmsg = getToastmsg();
+				
+				if(Integer.parseInt(hosesettemp)<40||Integer.parseInt(hosesettemp)>232) {
+				VerifyErrToastmsgCelsius(tstmsg,i);}
+				else if(Integer.parseInt(hosesettemp)<100||Integer.parseInt(hosesettemp)>450)
+					VerifyErrToastmsgFarnheit(tstmsg,i);	
+				else
+					VerfiySucsstoastmsg(tstmsg);
+				
+				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(bfrval);
+				clickSavebtn();
+				getToastmsg();
+		}
+		
+	
+	}
+	public void VerfiySucsstoastmsg(String tstmsg) {
+		// TODO Auto-generated method stub
+		if(tstmsg.equalsIgnoreCase(Constants.SucssmsgRuntime))
+			Assert.assertTrue(true);
+		else
+			Assert.assertTrue(false);
+	}
+
+	public void VerifyErrToastmsgCelsius(String tstmsg,int hoseAppnum) {
+		if(tstmsg.equalsIgnoreCase(Constants.Hosecelsius.replaceAll("husnum",String.valueOf(hoseAppnum)))) {
+			Assert.assertTrue(true);
+		}
+		else if(tstmsg.equalsIgnoreCase(Constants.Appcelsius.replaceAll("Appnum",String.valueOf(hoseAppnum)))) {
+			Assert.assertTrue(true);
+		}
+		else
+			Assert.assertTrue(false);
+	}
+	
+	public void VerifyErrToastmsgFarnheit(String tstmsg,int hoseAppnum) {
+		if(tstmsg.equalsIgnoreCase(Constants.HoseFH.replaceAll("husnum",String.valueOf(hoseAppnum)))) {
+			Assert.assertTrue(true);
+		}
+		else if(tstmsg.equalsIgnoreCase(Constants.ApplictorFH.replaceAll("Appnum",String.valueOf(hoseAppnum)))) {
+			Assert.assertTrue(true);}
+		else
+			Assert.assertTrue(false);
+		}
+	
 }

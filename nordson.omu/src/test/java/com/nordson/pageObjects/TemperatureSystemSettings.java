@@ -134,13 +134,13 @@ public class TemperatureSystemSettings {
 		Am.waitForAnElementPresence(By.xpath("//div[contains(text(),'CREATE NEW')]"));
 		Am.waitForAnElementPresence(CreateNewButton);
 		Am.waitForAnElementToBeClickable(CreateNewButton);
-		CreateNewButton.click();
-
+		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
+		executor.executeScript("arguments[0].click();", CreateNewButton);
 	}
 
 	public void clickSubmitBtn() throws InterruptedException {
+		Thread.sleep(1500);
 		Am.waitForAnElementPresence(By.xpath("//*[@class='btn-set-up submit-btn-color']"));
-		Am.waitForAnElementPresence(SubmitButton);
 		Am.waitForAnElementToBeClickable(SubmitButton);
 		SubmitButton.click();
 

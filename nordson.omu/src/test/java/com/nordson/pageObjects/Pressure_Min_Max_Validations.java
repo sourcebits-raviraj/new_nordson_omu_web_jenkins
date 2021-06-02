@@ -241,7 +241,7 @@ public class Pressure_Min_Max_Validations {
 
 		Thread.sleep(2000);
 		clearKPAMinSetPoint.click();
-		for (int i = 0; i <= 4; i++) {
+		for (int i = 0; i <= 5; i++) {
 			clearKPAMinSetPoint.sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(1000);
 		}
@@ -249,7 +249,7 @@ public class Pressure_Min_Max_Validations {
 	public void clearMaxSetPoint() throws InterruptedException {
 		Thread.sleep(2000);
 		clearKPAMaxSetPoint.click();
-		for (int i = 0; i <= 4; i++) {
+		for (int i = 0; i <= 5; i++) {
 			clearKPAMaxSetPoint.sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(1000);
 		}
@@ -266,8 +266,10 @@ public class Pressure_Min_Max_Validations {
 	}
 	public void setMinValue(String minvalue) throws InterruptedException {
 		Thread.sleep(1000);
-		clearKPAMinSetPoint.click();
-		Thread.sleep(1000);
+		for (int i = 0; i <= 5; i++) {
+			clearKPAMinSetPoint.sendKeys(Keys.BACK_SPACE);
+			Thread.sleep(1000);
+		}
 		clearKPAMinSetPoint.sendKeys(minvalue);
 	}
 	public void setMaxValue(String maxvalue) throws InterruptedException {

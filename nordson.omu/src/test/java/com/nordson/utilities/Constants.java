@@ -38,11 +38,11 @@ public class Constants {
 	public static final String TnkpntErrmsg = "Tank & Manifold should be between 40 and 204";
 	public static final String TnkpntErrmsgFH = "Tank & Manifold should be between 100 and 400";
 
-	public static final String Hose1 = "Hose 1 should be between 40 and 232";
-	public static final String Applictor1 = "Applicator 1 should be between 40 and 232";
+	public static final String Hosecelsius = "Hose husnum should be between 40 and 232";
+	public static final String Appcelsius = "Applicator Appnum should be between 40 and 232";
 
-	public static final String Applictor1FH = "Applicator 1 should be between 100 and 450";
-	public static final String Hose1FH = "Hose 1 should be between 100 and 450";
+	public static final String ApplictorFH = "Applicator Appnum should be between 100 and 450";
+	public static final String HoseFH = "Hose husnum should be between 100 and 450";
 
 	public static final String SucssmsgRuntime = "Temperature Zones updated successfully";
 
