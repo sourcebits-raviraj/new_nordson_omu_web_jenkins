@@ -91,8 +91,8 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 	String[][] getData() throws IOException {
 		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/LoginData.xlsx";
 
-		int rownum = XLUtils.getRowCount(path, "LinksLogin");
-		int colcount = XLUtils.getCellCount(path, "LinksLogin", 1);
+		int rownum = XLUtils.getRowCount(path, "Login");
+		int colcount = XLUtils.getCellCount(path, "Login", 1);
 
 		System.out.println("No of Rows= " + rownum);
 		System.out.println("No of Columns= " + colcount);
@@ -101,7 +101,7 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 		// For Loop to get the array values in Logindata
 		for (int i = 1; i <= rownum; i++) {
 			for (int j = 0; j < colcount; j++) {
-				logindata[i - 1][j] = XLUtils.getCellData(path, "LinksLogin", i, j);// 1 0
+				logindata[i - 1][j] = XLUtils.getCellData(path, "Login", i, j);// 1 0
 			}
 
 		}

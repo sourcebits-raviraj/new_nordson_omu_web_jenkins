@@ -29,6 +29,12 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	static String Manifoldpoint = "";
 	static String Hosepnt = "";
 	static String Applicatorpnt = "";
+	
+	@Test(priority = 0)
+	public void TestSetExcelSheetName()
+			throws InterruptedException, IOException {
+
+	XLUtils.setExcelSheetNm("GlobalPointCelsius"); }
 
 	// Global Point Validations
 	@Story("Temperature Runtimesettings Global Point validations with boundary values in celsius unit")

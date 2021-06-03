@@ -39,6 +39,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Maximum  Fill Time is set to Default value  :" + fmds.getDefault1());
 		// Verifying the Minimum value of MaximumFillTime field
 		fss.clearMaxFillTime();
+		Thread.sleep(2000);
 		fss.setMaxFillTime(fmds.getMin1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "MaximumFillTime min MDS value is not accepted");
@@ -48,6 +49,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Save button is disabled for MaximumFillTime MDS minimum value");
 		// Verifying the Max value of MaximumFillTime field
 		fss.clearMaxFillTime();
+		Thread.sleep(2000);
 		fss.setMaxFillTime(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "MaximumFillTime max MDS value is not accepted");
@@ -69,7 +71,9 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Target Fill Level is set to Default value  :" + fmds.getDefault1());
 		
 		  // Verifying the Minimum value of TargetFillLevel field
-		  fss.clearTargetFillLevel(); fss.setTargetFillLevel(fmds.getMin1());
+		  fss.clearTargetFillLevel(); 
+		  Thread.sleep(2000);
+		  fss.setTargetFillLevel(fmds.getMin1());
 		  fss.clickSavebtn();
 		  softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg
 		  ,"TargetFillLevel min MDS value is not accepted");
@@ -80,6 +84,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		 
 		// Verifying the Max value of TargetFillLevel field
 		fss.clearTargetFillLevel();
+		Thread.sleep(2000);
 		fss.setTargetFillLevel(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg,"TargetFillLevel max MDS value is not accepted");
@@ -100,6 +105,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Target Fill Level is set to Default value  :" + fmds.getDefault1());
 		// Verifying the Minimum value of LowLevelAlertThreshold field
 		fss.clearLowLevelAlertThreshold();
+		Thread.sleep(2000);
 		fss.setLowLevelAlertThreshold(fmds.getMin1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LowLevelAlertThreshold min MDS value is not accepted");
@@ -109,6 +115,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Save button is disabled for LowLevelAlertThreshold MDS minimum value");
 		// Verifying the Max value of LowLevelAlertThreshold field
 		fss.clearLowLevelAlertThreshold();
+		Thread.sleep(2000);
 		fss.setLowLevelAlertThreshold(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LowLevelAlertThreshold max MDS value is not accepted");
@@ -130,6 +137,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Lid Open Alert time is set to Default value  :" + fmds.getDefault1());
 		// Verifying the Minimum value of LidOpenAlert field
 		fss.clearLidOpenAlertTimeout();
+		Thread.sleep(2000);
 		fss.setLidOpenAlertTimeout(fmds.getMin1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LidOpenAlert min MDS value is not accepted");
@@ -139,6 +147,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Save button is disabled for LidOpenAlert MDS minimum value");
 		// Verifying the Max value of LidOpenAlert field
 		fss.clearLidOpenAlertTimeout();
+		Thread.sleep(2000);
 		fss.setLidOpenAlertTimeout(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LidOpenAlert max MDS value is not accepted");
@@ -167,6 +176,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Target Fill Level is set to Default value  :" + fmds.getDefault1()+"for Tank Only fill settings");
 		// Verifying the Minimum value of LowLevelAlertThreshold field
 		fss.clearLowLevelAlertThreshold();
+		Thread.sleep(2000);
 		fss.setLowLevelAlertThreshold(fmds.getMin1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LowLevelAlertThreshold min MDS value is not accepted for Tank Only fill settings");
@@ -176,6 +186,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Save button is disabled for LowLevelAlertThreshold MDS minimum value for Tank Only fill settings");
 		// Verifying the Max value of LowLevelAlertThreshold field
 		fss.clearLowLevelAlertThreshold();
+		Thread.sleep(2000);
 		fss.setLowLevelAlertThreshold(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LowLevelAlertThreshold max MDS value is not accepted for Tank Only fill settings");
@@ -198,6 +209,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Lid Open Alert time is set to Default value  :" + fmds.getDefault1()+"for Tank Only fill settings");
 		// Verifying the Minimum value of LidOpenAlert field for Tank Only fill settings
 		fss.clearLidOpenAlertTimeout();
+		Thread.sleep(2000);
 		fss.setLidOpenAlertTimeout(fmds.getMin1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LidOpenAlert min MDS value is not accepted for Tank Only fill settings");
@@ -207,6 +219,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		log.info("Save button is disabled for LidOpenAlert MDS minimum value for Tank Only fill settings");
 		// Verifying the Max value of LidOpenAlert field for Tank Only fill settings
 		fss.clearLidOpenAlertTimeout();
+		Thread.sleep(2000);
 		fss.setLidOpenAlertTimeout(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "LidOpenAlert max MDS value is not accepted for Tank Only fill settings");

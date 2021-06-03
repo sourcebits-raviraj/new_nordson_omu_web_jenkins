@@ -71,7 +71,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 					.println("Toast Message not displayed and for MDS min val for maximum pressure alert for PSI Unit");
 
 		// Verfication of max mds value for Minimum and Maximum Pressure Alert for PSI
-		// Unit
+		// // Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		rsp.clearMinSetPoint();
 		rsp.setMinValue(mdsp.getMax1());
@@ -109,7 +109,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 
 		// Verfication of default mds value for Minimum and Maximium Pressure Alert for
-		// BAR Unit
+		// // BAR Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		softAssert.assertEquals(rsp.getBARMinSetPoint(), mdsp.getDefault2());
 		log.info("Assertion to verify the minimum set point is equal to MDS default value for BAR Unit");
@@ -118,7 +118,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Assertion to verify the minimum set point is equal to MDS default value for BAR Unit");
 
 		// Verfication of min mds value for Minimum Pressure Alert and Maxmium Pressure
-		// Alert for BAR Unit
+		// // Alert for BAR Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		rsp.clearMinSetPoint();
 		rsp.setMinValue(mdsp.getMin2());
@@ -135,7 +135,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 					.println("Toast Message not displayed and for MDS min val for maximum pressure alert for BAR Unit");
 
 		// Verfication of max mds value for Minimum and Maximum Pressure Alert for BAR
-		// Unit
+		// // Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		rsp.clearMinSetPoint();
 		rsp.setMinValue(mdsp.getMax2());
@@ -172,7 +172,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 
 		// Verfication of default mds value for Minimum and Maximium Pressure Alert for
-		// KPA Unit
+		// // KPA Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		softAssert.assertEquals(rsp.getkPaMinSetPoint(), mdsp.getDefault3());
 		log.info("Assertion to verify the minimum set point is equal to MDS default value for KPA Unit");
@@ -181,13 +181,14 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Assertion to verify the minimum set point is equal to MDS default value for KPA Unit");
 
 		// Verfication of min mds value for Minimum Pressure Alert and Maxmium Pressure
-		// Alert for KPA Unit
+		// // Alert for KPA Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		rsp.clearMinSetPoint();
 		rsp.setMinValue(mdsp.getMin3());
 
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureAlrt());
 		rsp.clearMaxSetPoint();
+		Thread.sleep(2500);
 		rsp.setMaxValue(mdsp.getMin3());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -198,13 +199,15 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 					.println("Toast Message not displayed and for MDS min val for maximum pressure alert for KPA Unit");
 
 		// Verfication of max mds value for Minimum and Maximum Pressure Alert for KPA
-		// Unit
+		// // Unit
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureAlrt());
 		rsp.clearMinSetPoint();
+		Thread.sleep(2500);
 		rsp.setMinValue(mdsp.getMax3());
 
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureAlrt());
 		rsp.clearMaxSetPoint();
+		Thread.sleep(2500);
 		rsp.setMaxValue(mdsp.getMax3());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -219,7 +222,6 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 
 	@Description("Verify the MDS Values of Electronic Pressure adjust mode selection for PSI Pressure Unit")
 	public void ElectronicPressureadjust_Validation_PSI_MDS_values() throws InterruptedException, IOException {
-
 		Thread.sleep(1200);
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -239,8 +241,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 
 		// Validation of Low Pressure Alert Threshold,High Pressure
 		// AlertThreshold,Minimum Pressure Set Point Range and Minimum Pressure Set
-		// PointRange
-		// Default Value validation
+		// //PointRange // Default Value validation
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_PressureSetPoint());
 		softAssert.assertEquals(rsp.getPressureSetPoint(), mdsp.getDefault1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
@@ -255,18 +256,23 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Min Value Validation
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_PressureSetPoint());
 		rsp.clearPressureSetPoint();
+		Thread.sleep(2500);
 		rsp.setPressureSetPoint(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureSetPointRange());
 		rsp.clearPressureMinimumSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureSetPointRange(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureSetPointRange());
 		rsp.clearMaximumPressureSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureSetPointRange(mdsp.getMin1());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -278,15 +284,19 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 																														// Validation
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_PressureSetPoint());
 		rsp.clearPressureSetPoint();
+		Thread.sleep(2500);
 		rsp.setPressureSetPoint(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureSetPointRange());
 		rsp.clearPressureMinimumSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureSetPointRange(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureSetPointRange());
 		rsp.clearMaximumPressureSetPointRange();
@@ -298,11 +308,10 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			softAssert.assertEquals(true, rsp.saveButtonEnabled());
 		} else
 			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for PSI Unit");
-		softAssert.assertAll();
+		// softAssert.assertAll();
 	}
 
 	@Test(priority = 5, enabled = true)
-
 	@Description("Verify the MDS Values of Electronic Pressure adjust mode selection for BAR Pressure Unit")
 	public void ElectronicPressureadjust_Validation_BAR_MDS_values() throws InterruptedException, IOException {
 		Thread.sleep(1200);
@@ -360,18 +369,23 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Max Value Validation
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_PressureSetPoint());
 		rsp.clearPressureSetPoint();
+		Thread.sleep(2500);
 		rsp.setPressureSetPoint(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureSetPointRange());
 		rsp.clearPressureMinimumSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureSetPointRange(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureSetPointRange());
 		rsp.clearMaximumPressureSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureSetPointRange(mdsp.getMax2());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -380,11 +394,10 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			softAssert.assertEquals(true, rsp.saveButtonEnabled());
 		} else
 			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for BAR Unit");
-		softAssert.assertAll();
+		// softAssert.assertAll();
 	}
 
 	@Test(priority = 6, enabled = true)
-
 	@Description("Verify the MDS Values of Electronic Pressure adjust mode selection for KPA Pressure Unit")
 	public void ElectronicPressureadjust_Validation_KPA_MDS_values() throws InterruptedException, IOException {
 		Thread.sleep(1200);
@@ -404,6 +417,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(1200);
 		rsp.SelectMainPressureModeSelectionDropdown("Electronic Pressure Adjust");
+		Thread.sleep(1200);
 
 		// Validation of Low Pressure Alert Threshold,High Pressure
 		// AlertThreshold,Minimum Pressure Set Point Range and Minimum Pressure Set
@@ -422,18 +436,23 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Min Value Validation
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_PressureSetPoint());
 		rsp.clearPressureSetPoint();
+		Thread.sleep(2500);
 		rsp.setPressureSetPoint(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureSetPointRange());
 		rsp.clearPressureMinimumSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureSetPointRange(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureSetPointRange());
 		rsp.clearMaximumPressureSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureSetPointRange(mdsp.getMin3());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -444,18 +463,23 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Max Value Validation
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_PressureSetPoint());
 		rsp.clearPressureSetPoint();
+		Thread.sleep(2500);
 		rsp.setPressureSetPoint(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MinimumPressureSetPointRange());
 		rsp.clearPressureMinimumSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureSetPointRange(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumPressureSetPointRange());
 		rsp.clearMaximumPressureSetPointRange();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureSetPointRange(mdsp.getMax3());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -464,14 +488,14 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			softAssert.assertEquals(true, rsp.saveButtonEnabled());
 		} else
 			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for KPA Unit");
-		softAssert.assertAll();
+		// softAssert.assertAll();
 	}
 
 	@Test(priority = 7, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for PSI Pressure Unit")
 	public void RunUp_Pressure_Validation_PSI_MDS_values() throws InterruptedException, IOException {
 		Thread.sleep(1200);
-		rsp.clickDashboard(); 
+		rsp.clickDashboard();
 		rsp.clickAcceptalert();
 		rsp.CreatNewNORfile();
 		rsp.ClickSystemSettingsLink();
@@ -505,21 +529,27 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Min Value Validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
 		rsp.clearLowSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setLowSpeedPressureSettings(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		rsp.clearHighSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setHighSpeedPressureSettings(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		rsp.clearSetMaximumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureLimit(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		rsp.clearSetMinimumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureLimit(mdsp.getMin1());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -530,21 +560,27 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Max Value Validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
 		rsp.clearLowSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setLowSpeedPressureSettings(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		rsp.clearHighSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setHighSpeedPressureSettings(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		rsp.clearSetMaximumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureLimit(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		rsp.clearSetMinimumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureLimit(mdsp.getMax1());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -554,7 +590,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for PSI Unit");
 		softAssert.assertAll();
 	}
-	
+
 	@Test(priority = 8, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for BAR Pressure Unit")
 	public void RunUp_Pressure_Validation_BAR_MDS_values() throws InterruptedException, IOException {
@@ -572,6 +608,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(2200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
+		Thread.sleep(1500);
 
 		// Validation of Pressure mode runup mode fields
 		// Default value validations
@@ -584,8 +621,9 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		softAssert.assertEquals(rsp.getHighSpeedPressureSetting(), mdsp.getDefault2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
-		if(rsp.getSetMaximumPressureLimit().equals(mdsp.getDefault2())||rsp.getSetMaximumPressureLimit().equals("6.89"))
-		log.info("SetMaximumPressureLimit is set to default value");
+		if (rsp.getSetMaximumPressureLimit().equals(mdsp.getDefault2())
+				|| rsp.getSetMaximumPressureLimit().equals("6.89"))
+			log.info("SetMaximumPressureLimit is set to default value");
 		else
 			System.out.println("SetMaximumPressureLimit is not set to default value");
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
@@ -593,21 +631,27 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Min Value Validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
 		rsp.clearLowSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setLowSpeedPressureSettings(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		rsp.clearHighSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setHighSpeedPressureSettings(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		rsp.clearSetMaximumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureLimit(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		rsp.clearSetMinimumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureLimit(mdsp.getMin2());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -618,21 +662,27 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Max Value Validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
 		rsp.clearLowSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setLowSpeedPressureSettings(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		rsp.clearHighSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setHighSpeedPressureSettings(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		rsp.clearSetMaximumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureLimit(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		rsp.clearSetMinimumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureLimit(mdsp.getMax2());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -642,6 +692,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for BAR Unit");
 		softAssert.assertAll();
 	}
+
 	@Test(priority = 9, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for KPA Pressure Unit")
 	public void RunUp_Pressure_Validation_kPa_MDS_values() throws InterruptedException, IOException {
@@ -659,7 +710,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Run Time Settings Link");
 		rsp.clickPressure();
 		log.info("Clicked on Pressure Link");
-		Thread.sleep(3200);
+		Thread.sleep(2000);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
 
 		// Validation of Pressure mode runup mode fields
@@ -673,30 +724,37 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		softAssert.assertEquals(rsp.getHighSpeedPressureSetting(), mdsp.getDefault3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
-		if(rsp.getSetMaximumPressureLimit().equals(mdsp.getDefault3())||rsp.getSetMaximumPressureLimit().equals("689"))
+		if (rsp.getSetMaximumPressureLimit().equals(mdsp.getDefault3())
+				|| rsp.getSetMaximumPressureLimit().equals("689"))
 			log.info("SetMaximumPressureLimit is set to default value for kPa unit");
-			else
-				System.out.println("SetMaximumPressureLimit is not set to default value for kPa unit");
+		else
+			System.out.println("SetMaximumPressureLimit is not set to default value for kPa unit");
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		softAssert.assertEquals(rsp.getSetMinimumPressureLimit(), mdsp.getDefault3());
 		// Min Value Validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
 		rsp.clearLowSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setLowSpeedPressureSettings(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		rsp.clearHighSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setHighSpeedPressureSettings(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		rsp.clearSetMaximumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureLimit(mdsp.getMin3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		rsp.clearSetMinimumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureLimit(mdsp.getMin3());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -707,21 +765,27 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Max Value Validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowPressureAlertThreshold());
 		rsp.clearLowPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setLowPressureAlertThreshold(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		rsp.clearHighPressureAlertThreshold();
+		Thread.sleep(2500);
 		rsp.setHighPressureAlertThreshold(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
 		rsp.clearLowSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setLowSpeedPressureSettings(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
 		rsp.clearHighSpeedPressureSetting();
+		Thread.sleep(2500);
 		rsp.setHighSpeedPressureSettings(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		rsp.clearSetMaximumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMaximumPressureLimit(mdsp.getMax3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMinimumPressureLimit());
 		rsp.clearSetMinimumPressureLimit();
+		Thread.sleep(2500);
 		rsp.setMinimumPressureLimit(mdsp.getMax3());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
@@ -731,16 +795,18 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for kPa Unit");
 		softAssert.assertAll();
 	}
+
 	@Test(priority = 10, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for Line speed ft/min Pressure Unit")
 	public void RunUp_Pressure_LineSpeedftunit_Validation_MDS_values() throws InterruptedException, IOException {
-		
+
 		Thread.sleep(1200);
-		//rsp=new Pressure_Min_Max_Validations(driver);
+		// rsp=new Pressure_Min_Max_Validations(driver);
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
 		rsp.ClickSystemSettingsLink();
 		rsp.ClickPreferencesLink();
+		Thread.sleep(2000);
 		log.info("Clicked on Preferences Link");
 		rsp.SelectLineSpeedftUnit();
 		log.info("Selected Line Speed Raido button");
@@ -752,8 +818,9 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(1200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
-		// Validation of Pressure mode runup mode fields LowlineSpeedSetting,HighlineSpeedSetting and Fullscalelinespeed
-		//Default value validations
+		// Validation of Pressure mode runup mode fields
+		// LowlineSpeedSetting,HighlineSpeedSetting and Fullscalelinespeed
+		// Default value validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
 		softAssert.assertEquals(rsp.getLowLineSpeedSetting(), mdsp.getDefault1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighLineSpeedSetting());
@@ -763,40 +830,48 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		// Min val validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
 		rsp.clearLowLineSpeedSetting();
+		Thread.sleep(2500);
 		rsp.setLowLineSpeedSettings(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighLineSpeedSetting());
 		rsp.clearHighLineSpeedSetting();
+		Thread.sleep(2500);
 		rsp.setHighLineSpeedSettings(mdsp.getMin1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_FullScaleLineSpeed());
 		rsp.clearFullScaleLineSpeed();
+		Thread.sleep(2500);
 		rsp.setFullScaleLineSpeeds(mdsp.getMin2());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
 			softAssert.assertEquals(rsp.getToastMessageText(), "Pressure updated successfully");
 			softAssert.assertEquals(rsp.saveButtonEnabled(), false);
 		} else
-			System.out.println("Toast Message not displayed and for MDS min val for all pressure fields for Linespeed ft/min Unit");
+			System.out.println(
+					"Toast Message not displayed and for MDS min val for all pressure fields for Linespeed ft/min Unit");
 		rsp.isDisplayedDownardSlopingRunupcurvecontent();
-		//Max validation
+		// Max validation
 		Thread.sleep(1200);
-	    rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
-		rsp.clearLowLineSpeedSetting(); 
+		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
+		rsp.clearLowLineSpeedSetting();
 		rsp.setLowLineSpeedSettings(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighLineSpeedSetting());
 		rsp.clearHighLineSpeedSetting();
+		Thread.sleep(2500);
 		rsp.setHighLineSpeedSettings(mdsp.getMax1());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_FullScaleLineSpeed());
-		rsp.clearFullScaleLineSpeed(); 
+		rsp.clearFullScaleLineSpeed();
+		Thread.sleep(2500);
 		rsp.setFullScaleLineSpeeds(mdsp.getMax2());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
 			softAssert.assertEquals(rsp.getToastMessageText(), "Pressure updated successfully");
 			softAssert.assertEquals(rsp.saveButtonEnabled(), false);
 		} else
-			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for Linespeed ft/min Unit");
-		
+			System.out.println(
+					"Toast Message not displayed and for MDS max val for all pressure fields for Linespeed ft/min Unit");
+
 		softAssert.assertAll();
 	}
+
 	@Test(priority = 11, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for Line speed m/min Pressure Unit")
 	public void RunUp_Pressure_LineSpeedminunit_Validation_MDS_values() throws InterruptedException, IOException {
@@ -813,49 +888,59 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(2200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
-		// Validation of Pressure mode runup mode fields LowlineSpeedSetting,HighlineSpeedSetting and Fullscalelinespeed
-		//Default value validations
+		// Validation of Pressure mode runup mode fields
+		// LowlineSpeedSetting,HighlineSpeedSetting and Fullscalelinespeed
+		// Default value validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
 		softAssert.assertEquals(rsp.getLowLineSpeedSetting(), mdsp.getDefault2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighLineSpeedSetting());
 		softAssert.assertEquals(rsp.getHighLineSpeedSetting(), mdsp.getDefault2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_FullScaleLineSpeed());
-		if(rsp.getFullScaleLineSpeed().equals(mdsp.getDefault1())||rsp.getFullScaleLineSpeed().equals("100.0"))
+		if (rsp.getFullScaleLineSpeed().equals(mdsp.getDefault1()) || rsp.getFullScaleLineSpeed().equals("100.0"))
 			log.info("FullScaleLineSpeed is set to default value for m/min unit");
-			else
-				System.out.println("FullScaleLineSpeed is not set to default value for m/min unit");
+		else
+			System.out.println("FullScaleLineSpeed is not set to default value for m/min unit");
 		// Min val validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
 		rsp.clearLowLineSpeedSetting();
+		Thread.sleep(2500);
 		rsp.setLowLineSpeedSettings(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighLineSpeedSetting());
 		rsp.clearHighLineSpeedSetting();
+		Thread.sleep(2500);
 		rsp.setHighLineSpeedSettings(mdsp.getMin2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_FullScaleLineSpeed());
 		rsp.clearFullScaleLineSpeed();
+		Thread.sleep(2500);
 		rsp.setFullScaleLineSpeeds(mdsp.getMin1());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
 			softAssert.assertEquals(rsp.getToastMessageText(), "Pressure updated successfully");
 			softAssert.assertEquals(rsp.saveButtonEnabled(), false);
 		} else
-			System.out.println("Toast Message not displayed and for MDS min val for all pressure fields for Linespeed m/min Unit");
+			System.out.println(
+					"Toast Message not displayed and for MDS min val for all pressure fields for Linespeed m/min Unit");
 		rsp.isDisplayedDownardSlopingRunupcurvecontent();
-		//Max validation
-	    rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
-		rsp.clearLowLineSpeedSetting(); rsp.setLowLineSpeedSettings(mdsp.getMax2());
+		// Max validation
+		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
+		rsp.clearLowLineSpeedSetting();
+		Thread.sleep(2500);
+		rsp.setLowLineSpeedSettings(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighLineSpeedSetting());
 		rsp.clearHighLineSpeedSetting();
+		Thread.sleep(2500);
 		rsp.setHighLineSpeedSettings(mdsp.getMax2());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_FullScaleLineSpeed());
-		rsp.clearFullScaleLineSpeed(); 
+		rsp.clearFullScaleLineSpeed();
+		Thread.sleep(2500);
 		rsp.setFullScaleLineSpeeds(mdsp.getMax1());
 		rsp.saveButton();
 		if (rsp.toastmessageDisplayed() == true) {
 			softAssert.assertEquals(rsp.getToastMessageText(), "Pressure updated successfully");
 			softAssert.assertEquals(rsp.saveButtonEnabled(), false);
 		} else
-			System.out.println("Toast Message not displayed and for MDS max val for all pressure fields for Linespeed m/min Unit");
+			System.out.println(
+					"Toast Message not displayed and for MDS max val for all pressure fields for Linespeed m/min Unit");
 		softAssert.assertAll();
 	}
 

@@ -155,4 +155,8 @@ public class ReadConfig {
 		String url = pro.getProperty("SignupUrl");
 		return url;
 	}
+ //Flow Properties to be fetched from MDS file for Validations
+	
+	
+	
 }
