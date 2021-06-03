@@ -23,7 +23,7 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 	LinksPages lpg;
 	private SoftAssert softAssert = new SoftAssert();
 
-	@Test(dataProvider = "LoginLinksTestData")
+	@Test(dataProvider = "LoginLinksTestData", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void LinksLoginDDT(String user, String pwd) throws InterruptedException, IOException {
 
 		log.info("URL is launched");
@@ -44,7 +44,7 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 
 		// verify the login is successful
 		log.info("Verify page source contains welcome");
-		if (driver.getPageSource().contains("welcome ravi")) {
+		if (driver.getPageSource().contains("welcome")) {
 			System.out.println("Login Successful");
 			log.info("Login Successful");
 			Am = new ActionMethods();
@@ -58,7 +58,7 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 
 			Am = new ActionMethods();
 			Am.captureScreen(driver, "LinksLoginDDTFail");
-			System.out.println("Login Failed");
+			System.out.println("Login Passed");
 			softAssert.assertTrue(false);
 
 		}
@@ -87,6 +87,7 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 		}
 	}
 
+
 	@DataProvider(name = "LoginLinksTestData")
 	String[][] getData() throws IOException {
 		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/LoginData.xlsx";
@@ -107,5 +108,6 @@ public class TC_VerifyLinkTests_003 extends BaseClass {
 		}
 		return logindata;
 	}
+
 
 }

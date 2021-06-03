@@ -2,10 +2,14 @@
 /test-output/
 /allure-results/
 /Screenshots/
-/allure-results/
-/test-output/
+**/allure-results
+**/test-output
 *.html
 *.png
+<<<<<<< HEAD
 *testng.xml
 index.html
 testng-results.xml
+=======
+Selenium.logs.*
+>>>>>>> 2a0c2146f7111848d0ac0133f6fbc14b7fd9c758

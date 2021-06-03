@@ -1,5 +1,6 @@
 package com.nordson.utilities;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -102,29 +103,29 @@ public class XLUtils {
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
 		row = ws.getRow(0);
-		int colindx=0;
-		for(Cell cell:row){
-		 if(cell.getStringCellValue().equalsIgnoreCase(Colnm)) 
-			 colindx = cell.getColumnIndex();
+		int colindx = 0;
+		for (Cell cell : row) {
+			if (cell.getStringCellValue().equalsIgnoreCase(Colnm))
+				colindx = cell.getColumnIndex();
 		}
 		return colindx;
 	}
 
 	public static List<String> getCellDataColindx(String xlfile, String xlsheet, int rownum, int colnum)
 			throws IOException {
-	
+
 		fi = new FileInputStream(xlfile);
 		wb = new XSSFWorkbook(fi);
 		ws = wb.getSheet(xlsheet);
 		List<String> UIlabl = new ArrayList<String>();
-        
+
 		if (colnum != 0) {
 			for (Row row : ws) {
 				Cell c = row.getCell(colnum);
 				CellType ctype = c.getCellType();
 				if (c != null && ctype != CellType.BLANK && ctype == CellType.STRING) {
 					String cllvalue = c.getStringCellValue();
-					
+
 					UIlabl.add(cllvalue);
 				}
 
@@ -135,7 +136,7 @@ public class XLUtils {
 			}
 
 		}
-				  
+
 		return UIlabl;
 
 	}
@@ -647,7 +648,7 @@ public class XLUtils {
 	}
 
 	@DataProvider(name = "RegistrationTestData")
-	String[][] getData() throws IOException {
+	public static String[][] getDataregistration() throws IOException {
 
 		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/RegistrationTestData.xlsx";
 
@@ -666,4 +667,139 @@ public class XLUtils {
 		}
 		return regdata;
 	}
+
+	@DataProvider(name = "LoginLinksTestData")
+	public static String[][] getDataLogin() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/LoginData.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "Login");
+		int colcount = XLUtils.getCellCount(path, "Login", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String logindata[][] = new String[rownum][colcount];
+
+		// For Loop to get the array values in Logindata
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				logindata[i - 1][j] = XLUtils.getCellData(path, "Login", i, j);// 1 0
+			}
+
+		}
+		return logindata;
+	}
+
+	@DataProvider(name = "RegistrationContine")
+	public static String[][] getRegistrationContinue() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/RegistrationContinue.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "Registration");
+		int colcount = XLUtils.getCellCount(path, "Registration", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String regdata[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				regdata[i - 1][j] = XLUtils.getCellData(path, "Registration", i, j);// 1 0
+			}
+
+		}
+		return regdata;
+	}
+
+	@DataProvider(name = "AddSubUser")
+	public static String[][] getAddSubUSer() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/AddSubUser.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "AddSubUser");
+		int colcount = XLUtils.getCellCount(path, "AddSubUser", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String subuser[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				subuser[i - 1][j] = XLUtils.getCellData(path, "AddSubUser", i, j);// 1 0
+			}
+
+		}
+		return subuser;
+	}
+
+	@DataProvider(name = "SubUserData")
+	public static String[][] getAddSubUSerLoginData() throws IOException {
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/LoginData.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "UserData");
+		int colcount = XLUtils.getCellCount(path, "UserData", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String subuser[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				subuser[i - 1][j] = XLUtils.getCellData(path, "UserData", i, j);// 1 0
+			}
+
+		}
+		return subuser;
+	}
+	
+	
+	@DataProvider(name = "min_max_Presure_for_norfile_PSI_manualadjust")
+	public static String[][] setminmaxPressureForNorFilePSI() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/NorfilePressure.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);
+			}
+		}
+		return minpressueDataforNor;
+	}
+
+	
+	public static void setNorXMLValues_Pressure_Min_and_Max(String sheetnm, String mintag, String maxtag,
+			String mindata, String maxdata) throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure.xlsx";
+		wb = new XSSFWorkbook(new FileInputStream(path));
+		System.out.println(wb.getNumberOfSheets());
+		if (wb.getNumberOfSheets() != 0) {
+			for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+				if (wb.getSheetName(i).equals(sheetnm)) {
+					wb.removeSheetAt(wb.getSheetIndex(sheetnm));
+				}
+			}
+			ws = wb.createSheet(sheetnm);
+		}
+		System.out.println(ws.getFirstRowNum());
+		System.out.println(ws.getLastRowNum());
+		ws.createRow(0);
+		ws.getRow(0).createCell(0).setCellValue(mintag);
+		ws.getRow(0).createCell(1).setCellValue(maxtag);
+
+		ws.createRow(1);
+		ws.getRow(1).createCell(0).setCellValue(mindata);
+		ws.getRow(1).createCell(1).setCellValue(maxdata);
+
+		fo = new FileOutputStream(new File(path));
+		wb.write(fo);
+		wb.close();
+
+		fo.close();
+	}
+	
+	
+	
+
 }

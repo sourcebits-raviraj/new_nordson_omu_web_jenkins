@@ -12,6 +12,7 @@
   <test name="Nordson OMU Web App Regression Tests on Chrome">
       <parameter name="browser" value="chrome"/>
        <classes>
+
      <!--<class name="com.nordson.testCases.TC_LoginTest_001"/> -->
      
     <!--  <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>   -->
@@ -24,6 +25,10 @@
       <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations"/>   -->
     <!-- <class name="com.nordson.MDS.TC_SystemSettings_Fill_MDSValidations"/>  -->
      
+
+          <!--  <class name="com.nordson.utilities.Language"/> -->
+           <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
+            
       </classes>
      
        </test> 
