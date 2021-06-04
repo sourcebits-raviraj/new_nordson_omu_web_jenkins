@@ -8,7 +8,6 @@ import org.openqa.selenium.Keys;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,23 +29,23 @@ public class TemperatureSystemSettings {
 	}
 
 	@FindBy(id = "bt")
-	WebElement SetUpToolButton;
+	public WebElement SetUpToolButton;
 
 
 	@FindBy(xpath = "//div[contains(text(),'CREATE NEW')]")
-	WebElement CreateNewButton;
+	public WebElement CreateNewButton;
 
 	@FindBy(xpath = "//*[@class='btn-set-up submit-btn-color']")
 
-	WebElement SubmitButton;
+	public WebElement SubmitButton;
 
 	@FindBy(xpath = "//*[contains(text(),'System Settings')]/ancestor::span")
 
-	WebElement SystemSettings;
+	public WebElement SystemSettings;
 
 	@FindBy(xpath = "//*[contains(text(),'Preferences')]")
 
-	WebElement Preferences;
+	public WebElement Preferences;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-container']")
 
@@ -54,74 +53,75 @@ public class TemperatureSystemSettings {
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']/*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-label-content']")
 
-	WebElement SelectedTemperatureunit;
+	public WebElement SelectedTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'C')]//preceding-sibling::div")
 
-	WebElement CelsiusTemperatureunit;
+	public WebElement CelsiusTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div")
 
-	WebElement FarhenitTemperatureunit;
+	public WebElement FarhenitTemperatureunit;
 
 	@FindBy(xpath = "(//span[@class='min'])[1]")
-	WebElement Temperatureunt;
+	public WebElement Temperatureunt;
 
 	@FindBy(xpath = "//*[@class='btn apply']")
 
-	WebElement SAVE;
+	public WebElement SAVE;
 
 	@FindBy(xpath = "//*[@class='apply btn submit-bt']")
 
-	WebElement SAVE1;
+	public WebElement SAVE1;
 
 	@FindBy(xpath = "//*[contains(text(),'Runtime settings')]")
-	WebElement RuntimeSettings;
+	public WebElement RuntimeSettings;
 
 	@FindBy(xpath = "//*[contains(@routerlink,'settings/temperaturesettings')]")
-	WebElement Temperature;
+	public WebElement Temperature;
 
 	@FindBy(xpath = "//*[@formcontrolname='OTDelta']")
-	WebElement OTTemperature;
+	public WebElement OTTemperature;
 	
 	@FindBy(xpath = "//*[@formcontrolname='OTDelta']/../span")
-	WebElement OTTemperatureunt;
+	public WebElement OTTemperatureunt;
 	
 	@FindBy(xpath = "//*[@formcontrolname='UTDelta']")
-	WebElement UTTemperature;
+	public WebElement UTTemperature;
 	
 	@FindBy(xpath = "//*[@formcontrolname='UTDelta']/../span")
-	WebElement UTTemperatureunt;
+	public WebElement UTTemperatureunt;
 
 	@FindBy(xpath = "//*[@formcontrolname='StandbyDelta']")
-	WebElement TemperatureSetback;
+	public WebElement TemperatureSetback;
 	
 	@FindBy(xpath = "//*[@formcontrolname='StandbyDelta']/../span")
-	WebElement Tmpstbckemperatureunt;
+	public WebElement Tmpstbckemperatureunt;
 
 	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
-	WebElement Toastmsg;
+	
+	public WebElement Toastmsg;
 	
 	@FindBy(xpath = "//*[@formcontrolname='SmartMeltTime']")
-	WebElement SmrtMeltTmeDly;
+	public WebElement SmrtMeltTmeDly;
 	
 	@FindBy(xpath = "//*[@formcontrolname='AutoHeatersOffTime']")
-	WebElement AutoHterOffTme;
+	public WebElement AutoHterOffTme;
 	
 	@FindBy(xpath = "//*[@formcontrolname='AutoStandbyTime']")
-	WebElement SystemsetBckDly;
+	public WebElement SystemsetBckDly;
 	
 	@FindBy(xpath = "//*[@formcontrolname='SmartMeltTime']//../following-sibling::span")
-	WebElement SmrtMeltTmeDlyunt;
+	public WebElement SmrtMeltTmeDlyunt;
 	
 	@FindBy(xpath = "//*[@formcontrolname='AutoHeatersOffTime']//../following-sibling::span")
-	WebElement AutoHterOffTmeunt;
+	public WebElement AutoHterOffTmeunt;
 	
 	@FindBy(xpath = "//*[@formcontrolname='AutoStandbyTime']//../following-sibling::span")
-	WebElement SystemsetBckDlyunt;
+	public WebElement SystemsetBckDlyunt;
 	
 	@FindBy(xpath = "//*[contains(text(),'DASHBOARD')]")
-	WebElement Dashboard;
+	public WebElement Dashboard;
 
 	
     public void clickDashboard() {
@@ -338,6 +338,18 @@ public class TemperatureSystemSettings {
 		return sttus;
 	}
 
+
+	public Boolean getToastmsgststus() {
+		Boolean toastmsg = false;
+		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
+		if (Toastmsg.isDisplayed()) {
+			toastmsg = true;
+		} else
+			toastmsg = false;
+		return toastmsg;
+	}
+	
+	
 	public String getToastmsg() {
 
 		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
@@ -348,20 +360,6 @@ public class TemperatureSystemSettings {
 
 		} else
 			System.out.println("toast msg not displayed");
-
-		return toastmsg;
-	}
-
-	public Boolean getToastmsgststus() {
-
-		Am.waitForAnElementPresence(Toastmsg);
-		Boolean toastmsg = false;
-		if (Toastmsg.isDisplayed()) {
-			toastmsg = true;
-			Am.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-
-		} else
-			toastmsg = false;
 
 		return toastmsg;
 	}
@@ -460,7 +458,6 @@ public class TemperatureSystemSettings {
 		clickCreateNewBtn();
 		Thread.sleep(1000);
 		clickSubmitBtn();
-		clickSystemSettingsBtn();
 	}
 
 }

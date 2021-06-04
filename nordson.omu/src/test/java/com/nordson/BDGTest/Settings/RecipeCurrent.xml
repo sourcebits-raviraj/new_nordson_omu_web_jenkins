@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <RecipeData>
   <UnitConfigStruct />
-  <UNP_partNo Value="8546192" />
+  <UNP_partNo Value="8543333" />
   <UNP_name Value="" />
-  <UNP_serNo Value="SA15A00019" />
+  <UNP_serNo Value="SA16B03328" />
   <UNP_inVoltage Value="0" />
   <UNP_instMon Value="5" />
   <UNP_instDay Value="6" />
@@ -147,12 +147,12 @@
   <eDateFmt Value="1" />
   <eTimeFmt Value="1" />
   <TimeZone Value="0" />
-  <ClockHour Value="10" />
-  <ClockMinutes Value="23" />
-  <ClockSeconds Value="46" />
+  <ClockHour Value="04" />
+  <ClockMinutes Value="35" />
+  <ClockSeconds Value="34" />
   <DateYear Value="2021" />
   <DateMonth Value="06" />
-  <DateDay Value="01" />
+  <DateDay Value="04" />
   <bDayLightSavings Value="0" />
   <iDayLightSavStat Value="0" />
   <bWizardRan Value="1" />
@@ -252,7 +252,7 @@
   <SercosIIIAddr Value="1" />
   <LidOpenAlertTimeout Value="2" />
   <ProfinetName Value="pbflex-pnio" />
-  <UnitConfigCode Value="PBF480-Z14-STD-FW-2H-P3-APP-I-XX" />
+  <UnitConfigCode Value="PBF240-M21-HPP-FW-LH-P3-XXX-1-XX" />
   <LidOpenAlertEnable Value="1" />
   <usPressureMax Value="100000" />
   <usPressureMin Value="0" />
@@ -1543,12 +1543,12 @@
   <WAP_IpAddrMe Value="3232236545" />
   <WAP_IpAddrCliBase Value="3232236645" />
   <WAP_IpSubnetMask Value="4294967040" />
-  <CFC_Ser Value="3" />
-  <CFC_Tank Value="13" />
+  <CFC_Ser Value="1" />
+  <CFC_Tank Value="7" />
   <CFC_Pump Value="0" />
   <CFC_NumHG Value="0" />
   <CFC_PresMgmt Value="2" />
-  <CFC_ProdPerformUpgr Value="1" />
+  <CFC_ProdPerformUpgr Value="0" />
   <CFC_UI Value="0" />
   <CFC_PresSW Value="" />
   <CFC_LegacyIO Value="0" />

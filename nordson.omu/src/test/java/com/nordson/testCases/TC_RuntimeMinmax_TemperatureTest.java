@@ -573,10 +573,10 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		
 		// min-1 val
 
-		Trs.setHosestemp(minlsvalue);
+		Trs.setHosestemp(minlsvalue,"C");
 		// max+1 val
 		
-        Trs.setHosestemp(maxplusval);
+        Trs.setHosestemp(maxplusval,"C");
         softAssert.assertAll();
 
 		// In Range value testing

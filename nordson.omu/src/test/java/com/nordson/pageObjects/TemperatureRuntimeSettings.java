@@ -10,7 +10,7 @@ import org.openqa.selenium.Keys;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium. WebElement;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -36,87 +36,87 @@ public class TemperatureRuntimeSettings {
 	}
 
 	@FindBy(id = "bt")
-	WebElement SetUpToolButton;
+	public WebElement SetUpToolButton;
 
 	@FindBy(xpath = "//*[contains(text(),'CREATE NEW')]")
-	WebElement CreateNewButton;
+	public WebElement CreateNewButton;
 
 	@FindBy(xpath = "//*[@class='btn-set-up submit-btn-color']")
-	WebElement SubmitButton;
+	public WebElement SubmitButton;
 
 	@FindBy(xpath = "//*[contains(text(),'System Settings')]/ancestor::span")
-	WebElement SystemSettings;
+	public WebElement SystemSettings;
 
 	@FindBy(xpath = "//*[contains(text(),'Preferences')]")
-	WebElement Preferences;
+	public WebElement Preferences;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-container']")
-	List<WebElement> Temperatureunit;
+	List< WebElement> Temperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']/*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-label-content']")
-	WebElement SelectedTemperatureunit;
+	public WebElement SelectedTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'C')]//preceding-sibling::div")
-	WebElement CelsiusTemperatureunit;
+	public WebElement CelsiusTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div")
-	WebElement FarhenitTemperatureunit;
+	public WebElement FarhenitTemperatureunit;
 
 	@FindBy(xpath = "(//span[@class='min'])[1]")
-	WebElement Temperatureunt;
+	public WebElement Temperatureunt;
 
 	@FindBy(xpath = "//*[@class='btn apply']")
-	WebElement SAVE;
+	public WebElement SAVE;
 
 	@FindBy(xpath = "//*[@class='apply btn submit-bt']")
-	WebElement SAVE1;
+	public WebElement SAVE1;
 
 	@FindBy(xpath = "//*[contains(text(),'Runtime settings')]")
-	WebElement RuntimeSettings;
+	public WebElement RuntimeSettings;
 
 	@FindBy(xpath = "//*[contains(@routerlink,'settings/temp-zone')]")
-	WebElement ZoneTemperature;
+	public WebElement ZoneTemperature;
 
 	@FindBy(xpath = "//*[contains(text(),'Global Setpoint')]/../following-sibling::tr/td//input")
-	WebElement GlobalSetPoint;
+	public WebElement GlobalSetPoint;
 
 	@FindBy(xpath = "//*[@formcontrolname='globalSetPoint']")
-	WebElement MinmaxGlobalSetPoint;
+	public WebElement MinmaxGlobalSetPoint;
 
 	@FindBy(xpath = "//*[contains(text(),'Tank')]/../following-sibling::tr/td//input")
-	WebElement Tank;
+	public WebElement Tank;
 
 	@FindBy(xpath = "//*[contains(text(),'Manifold')]/../following-sibling::tr/td//input")
-	WebElement Manifold;
+	public WebElement Manifold;
 	@FindBy(xpath = "//*[contains(text(),'Hose')]")
-	List<WebElement> Hose;
+	List< WebElement> Hose;
 
 	@FindBy(xpath = "//*[contains(text(),'Applicator')]")
-	List<WebElement> Applicator;
+	List< WebElement> Applicator;
 
 	@FindBy(xpath = "//*[contains(@name,'hose')]")
-	List<WebElement> HoseSetpoint;
+	List< WebElement> HoseSetpoint;
 
 	@FindBy(xpath = "//*[contains(@name,'applicator')]")
-	List<WebElement> ApplicatorSetpoint;
+	List< WebElement> ApplicatorSetpoint;
 
 	@FindBy(xpath = "//*[@name='hose1']")
-	WebElement Hose1;
+	public WebElement Hose1;
 
 	@FindBy(xpath = "//*[@name='applicator1']")
-	WebElement Applicator1;
+	public WebElement Applicator1;
 
 	@FindBy(xpath = "//*[text()='Hose 1']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..")
-	WebElement HoseEnbbtn;
+	public WebElement HoseEnbbtn;
 
 	@FindBy(xpath = "//*[text()='Applicator 1']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..")
-	WebElement ApplicatorEnbbtn;
+	public WebElement ApplicatorEnbbtn;
 
 	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
-	WebElement Toastmsg;
+	public WebElement Toastmsg;
 	
 	@FindBy(xpath = "//*[contains(text(),'DASHBOARD')]")
-	WebElement Dashboard;
+	public WebElement Dashboard;
 
 	
 public void clickDashboard() {
@@ -199,10 +199,10 @@ public void clickDashboard() {
 
 	public void clickSavebtn() {
 
-		Am.waitForAnElementPresence(SAVE1);
+		
 		Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
 		Am.waitForAnElementToBeClickable(SAVE1);
-		SAVE1.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SAVE1);
 
 	}
 
@@ -210,8 +210,7 @@ public void clickDashboard() {
 
 		Am.waitForAnElementPresence(RuntimeSettings);
 		Am.waitForAnElementToBeClickable(RuntimeSettings);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", RuntimeSettings);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", RuntimeSettings);
 
 		// RuntimeSettings.click();
 	}
@@ -313,7 +312,7 @@ public void clickDashboard() {
 
 		for (int i = 1; i <= HoseSetpoint.size(); i++) {
 			hosesetpnt = "//*[@name='hose" + i + "']";
-			WebElement el = ldriver.findElement(By.xpath(hosesetpnt));
+			 WebElement el = ldriver.findElement(By.xpath(hosesetpnt));
 			Am.waitFortexttoBePresent(By.xpath(hosesetpnt));
 			String hosesettemppnt = el.getAttribute("value");
 			Hosesetpointslst.add(hosesettemppnt);
@@ -329,7 +328,7 @@ public void clickDashboard() {
 
 		for (int i = 1; i <= Applicator.size(); i++) {
 			applicatorsetpnt = "//*[@name='applicator" + i + "']";
-			WebElement el = ldriver.findElement(By.xpath(applicatorsetpnt));
+			 WebElement el = ldriver.findElement(By.xpath(applicatorsetpnt));
 			Am.waitFortexttoBePresent(By.xpath(applicatorsetpnt));
 			String hosesettemppnt = el.getAttribute("value");
 			Applicatorsetpointslst.add(hosesettemppnt);
@@ -428,7 +427,7 @@ public void clickDashboard() {
 
 	public String getToastmsg() {
 
-		Am.waitForAnElementPresence(Toastmsg);
+		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		String toastmsg = "";
 		if (Toastmsg.isDisplayed()) {
 			toastmsg = Toastmsg.getText();
@@ -543,17 +542,21 @@ public void clickDashboard() {
 	}
 	
 
-	public void setApplicatorstemp(String appsettemp) throws InterruptedException {
+	public void setApplicatorstemp(String appsettemp,String tempunt) throws Exception {
 		String Applcator="";
+		String tstmsg="";
 		for (int i = 1; i <= Applicator.size(); i++) {
 			String Applcatorsettmp = "//*[@name='applicator" + i + "']";
+			String bfrval=ldriver.findElement(By.xpath(Applcatorsettmp)).getAttribute("value");
 			Applcator = "//*[text()='Applicator " + i
 					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
-			if(ldriver.findElements(By.xpath(Applcator)).size()==1)
-				ldriver.findElement(By.xpath(Applcator)).click();
+			if(ldriver.findElements(By.xpath(Applcator)).size()==1) {
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",ldriver.findElement(By.xpath(Applcator)));
+				ldriver.findElement(By.xpath(Applcator)).click();}
 			else
 				System.out.println("applicator"+i+"already enabled");
-				
+			
+			Am.sleepTime(1500);
 			ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 				ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(appsettemp);
 				clickSavebtn();
@@ -561,11 +564,30 @@ public void clickDashboard() {
 					System.out.println("applicator"+i+" set to Maxmium values are saved successfully");	 
 				else
 					System.out.println("applicators"+i+"set to Maxmium values are not saved successfully");	
+				
+				  Am.sleepTime(1500);
+				   ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(appsettemp);
+					clickSavebtn();
+					tstmsg = getToastmsg();
+					
+					if((Integer.parseInt(appsettemp)<40||Integer.parseInt(appsettemp)>232)&& tempunt.contains("C")) {
+					VerifyErrToastmsgCelsius(tstmsg,i);}
+					else if((Integer.parseInt(appsettemp)<100||Integer.parseInt(appsettemp)>450)&& tempunt.contains("F"))
+						VerifyErrToastmsgFarnheit(tstmsg,i);	
+					else
+						VerfiySucsstoastmsg(tstmsg);
+					
+					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(bfrval);
+					clickSavebtn();
+					getToastmsg();
 		}
 		
 	}
 
 	public void createNewNORfile() throws InterruptedException {
+		Thread.sleep(1000);
 		clickSetUpToolBtn();
 		Thread.sleep(1000);
 		clickCreateNewBtn();
@@ -576,7 +598,7 @@ public void clickDashboard() {
 	}
 
 	
-	public void setHosestemp(String hosesettemp) throws InterruptedException {
+	public void setHosestemp(String hosesettemp,String tempunt) throws InterruptedException {
 		String hose="";
 		String tstmsg="";
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'Hose')]"));
@@ -596,9 +618,9 @@ public void clickDashboard() {
 				clickSavebtn();
 				tstmsg = getToastmsg();
 				
-				if(Integer.parseInt(hosesettemp)<40||Integer.parseInt(hosesettemp)>232) {
+				if((Integer.parseInt(hosesettemp)<40||Integer.parseInt(hosesettemp)>232)&& tempunt.contains("C")) {
 				VerifyErrToastmsgCelsius(tstmsg,i);}
-				else if(Integer.parseInt(hosesettemp)<100||Integer.parseInt(hosesettemp)>450)
+				else if((Integer.parseInt(hosesettemp)<100||Integer.parseInt(hosesettemp)>450)&& tempunt.contains("F"))
 					VerifyErrToastmsgFarnheit(tstmsg,i);	
 				else
 					VerfiySucsstoastmsg(tstmsg);

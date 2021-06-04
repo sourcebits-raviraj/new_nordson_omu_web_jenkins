@@ -168,8 +168,9 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 
 	@Description("Verify the MDS Hose and Applicator Set Point for Celsius Temperature Unit")
 	@Test(priority = 4,enabled = true)
-	public void Test_RuntimeSetting_HoseAppSetPoint_MDS_Celsius() throws InterruptedException, IOException {
+	public void Test_RuntimeSetting_HoseAppSetPoint_MDS_Celsius() throws Exception {
 
+		//trs = new TemperatureRuntimeSettings(driver);
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_HoseApp());
 		trs.clickDashboard();
 		Thread.sleep(1000);
@@ -180,14 +181,14 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		trs.getApplicatorsSettempStatus(mds.getDefault1());
 		log.info("All Applicators are set to MDS default values");
 		// Minium Values Verification for Hoses and Applicators
-		trs.setHosestemp(mds.getMin1());
+		trs.setHosestemp(mds.getMin1(),mds.getPrmryunt());
 		log.info("All Hoses are set to min MDS value and save successfully");
-		trs.setApplicatorstemp(mds.getMin1());
+		trs.setApplicatorstemp(mds.getMin1(),mds.getPrmryunt());
 		log.info("All Applicators are set to min value and save successfully");
 		// Maximum Values Verification for Hoses and Applicators
-		trs.setHosestemp(mds.getMax1());
+		trs.setHosestemp(mds.getMax1(),mds.getPrmryunt());
 		log.info("All Hoses are set to Max MDS value and saved successfully");
-		trs.setApplicatorstemp(mds.getMax1());
+		trs.setApplicatorstemp(mds.getMax1(),mds.getPrmryunt());
 		log.info("All Applicators are set to max value and save successfully");
 	}
 
@@ -381,7 +382,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 
 	@Description("Verify the MDS Hose and Applicator Set Point for Fahrenheit Temperature Unit")
 	@Test(priority = 8,enabled = true)
-	public void Test_RuntimeSetting_HoseAppSetPoint_MDS_Fahrenheit() throws InterruptedException, IOException {
+	public void Test_RuntimeSetting_HoseAppSetPoint_MDS_Fahrenheit() throws Exception {
 
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_HoseApp());
 		trs.clickDashboard();
@@ -408,15 +409,16 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		trs.getApplicatorsSettempStatus(mds.getDefault1());
 		log.info("All Applicators are set to MDS default values for Fahrenheit unit");
 		// Minium Values Verification for Hoses and Applicators
-		trs.setHosestemp(mds.getMin2());
+		trs.setHosestemp(mds.getMin2(),mds.getScndryunt());
 		log.info("All Hoses are set to min MDS value and save successfully for Fahrenheit unit");
-		trs.setApplicatorstemp(mds.getMin2());
+		trs.setApplicatorstemp(mds.getMin2(),mds.getScndryunt());
 		log.info("All Applicators are set to min value and save successfully for Fahrenheit unit");
 		// Maximum Values Verification for Hoses and Applicators
-		trs.setHosestemp(mds.getMax2());
+		trs.setHosestemp(mds.getMax2(),mds.getScndryunt());
 		log.info("All Hoses are set to Max MDS value and saved successfully for Fahrenheit unit");
-		trs.setApplicatorstemp(mds.getMax2());
+		trs.setApplicatorstemp(mds.getMax2(),mds.getScndryunt());
 		log.info("All Applicators are set to max MDS value and save successfully for Fahrenheit unit");
 
 	}
 }
+

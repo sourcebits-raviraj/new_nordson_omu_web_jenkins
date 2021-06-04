@@ -98,6 +98,12 @@ public class Constants {
 	public static final String ReadOnly = "Read Only";
 	public static final String SubUsersmsg = "Sub User Added Successfully";
 	
+
+	// Pressure preferences message
 	public static final String Pressuresucssmsg = "Pressure updated successfully";
+	public static final String Preferencessucssmsg = "Preferences updated successfully";
+	public static final String ElctnicadjstPSImaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
+	public static final String ElctnicadjstBARmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
+	public static final String ElctnicadjstKPAmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
 
 }

@@ -17,12 +17,12 @@ import io.qameta.allure.Story;
 public class TC_Pressure_Validations_Kpa_Bar_Psi_Default_Values extends TC_LoginTest_DDT_001 {
 
 	Runtime_Settings_Pressure_Validations rsp;
-	ActionMethods Am;
+	ActionMethods Am=new ActionMethods();
 	private SoftAssert softAssert = new SoftAssert();
 
 	@Test(priority = 1, enabled = true)
 	@Description("Verify the Default Values for Kpa Pressure Unit")
-	public void Pressure_Validation_Kpa_default_values() throws InterruptedException, IOException {
+	public void Pressure_Validation_Kpa_default_values() throws Exception {
 
 		rsp = new Runtime_Settings_Pressure_Validations(driver);
 
@@ -34,7 +34,8 @@ public class TC_Pressure_Validations_Kpa_Bar_Psi_Default_Values extends TC_Login
 
 		log.info("Added Description");
 		rsp.addDescription();
-
+		Am.sleepTime(2000);
+		
 		log.info("Submitted NOR file");
 		rsp.clickSubmit();
 
