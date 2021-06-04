@@ -126,6 +126,7 @@ public class RegistrationPage {
 	}
 
 	public void setCompanyType() throws InterruptedException {
+		Thread.sleep(2000);
 		CompanyType.click();
 		Thread.sleep(2000);
 		CompanyTypeValue.click();
@@ -172,7 +173,8 @@ public class RegistrationPage {
 		Desc.sendKeys(desc);
 	}
 
-	public void clickoNContinue() {
+	public void clickoNContinue() throws Exception {
+		Thread.sleep(2500);
 		Continue2.click();
 	}
 

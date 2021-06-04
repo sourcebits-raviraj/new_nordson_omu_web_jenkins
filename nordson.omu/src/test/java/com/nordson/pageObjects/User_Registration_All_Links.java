@@ -110,7 +110,7 @@ public class User_Registration_All_Links {
 	@FindBy(xpath = "//div[@class='right footer-text cursor-pointer pad-responsive-signup']")
 	public WebElement ContactUs;
 
-	@FindBy(xpath = "//a[normalize-space()='Terms of Service']")
+	@FindBy(css = ".right.footer-text.pad-responsive-signup.pad-tp-15-responsive.cursor-pointer")
 	public WebElement TermsService;
 
 	@FindBy(xpath = "//div[@class='contact-head']")

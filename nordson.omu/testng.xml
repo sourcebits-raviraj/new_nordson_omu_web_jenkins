@@ -11,10 +11,22 @@
 
   <test name="Nordson OMU Web App Regression Tests on Chrome">
       <parameter name="browser" value="chrome"/>
+      <parameter name="environment" value="Preprod"/>
        <classes>
-          <!--  <class name="com.nordson.utilities.Language"/> -->
-           <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links"/>
             
+            <class name="com.nordson.testCases.TC_VerifyLinkTests_003"/>  
+            <class name="com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links"/> 
+            <class name="com.nordson.testCases.TC_Registration_DDT_002"/> 
+            <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
+            <class name="com.nordson.testCases.TC_Pressure_Validations_Kpa_Bar_Psi_Default_Values"/> 
+            <class name= "com.nordson.testCases.TC_Pressure_Min_Max_Data_Validations"/> 
+            <class name="com.nordson.MDS.TC_RuntimeSettings_Pressure_MDS_Validations"/> 
+            <class name="com.nordson.MDS.TC_RuntimeSettings_Temperature_MDSValidations"/> 
+            <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations"/> 
+  		    <class name="com.nordson.MDS.TC_SystemSettings_Fill_MDSValidations"/> 
+    	     <class name="com.nordson.MDS.TC_RuntimeSettings_Flow_MDSValidations"/>
+            <class name="com.nordson.MDS.TC_SystemSettings_Flow_MDSValues"/> 
+            <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links"/> 
       </classes>
      
        </test> 

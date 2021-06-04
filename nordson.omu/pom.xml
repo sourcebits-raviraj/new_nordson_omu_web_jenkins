@@ -175,9 +175,9 @@
 						<!-- TestNG suite XML files -->
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>				
-				    <argLine>
+				   <!--  <argLine>
                     -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.4/aspectjweaver-1.9.4.jar"
-                     </argLine>
+                     </argLine> -->
                  </configuration>
                  <dependencies>
                    <dependency>

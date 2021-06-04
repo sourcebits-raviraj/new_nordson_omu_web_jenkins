@@ -37,11 +37,11 @@ public class Constants {
 	public static final String TnkpntErrmsg = "Tank & Manifold should be between 40 and 204";
 	public static final String TnkpntErrmsgFH = "Tank & Manifold should be between 100 and 400";
 
-	public static final String Hose1 = "Hose 1 should be between 40 and 232";
-	public static final String Applictor1 = "Applicator 1 should be between 40 and 232";
+	public static final String Hosecelsius = "Hose husnum should be between 40 and 232";
+	public static final String Appcelsius = "Applicator Appnum should be between 40 and 232";
 
-	public static final String Applictor1FH = "Applicator 1 should be between 100 and 450";
-	public static final String Hose1FH = "Hose 1 should be between 100 and 450";
+	public static final String ApplictorFH = "Applicator Appnum should be between 100 and 450";
+	public static final String HoseFH = "Hose husnum should be between 100 and 450";
 
 	public static final String SucssmsgRuntime = "Temperature Zones updated successfully";
 
@@ -98,6 +98,12 @@ public class Constants {
 	public static final String ReadOnly = "Read Only";
 	public static final String SubUsersmsg = "Sub User Added Successfully";
 	
+
+	// Pressure preferences message
 	public static final String Pressuresucssmsg = "Pressure updated successfully";
+	public static final String Preferencessucssmsg = "Preferences updated successfully";
+	public static final String ElctnicadjstPSImaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
+	public static final String ElctnicadjstBARmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
+	public static final String ElctnicadjstKPAmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
 
 }
