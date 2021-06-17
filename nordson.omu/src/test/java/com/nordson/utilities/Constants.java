@@ -63,6 +63,14 @@ public class Constants {
 		
 		
 		public static final String Sucssmsg="Temperature Settings updated successfully";
+		
+		//Pump ratio constants
+		
+		public static final String config_cdmsg_pumpratiochng="Your configuration code has changed. Do you want to update your system configuration?";
+		public static final String STD_STD_DA="15";
+		public static final String HOD_HO_DA="16";
+		public static final String SHO_SHO_SA="12";
+		public static final String COD_LP_LV="6";
 
 	}
 

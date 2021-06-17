@@ -1,9 +1,13 @@
 package com.nordson.testCases;
 
+import java.io.File;
+import java.util.HashMap;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
@@ -35,11 +39,21 @@ public class BaseClass {
 		if (br.equalsIgnoreCase("chrome")) {
 
 			// Defining System Property for the ChromeDriver
-			System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
-
-			// Instantiate a FireFox class.
-			driver = new ChromeDriver();
-			log.info("New Chrome driver Instantiated");
+			
+			 String downloadNorPath=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
+             File downloadFolder=new File(downloadNorPath);
+             downloadFolder.mkdir();
+           
+              HashMap<String,Object> chromeprefs=new HashMap<String,Object>();
+              chromeprefs.put("download.default_directory",downloadNorPath);
+            
+              ChromeOptions options= new ChromeOptions();
+              options.setExperimentalOption("prefs", chromeprefs);
+              System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
+           // Instantiate a FireFox class.
+              driver = new ChromeDriver(options);
+              log.info("New Chrome driver Instantiated");
+            
 		}
 
 		// Launch the Firefox Browser

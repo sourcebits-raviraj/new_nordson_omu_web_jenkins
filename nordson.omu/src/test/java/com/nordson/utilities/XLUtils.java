@@ -29,11 +29,14 @@ public class XLUtils {
 	public static XSSFRow row;
 	public static XSSFCell cell;
 	public static String sheetNm;
+	public static String excelName;
+;
 
 	public static void setExcelSheetNm(String SheetName) {
-
 		XLUtils.sheetNm = SheetName;
-
+	}
+	public static void setExceltNm(String ExcelName) {
+		XLUtils.excelName = ExcelName;
 	}
 
 	public static int getRowCount(String xlfile, String xlsheet) throws IOException {
@@ -147,10 +150,9 @@ public class XLUtils {
 		
 		File file=new File(path);
         
-		wb = new XSSFWorkbook();
+		  wb = new XSSFWorkbook();
 		
-		ws = wb.createSheet("KPA_min_max_xml");
-				ws = wb.createSheet("KPA_min_max_xml");
+		  ws = wb.createSheet("KPA_min_max_xml");
 		  System.out.println(ws.getFirstRowNum());
 		  System.out.println(ws.getLastRowNum()); 
 		  ws.createRow(0);
@@ -170,7 +172,7 @@ public class XLUtils {
 
 	}
 	public static void setvalue(String mindata, String maxdata) throws IOException {
-	String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/NorfilePressure1.xlsx";
+	String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/NorfilePressure_Pneumatic1.xlsx";
 	File file=new File(path);
     
 	wb = new XSSFWorkbook();
@@ -186,9 +188,8 @@ public class XLUtils {
 	}
 	}
 	public static void setminPressurevaluePSI(String mindata) throws IOException {
-		String path = System.getProperty("user.dir") + "./XMLOutputfolder/Test3.xlsx";
+		String path = System.getProperty("user.dir") + "./XMLOutputfolder/Test3.xlsx;";
 		File file=new File(path);
-        
 		wb = new XSSFWorkbook();
 		ws = wb.createSheet("PSI_min_xml");
 		  System.out.println(ws.getFirstRowNum());
@@ -897,243 +898,369 @@ public class XLUtils {
 		}
 		return pressuredata;
 	}
-
-	@DataProvider(name = "min_max_Presure_for_norfile_PSI")
-	public static String[][] setminmaxPressureForNorFilePSI() throws IOException {
-		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return minpressueDataforNor;
-	}
-
-	@DataProvider(name = "min_max_Presure_for_norfile_BAR")
-	public static String[][] setminmaxPressureForNorFileBAR() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minmaxpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minmaxpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return minmaxpressueDataforNor;
-	}
-	
-	@DataProvider(name = "min_max_Presure_for_norfile_KPA")
-	public static String[][] setminmaxPressureForNorFileKPA() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minmaxpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minmaxpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return minmaxpressueDataforNor;
-	}
-	@DataProvider(name = "min_max_Presure_for_norfile_KPAtest")
-	public static String[][] setminmaxKPA() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure1.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minmaxpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minmaxpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return minmaxpressueDataforNor;
-	}
-	@DataProvider(name = "min_Presure_for_norfile_PSI")
-	public static String[][] setminPressureForNorFilePSI() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return minpressueDataforNor;
-	}
-	
-	@DataProvider(name = "min_Presure")
-	public static String[][] setminPressure() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/norminuixml.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return minpressueDataforNor;
-	}
-	
-	
-	@DataProvider(name = "max_Presure_for_norfile_PSI")
-	public static String[][] setmaxPressureForNorFilePSI() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
-		int rownum = XLUtils.getRowCount(path, sheetNm);
-		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String maxpressueDataforNor[][] = new String[rownum][colcnt];
-
-		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				maxpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return maxpressueDataforNor;
-	}
-	@DataProvider(name = "min_Presure_for_norfile_KPA")
+	// Data Provider for Nor file XML Verfication
+	@DataProvider(name = "min_Presure_for_norfile_KPA_manualadjust")
 	public static String[][] setminPressureForNorFileKPA() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
 		int rownum = XLUtils.getRowCount(path, sheetNm);
 		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minpressueDataforNor[][] = new String[rownum][colcnt];
-
+		
+		String minpressueDataforNor[][] = new String[rownum][colcount];
 		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);}
 		}
-		return minpressueDataforNor;
-	}
-	
-	@DataProvider(name = "max_Presure_for_norfile_KPA")
+		return minpressueDataforNor;}
+	@DataProvider(name = "max_Presure_for_norfile_KPA_manualadjust")
 	public static String[][] setmaxPressureForNorFileKPA() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
 
 		int rownum = XLUtils.getRowCount(path, sheetNm);
 		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String maxpressueDataforNor[][] = new String[rownum][colcnt];
-
+	
+		String maxpressueDataforNor[][] = new String[rownum][colcount];
 		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				maxpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
+			for (int j = 0; j < colcount; j++) {
+				maxpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);			}
 		}
+		return maxpressueDataforNor;}
+	@DataProvider(name = "min_Presure_for_norfile_BAR_manualadjust")
+	public static String[][] setminPressureForNorFileBAR() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);}}
+		return minpressueDataforNor;
+	}
+	@DataProvider(name = "max_Presure_for_norfile_BAR_manualadjust")
+	public static String[][] setmaxPressureForNorFileBAR() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String maxpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				maxpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);		}}
 		return maxpressueDataforNor;
 	}
-	@DataProvider(name = "min_Presure_for_norfile_BAR")
-	public static String[][] setminPressureForNorFileBAR() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
-
+	
+	@DataProvider(name = "min_Presure_for_norfile_PSI_manualadjust")
+	public static String[][] setminPressureForNorFilePSI() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
 		int rownum = XLUtils.getRowCount(path, sheetNm);
 		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String minpressueDataforNor[][] = new String[rownum][colcnt];
-
+		String minpressueDataforNor[][] = new String[rownum][colcount];
 		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				minpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);	}}
 		return minpressueDataforNor;
 	}
 	
-	@DataProvider(name = "max_Presure_for_norfile_BAR")
-	public static String[][] setmaxPressureForNorFileBAR() throws IOException {
-		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure5.xlsx";
+	@DataProvider(name = "max_Presure_for_norfile_PSI_manualadjust")
+	public static String[][] setmaxPressureForNorFilePSI() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String maxpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				maxpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);	}		}
+		return maxpressueDataforNor;
+	}
+	
+	@DataProvider(name = "min_max_Presure_for_norfile_KPA_manualadjust")
+	public static String[][] setminmaxPressureForNorFileKPA() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minmaxpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minmaxpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);}}
+		return minmaxpressueDataforNor;
+	}
+	@DataProvider(name = "min_max_Presure_for_norfile_BAR_manualadjust")
+	public static String[][] setminmaxPressureForNorFileBAR() throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minmaxpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minmaxpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);	}}
+		return minmaxpressueDataforNor;
+	}
+	@DataProvider(name = "min_max_Presure_for_norfile_PSI_manualadjust")
+	public static String[][] setminmaxPressureForNorFilePSI() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
 
 		int rownum = XLUtils.getRowCount(path, sheetNm);
 		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
-		int colcnt = colcount - 1;
-
-		System.out.println("No of Rows= " + rownum);
-		System.out.println("No of Columns= " + colcnt);
-		String maxpressueDataforNor[][] = new String[rownum][colcnt];
-
+		String minpressueDataforNor[][] = new String[rownum][colcount];
 		for (int i = 1; i <= rownum; i++) {
-			for (int j = 1; j <= colcnt; j++) {
-				maxpressueDataforNor[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
-
-			}
-
-		}
-		return maxpressueDataforNor;
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
 	}
+	public static void setNorXMLValues_Pressure_Min_or_Max(String sheetnm,String Xmltag,String mindata) throws IOException, InvalidFormatException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		wb= new XSSFWorkbook(new FileInputStream(path));
+		System.out.println(wb.getNumberOfSheets());
+			 if (wb.getNumberOfSheets()!=0) {
+				 for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+					    if (wb.getSheetName(i).equals(sheetnm)) {
+					    	wb.removeSheetAt(wb.getSheetIndex(sheetnm));}
+					    }
+				 ws = wb.createSheet(sheetnm);}
+		  System.out.println(ws.getFirstRowNum());
+		  System.out.println(ws.getLastRowNum()); 
+		  ws.createRow(0);
+		  ws.getRow(0).createCell(0).setCellValue(Xmltag);
+		  ws.createRow(1);
+		  ws.getRow(1).createCell(0).setCellValue(mindata);
+		  fo = new FileOutputStream(new File(path));
+		  wb.write(fo);
+		  wb.close();
+		  fo.close();
+	}
+	
+	public static void setNorXMLValues_Pressure_Min_and_Max(String sheetnm,String mintag,String maxtag,String mindata,String maxdata) throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		wb= new XSSFWorkbook(new FileInputStream(path));
+		System.out.println(wb.getNumberOfSheets());
+			 if (wb.getNumberOfSheets()!=0) {
+				 for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+					    if (wb.getSheetName(i).equals(sheetnm)) {
+					    	wb.removeSheetAt(wb.getSheetIndex(sheetnm));}
+					    }
+				 ws = wb.createSheet(sheetnm);}
+		  System.out.println(ws.getFirstRowNum());
+		  System.out.println(ws.getLastRowNum()); 
+		  ws.createRow(0);
+		  ws.getRow(0).createCell(0).setCellValue(mintag);
+		  ws.getRow(0).createCell(1).setCellValue(maxtag);
+			
+		  ws.createRow(1);
+		  ws.getRow(1).createCell(0).setCellValue(mindata);
+		  ws.getRow(1).createCell(1).setCellValue(maxdata);
+	     
+		  fo = new FileOutputStream(new File(path));
+		  wb.write(fo);
+		  wb.close();
+
+		  fo.close();
+	}
+	@DataProvider(name = "Presure_for_norfile_KPA_electronicadjust")
+	public static String[][] setminmaxPressureForNorFilKPAeleadjust() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+	@DataProvider(name = "Presure_for_norfile_BAR_electronicadjust")
+	public static String[][] setminmaxPressureForNorFileBAReleadjust() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+
+	@DataProvider(name = "Presure_for_norfile_PSI_electronicadjust")
+	public static String[][] setminmaxPressureForNorFilePSIeleadjust() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+	
+	public static void setNorXMLValues_Pressure_electronicadjust(String sheetnm,String prssstpnttg,String prssurstpnt,String lowlvlthrshldtag,String lowlvlthrshld,
+			String hghlvlthrshldtag,String hghlvlthrshld,String minprsprngtag,String minprsprng,String maxprsprngtag,String maxprsprng) throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		wb= new XSSFWorkbook(new FileInputStream(path));
+		System.out.println(wb.getNumberOfSheets());
+			 if (wb.getNumberOfSheets()!=0) {
+				 for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+					    if (wb.getSheetName(i).equals(sheetnm)) {
+					    	wb.removeSheetAt(wb.getSheetIndex(sheetnm));}
+					    }
+				 ws = wb.createSheet(sheetnm);}
+		  System.out.println(ws.getFirstRowNum());
+		  System.out.println(ws.getLastRowNum()); 
+		  
+		  ws.createRow(0);
+		  ws.getRow(0).createCell(0).setCellValue(prssstpnttg);
+		  ws.createRow(1);
+		  ws.getRow(1).createCell(0).setCellValue(prssurstpnt);
+		 
+		  ws.getRow(0).createCell(1).setCellValue(lowlvlthrshldtag);
+		  ws.getRow(1).createCell(1).setCellValue(lowlvlthrshld);
+		  
+		  ws.getRow(0).createCell(2).setCellValue(hghlvlthrshldtag);
+		  ws.getRow(1).createCell(2).setCellValue(hghlvlthrshld);
+		  
+		  ws.getRow(0).createCell(3).setCellValue(minprsprngtag);
+		  ws.getRow(1).createCell(3).setCellValue(minprsprng);
+		  
+		  ws.getRow(0).createCell(4).setCellValue(maxprsprngtag);
+		  ws.getRow(1).createCell(4).setCellValue(maxprsprng);
+		  
+		  fo = new FileOutputStream(new File(path));
+		  wb.write(fo);
+		  wb.close();
+		  fo.close();
+	 }
+	
+	@DataProvider(name = "Presure_for_norfile_KPA_RunUp")
+	public static String[][] setminmaxPressureForNorFileKPARunup() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+	@DataProvider(name = "Presure_for_norfile_BAR_RunUp")
+	public static String[][] setminmaxPressureForNorFileBARRunup() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+	@DataProvider(name = "Presure_for_norfile_PSI_RunUp")
+	public static String[][] setminmaxPressureForNorFilePSIRunup() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+	public static void setNorXMLValues_Pressure_Runup(String sheetnm,String lowlvlthrshldtag,String lowlvlthrshld,
+			String hghlvlthrshldtag,String hghlvlthrshld,String lwspdpresssttngtag,String lwspdpresssttng,
+			String hghspdpresssttngtag,String hghspdpresssttng,String stmxprslmttag,String stmxprslmt,
+			String stminprslmttag,String stminprslmt
+			) throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		wb= new XSSFWorkbook(new FileInputStream(path));
+		System.out.println(wb.getNumberOfSheets());
+			 if (wb.getNumberOfSheets()!=0) {
+				 for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+					    if (wb.getSheetName(i).equals(sheetnm)) {
+					    	wb.removeSheetAt(wb.getSheetIndex(sheetnm));}
+					    }
+				 ws = wb.createSheet(sheetnm);}
+		  System.out.println(ws.getFirstRowNum());
+		  System.out.println(ws.getLastRowNum()); 
+		  
+		  ws.createRow(0);
+		  ws.createRow(1);
+		  ws.getRow(0).createCell(0).setCellValue(lowlvlthrshldtag);
+		  ws.getRow(1).createCell(0).setCellValue(lowlvlthrshld);
+		 
+		  ws.getRow(0).createCell(1).setCellValue(hghlvlthrshldtag);
+		  ws.getRow(1).createCell(1).setCellValue(hghlvlthrshld);
+		  
+		  ws.getRow(0).createCell(2).setCellValue(lwspdpresssttngtag);
+		  ws.getRow(1).createCell(2).setCellValue(lwspdpresssttng);
+		
+		  
+		  ws.getRow(0).createCell(3).setCellValue(hghspdpresssttngtag);
+		  ws.getRow(1).createCell(3).setCellValue(hghspdpresssttng);
+		  
+		
+		  ws.getRow(0).createCell(4).setCellValue(stmxprslmttag);
+		  ws.getRow(1).createCell(4).setCellValue(stmxprslmt);
+		  
+		  ws.getRow(0).createCell(5).setCellValue(stminprslmttag);
+		  ws.getRow(1).createCell(5).setCellValue(stminprslmt);
+		  
+	
+		  
+		  fo = new FileOutputStream(new File(path));
+		  wb.write(fo);
+		  wb.close();
+		  fo.close();
+	 }
+	
+	@DataProvider(name = "Presure_for_norfile_RunUp_LineSpeed")
+	public static String[][] Presurefornorfile_RunUp_LineSpeed() throws IOException {
+		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/"+excelName+".xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		String minpressueDataforNor[][] = new String[rownum][colcount];
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				minpressueDataforNor[i - 1][j] = XLUtils.getCellData(path, sheetNm, i, j);} }
+		return minpressueDataforNor;
+	}
+	
+	
+	public static void setNorXMLValues_Pressure_Runup_LineSpeed(String sheetnm,
+			String lwlnspdpresssttngtag,String lwlnspdpresssttng,String hghlnspdpresssttngtag,String hghlnspdpresssttng,String fullscllnspdtag,String fullscllnspd
+			) throws IOException {
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/"+excelName+".xlsx";
+		wb= new XSSFWorkbook(new FileInputStream(path));
+		System.out.println(wb.getNumberOfSheets());
+			 if (wb.getNumberOfSheets()!=0) {
+				 for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+					    if (wb.getSheetName(i).equals(sheetnm)) {
+					    	wb.removeSheetAt(wb.getSheetIndex(sheetnm));}
+					    }
+				 ws = wb.createSheet(sheetnm);}
+		  System.out.println(ws.getFirstRowNum());
+		  System.out.println(ws.getLastRowNum()); 
+		  
+		  ws.createRow(0);
+		  ws.getRow(0).createCell(0).setCellValue(lwlnspdpresssttngtag);
+		  ws.createRow(1);
+		  ws.getRow(1).createCell(0).setCellValue(lwlnspdpresssttng);
+		 
+		  ws.getRow(0).createCell(1).setCellValue(hghlnspdpresssttngtag);
+		  ws.getRow(1).createCell(1).setCellValue(hghlnspdpresssttng);
+		  
+		  ws.getRow(0).createCell(2).setCellValue(fullscllnspdtag);
+		  ws.getRow(1).createCell(2).setCellValue(fullscllnspd);
+		  
+		  fo = new FileOutputStream(new File(path));
+		  wb.write(fo);
+		  wb.close();
+		  fo.close();
+	}  
+	
 }

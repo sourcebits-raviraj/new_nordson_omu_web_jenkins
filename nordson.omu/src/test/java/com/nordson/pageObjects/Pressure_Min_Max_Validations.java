@@ -1,6 +1,7 @@
 package com.nordson.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.nordson.utilities.ActionMethods;
+
+import junit.framework.Assert;
 
 public class Pressure_Min_Max_Validations {
 	WebDriver ldriver;
@@ -161,7 +164,26 @@ public class Pressure_Min_Max_Validations {
 	@FindBy(css = "div[class='logout-sub-head pad-tp']")
 	WebElement DownwardSlopingRunupContent;
 	
+	@FindBy(xpath = "//*[@class='download']")
+	WebElement Download;
+	
+	@FindBy(xpath = "//input[contains(@name,'ulPressureMinSetPoint')]/../following-sibling::span")
+	WebElement Pressureunit;
+	
+	
+	@FindBy(xpath = "//*[@formcontrolname='PressureUnits']//*[contains(@class,'mat-radio-checked')]//span")
+	WebElement PrefPressureunitSelected;
+	
+	@FindBy(xpath = "//*[@formcontrolname='ePumpRatio']//div[@class='mat-select-arrow']")
+	WebElement PrefPumpSelection;
 
+	@FindBy(xpath = "//*[@class='logout-head']")
+	WebElement ConfigchngPopup;
+
+	@FindBy(xpath ="//*[@formcontrolname='LinespeedUnits']//*[text()='m/min']/../..")
+	WebElement Linespeedmeterpermin;
+	
+	
 	// Page Action Methods for all the WebElements declared
 	public void clickDashboard() throws InterruptedException {
 		customwait.waitForAnElementPresence(By.xpath("//span[contains(text(), 'DASHBOARD')]"));
@@ -172,12 +194,15 @@ public class Pressure_Min_Max_Validations {
 
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),' SETUP TOOL ')]"));
 		customwait.waitForAnElementClickable(By.xpath("//div[contains(text(),' SETUP TOOL ')]"));
-		SetUpToolLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",SetUpToolLink);
+		//SetUpToolLink.click();
 	}
 	public void clickCreateNewFile() {
+		
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),'CREATE NEW')]"));
 		customwait.waitForAnElementClickable(By.xpath("//div[contains(text(),'CREATE NEW')]"));
-		CreateNewNorFileButton.click();
+		//CreateNewNorFileButton.click();
+        ((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",CreateNewNorFileButton);
 	}
 
 	public void addDescription() {
@@ -188,7 +213,8 @@ public class Pressure_Min_Max_Validations {
 		Thread.sleep(2000);
 		customwait.waitForAnElementPresence(By.xpath("//button[normalize-space()='SUBMIT']"));
 		customwait.waitForAnElementClickable(By.xpath("//button[normalize-space()='SUBMIT']"));
-		SubmitButton.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",SubmitButton);
+		//SubmitButton.click();
 		Thread.sleep(2000);
 	}
 	public void ClickSystemSettingsLink() throws InterruptedException {
@@ -196,12 +222,14 @@ public class Pressure_Min_Max_Validations {
 		customwait.waitForAnElementPresence(
 				By.xpath("//span[@class='heading-text-sidenav']/following::mat-expansion-panel-header[2]"));
 		Thread.sleep(3000);
-		SystemSettingsLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",SystemSettingsLink);
+		//SystemSettingsLink.click();
 	}
 	public void ClickPreferencesLink() throws InterruptedException {
 		Thread.sleep(3000);
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),'Preferences')]"));
-		PreferencesLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",PreferencesLink);
+		//PreferencesLink.click();
 	}
 	public void SelectKPAUnit() throws InterruptedException {
 		Thread.sleep(2000);
@@ -209,7 +237,7 @@ public class Pressure_Min_Max_Validations {
 		KPAUnit.click();
 	}
 	public void saveButton() throws InterruptedException {
-		Thread.sleep(2000);
+		customwait.waitForAnElementPresence(By.xpath("//button[normalize-space()='SAVE']"));
 		customwait.waitForAnElementClickable(By.xpath("//button[normalize-space()='SAVE']"));
 		SaveButton.click();
 	}
@@ -235,16 +263,16 @@ public class Pressure_Min_Max_Validations {
 	public void clearMinSetPoint() throws InterruptedException {
 
 		Thread.sleep(2000);
-		clearKPAMinSetPoint.click();
-		for (int i = 0; i <= 4; i++) {
+		 clearKPAMinSetPoint.click();
+		 		for (int i = 1; i <= 4; i++) {
 			clearKPAMinSetPoint.sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(1000);
 		}
 	}
 	public void clearMaxSetPoint() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(2200);
 		clearKPAMaxSetPoint.click();
-		for (int i = 0; i <= 4; i++) {
+		for (int i = 1; i <=4; i++) {
 			clearKPAMaxSetPoint.sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(1000);
 		}
@@ -367,15 +395,11 @@ public class Pressure_Min_Max_Validations {
 		return tm;
 	}
 	public void CreatNewNORfile() throws InterruptedException {
-		Thread.sleep(1000);
+		
 		clickSetUpToolLink();
-		Thread.sleep(1000);
 		clickCreateNewFile();
-		Thread.sleep(1000);
 		addDescription();
-		Thread.sleep(1000);
 		clickSubmit();
-		Thread.sleep(1000);
 	}
 	public String getkPaMinSetPoint() throws InterruptedException {
 		// customwait.waitForAnElementPresence(By.xpath(
@@ -412,8 +436,9 @@ public class Pressure_Min_Max_Validations {
 		return PressureSetPoint.getAttribute("value");
 	}
 	public void clearPressureSetPoint() {
-		PressureSetPoint.click();
-		for (int i = 0; i <= 4; i++) {
+		customwait.waitForAnElementPresence(By.xpath("//*[@name='ulPressureSetPoint']"));
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",PressureSetPoint);
+		for (int i = 0; i <= 5; i++) {
 			PressureSetPoint.sendKeys(Keys.BACK_SPACE);}
 	}
 	public void setPressureSetPoint(String Pressurestpnt) {
@@ -426,11 +451,13 @@ public class Pressure_Min_Max_Validations {
 		return LowPressureAlertThreshold.getAttribute("value");
 	}
 	public void clearLowPressureAlertThreshold() {
-		LowPressureAlertThreshold.click();
-		for (int i = 0; i <= 4; i++) {
-			LowPressureAlertThreshold.sendKeys(Keys.BACK_SPACE);		}
+		
+		customwait.waitFortexttoBePresent(By.xpath("//*[@name='ulLowPressureAlertDelta']"));
+		LowPressureAlertThreshold.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
 	}
 	public void setLowPressureAlertThreshold(String lowPressureAlertThreshold) {
+		customwait.waitForAnElementPresence(By.xpath("//*[@name='ulLowPressureAlertDelta']"));
 		LowPressureAlertThreshold.sendKeys(lowPressureAlertThreshold);
 	}
 	public String getHighPressureAlertThreshold() throws InterruptedException {
@@ -455,10 +482,14 @@ public class Pressure_Min_Max_Validations {
 		return MinimumPressureSetPointRange.getAttribute("value");
 	}
 	public void clearPressureMinimumSetPointRange() {
-		MinimumPressureSetPointRange.click();
-		for (int i = 0; i <= 4; i++) {
-			MinimumPressureSetPointRange.sendKeys(Keys.BACK_SPACE);
-		}
+		
+		 customwait.waitFortexttoBePresent(By.xpath("//*[@name='ulLowPressureAlertThreshold']"));
+		 MinimumPressureSetPointRange.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
+		/* *
+		 * MinimumPressureSetPointRange.click(); for (int i = 0; i <= 4; i++) {
+		 * MinimumPressureSetPointRange.sendKeys(Keys.BACK_SPACE); }
+		 */
 	}
 	public void setMinimumPressureSetPointRange(String minimumSetPointRang) {
 		MinimumPressureSetPointRange.sendKeys(minimumSetPointRang);
@@ -470,22 +501,28 @@ public class Pressure_Min_Max_Validations {
 		return MaximumPressureSetPointRange.getAttribute("value");
 	}
 	public void clearMaximumPressureSetPointRange() {
-		MaximumPressureSetPointRange.click();
-		for (int i = 0; i <= 3; i++) {
-			MaximumPressureSetPointRange.sendKeys(Keys.BACK_SPACE);
-		}
+		
+		 customwait.waitFortexttoBePresent(By.xpath("//*[@name='ulHighPressureAlertThreshold']"));
+		MaximumPressureSetPointRange.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+			/*
+		 * MaximumPressureSetPointRange.click(); for (int i = 0; i <= 3; i++) {
+		 * MaximumPressureSetPointRange.sendKeys(Keys.BACK_SPACE); }
+		 */
 	}
 	public void setMaximumPressureSetPointRange(String MaximumSetPointRange) {
 		MaximumPressureSetPointRange.sendKeys(MaximumSetPointRange);
 	}
 	// Pressure mode selection
-	public void SelectMainPressureModeSelectionDropdown(String txttobeselected) throws InterruptedException {
+	public void SelectMainPressureModeSelectionDropdown(String txttobeselected) throws InterruptedException {	
 		customwait.waitForAnElementPresence(
 				By.xpath("//*[@formcontrolname='selectPressure']//div[@class='mat-select-arrow']"));
 		customwait.waitForAnElementClickable(By.xpath("//*[@formcontrolname='selectPressure']//div[@class='mat-select-arrow']"));
-		MainPressureModeSelection.click();
+		//MainPressureModeSelection.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",MainPressureModeSelection);
 		customwait.waitForAnElementPresence(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
-		ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
+		WebElement ele = ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",ele);
+		//ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
 	}
 	public void clickAcceptalert() {
 		customwait.waitForAnElementPresence(changesAlert);
@@ -514,7 +551,8 @@ public class Pressure_Min_Max_Validations {
 		return LowLineSpeedSetting.getAttribute("value");
 	}
 	public void clearLowLineSpeedSetting() {
-		LowLineSpeedSetting.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", LowLineSpeedSetting);
+		//LowLineSpeedSetting.click();
 		for (int i = 0; i <= 3; i++) {
 			LowLineSpeedSetting.sendKeys(Keys.BACK_SPACE);
 		}
@@ -529,10 +567,8 @@ public class Pressure_Min_Max_Validations {
 		return HighSpeedPressureSettings.getAttribute("value");
 	}
 	public void clearHighSpeedPressureSetting() {
-		HighSpeedPressureSettings.click();
-		for (int i = 0; i <= 3; i++) {
-			HighSpeedPressureSettings.sendKeys(Keys.BACK_SPACE);
-		}
+		customwait.waitFortexttoBePresent(By.cssSelector("input[name=highSpeedPresSett]"));
+		HighSpeedPressureSettings.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
 	public void setHighSpeedPressureSettings(String highSpeedPressureSettings) {
 		HighSpeedPressureSettings.sendKeys(highSpeedPressureSettings);
@@ -559,10 +595,9 @@ public class Pressure_Min_Max_Validations {
 		return SetMaximumPressurelimit.getAttribute("value");
 	}
 	public void clearSetMaximumPressureLimit() {
-		SetMaximumPressurelimit.click();
-		for (int i = 0; i <= 3; i++) {
-			SetMaximumPressurelimit.sendKeys(Keys.BACK_SPACE);
-		}
+		
+		 customwait.waitFortexttoBePresent(By.cssSelector("input[name='maxPressureLimit']"));
+		 SetMaximumPressurelimit.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
 	public void setMaximumPressureLimit(String setMaximumPressureLimits) {
 		SetMaximumPressurelimit.sendKeys(setMaximumPressureLimits);
@@ -589,8 +624,7 @@ public class Pressure_Min_Max_Validations {
 		return FullScaleLineSpeed.getAttribute("value");
 	}
 	public void clearFullScaleLineSpeed() {
-		FullScaleLineSpeed.click();
-		for (int i = 0; i <= 3; i++) {
+		for (int i = 0; i <= 6; i++) {
 			FullScaleLineSpeed.sendKeys(Keys.BACK_SPACE);
 		}
 	}
@@ -606,8 +640,12 @@ public class Pressure_Min_Max_Validations {
 		}
 	public void SelectLineSpeedminUnit() throws InterruptedException {
 		try {
-			customwait.waitForAnElementPresence(By.xpath("//mat-radio-button[not(contains(@class,'mat-radio-checked'))]//*[text()='m/min']"));
-			LineSpeedmmin.click();
+			Thread.sleep(2000);
+			System.out.println(Linespeedmeterpermin.getAttribute("class"));
+			if(!(Linespeedmeterpermin.getAttribute("class").contains("checked")))
+		      LineSpeedmmin.click();
+			else
+				System.out.println("Radio button is already selected");
 		} catch (Exception e) {
 			System.out.println("Unable to click on m/min Line speed unit Radio button");} 
 		}
@@ -620,4 +658,67 @@ public class Pressure_Min_Max_Validations {
     	else
     		System.out.println("Downward Sloping Runup curve content is not displayed");
     }
+	public void clickdownload() {
+		Download.click();
+	}
+	
+	public void checkMinSetPoint() throws InterruptedException {
+		Thread.sleep(2000);
+		boolean minstpntvl=true;
+		if (clearKPAMinSetPoint.getAttribute("value")==null) {minstpntvl=false;
+		    Assert.assertTrue("MinPressureAlert value is null",minstpntvl);}
+		}
+	
+	public void checkMinSetPointUnit() throws InterruptedException {
+		Thread.sleep(2500);
+		boolean Punt=true;
+		if (Pressureunit.getText()==null) {
+			 Punt=false;}
+		    Assert.assertTrue("MinPressureAlert unit is null", Punt);} 
+
+   public void checkBARPressureUnitSelected() throws InterruptedException {
+
+	if (PrefPressureunitSelected.getText().equalsIgnoreCase("BAR")) 
+		System.out.println("BAR unit selected by default");
+		else
+			SelectBARUnit();
+	}
+   
+   public void SelectPumpDropdown(String txttobeselected) throws InterruptedException {	
+		customwait.waitForAnElementPresence(
+				By.xpath("//*[@formcontrolname='ePumpRatio']//div[@class='mat-select-arrow']"));
+		customwait.waitForAnElementClickable(By.xpath("//*[@formcontrolname='ePumpRatio']//div[@class='mat-select-arrow']"));
+		//MainPressureModeSelection.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",PrefPumpSelection);
+		customwait.waitForAnElementPresence(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
+		WebElement ele = ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]"));
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",ele);
+		//ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
+	}
+   
+   public void clearMinimumPressureAlert() throws InterruptedException {
+            customwait.waitFortexttoBePresent(By.xpath("//input[contains(@name,'ulPressureMinSetPoint')]"));
+            Thread.sleep(1000);
+			clearKPAMinSetPoint.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		
+		}
+	public void clearMaximumPressureAlert() throws InterruptedException {
+
+		 customwait.waitFortexttoBePresent(By.xpath("//input[contains(@name,'ulPressureMaxSetPoint')]"));
+		 Thread.sleep(1000);
+			clearKPAMaxSetPoint.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		}
+	
+	public String getConfigcodechngdmsg() throws InterruptedException
+	{
+		 Thread.sleep(2500);
+		 return ConfigchngPopup.getText();
+	}
+
+	 
 }
+
+
+
+   
+

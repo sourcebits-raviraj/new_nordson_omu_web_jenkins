@@ -668,10 +668,6 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		softAssert.assertEquals(rsp.getLowPressureAlertThreshold(), mdsp.getDefault3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighPressureAlertThreshold());
 		softAssert.assertEquals(rsp.getHighPressureAlertThreshold(), mdsp.getDefault3());
-		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowSpeedPressureSetting());
-		softAssert.assertEquals(rsp.getLowSpeedPressureSetting(), mdsp.getDefault3());
-		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_HighSpeedPressureSetting());
-		softAssert.assertEquals(rsp.getHighSpeedPressureSetting(), mdsp.getDefault3());
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_SetMaximumPressureLimit());
 		if(rsp.getSetMaximumPressureLimit().equals(mdsp.getDefault3())||rsp.getSetMaximumPressureLimit().equals("689"))
 			log.info("SetMaximumPressureLimit is set to default value for kPa unit");
