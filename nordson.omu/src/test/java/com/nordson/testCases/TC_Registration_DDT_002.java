@@ -1,6 +1,5 @@
 package com.nordson.testCases;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -22,8 +21,7 @@ public class TC_Registration_DDT_002 extends BaseClass {
 
 	@Test(dataProvider = "RegistrationTestData", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void RegistrationDDT(String fname, String companyname, String address, String plant, String phoneno,
-			String serial, String uniqueid, String desc, String pass, String cpass)
-			throws Exception {
+			String serial, String uniqueid, String desc, String pass, String cpass) throws Exception {
 
 		log.info("URL is launched");
 		driver.manage().window().maximize();
@@ -102,7 +100,7 @@ public class TC_Registration_DDT_002 extends BaseClass {
 		String text = rp.getTextSentYouText();
 		softAssert.assertEquals(Constants.SucssText, text);
 
-		if (readconfig.getSignUpURL().equals(driver.getCurrentUrl())) {
+		if (driver.getCurrentUrl().contains(readconfig.getSignUpURL())) {
 			System.out.println(driver.getCurrentUrl());
 			log.info("Registration Successful");
 			// Am = new ActionMethods();
