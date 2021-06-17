@@ -26,7 +26,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 
 	@Test(priority = 1, enabled = true)
 	@Description("Verify the MDS Values of Manual adjust mode selection for PSI Pressure Unit")
-	public void Manualadjust_Pressure_Validation_PSI_MDS_values() throws InterruptedException, IOException {
+	public void Manualadjust_Pressure_Validation_PSI_MDS_values() throws Exception {
 		rsp = new Pressure_Min_Max_Validations(driver);
 		rsp.CreatNewNORfile();
 		rsp.ClickSystemSettingsLink();
@@ -92,7 +92,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	@Test(priority = 2, enabled = true)
 
 	@Description("Verify the MDS Values of Manual adjust mode selection for BAR Pressure Unit")
-	public void Manualadjust_Pressure_Validation_BAR_MDS_values() throws InterruptedException, IOException {
+	public void Manualadjust_Pressure_Validation_BAR_MDS_values() throws Exception {
 
 		Thread.sleep(1200);
 		rsp.clickDashboard();
@@ -155,7 +155,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	@Test(priority = 3, enabled = true)
 
 	@Description("Verify the MDS Values of Manual adjust mode selection for KPA Pressure Unit")
-	public void Manualadjust_Pressure_Validation_KPA_MDS_values() throws InterruptedException, IOException {
+	public void Manualadjust_Pressure_Validation_KPA_MDS_values() throws Exception {
 		Thread.sleep(1200);
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -218,7 +218,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	@Test(priority = 4, enabled = true)
 
 	@Description("Verify the MDS Values of Electronic Pressure adjust mode selection for PSI Pressure Unit")
-	public void ElectronicPressureadjust_Validation_PSI_MDS_values() throws InterruptedException, IOException {
+	public void ElectronicPressureadjust_Validation_PSI_MDS_values() throws Exception {
 
 		Thread.sleep(1200);
 		rsp.clickDashboard();
@@ -236,6 +236,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(1200);
 		rsp.SelectMainPressureModeSelectionDropdown("Electronic Pressure Adjust");
+		Thread.sleep(2000);
 
 		// Validation of Low Pressure Alert Threshold,High Pressure
 		// AlertThreshold,Minimum Pressure Set Point Range and Minimum Pressure Set
@@ -304,7 +305,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	@Test(priority = 5, enabled = true)
 
 	@Description("Verify the MDS Values of Electronic Pressure adjust mode selection for BAR Pressure Unit")
-	public void ElectronicPressureadjust_Validation_BAR_MDS_values() throws InterruptedException, IOException {
+	public void ElectronicPressureadjust_Validation_BAR_MDS_values() throws Exception {
 		Thread.sleep(1200);
 		rsp.clickDashboard();
 		rsp.clickAcceptalert();
@@ -320,6 +321,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 
 		rsp.SelectMainPressureModeSelectionDropdown("Electronic Pressure Adjust");
+		Thread.sleep(2000);
 
 		// Validation of Low Pressure Alert Threshold,High Pressure Alert
 		// Threshold,Minimum Pressure Set Point Range and Minimum Pressure Set Point
@@ -386,7 +388,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	@Test(priority = 6, enabled = true)
 
 	@Description("Verify the MDS Values of Electronic Pressure adjust mode selection for KPA Pressure Unit")
-	public void ElectronicPressureadjust_Validation_KPA_MDS_values() throws InterruptedException, IOException {
+	public void ElectronicPressureadjust_Validation_KPA_MDS_values() throws Exception {
 		Thread.sleep(1200);
 		rsp.clickDashboard();
 		rsp.clickAcceptalert();
@@ -404,7 +406,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(1200);
 		rsp.SelectMainPressureModeSelectionDropdown("Electronic Pressure Adjust");
-
+		Thread.sleep(2000);
 		// Validation of Low Pressure Alert Threshold,High Pressure
 		// AlertThreshold,Minimum Pressure Set Point Range and Minimum Pressure Set
 		// Point Range
@@ -469,7 +471,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 
 	@Test(priority = 7, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for PSI Pressure Unit")
-	public void RunUp_Pressure_Validation_PSI_MDS_values() throws InterruptedException, IOException {
+	public void RunUp_Pressure_Validation_PSI_MDS_values() throws Exception {
 		Thread.sleep(1200);
 		rsp.clickDashboard(); 
 		rsp.clickAcceptalert();
@@ -487,6 +489,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(1200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
+		Thread.sleep(2000);
 
 		// Validation of Pressure mode runup mode fields
 		// Default value validations
@@ -557,7 +560,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	
 	@Test(priority = 8, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for BAR Pressure Unit")
-	public void RunUp_Pressure_Validation_BAR_MDS_values() throws InterruptedException, IOException {
+	public void RunUp_Pressure_Validation_BAR_MDS_values() throws Exception {
 		Thread.sleep(1200);
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -572,6 +575,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(2200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
+		Thread.sleep(2000);
 
 		// Validation of Pressure mode runup mode fields
 		// Default value validations
@@ -644,7 +648,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	}
 	@Test(priority = 9, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for KPA Pressure Unit")
-	public void RunUp_Pressure_Validation_kPa_MDS_values() throws InterruptedException, IOException {
+	public void RunUp_Pressure_Validation_kPa_MDS_values() throws Exception {
 		Thread.sleep(1200);
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -661,6 +665,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(3200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
+		Thread.sleep(2000);
 
 		// Validation of Pressure mode runup mode fields
 		// Default value validations
@@ -733,7 +738,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	}
 	@Test(priority = 10, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for Line speed ft/min Pressure Unit")
-	public void RunUp_Pressure_LineSpeedftunit_Validation_MDS_values() throws InterruptedException, IOException {
+	public void RunUp_Pressure_LineSpeedftunit_Validation_MDS_values() throws Exception {
 		
 		Thread.sleep(1200);
 		//rsp=new Pressure_Min_Max_Validations(driver);
@@ -776,7 +781,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			softAssert.assertEquals(rsp.saveButtonEnabled(), false);
 		} else
 			System.out.println("Toast Message not displayed and for MDS min val for all pressure fields for Linespeed ft/min Unit");
-		rsp.isDisplayedDownardSlopingRunupcurvecontent();
+		//rsp.isDisplayedDownardSlopingRunupcurvecontent();
 		//Max validation
 		Thread.sleep(1200);
 	    rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
@@ -799,7 +804,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 	}
 	@Test(priority = 11, enabled = true)
 	@Description("Verify the MDS Values of Runup mode selection for Line speed m/min Pressure Unit")
-	public void RunUp_Pressure_LineSpeedminunit_Validation_MDS_values() throws InterruptedException, IOException {
+	public void RunUp_Pressure_LineSpeedminunit_Validation_MDS_values() throws Exception {
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
 		rsp.ClickSystemSettingsLink();
@@ -813,6 +818,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(2200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
+		Thread.sleep(2200);
 		// Validation of Pressure mode runup mode fields LowlineSpeedSetting,HighlineSpeedSetting and Fullscalelinespeed
 		//Default value validations
 		rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
@@ -840,7 +846,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 			softAssert.assertEquals(rsp.saveButtonEnabled(), false);
 		} else
 			System.out.println("Toast Message not displayed and for MDS min val for all pressure fields for Linespeed m/min Unit");
-		rsp.isDisplayedDownardSlopingRunupcurvecontent();
+		//rsp.isDisplayedDownardSlopingRunupcurvecontent();
 		//Max validation
 	    rmdsp.getMDSDataVal(rcf.getUIfieldTobefetched_LowLineSpeedSetting());
 		rsp.clearLowLineSpeedSetting(); rsp.setLowLineSpeedSettings(mdsp.getMax2());

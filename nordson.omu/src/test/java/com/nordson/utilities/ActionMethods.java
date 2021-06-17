@@ -31,7 +31,7 @@ import com.nordson.testCases.BaseClass;
 public class ActionMethods extends BaseClass {
 
 	ArrayList<String> tabs;
-	ReadConfig rcf=new ReadConfig();
+	ReadConfig rcf = new ReadConfig();
 	// public WebDriver driver;
 
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
@@ -194,7 +194,8 @@ public class ActionMethods extends BaseClass {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
 		sleepTime(1500);
-		 //  js.executeScript("arguments[0].style.border='3px solid transparent'", element);
+		// js.executeScript("arguments[0].style.border='3px solid transparent'",
+		// element);
 	}
 
 	public void drawBorderFail(WebElement element, WebDriver driver) {
@@ -202,146 +203,148 @@ public class ActionMethods extends BaseClass {
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
-	  public void drawBorder(List<WebElement> element, WebDriver driver) {
-	  JavascriptExecutor js = ((JavascriptExecutor) driver);
-	  js.executeScript("arguments[0].style.border='3px solid red'", element); }
-	  
-	  public String conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic() {
-			double newValue =14.93889 * 1000;
-			return String.valueOf((int)Math.round(newValue));
-		}
-	  
-	  public String conversion_of_App_PSI_Default_vlaue_Max_for_Norfile_comparision_Pneumatic() {
-			return String.valueOf(100*1000);
-		}
-		public String conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
-			
-			double prValue=Double.parseDouble(value_To_Be_Converted);
-			double newValue =prValue * 1000;
-			return String.valueOf((int)newValue);
-		}
-		
-	  public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
-			
-			double prValue=Double.parseDouble(value_To_Be_Converted);
-			double newValue =((1/0.0689475728)*prValue) * 1000;
-			System.out.println(newValue);
-			return String.valueOf((int)Math.round(newValue));
-		}
-	  
-	  public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
-			
-			double prValue=Double.parseDouble(value_To_Be_Converted);
-			double newValue =((1/6.89475728)*prValue) * 1000;
-			return String.valueOf((int)Math.round(newValue));
-		}
-	  public String conversion_LineSpeed_mpermin(String value_To_Be_Converted) {
-		  double prValue=Double.parseDouble(value_To_Be_Converted); 
-		  double newValue =((1/0.3048)*prValue) * 100; 
-		  return String.valueOf((int)(newValue));
-		  
-		  }
-	 public String conversion_LineSpeed_ftpermin(String value_To_Be_Converted) {
+	public void drawBorder(List<WebElement> element, WebDriver driver) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
+	}
 
-		 double prValue=Double.parseDouble(value_To_Be_Converted);
-		   double newValue =prValue * 100;
-		   return String.valueOf((int)newValue);
-		  }
-	 
-	  public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
-			
-			double prValue=Double.parseDouble(value_To_Be_Converted);
-			double newValue =((1/6.89475728)*prValue) * 1000/Double.parseDouble(Pumpratio);
-			return String.valueOf((int)Math.round(newValue));
-		}
-	  public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
-			
-			double prValue=Double.parseDouble(value_To_Be_Converted);
-			double newValue =((1/0.0689475728)*prValue) * 1000/ Double.parseDouble(Pumpratio);
-			System.out.println(newValue);
-			return String.valueOf((int)Math.round(newValue));
-		}
-	  
-	  public String conversion_of_PSI_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
-			
-		  double prValue=Double.parseDouble(value_To_Be_Converted);
-			double newValue =(prValue*1000) / Double.parseDouble(Pumpratio);
-			return String.valueOf((int)Math.round(newValue));
-		}
-	  
-	  public String getlatestDownloadedNorFilenm() throws Exception
-		{
-			String flnm="";
-			   String norfilpth=rcf.getDownloadPath();
-				File dir = new File(norfilpth);
-				FileFilter fileFilter = new WildcardFileFilter("*.nor");
-				File[] fileList = dir.listFiles(fileFilter);
-			  // File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
-			   sleepTime(2500);
-			    // Listing all the included files
-			    File lastModifiedFile = fileList[0];
-			    if(fileList.length==1)
-			    {
-			    	flnm=lastModifiedFile.getName();
-			    }
-			    	
-			    else {
-			    	    for (int i = 0; i < fileList.length; i++)	{
-			    		System.out.println(fileList[i]);
-			    	       if(lastModifiedFile.lastModified()<fileList[i].lastModified())
-			    	       {
-			    	           lastModifiedFile=fileList[i];
-			  	               System.out.println(lastModifiedFile.getName());
-			  	               flnm=lastModifiedFile.getName();
-			    	        }
-			    	      else
-			    		System.out.println("Nor file not found");
-			    	  }                                                }
-			return flnm;
-		}
-	  
-	  public void NorcopyFile(String filnm) throws Exception
-		{
-			// creating two channels
-	        // one input and other output  
-			String srcfilepth=rcf.getDownloadPath()+filnm;
-			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
-	        File src = new File(srcfilepth);
-	        sleepTime(2500);
-	        File dest = new File(destnationpth); 
-	        sleepTime(2500); 
-	        
-	        // using copy(InputStream,Path Target); method 
-	      
-	        FileUtils.copyFileToDirectory(src,dest);
-	        
-	        System.out.println("new filename"+filnm.replace(" ", ""));
-		}
-	
-		  public String removeSpaces(String flnm) { 
-			  String path =System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\"+flnm; 
-		  File newfile= new File(path); 
-		  
-		 
-		  String newflnm=flnm.replace(" ", ""); 
-		  String path2 = System.getProperty("user.dir")+ "\\src\\test\\java\\com\\nordson\\BDGTest\\"+newflnm; 
-		  File newfile2 = new File(path2); 
-		  boolean newfileStatus= newfile.renameTo(newfile2);
-		  if(newfileStatus==true)
-		  System.out.println("file successfuly renamed");
-		  else
-			  System.out.println("file not renamed");
-		  return newflnm;
-		  }
+	public String conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic() {
+		double newValue = 14.93889 * 1000;
+		return String.valueOf((int) Math.round(newValue));
+	}
 
-		public void ConversionfromNorToXML(String flnm) throws IOException
-		{
-			  ProcessBuilder builder =new ProcessBuilder("cmd.exe", "/c","cd \""+System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U "+flnm);
-			  builder.redirectErrorStream(true); 
-			  builder.start();
-			  System.out.println("Converted NOR "+flnm+"to XML file Done");  
+	public String conversion_of_App_PSI_Default_vlaue_Max_for_Norfile_comparision_Pneumatic() {
+		return String.valueOf(100 * 1000);
+	}
+
+	public String conversion_of_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = prValue * 1000;
+		return String.valueOf((int) newValue);
+	}
+
+	public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = ((1 / 0.0689475728) * prValue) * 1000;
+		System.out.println(newValue);
+		return String.valueOf((int) Math.round(newValue));
+	}
+
+	public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Pneumatic(String value_To_Be_Converted) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = ((1 / 6.89475728) * prValue) * 1000;
+		return String.valueOf((int) Math.round(newValue));
+	}
+
+	public String conversion_LineSpeed_mpermin(String value_To_Be_Converted) {
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = ((1 / 0.3048) * prValue) * 100;
+		return String.valueOf((int) (newValue));
+
+	}
+
+	public String conversion_LineSpeed_ftpermin(String value_To_Be_Converted) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = prValue * 100;
+		return String.valueOf((int) newValue);
+	}
+
+	public String conversion_of_KPA_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,
+			String Pumpratio) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = ((1 / 6.89475728) * prValue) * 1000 / Double.parseDouble(Pumpratio);
+		return String.valueOf((int) Math.round(newValue));
+	}
+
+	public String conversion_of_BAR_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,
+			String Pumpratio) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = ((1 / 0.0689475728) * prValue) * 1000 / Double.parseDouble(Pumpratio);
+		System.out.println(newValue);
+		return String.valueOf((int) Math.round(newValue));
+	}
+
+	public String conversion_of_PSI_App_vlaue_for_Norfile_comparision_Hydraulic(String value_To_Be_Converted,
+			String Pumpratio) {
+
+		double prValue = Double.parseDouble(value_To_Be_Converted);
+		double newValue = (prValue * 1000) / Double.parseDouble(Pumpratio);
+		return String.valueOf((int) Math.round(newValue));
+	}
+
+	public String getlatestDownloadedNorFilenm() throws Exception {
+		String flnm = "";
+		String norfilpth = rcf.getDownloadPath();
+		File dir = new File(norfilpth);
+		FileFilter fileFilter = new WildcardFileFilter("*.nor");
+		File[] fileList = dir.listFiles(fileFilter);
+		// File[] fileList = dir.listFiles((d,f)-> f.toLowerCase().endsWith(".nor"));
+		sleepTime(2500);
+		// Listing all the included files
+		File lastModifiedFile = fileList[0];
+		if (fileList.length == 1) {
+			flnm = lastModifiedFile.getName();
 		}
-			  
+
+		else {
+			for (int i = 0; i < fileList.length; i++) {
+				System.out.println(fileList[i]);
+				if (lastModifiedFile.lastModified() < fileList[i].lastModified()) {
+					lastModifiedFile = fileList[i];
+					System.out.println(lastModifiedFile.getName());
+					flnm = lastModifiedFile.getName();
+				} else
+					System.out.println("Nor file not found");
+			}
+		}
+		return flnm;
+	}
+
+	public void NorcopyFile(String filnm) throws Exception {
+		// creating two channels
+		// one input and other output
+		String srcfilepth = rcf.getDownloadPath() + filnm;
+		String destnationpth = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\";
+		File src = new File(srcfilepth);
+		sleepTime(2500);
+		File dest = new File(destnationpth);
+		sleepTime(2500);
+
+		// using copy(InputStream,Path Target); method
+
+		FileUtils.copyFileToDirectory(src, dest);
+
+		System.out.println("new filename" + filnm.replace(" ", ""));
+	}
+
+	public String removeSpaces(String flnm) {
+		String path = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\" + flnm;
+		File newfile = new File(path);
+
+		String newflnm = flnm.replace(" ", "");
+		String path2 = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\" + newflnm;
+		File newfile2 = new File(path2);
+		boolean newfileStatus = newfile.renameTo(newfile2);
+		if (newfileStatus == true)
+			System.out.println("file successfuly renamed");
+		else
+			System.out.println("file not renamed");
+		return newflnm;
+	}
+
+	public void ConversionfromNorToXML(String flnm) throws IOException {
+		ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "cd \"" + System.getProperty("user.dir")
+				+ "\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U " + flnm);
+		builder.redirectErrorStream(true);
+		builder.start();
+		System.out.println("Converted NOR " + flnm + "to XML file Done");
+	}
 
 	public static void sendEmail() throws EmailException {
 		ReadConfig readconfig = new ReadConfig();
@@ -364,10 +367,10 @@ public class ActionMethods extends BaseClass {
 		email.setSmtpPort(465);
 		email.setAuthenticator(new DefaultAuthenticator("Devteamascendum@gmail.com", "Welcome@2020"));
 		email.setSSLOnConnect(true);
-	    email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
-		email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
-		email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
-		 
+		email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
+		// email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
+		// email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
+
 		email.addTo("jayasena.mallikarjun@ascendum.com", "Jayasena");
 		email.setFrom("Devteamascendum@gmail.com", "Automation Team");
 		email.setSubject("Nordson Test Automation Reports-" + new Date());

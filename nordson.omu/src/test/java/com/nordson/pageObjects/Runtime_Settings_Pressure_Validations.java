@@ -1,6 +1,7 @@
 package com.nordson.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -97,6 +98,7 @@ public class Runtime_Settings_Pressure_Validations {
 
 	@FindBy(xpath = "//span[@class='mat-option-text'][normalize-space()='Hydraulic']")
 	WebElement SelectHydaulicValue;
+	
 
 	// Page Action Methods for all the WebElements declared
 	public void clickSetUpToolLink() throws InterruptedException {
@@ -108,7 +110,8 @@ public class Runtime_Settings_Pressure_Validations {
 
 	public void clickCreateNewFile() {
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),'CREATE NEW')]"));
-		CreateNewNorFileButton.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click()", CreateNewNorFileButton);
+		//CreateNewNorFileButton.click();
 
 	}
 
@@ -120,7 +123,8 @@ public class Runtime_Settings_Pressure_Validations {
 
 	public void clickSubmit() throws InterruptedException {
 		customwait.waitForAnElementPresence(By.xpath("//button[normalize-space()='SUBMIT']"));
-		SubmitButton.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click()", SubmitButton);
+		//SubmitButton.click();
 		Thread.sleep(2000);
 
 	}

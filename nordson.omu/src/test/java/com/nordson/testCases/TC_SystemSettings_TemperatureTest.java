@@ -163,8 +163,7 @@ public class TC_SystemSettings_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Tss.clickSavebtn();
 
 		String tststusminerr = Tss.getToastmsg();
-		softAssert.assertEquals(Constants.OTTErrmsg, tststusminerr,
-				"Toast error message is shown up for for celsius unit");
+		softAssert.assertEquals(tststusminerr,Constants.OTTErrmsg,"Toast error message is shown up for for celsius unit");
 		log.info("Toast error message is shown up for OTTemp min val for celsius unit");
 
 		boolean stusminerr = Tss.getSavebtnstatus();
@@ -197,7 +196,7 @@ public class TC_SystemSettings_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Tss.clickSavebtn();
 
 		String tststus = Tss.getToastmsg();
-		softAssert.assertEquals(Constants.Sucssmsg, tststus,
+		softAssert.assertEquals(tststus,Constants.Sucssmsg, 
 				"Toast msg for In range values are saved successfully for OTTemp for celsius unit");
 		log.info("Toast msg for In range values are saved successfully for celsius unit");
 
@@ -353,11 +352,9 @@ public class TC_SystemSettings_TemperatureTest extends TC_LoginTest_DDT_001 {
 			throws InterruptedException, IOException {
 
 		// Null Values Error msg Test
-
 		Tss.clearUTTemperature();
-
+		Thread.sleep(1000);
 		Tss.clickSavebtn();
-
 		String tststusclrerrmsg = Tss.getToastmsg();
 		softAssert.assertEquals(Constants.UTTErrmsg, tststusclrerrmsg,
 				"Toast error message is not shown up for null valus UTTemp Celsius val");

@@ -29,6 +29,12 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	static String Manifoldpoint = "";
 	static String Hosepnt = "";
 	static String Applicatorpnt = "";
+	
+	@Test(priority = 0)
+	public void ExcelSheetName()
+			throws Exception {
+		XLUtils.setExcelSheetNm("GlobalPointCelsius");
+	}
 
 	// Global Point Validations
 	@Story("Temperature Runtimesettings Global Point validations with boundary values in celsius unit")
@@ -543,53 +549,35 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		
 		
           
-		// checking the status and enabling hose
+		/*
+		 * // checking the status and enabling hose
+		 * 
+		 * Trs.clickOnHose1toEnable();
+		 * 
+		 * // clearing the hose1
+		 * 
+		 * Trs.clearHosesetTemperature(); Trs.clickSavebtn();
+		 * 
+		 * String stusclrerrmsgtst = Trs.getToastmsg(); softAssert.assertEquals(
+		 * stusclrerrmsgtst,Constants.Hose1,
+		 * "Toast Error message is not shown up for max Celsius val");
+		 * log.info("Toast Error message is shown up for null Celsius val save");
+		 * 
+		 * boolean stusclrerrmsg = Trs.getSavebtnstatus();
+		 * softAssert.assertEquals(stusclrerrmsg,true,
+		 * "Error message is not shown up for max Celsius val");
+		 * log.info("Error message is shown up for null Celsius val save");
+		 */
 
-		Trs.clickOnHose1toEnable();
-
-		// clearing the hose1
-
-		Trs.clearHosesetTemperature();
-		Trs.clickSavebtn();
-
-		String stusclrerrmsgtst = Trs.getToastmsg();
-		softAssert.assertEquals( stusclrerrmsgtst,Constants.Hose1,
-				"Toast Error message is not shown up for max Celsius val");
-		log.info("Toast Error message is shown up for null Celsius val save");
-
-		boolean stusclrerrmsg = Trs.getSavebtnstatus();
-		softAssert.assertEquals(stusclrerrmsg,true, "Error message is not shown up for max Celsius val");
-		log.info("Error message is shown up for null Celsius val save");
-
+		
+		
 		// min-1 val
 
-		Trs.clearHosesetTemperature();
-		Trs.setHose1emperature(minlsvalue);
-		Trs.clickSavebtn();
-
-		String tstminerr = Trs.getToastmsg();
-		softAssert.assertEquals(tstminerr,Constants.Hose1,  "ToastError message is not shown up for Celsius unit");
-		log.info("Toast Error message is shown up for min-1" + minlsvalue + "for Celsius unit");
-
-		boolean stusminerr = Trs.getSavebtnstatus();
-		softAssert.assertEquals(stusminerr,true,  "Error message is not shown up for Celsius unit");
-		log.info("Error message is shown up for min-1" + minlsvalue + "for Celsius unit");
-
+		Trs.setHosestemp(minlsvalue,"C");
 		// max+1 val
-
-		Trs.clearHosesetTemperature();
-		Trs.setHose1emperature(maxplusval);
-		Trs.clickSavebtn();
 		
-
-		String tstmaxerr = Trs.getToastmsg();
-		softAssert.assertEquals( tstmaxerr,Constants.Hose1,
-				"Toast Error message is  not shown up for max plus val for Celsius unit");
-		log.info("Toast Error message is shown up for max val plus " + maxplusval + " for Celsius unit");
-
-		boolean stusmaxerr = Trs.getSavebtnstatus();
-		softAssert.assertEquals(stusmaxerr,true,  "Error message is  not shown up for max plus val for Celsius unit");
-		log.info("Error message is shown up for max val plus " + maxplusval + " for Celsius unit");
+        Trs.setHosestemp(maxplusval,"C");
+        softAssert.assertAll();
 
 		// In Range value testing
 
@@ -619,7 +607,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String appclrerrmsgtst = Trs.getToastmsg();
-		softAssert.assertEquals( appclrerrmsgtst,Constants.Applictor1,
+		softAssert.assertEquals( appclrerrmsgtst,Constants.ApplictorFH,
 				"Toast Error message is not shown up for null Celsius val for Applicator1");
 		log.info("Toast Error message is shown up for null Celsius val save for Applicator1");
 
@@ -635,7 +623,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String apptstminerr = Trs.getToastmsg();
-		softAssert.assertEquals(apptstminerr,Constants.Applictor1, 
+		softAssert.assertEquals(apptstminerr,Constants.ApplictorFH, 
 				"ToastError message is not shown up for min-1 Celsius unit Applicator1 ");
 		log.info("Toast Error message is shown up for min-1" + minlsvalue + "for Celsius unit Applicator1");
 
@@ -650,7 +638,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String apptstmaxerr = Trs.getToastmsg();
-		softAssert.assertEquals(apptstmaxerr,Constants.Applictor1, 
+		softAssert.assertEquals(apptstmaxerr,Constants.ApplictorFH, 
 				"Toast Error message is  not shown up for max plus val for Celsius unit Applicator1");
 		log.info("Toast Error message is shown up for max val plus " + maxplusval + " for Celsius unit Applicator1");
 
@@ -716,7 +704,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		log.info("Cleared the hose to verfiy error toast msg");
 	
 		String tstclrerrmsgfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstclrerrmsgfh,Constants.Hose1FH,
+		softAssert.assertEquals( tstclrerrmsgfh,Constants.HoseFH,
 				"Toast Error message is not shown up for null farnheit val");
 		log.info("Toast Error message is shown up for null farnheit val save");
 
@@ -731,7 +719,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String tstminerrfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstminerrfh,Constants.Hose1FH,
+		softAssert.assertEquals( tstminerrfh,Constants.HoseFH,
 				"Toast error message is not shown up for farnheit unit");
 		log.info("Toast error message is shown up for min-1" + minlsvaluefh + "for farnheit unit");
 
@@ -748,7 +736,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String tstmaxerrfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstmaxerrfh,Constants.Hose1FH,
+		softAssert.assertEquals( tstmaxerrfh,Constants.HoseFH,
 				"Toast error message is  not shown up for max plus val for farnheit unit");
 		log.info("Toast error message is shown up for max val plus " + maxplusvalfh + " for farnheit unit");
 
@@ -786,7 +774,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String appclrerrmsgtst = Trs.getToastmsg();
-		softAssert.assertEquals( appclrerrmsgtst,Constants.Applictor1FH,
+		softAssert.assertEquals( appclrerrmsgtst,Constants.ApplictorFH,
 				"Toast Error message is not shown up for max Farnhit val for Applicator1");
 		log.info("Toast Error message is shown up for null Farnhit val save for Applicator1");
 
@@ -804,7 +792,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String apptstminerr = Trs.getToastmsg();
-		softAssert.assertEquals( apptstminerr,Constants.Applictor1FH,
+		softAssert.assertEquals( apptstminerr,Constants.ApplictorFH,
 				"ToastError message is not shown up for Farnhit unit Applicator1");
 		log.info("Toast Error message is shown up for min-1" + minlsvaluefh + "for Farnhit unit Applicator1");
 
@@ -821,7 +809,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickSavebtn();
 
 		String apptstmaxerr = Trs.getToastmsg();
-		softAssert.assertEquals( apptstmaxerr,Constants.Applictor1FH,
+		softAssert.assertEquals( apptstmaxerr,Constants.ApplictorFH,
 				"Toast Error message is  not shown up for max plus val for Farnhit unit Applicator1");
 		log.info("Toast Error message is shown up for max val plus " + maxplusvalfh + " for Farnhit unit Applicator1");
 
