@@ -3,6 +3,7 @@ package com.nordson.pageObjects.ui;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,7 +40,7 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//*[contains(@href,'privacy-statement')]")
 	public WebElement PrivacyPolicy;
 
-	@FindBy(css = ".right.footer-text.pad-responsive-signup.pad-tp-15-responsive.cursor-pointer")
+	@FindBy(linkText = "Terms of Service")
 	public WebElement TermsofService;
 
 	@FindBy(xpath = "//div[@class='right footer-text cursor-pointer pad-responsive-signup']")
@@ -383,8 +384,10 @@ public class User_Dashboard_Details_Landing_Page {
 	}
 	
 	public void clickPreferences() {
-		Am.waitForAnElementClickable(By.xpath("//*//*[contains(@href,'/preferences')]"));
-		PreferencesLink.click();
+		//Am.waitForAnElementClickable(By.xpath("//*//*[contains(@href,'/preferences')]"));
+		//PreferencesLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", PreferencesLink);
+		
 	}
 	
 	public boolean PSIUnitISDisplayed() {
@@ -459,7 +462,8 @@ public class User_Dashboard_Details_Landing_Page {
 	
 	public void clickRuntimeSettingsPressure() {
 		Am.waitForAnElementClickable(By.xpath("//*[@routerlink='settings/pressure']"));
-		RuntimeSettingsPressureLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", RuntimeSettingsPressureLink);
+		//RuntimeSettingsPressureLink.click();
 	}
 	
 	
