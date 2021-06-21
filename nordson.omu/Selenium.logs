@@ -6227,3 +6227,12 @@
 2021-06-21 17:40:16,476  INFO [main] nordson:48 - New Chrome driver Instantiated
 2021-06-21 17:40:41,720  INFO [main] nordson:27 - URL is launched
 2021-06-21 17:40:41,930  INFO [main] nordson:30 - Wait for the page load time out
+2021-06-21 17:51:31,658  INFO [main] WebDriverManager:269 - Please answer the following questionnaire based on your experience with WebDriverManager. Thanks a lot!
+2021-06-21 17:51:31,666  INFO [main] WebDriverManager:271 - ====> http://tiny.cc/wdm-survey <====
+2021-06-21 17:51:33,530 DEBUG [main] ResolutionCache:183 - Resolution chrome=91 in cache (valid until 11:53:07 22/06/2021 IST)
+2021-06-21 17:51:33,533  INFO [main] WebDriverManager:571 - Using chromedriver 91.0.4472.19 (since Chrome 91 is installed in your machine)
+2021-06-21 17:51:33,587 DEBUG [main] WebDriverManager:520 - Driver chromedriver 91.0.4472.19 found in cache
+2021-06-21 17:51:33,591  INFO [main] WebDriverManager:615 - Exporting webdriver.chrome.driver as C:\Users\Jayasena\.m2\repository\webdriver\chromedriver\win32\91.0.4472.19\chromedriver.exe
+2021-06-21 17:51:37,455  INFO [main] nordson:48 - New Chrome driver Instantiated
+2021-06-21 17:52:01,700  INFO [main] nordson:27 - URL is launched
+2021-06-21 17:52:01,894  INFO [main] nordson:30 - Wait for the page load time out
