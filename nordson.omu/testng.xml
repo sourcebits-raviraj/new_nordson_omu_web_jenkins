@@ -11,6 +11,7 @@
 
   <test name="Nordson OMU Web App Regression Tests on Chrome">
       <parameter name="browser" value="chrome"/>
+      <parameter name="environment" value="preprod"/>
        <classes>
           <!--  <class name="com.nordson.utilities.Language"/> -->
            <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links"/>
