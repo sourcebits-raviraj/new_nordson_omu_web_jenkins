@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Nordson OMU Web App Regression Tests on Chrome]" parallel="methods">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Nordson OMU Web App Regression Tests on Chrome]">
   <listeners>
     <listener class-name="com.nordson.utilities.Reporting"/>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-  <test thread-count="1" name="Nordson OMU Web App Regression Tests on Chrome(failed)" parallel="methods">
+  <test thread-count="5" name="Nordson OMU Web App Regression Tests on Chrome(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links">
+      <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links">
         <methods>
-          <include name="Registration_Nordson_Contact_Us"/>
-          <include name="tearDown"/>
+          <include name="setExcelSheetNameforMinPSIValues"/>
+          <include name="TC_Verficiation_RuntimeSettingsPressure"/>
+          <include name="LanguageSetup"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_PressureSettingRangeAlert_UI"/>
           <include name="setUp"/>
-          <include name="Registration_Nordson_Cookies"/>
+          <include name="SETUP_Tool_Verficiation"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_MaximumPressureAlert_UI"/>
+          <include name="TC_Preferences_PSIUnit_Selection"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_PSI_Default_Values_InNORFile"/>
+          <include name="TC_Verficiation_CreateNewNorfile_Popup_Elements"/>
+          <include name="TC_Verficiation_LoadFromUSBnOrComputer_Option_In_Configuration_Popup"/>
+          <include name="Registration_Nordson_Contact_Us"/>
+          <include name="Welcome_Displayed"/>
+          <include name="Verficiation_Title_TemperatureZones"/>
           <include name="Registration_Nordson_Privacy_Policy"/>
-          <include name="Registration_Continue_Link" invocation-numbers="0"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_MinimumPressureAlert_UI"/>
+          <include name="TC_Verficiation_RuntimeSettings"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_PressureSettings_SubTitle_UI"/>
+          <include name="TC_Verficiation_SystemSettings"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_MainPressureModeSelection_UI"/>
+          <include name="loginDDT"/>
+          <include name="setExcelSheetNameforMaxPSIValues"/>
+          <include name="TC_Pneumatic_Manualadjust_Min_Pressure_Value_comparision_with_NorFile_PSI"/>
+          <include name="TC_Verficiation_CreateNew_Option_In_Configuration_Popup"/>
+          <include name="TC_Verficiation_UsePreviousFile_Option_In_Configuration_Popup"/>
+          <include name="tearDown"/>
+          <include name="TC_Verficiation_Preferences"/>
+          <include name="View_DashBoard"/>
+          <include name="TC_Verficiation_Pressure_ManualAdjust_PressureSettings_Title_UI"/>
           <include name="Registration_Nordosn_Terms_of_Services"/>
-          <include name="Registration_Nordson_CopyRightText"/>
+          <include name="TC_Pneumatic_Manualadjust_Max_Pressure_Value_comparision_with_NorFile_PSI"/>
         </methods>
-      </class> <!-- com.nordson.testCases.TC_OMU_1849_1880_User_Registration_Links -->
+      </class> <!-- com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links -->
     </classes>
   </test> <!-- Nordson OMU Web App Regression Tests on Chrome(failed) -->
 </suite> <!-- Failed suite [Nordson OMU Web App Regression Tests on Chrome] -->
