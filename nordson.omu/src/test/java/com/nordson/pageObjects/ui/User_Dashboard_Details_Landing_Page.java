@@ -39,7 +39,7 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//*[contains(@href,'privacy-statement')]")
 	public WebElement PrivacyPolicy;
 
-	@FindBy(linkText = "Terms of Service")
+	@FindBy(css = ".right.footer-text.pad-responsive-signup.pad-tp-15-responsive.cursor-pointer")
 	public WebElement TermsofService;
 
 	@FindBy(xpath = "//div[@class='right footer-text cursor-pointer pad-responsive-signup']")
