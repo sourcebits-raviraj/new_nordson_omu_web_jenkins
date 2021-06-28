@@ -71,7 +71,8 @@ public class Constants {
 		public static final String HOD_HO_DA="16";
 		public static final String SHO_SHO_SA="12";
 		public static final String COD_LP_LV="6";
-
+		public static final String LBD_LP="6";
+		public static final String WAD_LV="15";
 	}
 
 

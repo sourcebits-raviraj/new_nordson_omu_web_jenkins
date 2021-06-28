@@ -40,18 +40,9 @@ public class BaseClass {
 
 			// Defining System Property for the ChromeDriver
 			
-			 String downloadNorPath=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\testData\\Norfiles\\";
-             File downloadFolder=new File(downloadNorPath);
-             downloadFolder.mkdir();
-           
-              HashMap<String,Object> chromeprefs=new HashMap<String,Object>();
-              chromeprefs.put("download.default_directory",downloadNorPath);
-            
-              ChromeOptions options= new ChromeOptions();
-              options.setExperimentalOption("prefs", chromeprefs);
               System.setProperty("webdriver.chrome.driver", readconfig.getChromepath());
            // Instantiate a FireFox class.
-              driver = new ChromeDriver(options);
+              driver = new ChromeDriver();
               log.info("New Chrome driver Instantiated");
             
 		}

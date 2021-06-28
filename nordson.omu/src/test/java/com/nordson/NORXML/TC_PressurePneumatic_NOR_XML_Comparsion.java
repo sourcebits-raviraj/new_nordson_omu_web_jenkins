@@ -35,7 +35,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for KPA Unit")
 	@Test(priority = 1, enabled = true, dataProvider = "min_max_Presure_for_norfile_KPA_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Manualadjust_Pressure_Value_comparision_with_NorFile_KPA(String Min, String Max)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 		
 		rsp = new Pressure_Min_Max_Validations(driver);
 		rsp.CreatNewNORfile();
@@ -75,7 +75,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -119,7 +119,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for BAR Unit")
 	@Test(priority = 2, enabled = true, dataProvider = "min_max_Presure_for_norfile_BAR_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Manualadjust_Pressure_Value_comparision_with_NorFile_BAR(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -156,7 +156,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -203,7 +203,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for PSI Unit")
 	@Test(priority = 3, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Manualadjust_Pressure_Value_comparision_with_NorFile_PSI(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -244,7 +244,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -290,7 +290,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Test(priority = 4, enabled = true, dataProvider = "Presure_for_norfile_KPA_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_electronicadjust_KPA_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -335,7 +335,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -411,7 +411,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Test(priority = 5, enabled = true, dataProvider = "Presure_for_norfile_BAR_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_electronicadjust_BAR_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -453,7 +453,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -531,7 +531,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Test(priority = 6, enabled = true, dataProvider = "Presure_for_norfile_PSI_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_electronicadjust_PSI_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -575,7 +575,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -656,7 +656,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	public void TC_Pneumatic_Runup_KPA_Press_Value_comparision_with_NorFile(String lowprssuralrtthsld,
 			String highprssuralrtthsld, String lowspdprsssetting, String highspdprsssetting,
 			 String setmaximumpresslmt, String setminmumpresslmt)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 	
 		rsp.clickDashboard();
@@ -704,7 +704,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -750,7 +750,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	public void TC_Pneumatic_Runup_BAR_Press_Value_comparision_with_NorFile(String lowprssuralrtthsld,
 			String highprssuralrtthsld, String lowspdprsssetting,String highspdprsssetting,
 		    String setmaximumpresslmt, String setminmumpresslmt)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -795,7 +795,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -840,7 +840,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	public void TC_Pneumatic_Runup_PSI_Press_Value_comparision_with_NorFile(String lowprssuralrtthsld,
 			String highprssuralrtthsld, String lowspdprsssetting,String highspdprsssetting,
 		    String setmaximumpresslmt, String setminmumpresslmt)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -887,7 +887,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -928,7 +928,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Description("Verify all the Line Speed fields values in downloaded NOR file for PSI Unit with Line Speed ft/min")
 	@Test(priority = 10, enabled = true, dataProvider = "Presure_for_norfile_RunUp_LineSpeed", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Runup_Linespeedftpermin_Press_Value_comparision_with_NorFile( String lowlnspdsetting,String highlnspdsettings,String fullscalelnspd)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 		
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -970,7 +970,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -1002,7 +1002,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 	@Test(priority = 11, enabled = true, dataProvider = "Presure_for_norfile_RunUp_LineSpeed", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Runup_Linespeedmpermin_Press_Value_comparision_with_NorFile( String lowlnspdsetting,
 			String highlnspdsettings,String fullscalelnspd)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception, InvalidFormatException {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -1038,7 +1038,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -1064,15 +1064,15 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		
 	}
 	
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public void TC_Pneumatic_sheetnameforNullchck() {
 		XLUtils.setExcelSheetNm("Input_Minmax_KPA_manualadjust");
 	}
    
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for KPA Unit")
-	@Test(priority = 13, enabled = false, dataProvider = "min_max_Presure_for_norfile_KPA_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 13, enabled = true, dataProvider = "min_max_Presure_for_norfile_KPA_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Manualadjust_Pressure_Null_Values_Check_after_Unitchnage(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp = new Pressure_Min_Max_Validations(driver);
 		rsp.clickDashboard();
@@ -1103,7 +1103,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		Thread.sleep(2000);
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(flnm);
 		Thread.sleep(2500);
@@ -1121,7 +1121,7 @@ public class TC_PressurePneumatic_NOR_XML_Comparsion extends TC_LoginTest_DDT_00
 		Thread.sleep(2000);
 		String flnm1 = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm1);
+		Am.NorcopyFile(flnm1);
 		String newfilename = Am.removeSpaces(flnm1);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);

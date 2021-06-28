@@ -36,7 +36,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for KPA Unit for STD STD-DA pump ratio")
 	@Test(priority = 1, enabled = true, dataProvider = "min_max_Presure_for_norfile_KPA_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_Manualadjust_KPA_Pressure_Value_comparision_with_NorFile(String Min, String Max)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 		
 		rsp = new Pressure_Min_Max_Validations(driver);
 		rsp.CreatNewNORfile();
@@ -79,7 +79,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2500);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2500);
 		Am.ConversionfromNorToXML(newfilename);
@@ -124,7 +124,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for BAR Unit for STD STD-DA pump ratio")
 	@Test(priority = 2, enabled = true, dataProvider = "min_max_Presure_for_norfile_BAR_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_Manualadjust_BAR_Pressure_Value_comparision_with_NorFile(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -166,7 +166,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -209,7 +209,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value in downloaded NOR file for PSI Unit for STD STD-DA pump ratio")
 	@Test(priority = 3, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_Manualadjust_PSI_Pressure_Value_comparision_with_NorFile(String Min, String Max)
-			throws InterruptedException, IOException, SAXException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -253,7 +253,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -298,7 +298,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Test(priority = 4, enabled = true, dataProvider = "Presure_for_norfile_KPA_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_electronicadjust_KPA_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -346,7 +346,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -422,7 +422,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Test(priority = 5, enabled = true, dataProvider = "Presure_for_norfile_BAR_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_electronicadjust_BAR_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -470,7 +470,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -548,7 +548,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Test(priority = 6, enabled = true, dataProvider = "Presure_for_norfile_PSI_electronicadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_electronicadjust_PSI_Press_Value_comparision_with_NorFile(String Pressuresetpntmin,
 			String lowprssuralrtthsld, String highprssuralrtthsld, String minprssurstpntrng, String maxprssurstpntrng)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -595,7 +595,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -675,7 +675,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	public void TC_Hydraulic_STD_STD_DA_Runup_KPA_Press_Value_comparision_with_NorFile(String lowprssuralrtthsld,
 			String highprssuralrtthsld, String lowspdprsssetting, String highspdprsssetting,
 			 String setmaximumpresslmt, String setminmumpresslmt)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -723,7 +723,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -769,7 +769,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	public void TC_Hydraulic_STD_STD_DA_Runup_BAR_Press_Value_comparision_with_NorFile_RunUpadjust(String lowprssuralrtthsld,
 			String highprssuralrtthsld, String lowspdprsssetting,String highspdprsssetting,
 		    String setmaximumpresslmt, String setminmumpresslmt)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -821,7 +821,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -866,7 +866,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	public void TC_Hydraulic_STD_STD_DA_Runup_PSI_Press_Value_comparision_with_NorFile_RunUpadjust(String lowprssuralrtthsld,
 			String highprssuralrtthsld, String lowspdprsssetting,String highspdprsssetting,
 		    String setmaximumpresslmt, String setminmumpresslmt)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -916,7 +916,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -957,7 +957,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Description("Verify all the Line Speed fields values in downloaded NOR file for PSI Unit with Line Speed ft/min for STD STD-DA pump ratio")
 	@Test(priority = 10, enabled = true, dataProvider = "Presure_for_norfile_RunUp_LineSpeed", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_Runup_LineSpeedftpermin_Press_Value_comparision_with_NorFile( String lowlnspdsetting,String highlnspdsettings,String fullscalelnspd)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 		
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -982,7 +982,6 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		Thread.sleep(2500);
 
 		// Value Validation 
-		
 		rsp.clearLowLineSpeedSetting();
 		rsp.setLowLineSpeedSettings(lowlnspdsetting);
 		rsp.clearHighLineSpeedSetting();
@@ -1002,7 +1001,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);
@@ -1034,7 +1033,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 	@Test(priority = 11, enabled = true, dataProvider = "Presure_for_norfile_RunUp_LineSpeed", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Hydraulic_STD_STD_DA_Runup_LineSpeedmpermin_Press_Value_comparision_with_NorFile( String lowlnspdsetting,
 			String highlnspdsettings,String fullscalelnspd)
-			throws InterruptedException, IOException, SAXException, InvalidFormatException {
+			throws Exception {
 
 		rsp.clickDashboard();
 		rsp.CreatNewNORfile();
@@ -1079,7 +1078,7 @@ public class TC_PressureHydraulic_NOR_XML_Comparsion_STD_STDDA extends TC_LoginT
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		Thread.sleep(2000);
-		Am.copyFile(flnm);
+		Am.NorcopyFile(flnm);
 		String newfilename = Am.removeSpaces(flnm);
 		Thread.sleep(2000);
 		Am.ConversionfromNorToXML(newfilename);

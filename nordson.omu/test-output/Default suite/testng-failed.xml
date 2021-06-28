@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.nordson.testCases.TC_VerifyLinkTests_003">
+      <class name="com.nordson.NORXML.TC_Pressure_NOR_XML_DefaultVal_Comparsion_Pneumatic">
         <methods>
+          <include name="TC_Pneumatic_Manualadjust_Pressure_DefaultValueXML_comparision_with_UI_BAR"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="LinksLoginDDT"/>
+          <include name="loginDDT"/>
+          <include name="TC_SetExcelNM"/>
         </methods>
-      </class> <!-- com.nordson.testCases.TC_VerifyLinkTests_003 -->
+      </class> <!-- com.nordson.NORXML.TC_Pressure_NOR_XML_DefaultVal_Comparsion_Pneumatic -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

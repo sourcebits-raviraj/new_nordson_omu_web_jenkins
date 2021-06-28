@@ -188,6 +188,10 @@ public class ReadConfig {
 
 	}
 	
+	public String getDownloadPath() {
+		return pro.getProperty("downloadpath");
+	}
+	
 	
 
 }
