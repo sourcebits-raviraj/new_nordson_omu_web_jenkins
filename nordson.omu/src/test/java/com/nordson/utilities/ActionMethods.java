@@ -318,10 +318,17 @@ ReadConfig rcf=new ReadConfig();
   
   public String conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
 		
+	  double prValue=Double.parseDouble(value_To_Be_Converted);
+		double newValue =(prValue/1000)*0.0689475728*Double.parseDouble(Pumpratio);
+		System.out.println(Precision.round(newValue,2));
+		 return String.valueOf(Precision.round(newValue,2));
+	}
+  
+  public String conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
+		
 		double prValue=Double.parseDouble(value_To_Be_Converted);
-		double newValue =(prValue/1000) * 0.0689475728 *Double.parseDouble(Pumpratio);
-		System.out.println(String.valueOf((double)Precision.round(newValue,2)));
-		return String.valueOf((double)Precision.round(newValue,2));
+		double newValue =prValue / 1000*Double.parseDouble(Pumpratio);
+		return String.valueOf((int)Math.round(newValue));
 	}
   
 }

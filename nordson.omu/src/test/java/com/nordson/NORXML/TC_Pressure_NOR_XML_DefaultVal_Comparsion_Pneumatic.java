@@ -172,7 +172,6 @@ public class TC_Pressure_NOR_XML_DefaultVal_Comparsion_Pneumatic extends TC_Logi
 		
 		double val1=Precision.round(Double.parseDouble(Am.conversion_of_Norfile_Value_To_Default_UIval_Pneuamtic_BAR_Native(xmlval.XMLParser(XMLTagConstants.MaximumPressureAlertNative))),2);
 		String newcnvval=String.valueOf(Precision.round(val1+0.01,2));
-		System.out.println(newcnvval);
 		softAssert.assertEquals(pressmaxVal,newcnvval);
 
 		softAssert.assertAll();

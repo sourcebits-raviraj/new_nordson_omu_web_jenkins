@@ -16,7 +16,7 @@ import com.nordson.utilities.XMLTagConstants;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 
-public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extends TC_LoginTest_DDT_001 {
+public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_LBD_LP extends TC_LoginTest_DDT_001 {
 
 	Pressure_Min_Max_Validations rsp;
 	ActionMethods Am = new ActionMethods();
@@ -25,14 +25,13 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 
 	@Test(priority = 0, enabled = true)
 	public void sheetname() {
-		XLUtils.setExceltNm("NorfilePressure_Hydraulic_Default_STD_STD-DA");
-		
+		XLUtils.setExceltNm("NorfilePressure_Hydraulic_Default_LBD_LP");
 	}
     
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as Manual adjust")
-	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert Default value in downloaded NOR file for KPA Unit for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as Manual adjust")
+	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert Default value in downloaded NOR file for KPA Unit for LBD LP pump ratio")
 	@Test(priority = 1, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_Manualadjust_Default_KPA_Pressure_Value_NorFileValue_comparision_with_UI()
+	public void TC_Hydraulic_LBD_LP_Manualadjust_Default_KPA_Pressure_Value_NorFileValue_comparision_with_UI()
 			throws Exception {
 		
 		rsp = new Pressure_Min_Max_Validations(driver);
@@ -45,8 +44,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		log.info("Selected Bar Raido button");
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
-		log.info("Selected STD STD-DA Pump ratio for Hydraulic pressure scaling");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -55,7 +56,7 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		rsp.clickPressure();
 		log.info("Clicked on Pressure Link");
 		rsp.SelectMainPressureModeSelectionDropdown("Manual Adjust");
-		Thread.sleep(1200);
+		Thread.sleep(2000);
 		
 		// getting the minimum and max value from the UI String
 		String pressminVal = rsp.getkPaMinSetPoint();
@@ -98,21 +99,21 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		
 		//Verification of ulLowPressureAlertThresholdNative tag with Pressure Unit as -KPA
 		softAssert.assertEquals(pressminVal,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MinimumPressureAlertNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MinimumPressureAlertNative),Constants.LBD_LP));
 		
 		
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -KPA
 		
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -KPA
-				String newcnvval=String.valueOf(Integer.parseInt(Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval
-						.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.STD_STD_DA))+8).toString();
-				softAssert.assertEquals(pressmaxVal,newcnvval);
-		softAssert.assertAll();
+		String newcnvval=String.valueOf(Integer.parseInt(Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval
+				.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.LBD_LP))+3).toString();
+		softAssert.assertEquals(pressmaxVal,newcnvval);
+        softAssert.assertAll();
 	}
 
-	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value from downloaded NOR file to UI for BAR Unit STD STD-DA pump ratio")
+	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value from downloaded NOR file to UI for BAR Unit LBD LP pump ratio")
 	@Test(priority = 2, enabled = true)
-	 public void TC_Hydraulic_STD_STD_DA_Manualadjust_Default_BAR_Pressure_Value_NorFileValue_comparision_with_UI()
+	 public void TC_Hydraulic_LBD_LP_Manualadjust_Default_BAR_Pressure_Value_NorFileValue_comparision_with_UI()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -125,8 +126,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		log.info("Selected Bar Raido button");
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
-		log.info("Selected STD STD-DA Pump ratio for Hydraulic pressure scaling");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -178,20 +181,20 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		
 		//Verification of ulLowPressureAlertThresholdNative tag with Pressure Unit as -BAR
 		softAssert.assertEquals(pressminVal,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MinimumPressureAlertNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MinimumPressureAlertNative),Constants.LBD_LP));
 		
 		
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -BAR
-		double val1=Precision.round(Double.parseDouble(Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.STD_STD_DA)),2);
-		String newcnvval=String.valueOf(Precision.round(val1+0.08,2));
-		System.out.println(newcnvval);
-		softAssert.assertEquals(pressmaxVal,newcnvval);
-		softAssert.assertAll();
+				double val1=Precision.round(Double.parseDouble(Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval
+						.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.LBD_LP)),2);
+				String newcnvval=String.valueOf(Precision.round(val1+0.03,2));
+				System.out.println(newcnvval+"newcnvval"+pressmaxVal);
+				softAssert.assertEquals(pressmaxVal,newcnvval);
+				softAssert.assertAll();
 	}
-	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value from downloaded NOR file to UI for PSI Unit STD STD-DA pump ratio")
+	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert value from downloaded NOR file to UI for PSI Unit LBD LP pump ratio")
 	@Test(priority = 3, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_Manualadjust_Default_PSI_Pressure_Value_NorFileValue_comparision_with_UI()
+	public void TC_Hydraulic_LBD_LP_Manualadjust_Default_PSI_Pressure_Value_NorFileValue_comparision_with_UI()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -204,8 +207,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		log.info("Selected PSI Raido button");
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
-		log.info("Selected STD STD-DA Pump ratio for Hydraulic pressure scaling");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -256,18 +261,18 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 
 		//Verification of ulLowPressureAlertThreshold tag with Pressure Unit as -PSI
 		softAssert.assertEquals(pressminVal,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MinimumPressureAlertNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MinimumPressureAlertNative),Constants.LBD_LP));
 		
 		//Verification of ulHighPressureAlertThreshold tag with Pressure Unit as -PSI
 		softAssert.assertEquals(pressmaxVal,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.LBD_LP));
 		softAssert.assertAll();
 	}
 	
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as Electronic adjust for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as Electronic adjust for LBD LP pump ratio")
 	@Description("Verify the All fields with UI value in downloaded NOR file for KPA Unit")
 	@Test(priority = 4, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_electronicadjust_NorFileValue_comparision_with_UI_KPA()
+	public void TC_Hydraulic_LBD_LP_electronicadjust_NorFileValue_comparision_with_UI_KPA()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -280,7 +285,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		log.info("Selected KPA Raido button");
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -359,26 +367,26 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 	
 	//Verification of ulPressureSetPointNative tag with Pressure Unit as -KPA
 		softAssert.assertEquals(prspnt,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.PressureSetpointNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.PressureSetpointNative)),Constants.LBD_LP));
 	//Verification of ulLowPressureAlertDeltaNative tag with Pressure Unit as -KPA
 		softAssert.assertEquals(lwprsthrshld,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.LowPressureAlertthsldelctrnicNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.LowPressureAlertthsldelctrnicNative)),Constants.LBD_LP));
 		//Verification of ulHighPressureAlertDeltaNative tag with Pressure Unit as -KPA
 		softAssert.assertEquals(hghprsthrshld,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.highPressureAlertthsldelctrnicNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.highPressureAlertthsldelctrnicNative)),Constants.LBD_LP));
 		//Verification of ulPressureMinSetPointNative tag with Pressure Unit as -KPA
 		softAssert.assertEquals(minprsstpntrng,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.MinimumPressureSetpointrangeNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MinimumPressureSetpointrangeNative)),Constants.LBD_LP));
 		//Verification of ulPressureMaxSetPointNative tag with Pressure Unit as -KPA
 		softAssert.assertEquals(maxprsstpntrng,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.MaximumPressureSetpointrangeNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MaximumPressureSetpointrangeNative)),Constants.LBD_LP));
         softAssert.assertAll();
 	}
 
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as Electronic adjust for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as Electronic adjust for LBD LP pump ratio")
 	@Description("Verify the All fields with UI value in downloaded NOR file for BAR Unit")
 	@Test(priority = 5, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_electronicadjust_NorFileValue_comparision_with_UI_BAR()
+	public void TC_Hydraulic_LBD_LP_electronicadjust_NorFileValue_comparision_with_UI_BAR()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -391,7 +399,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		log.info("Selected BAR Raido button");
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -470,26 +481,26 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 	
 	//Verification of ulPressureSetPointNative tag with Pressure Unit as -BAR
 		softAssert.assertEquals(prspnt,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.PressureSetpointNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.PressureSetpointNative)),Constants.LBD_LP));
 	//Verification of ulLowPressureAlertDeltaNative tag with Pressure Unit as -BAR
 		softAssert.assertEquals(lwprsthrshld,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.LowPressureAlertthsldelctrnicNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.LowPressureAlertthsldelctrnicNative)),Constants.LBD_LP));
 		//Verification of ulHighPressureAlertDeltaNative tag with Pressure Unit as -BAR
 		softAssert.assertEquals(hghprsthrshld,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.highPressureAlertthsldelctrnicNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.highPressureAlertthsldelctrnicNative)),Constants.LBD_LP));
 		//Verification of ulPressureMinSetPointNative tag with Pressure Unit as -BAR
 		softAssert.assertEquals(minprsstpntrng,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.MinimumPressureSetpointrangeNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MinimumPressureSetpointrangeNative)),Constants.LBD_LP));
 		//Verification of ulPressureMaxSetPointNative tag with Pressure Unit as -BAR
 		softAssert.assertEquals(maxprsstpntrng,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic((xmlval
-				.XMLParser(XMLTagConstants.MaximumPressureSetpointrangeNative)),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MaximumPressureSetpointrangeNative)),Constants.LBD_LP));
         softAssert.assertAll();
 	}
 
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as Electronic adjust for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as Electronic adjust for LBD LP pump ratio")
 	@Description("Verify the All fields with UI value in downloaded NOR file for PSI Unit")
 	@Test(priority = 6, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_electronicadjust_NorFileValue_comparision_with_UI_PSI()
+	public void TC_Hydraulic_LBD_LP_electronicadjust_NorFileValue_comparision_with_UI_PSI()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -502,7 +513,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		log.info("Selected PSI Raido button");
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -581,26 +595,26 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 	
 	//Verification of ulPressureSetPointNative tag with Pressure Unit as -PSI
 		softAssert.assertEquals(prspnt,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.PressureSetpointNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.PressureSetpointNative),Constants.LBD_LP));
 	//Verification of ulLowPressureAlertDeltaNative tag with Pressure Unit as -PSI
 		softAssert.assertEquals(lwprsthrshld,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.LowPressureAlertthsldelctrnicNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.LowPressureAlertthsldelctrnicNative),Constants.LBD_LP));
 		//Verification of ulHighPressureAlertDeltaNative tag with Pressure Unit as -PSI
 		softAssert.assertEquals(hghprsthrshld,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.highPressureAlertthsldelctrnicNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.highPressureAlertthsldelctrnicNative),Constants.LBD_LP));
 		//Verification of ulPressureMinSetPointNative tag with Pressure Unit as -PSI
 		softAssert.assertEquals(minprsstpntrng,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MinimumPressureSetpointrangeNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MinimumPressureSetpointrangeNative),Constants.LBD_LP));
 		//Verification of ulPressureMaxSetPointNative tag with Pressure Unit as -PSI
 		softAssert.assertEquals(maxprsstpntrng,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MaximumPressureSetpointrangeNative),Constants.STD_STD_DA));
+				.XMLParser(XMLTagConstants.MaximumPressureSetpointrangeNative),Constants.LBD_LP));
         softAssert.assertAll();
 	}
 
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as RunUP for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as RunUP for LBD LP pump ratio")
 	@Description("Verify the All fields with UI value in downloaded NOR file for KPA Unit")
 	@Test(priority = 7, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_RunUP_NorFileValue_comparision_with_UI_KPA()
+	public void TC_Hydraulic_LBD_LP_RunUP_NorFileValue_comparision_with_UI_KPA()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -611,7 +625,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		rsp.SelectKPAUnit();
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -658,20 +675,20 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		//Verification of ulHighPressureAlertDelta tag with Pressure Unit as -KPA
 		softAssert.assertEquals(hghprssalrtthsld,Am.conversion_of_Norfile_Value_To_Default_UIval_Pneuamtic(xmlval.XMLParser(XMLTagConstants.HighPressureAlertshldRunup)));
 		//Verification of usPressureCalPtMin tag with Pressure Unit as -KPA
-		softAssert.assertEquals(lwspdprssttng,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.LowSppdPressuresetting),Constants.STD_STD_DA));
+		softAssert.assertEquals(lwspdprssttng,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.LowSppdPressuresetting),Constants.LBD_LP));
 		//Verification of usPressureCalPtMax tag with Pressure Unit as -KPA
-		softAssert.assertEquals(hghspdprsstng,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.HighSppdPressuresetting),Constants.STD_STD_DA));
+		softAssert.assertEquals(hghspdprsstng,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.HighSppdPressuresetting),Constants.LBD_LP));
 		//Verification of usPressureMax tag with Pressure Unit as -KPA
-		softAssert.assertEquals(setmaxprsslmt,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetmaxPressurelimit),Constants.STD_STD_DA));
+		softAssert.assertEquals(setmaxprsslmt,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetmaxPressurelimit),Constants.LBD_LP));
 		//Verification of usPressureMin tag with Pressure Unit as -KPA
-		softAssert.assertEquals(setminprsslmt,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetminPressurelimit),Constants.STD_STD_DA));
+		softAssert.assertEquals(setminprsslmt,Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetminPressurelimit),Constants.LBD_LP));
 		softAssert.assertAll();
 	}
 	
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as RunuP for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as RunuP for LBD LP pump ratio")
 	@Description("Verify the All fields with UI value in downloaded NOR file for BAR Unit")
 	@Test(priority = 8, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_RunUP_NorFileValue_comparision_with_UI_BAR()
+	public void TC_Hydraulic_LBD_LP_RunUP_NorFileValue_comparision_with_UI_BAR()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -682,7 +699,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		rsp.checkBARPressureUnitSelected();
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -693,7 +713,7 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
 		Thread.sleep(2200);
 
-		// Passing values from excel to Electronic adjust fields and saving 
+		// Passing values from excel to Run up adjust fields and saving 
 		
 		String lwprssalrtthsld=rsp.getLowPressureAlertThreshold();
 		String hghprssalrtthsld=rsp.getHighPressureAlertThreshold();
@@ -729,23 +749,23 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		//Verification of ulHighPressureAlertDelta tag with Pressure Unit as -BAR
 		softAssert.assertEquals(hghprssalrtthsld,Am.conversion_of_Norfile_Value_To_Default_UIval_Pneuamtic_BAR(xmlval.XMLParser(XMLTagConstants.HighPressureAlertshldRunup)));
 		//Verification of usPressureCalPtMin tag with Pressure Unit as -BAR
-		softAssert.assertEquals(lwspdprssttng,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.LowSppdPressuresetting),Constants.STD_STD_DA));
+		softAssert.assertEquals(lwspdprssttng,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.LowSppdPressuresetting),Constants.LBD_LP));
 		//Verification of usPressureCalPtMax tag with Pressure Unit as -BAR
-		softAssert.assertEquals(hghspdprsstng,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.HighSppdPressuresetting),Constants.STD_STD_DA));
+		softAssert.assertEquals(hghspdprsstng,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.HighSppdPressuresetting),Constants.LBD_LP));
 		//Verification of usPressureMax tag with Pressure Unit as -BAR
-		softAssert.assertEquals(setmaxprsslmt,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetmaxPressurelimit),Constants.STD_STD_DA));
+		softAssert.assertEquals(setmaxprsslmt,Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetmaxPressurelimit),Constants.LBD_LP));
 		//Verification of usPressureMin tag with Pressure Unit as -BAR
-		 if(setminprsslmt.contains(Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetminPressurelimit),Constants.STD_STD_DA)))
+		 if(setminprsslmt.contains(Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetminPressurelimit),Constants.LBD_LP)))
 			  log.info("Set Minimum Pressure limit is set to default value");
 			  else
 				  log.info("Set Minimum Pressure limit is not set to default value");
 	    softAssert.assertAll();
 	}
 
-	@Feature("Pressure Scaling as Hydraulic with pump ratio as STD STD-DA and Pressure mode as RunuP for STD STD-DA pump ratio")
+	@Feature("Pressure Scaling as Hydraulic with pump ratio as LBD LP and Pressure mode as RunuP for LBD LP pump ratio")
 	@Description("Verify the All fields with UI value in downloaded NOR file for PSI Unit")
 	@Test(priority = 9, enabled = true)
-	public void TC_Hydraulic_STD_STD_DA_RunUP_NorFileValue_comparision_with_UI_PSI()
+	public void TC_Hydraulic_LBD_LP_RunUP_NorFileValue_comparision_with_UI_PSI()
 			throws Exception {
 
 		rsp.clickDashboard();
@@ -756,7 +776,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		rsp.SelectPSIUnit();
 		rsp.SelectHydaulicDropdown();
 		log.info("Selected Hydraulic pressure scaling option from drop down");
-		rsp.SelectPumpDropdown("STD STD-DA");
+		rsp.SelectPumpDropdown("LBD LP");
+		log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+		softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+		rsp.clickAcceptalert();
 		rsp.saveButton();
 		log.info("Save the preferences");
 		softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -803,13 +826,13 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 		//Verification of ulHighPressureAlertDelta tag with Pressure Unit as -PSI
 		softAssert.assertEquals(hghprssalrtthsld,Am.conversion_of_Norfile_Value_To_Default_UIval_Pneuamtic(xmlval.XMLParser(XMLTagConstants.HighPressureAlertshldRunup)));
 		//Verification of usPressureCalPtMin tag with Pressure Unit as -PSI
-		softAssert.assertEquals(lwspdprssttng,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.LowSppdPressuresetting),Constants.STD_STD_DA));
+		softAssert.assertEquals(lwspdprssttng,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.LowSppdPressuresetting),Constants.LBD_LP));
 		//Verification of usPressureCalPtMax tag with Pressure Unit as -PSI
-		softAssert.assertEquals(hghspdprsstng,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.HighSppdPressuresetting),Constants.STD_STD_DA));
+		softAssert.assertEquals(hghspdprsstng,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.HighSppdPressuresetting),Constants.LBD_LP));
 		//Verification of usPressureMax tag with Pressure Unit as -PSI
-		softAssert.assertEquals(setmaxprsslmt,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetmaxPressurelimit),Constants.STD_STD_DA));
+		softAssert.assertEquals(setmaxprsslmt,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetmaxPressurelimit),Constants.LBD_LP));
 		//Verification of usPressureMin tag with Pressure Unit as -PSI
-		softAssert.assertEquals(setminprsslmt,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetminPressurelimit),Constants.STD_STD_DA));
+		softAssert.assertEquals(setminprsslmt,Am.conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(xmlval.XMLParser(XMLTagConstants.SetminPressurelimit),Constants.LBD_LP));
 		softAssert.assertAll();
 	}
 	
@@ -830,7 +853,10 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 	  log.info("Selected ft/min Raido button");
 	  rsp.SelectHydaulicDropdown();
 	  log.info("Selected Hydraulic pressure scaling option from drop down");
-	  rsp.SelectPumpDropdown("STD STD-DA");
+	  rsp.SelectPumpDropdown("LBD LP");
+	  log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+	  softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+	  rsp.clickAcceptalert();
 	  rsp.saveButton();
 	  log.info("Save the preferences");
 	  softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
@@ -894,9 +920,13 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_STD_STDDA extend
 	  log.info("Selected LineSpeed min unit Raido button");
 	  rsp.SelectHydaulicDropdown();
 	  log.info("Selected Hydraulic pressure scaling option from drop down");
-	  rsp.SelectPumpDropdown("STD STD-DA");
+	  rsp.SelectPumpDropdown("LBD LP");
+	  log.info("Selected LBD LP Pump ratio for Hydraulic pressure scaling");
+	  softAssert.assertEquals(rsp.getConfigcodechngdmsg(),Constants.config_cdmsg_pumpratiochng);
+	  rsp.clickAcceptalert();
 	  rsp.saveButton();
 	  log.info("Save the preferences");
+	  softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
 	  softAssert.assertEquals(rsp.toastmessageDisplayed(), true);
 	  rsp.clickRunTimeSettings();
 	  log.info("Clicked on Run Time Settings Link");
