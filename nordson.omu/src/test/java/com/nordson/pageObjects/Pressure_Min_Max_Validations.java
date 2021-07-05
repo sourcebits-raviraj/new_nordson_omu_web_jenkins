@@ -234,7 +234,8 @@ public class Pressure_Min_Max_Validations {
 	public void SelectKPAUnit() throws InterruptedException {
 		Thread.sleep(2000);
 		customwait.waitForAnElementPresence(By.xpath("//article[normalize-space()='Pressure Unit']/following::div[2]"));
-		KPAUnit.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",KPAUnit);
+		//KPAUnit.click();
 	}
 	public void saveButton() throws InterruptedException {
 		customwait.waitForAnElementPresence(By.xpath("//button[normalize-space()='SAVE']"));
@@ -525,7 +526,7 @@ public class Pressure_Min_Max_Validations {
 		//ldriver.findElement(By.xpath("//mat-option/span[contains(.,'" + txttobeselected + "')]")).click();
 	}
 	public void clickAcceptalert() {
-		customwait.waitForAnElementPresence(changesAlert);
+		customwait.waitForAnElementPresence(By.xpath("//*[@id='logout-modal']//button[contains(@class,'button-logout logout')]"));
 		changesAlert.click();
 	}
 //  Runup Pressure mode action methods

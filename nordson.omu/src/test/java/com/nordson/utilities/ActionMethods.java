@@ -3,6 +3,8 @@ package com.nordson.utilities;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.DecimalFormat;
@@ -287,7 +289,7 @@ ReadConfig rcf=new ReadConfig();
   public String conversion_of_Norfile_Value_To_Default_UIval_Pneuamtic_BAR_Native(String value_To_Be_Converted) {
 	  double prValue=Double.parseDouble(value_To_Be_Converted);
 		double newValue =(prValue/1000)*0.0689475728;
-		 return String.valueOf((double)Precision.round(newValue,2));
+		 return String.valueOf(Precision.round(newValue,2));
 	  }
 
   public String conversion_LineSpeed_mpermin_XML_TOUI(String value_To_Be_Converted) {
@@ -318,10 +320,11 @@ ReadConfig rcf=new ReadConfig();
   
   public String conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(String value_To_Be_Converted,String Pumpratio) {
 		
-	  double prValue=Double.parseDouble(value_To_Be_Converted);
-		double newValue =(prValue/1000)*0.0689475728*Double.parseDouble(Pumpratio);
+	    double prValue=Double.parseDouble(value_To_Be_Converted);
+	    double ratio=Double.parseDouble(Pumpratio);
+		double newValue =((prValue/1000)*0.0689475728*ratio);
 		System.out.println(Precision.round(newValue,2));
-		 return String.valueOf(Precision.round(newValue,2));
+		return String.valueOf((double)Precision.round(newValue,2));
 	}
   
   public String conversion_of_PSI_NOR_vlaue_TO_UI_Hydraulic(String value_To_Be_Converted,String Pumpratio) {

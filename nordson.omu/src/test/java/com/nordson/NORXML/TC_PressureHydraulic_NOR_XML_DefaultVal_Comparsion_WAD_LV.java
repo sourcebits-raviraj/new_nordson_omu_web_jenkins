@@ -106,7 +106,7 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_WAD_LV extends T
 		
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -KPA
 		String newcnvval=String.valueOf(Integer.parseInt(Am.conversion_of_KPA_NOR_vlaue_TO_UI_Hydraulic(xmlval
-				.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.WAD_LV))+3).toString();
+				.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.WAD_LV))+8).toString();
 		softAssert.assertEquals(pressmaxVal,newcnvval);
         softAssert.assertAll();
 	}
@@ -187,7 +187,7 @@ public class TC_PressureHydraulic_NOR_XML_DefaultVal_Comparsion_WAD_LV extends T
 		//Verification of ulHighPressureAlertThresholdNative tag with Pressure Unit as -BAR
 				double val1=Precision.round(Double.parseDouble(Am.conversion_of_BAR_NOR_vlaue_TO_UI_Hydraulic(xmlval
 						.XMLParser(XMLTagConstants.MaximumPressureAlertNative),Constants.WAD_LV)),2);
-				String newcnvval=String.valueOf(Precision.round(val1+0.03,2));
+				String newcnvval=String.valueOf(Precision.round(val1+0.08,2));
 				System.out.println(newcnvval+"newcnvval"+pressmaxVal);
 				softAssert.assertEquals(pressmaxVal,newcnvval);
 				softAssert.assertAll();
