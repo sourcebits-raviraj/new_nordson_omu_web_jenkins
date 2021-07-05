@@ -67,6 +67,13 @@ public class Pressure_Min_Max_Validations {
 
 	@FindBy(xpath = "//div[normalize-space()='Pressure']")
 	public WebElement Pressure;
+	
+	@FindBy(xpath = "//div[normalize-space()='ZONE TEMPERATURE']")
+	public WebElement ZoneTemperareture;
+	
+	
+	@FindBy(xpath="//*[@class='mat-slide-toggle-input cdk-visually-hidden']")
+	public  WebElement PressureToggle;
 
 	@FindBy(xpath = "//input[contains(@name,'ulPressureMinSetPoint')]")
 	public WebElement clearKPAMinSetPoint;
@@ -257,6 +264,25 @@ public class Pressure_Min_Max_Validations {
 			Pressure.click();
 		} catch (Exception e) {
 			System.out.println("Unable to click on Pressure link");
+		}
+	}
+	public void clickZoneTemperareture() throws Exception {
+		try {
+			customwait.sleepTime(2000);
+			customwait.waitForAnElementPresence(By.xpath("//div[normalize-space()='Pressure']//.."));
+			ZoneTemperareture.click();
+		} catch (Exception e) {
+			System.out.println("Unable to click on Pressure link");
+		}
+	}
+	
+	
+	public void clickPressureToggle() throws Exception {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor)ldriver;
+			js.executeScript("arguments[0].click();", PressureToggle);
+		} catch (Exception e) {
+			System.out.println("Unable to click on PressureToggle button");
 		}
 	}
 
@@ -720,5 +746,9 @@ public class Pressure_Min_Max_Validations {
     		else
     			SelectBARUnit();
     	}
-       
+    public String pressureAlertTogglebuttonStatus() {
+    	String pressureAlertTogglebuttonStatus = PressureToggle.getAttribute("aria-checked");
+		return pressureAlertTogglebuttonStatus;
+    }
+   
 }

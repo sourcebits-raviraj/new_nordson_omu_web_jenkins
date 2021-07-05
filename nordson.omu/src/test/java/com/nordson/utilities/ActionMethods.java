@@ -31,7 +31,7 @@ import com.nordson.testCases.BaseClass;
 public class ActionMethods extends BaseClass {
 
 	ArrayList<String> tabs;
-	ReadConfig rcf=new ReadConfig();
+	ReadConfig rcf = new ReadConfig();
 	// public WebDriver driver;
 
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
@@ -194,7 +194,8 @@ public class ActionMethods extends BaseClass {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid green'", element);
 		sleepTime(1500);
-		 //  js.executeScript("arguments[0].style.border='3px solid transparent'", element);
+		// js.executeScript("arguments[0].style.border='3px solid transparent'",
+		// element);
 	}
 
 	public void drawBorderFail(WebElement element, WebDriver driver) {
@@ -202,10 +203,6 @@ public class ActionMethods extends BaseClass {
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
-	  public void drawBorder(List<WebElement> element, WebDriver driver) {
-	  JavascriptExecutor js = ((JavascriptExecutor) driver);
-	  js.executeScript("arguments[0].style.border='3px solid red'", element); }
-	  
 	  public String conversion_of_App_PSI_Default_vlaue_for_Norfile_comparision_Pneumatic() {
 			double newValue =14.93889 * 1000;
 			return String.valueOf((int)Math.round(newValue));
@@ -299,49 +296,46 @@ public class ActionMethods extends BaseClass {
 			    	  }                                                }
 			return flnm;
 		}
-	  
-	  public void NorcopyFile(String filnm) throws Exception
-		{
-			// creating two channels
-	        // one input and other output  
-			String srcfilepth=System.getProperty("user.home")+rcf.getDownloadPath()+filnm;
-			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
-	        File src = new File(srcfilepth);
-	        sleepTime(2500);
-	        File dest = new File(destnationpth); 
-	        sleepTime(2500); 
-	        
-	        // using copy(InputStream,Path Target); method 
-	      
-	        FileUtils.copyFileToDirectory(src,dest);
-	        
-	        System.out.println("new filename"+filnm.replace(" ", ""));
-		}
 	
-		  public String removeSpaces(String flnm) { 
-			  String path =System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\"+flnm; 
-		  File newfile= new File(path); 
-		  
-		 
-		  String newflnm=flnm.replace(" ", ""); 
-		  String path2 = System.getProperty("user.dir")+ "\\src\\test\\java\\com\\nordson\\BDGTest\\"+newflnm; 
-		  File newfile2 = new File(path2); 
-		  boolean newfileStatus= newfile.renameTo(newfile2);
-		  if(newfileStatus==true)
-		  System.out.println("file successfuly renamed");
-		  else
-			  System.out.println("file not renamed");
-		  return newflnm;
-		  }
+public void NorcopyFile(String filnm) throws Exception {
+		// creating two channels
+		// one input and other output
+		String srcfilepth = rcf.getDownloadPath() + filnm;
+		String destnationpth = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\";
+		File src = new File(srcfilepth);
+		sleepTime(2500);
+		File dest = new File(destnationpth);
+		sleepTime(2500);
 
-		public void ConversionfromNorToXML(String flnm) throws IOException
-		{
-			  ProcessBuilder builder =new ProcessBuilder("cmd.exe", "/c","cd \""+System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U "+flnm);
-			  builder.redirectErrorStream(true); 
-			  builder.start();
-			  System.out.println("Converted NOR "+flnm+"to XML file Done");  
-		}
-			  
+		// using copy(InputStream,Path Target); method
+
+		FileUtils.copyFileToDirectory(src, dest);
+
+		System.out.println("new filename" + filnm.replace(" ", ""));
+	}
+
+	public String removeSpaces(String flnm) {
+		String path = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\" + flnm;
+		File newfile = new File(path);
+
+		String newflnm = flnm.replace(" ", "");
+		String path2 = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\" + newflnm;
+		File newfile2 = new File(path2);
+		boolean newfileStatus = newfile.renameTo(newfile2);
+		if (newfileStatus == true)
+			System.out.println("file successfuly renamed");
+		else
+			System.out.println("file not renamed");
+		return newflnm;
+	}
+
+	public void ConversionfromNorToXML(String flnm) throws IOException {
+		ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "cd \"" + System.getProperty("user.dir")
+				+ "\\src\\test\\java\\com\\nordson\\BDGTest\" && BlueDatGenerator -U " + flnm);
+		builder.redirectErrorStream(true);
+		builder.start();
+		System.out.println("Converted NOR " + flnm + "to XML file Done");
+	}
 
 	public static void sendEmail() throws EmailException {
 		ReadConfig readconfig = new ReadConfig();
@@ -364,17 +358,17 @@ public class ActionMethods extends BaseClass {
 		email.setSmtpPort(465);
 		email.setAuthenticator(new DefaultAuthenticator("Devteamascendum@gmail.com", "Welcome@2020"));
 		email.setSSLOnConnect(true);
-	    email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
-		email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
-		email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
-		 
+		email.addTo("raviraj.metri@ascendum.com", "Ravi Raj");
+		// email.addTo("Amrendra.Pathak@ascendum.com", "Amrendra");
+		// email.addTo("Kumar.Belur@ascendum.com", "Kumar Belur");
+
 		email.addTo("jayasena.mallikarjun@ascendum.com", "Jayasena");
 		email.setFrom("Devteamascendum@gmail.com", "Automation Team");
 		email.setSubject("Nordson Test Automation Reports-" + new Date());
 		email.setMsg("Please find the attached Nordson Test Automation Reports");
 
 		// add the attachment
-		email.attach(attachment);
+		//email.attach(attachment);
 		email.attach(attachment1);
 
 		// send the email

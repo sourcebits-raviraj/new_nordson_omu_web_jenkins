@@ -767,6 +767,32 @@ public class XLUtils {
 		}
 		return minpressueDataforNor;
 	}
+	@DataProvider(name = "Pressure boundry value data")
+	public static String[][] PSIAboveRange() throws IOException
+
+	{
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/PressureValue1.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		int colcnt = colcount - 1;
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcnt);
+		String boundryValue[][] = new String[rownum][colcnt];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 1; j <= colcnt; j++) {
+				boundryValue[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
+
+			}
+
+		}
+		return boundryValue;
+	}
+
+	
 
 	
 	public static void setNorXMLValues_Pressure_Min_and_Max(String sheetnm, String mintag, String maxtag,

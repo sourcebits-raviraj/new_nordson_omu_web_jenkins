@@ -1,7 +1,5 @@
 package com.nordson.testCases;
 
-import java.io.IOException;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -12,6 +10,7 @@ import com.nordson.pageObjects.Pressure_Min_Max_Validations;
 import com.nordson.pageObjects.User_Dashboard_Details_Landing_Page;
 import com.nordson.utilities.ActionMethods;
 import com.nordson.utilities.Constants;
+import com.nordson.utilities.JiraPolicy;
 import com.nordson.utilities.ReadConfig;
 
 public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 {
@@ -25,15 +24,17 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	User_Dashboard_Details_Landing_Page lp;
 	ReadConfig readconfig = new ReadConfig();
 
+	@JiraPolicy(logTicketReady = true)
 	@Test(priority = 1, enabled = true)
 	public void Logo_Displayed() throws Exception {
 
 		lp = new User_Dashboard_Details_Landing_Page(driver);
 		Am.sleepTime(2000);
-		if (lp.logoDisplayed() == true) {
+		if (lp.logoDisplayed() == false) {
 			Am.drawBorder(lp.logo, driver);
 			Am.sleepTime(1000);
 			log.info("Nordosn Logo is displayed");
+			Am.takeSnapShot();
 			softAssert.assertTrue(true);
 
 		} else
@@ -46,10 +47,11 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 2, enabled = true)
+	@JiraPolicy(logTicketReady = false)
+	@Test(priority = 2, enabled = false)
 	public void Welcome_Displayed() throws Exception {
 
-		if (lp.welcomeDisplayed() == true) {
+		if (lp.welcomeDisplayed() == false) {
 
 			Am.drawBorder(lp.welcome, driver);
 			Am.sleepTime(1000);
@@ -68,7 +70,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 	public void Cards_Display_Setting_Event_log_File() throws Exception {
 
 		if (lp.setting_Event_Cards_Displayed() == 2) {
@@ -85,7 +87,8 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 4, enabled = true)
+	@JiraPolicy(logTicketReady = true)
+	@Test(priority = 4, enabled = false)
 	public void Recently_Viewed_Card_Text() throws Exception {
 
 		if (lp.Recently_Viewed_Event_Logs_Text().equalsIgnoreCase("Recently Viewed")) {
@@ -94,7 +97,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			Am.sleepTime(1000);
 			// Assert.assertTrue((lp.RecentlyViewed).getText().contains("Recently Viewed"));
 			log.info("Recently Viewed Event log Files are displayed");
-			softAssert.assertTrue(true);
+			Assert.assertTrue(true);
 
 		} else {
 
@@ -123,7 +126,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 6, enabled = false)
 	public void CopyRightText() throws Exception {
 
 		// lp.pageRefresh();
@@ -155,7 +158,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 7, enabled = true)
+	@Test(priority = 7, enabled = false)
 	public void Registration_Nordson_Privacy_Policy() throws Exception {
 		Am.sleepTime(1000);
 		if (lp.PrivacyPolicyDisplayed() == true) {
@@ -178,7 +181,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 8, enabled = true)
+	@Test(priority = 8, enabled = false)
 	public void Registration_Nordosn_Terms_of_Services() throws Exception {
 
 		if (lp.TermsOfServiceDisplayed() == true) {
@@ -201,7 +204,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 9, enabled = true)
+	@Test(priority = 9, enabled = false)
 	public void Registration_Nordson_Cookies() throws Exception {
 
 		if (lp.cookiesDisplayed() == true) {
@@ -224,7 +227,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 10, enabled = true)
+	@Test(priority = 10, enabled = false)
 	public void Registration_Nordson_Contact_Us() throws Exception {
 
 		if (lp.contactUsDisplayed() == true) {
@@ -248,10 +251,11 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 11, enabled = true)
+	@JiraPolicy(logTicketReady = false)
+	@Test(priority = 11, enabled = false)
 	public void View_DashBoard() throws Exception {
 
-		if (lp.Dashboard_Text().equalsIgnoreCase("DASHBOARD")) {
+		if (lp.Dashboard_Text().equalsIgnoreCase("xxxx")) {
 
 			Am.drawBorder(lp.DashBoard, driver);
 			Am.sleepTime(1000);
@@ -265,7 +269,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 12, enabled = true)
+	@Test(priority = 12, enabled = false)
 	public void Model_Registration() throws Exception {
 
 		if (lp.Model_Registration().equalsIgnoreCase("Model Registration")) {
@@ -282,7 +286,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 13, enabled = true)
+	@Test(priority = 13, enabled = false)
 	public void Sub_User_Account_Link() throws Exception {
 
 		if (lp.SubUserAccount().equalsIgnoreCase("Sub User Account")) {
@@ -299,7 +303,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 14, enabled = true)
+	@Test(priority = 14, enabled = false)
 	public void Set_Up_Tool() throws Exception {
 
 		if (lp.SetUpTool().equalsIgnoreCase("SETUP TOOL")) {
@@ -336,7 +340,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 15, enabled = true)
+	@Test(priority = 15, enabled = false)
 	public void MediaCenter() throws Exception {
 
 		if (lp.MediaCenterText().equalsIgnoreCase("Media Center")) {
@@ -364,7 +368,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 16, enabled = true)
+	@Test(priority = 16, enabled = false)
 	public void Manage_Lincenses() throws Exception {
 
 		if (lp.manageLincenseDisplayed() == true) {
@@ -416,7 +420,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 17, enabled = true)
+	@Test(priority = 17, enabled = false)
 	public void Help_Center() throws Exception {
 
 		if (lp.helpCenterDisplayed() == true) {
@@ -469,7 +473,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 18, enabled = true)
+	@Test(priority = 18, enabled = false)
 	public void Langauges() throws Exception {
 
 		Am.sleepTime(2000);
@@ -515,7 +519,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 19, enabled = true)
+	@Test(priority = 19, enabled = false)
 	public void Profile() throws Exception {
 
 		lp.LanaguageDropdowns.get(0).click();
