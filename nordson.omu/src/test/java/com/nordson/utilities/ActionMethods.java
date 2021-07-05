@@ -292,27 +292,28 @@ public class ActionMethods extends BaseClass {
 			  	               flnm=lastModifiedFile.getName();
 			    	        }
 			    	      else
-			    		System.out.println("Nor file not found");
+			    		System.out.println("Searching for Nor file");
 			    	  }                                                }
 			return flnm;
 		}
 	
-public void NorcopyFile(String filnm) throws Exception {
-		// creating two channels
-		// one input and other output
-		String srcfilepth = rcf.getDownloadPath() + filnm;
-		String destnationpth = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\";
-		File src = new File(srcfilepth);
-		sleepTime(2500);
-		File dest = new File(destnationpth);
-		sleepTime(2500);
-
-		// using copy(InputStream,Path Target); method
-
-		FileUtils.copyFileToDirectory(src, dest);
-
-		System.out.println("new filename" + filnm.replace(" ", ""));
-	}
+	  public void NorcopyFile(String filnm) throws Exception
+		{
+			// creating two channels
+	        // one input and other output  
+			String srcfilepth=System.getProperty("user.home")+rcf.getDownloadPath()+filnm;
+			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
+	        File src = new File(srcfilepth);
+	        sleepTime(2500);
+	        File dest = new File(destnationpth); 
+	        sleepTime(2500); 
+	        
+	        // using copy(InputStream,Path Target); method 
+	      
+	        FileUtils.copyFileToDirectory(src,dest);
+	        
+	        System.out.println("new filename"+filnm.replace(" ", ""));
+		}
 
 	public String removeSpaces(String flnm) {
 		String path = System.getProperty("user.dir") + "\\src\\test\\java\\com\\nordson\\BDGTest\\" + flnm;

@@ -62,7 +62,7 @@ public class Fill_System_Settings {
 		@FindBy(css ="*[formcontrolname='LidOpenAlertTimeout']")
 		WebElement LidOpenAlertTimeout;
 		
-		@FindBy(xpath = "//*[@class='apply btn submit-bt']")
+		@FindBy(xpath = "//*[@class='apply btn']")
 		WebElement SAVE;
 		
 		public void clickDashboard() {
@@ -117,11 +117,11 @@ public class Fill_System_Settings {
 				System.out.println("Already"+SelectedFilltxt.getText()+"fill option selected");
 		}
 	   public void clearMaxFillTime() {
-			Am.waitForAnElementPresence(MaxFillTme);
+		   Am.waitForAnElementPresence(By.cssSelector("*[name='MaxFillTime']"));
 			MaxFillTme.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		}	
 	   public void setMaxFillTime(String maxFillTime) {
-			Am.waitForAnElementPresence(MaxFillTme);
+		   Am.waitForAnElementPresence(By.cssSelector("*[name='MaxFillTime']"));
 			MaxFillTme.sendKeys(maxFillTime);
 		}
 	   public String getMaxFillTime() throws InterruptedException {
@@ -190,8 +190,8 @@ public class Fill_System_Settings {
 			return toastmsg;
 		}	
 		public void clickSavebtn() {
-			Am.waitForAnElementPresence(SAVE);
-			Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
+			//Am.waitForAnElementPresence(SAVE);
+			Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn']"));
 			//Am.waitForAnElementToBeClickable(SAVE);
 			//SAVE.click();
 			((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getYcoordinatetoclick(SAVE)+")");

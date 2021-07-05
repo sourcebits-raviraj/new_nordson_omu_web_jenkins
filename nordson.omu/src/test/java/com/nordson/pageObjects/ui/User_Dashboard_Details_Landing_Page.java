@@ -167,7 +167,7 @@ public class User_Dashboard_Details_Landing_Page {
 	public WebElement Downloadtxt;
 	
 	
-	@FindBy(xpath = "//button[@class='apply btn submit-bt']")
+	@FindBy(xpath = "//button[@class='apply btn']")
 	public WebElement Savebutton;
 	
 	
@@ -571,7 +571,7 @@ public class User_Dashboard_Details_Landing_Page {
 		  
 		  public void saveButton() throws Exception {
 				Am.sleepTime(2000);
-				Am.waitForAnElementClickable(By.xpath("//button[@class='apply btn submit-bt']"));
+				Am.waitForAnElementClickable(By.xpath("//button[@class='apply btn']"));
 				Savebutton.click();
 			}
 		  

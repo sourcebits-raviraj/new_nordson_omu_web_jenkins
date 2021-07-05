@@ -17,7 +17,7 @@ import io.qameta.allure.Feature;
 public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 {
 
 	Fill_System_Settings fss;
-	ActionMethods Am;
+	ActionMethods Am=new ActionMethods();
 	private SoftAssert softAssert = new SoftAssert();
 	MDSGettersandSetters_Fill fmds = new MDSGettersandSetters_Fill();
 	RetriveMDSdata_Fill rmds = new RetriveMDSdata_Fill();
@@ -32,14 +32,18 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 		fss.createNewNORfile();
 		fss.clickFillbtn();
 		log.info("Clicked on Fill link in System settings button");
+		Am.sleepTime(2000);
 		fss.SelectFillmode("MOD and Tank with Fill System");
 		// Verifying the default value of MaximumFillTime field
 		softAssert.assertEquals(fss.getMaxFillTime(), fmds.getDefault1(),
 				"Maximum  Fill Time is not set to Default value : " + fmds.getDefault1());
 		log.info("Maximum  Fill Time is set to Default value  :" + fmds.getDefault1());
 		// Verifying the Minimum value of MaximumFillTime field
+		Am.sleepTime(2000);
 		fss.clearMaxFillTime();
+		Am.sleepTime(1500);
 		fss.setMaxFillTime(fmds.getMin1());
+		Am.sleepTime(1500);
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(),Constants.Fillsucssmsg, "MaximumFillTime min MDS value is not accepted");
 		log.info("MaximumFillTime MDS minimum value saved successfully");

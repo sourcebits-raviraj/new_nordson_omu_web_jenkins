@@ -3,6 +3,7 @@ package com.nordson.pageObjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -68,7 +69,7 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//div[contains(text(),'Use Previous File')]")
 	public WebElement PreviousFile;
 
-	@FindBy(xpath = "//div[normalize-space()='Media Center']")
+	@FindBy(xpath = "//*[contains(@routerlink,'media-center')]/div")
 	public WebElement MediaCenter;
 
 	@FindBy(xpath = "//div[contains(text(),'Manage Licenses')]")
@@ -145,6 +146,7 @@ public class User_Dashboard_Details_Landing_Page {
 
 	@FindBy(xpath = "//div[@class='contact-head']")
 	public WebElement ContactUsHeader;
+
 
 	// Page Action Methods for all the WebElements declared
 	public boolean logoDisplayed() throws InterruptedException {
@@ -245,8 +247,8 @@ public class User_Dashboard_Details_Landing_Page {
 	}
 
 	public void MediaCenterClick() {
-
-		MediaCenter.click();
+		
+	    MediaCenter.click();
 	}
 
 	public void pageRefresh() {

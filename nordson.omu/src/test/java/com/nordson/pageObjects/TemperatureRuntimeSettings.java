@@ -557,7 +557,10 @@ public void clickDashboard() {
 					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
 			if(ldriver.findElements(By.xpath(Applcator)).size()==1) {
 				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",ldriver.findElement(By.xpath(Applcator)));
-				ldriver.findElement(By.xpath(Applcator)).click();}
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",ldriver.findElement(By.xpath(Applcator)));
+				//ldriver.findElement(By.xpath(Applcator)).click();
+				
+			}
 			else
 				System.out.println("applicator"+i+"already enabled");
 				

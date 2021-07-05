@@ -782,7 +782,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		
 		lp.setMinimumPressureAlertValue(MinPressurealrtminval);
 		lp.setMaximumPressureAlertValue(MaxPressurealrtminval);
-		
+		Am.sleepTime(1500);
 		lp.saveButton();
 		Assert.assertEquals(lp.getToastMessageText(),Constants.Pressuresucssmsg);
 		Am.sleepTime(3500);
@@ -877,7 +877,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		
 		lp.setMinimumPressureAlertValue(MinPressurealrtmaxval);
 		lp.setMaximumPressureAlertValue(MaxPressurealrtmaxval);
-		
+		Am.sleepTime(1500);
 		lp.saveButton();
 		Assert.assertEquals(lp.getToastMessageText(),Constants.Pressuresucssmsg);
 	
