@@ -26,7 +26,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 1,enabled = true)
 	@Feature("Verify MDS values for Mod and Tank with Fill System")
 	@Description("Verification of default,min and max values for Maximum Fill time field in System Settings")
-	public void TC_OMU_2190_Verify_MaximumFillTime_MDSvalidation_default_min_max() throws InterruptedException, IOException {
+	public void TC_OMU_2190_Verify_MaximumFillTime_MDSvalidation_default_min_max() throws Exception {
 		fss = new Fill_System_Settings (driver);
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_MaximumFillTime());
 		fss.createNewNORfile();
@@ -152,7 +152,7 @@ public class TC_SystemSettings_Fill_MDSValidations extends TC_LoginTest_DDT_001 
 	@Test(priority = 5,enabled = true)
 	@Feature("Verify MDS values for Tank Only Fill System settings")
 	@Description("Verification of default,min and max values for Low LevelAlert Threshold field in System Settings")
-	public void TC_OMU_2195_Verify_LowLevelThreshold_MDSvalidation_default_min_max() throws InterruptedException, IOException {
+	public void TC_OMU_2195_Verify_LowLevelThreshold_MDSvalidation_default_min_max() throws Exception {
 		fss.clickDashboard();
 		rmds.getMDSDataVal(rcf.getUIfiledTobefetched_LowLevelThreshold());
 		fss.createNewNORfile();

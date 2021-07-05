@@ -263,7 +263,8 @@ public class Pressure_Min_Max_Validations {
 	public void clearMinSetPoint() throws Exception {
 
 		customwait.sleepTime(2000);
-		clearKPAMinSetPoint.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",clearKPAMinSetPoint);
+		//clearKPAMinSetPoint.click();
 		for (int i = 0; i <= 4; i++) {
 			clearKPAMinSetPoint.sendKeys(Keys.BACK_SPACE);
 			customwait.sleepTime(1000);
@@ -272,7 +273,8 @@ public class Pressure_Min_Max_Validations {
 
 	public void clearMaxSetPoint() throws Exception {
 		customwait.sleepTime(2000);
-		clearKPAMaxSetPoint.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();",clearKPAMaxSetPoint);
+		//clearKPAMaxSetPoint.click();
 		for (int i = 0; i <= 4; i++) {
 			clearKPAMaxSetPoint.sendKeys(Keys.BACK_SPACE);
 			customwait.sleepTime(1000);

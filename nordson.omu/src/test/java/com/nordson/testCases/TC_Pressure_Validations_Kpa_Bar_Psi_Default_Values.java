@@ -44,6 +44,7 @@ public class TC_Pressure_Validations_Kpa_Bar_Psi_Default_Values extends TC_Login
 
 		log.info("Clicked on Preferences Link");
 		rsp.ClickPreferencesLink();
+		Am.sleepTime(4000);
 
 		log.info("Selected Kpa Raido button");
 		rsp.SelectKPAUnit();

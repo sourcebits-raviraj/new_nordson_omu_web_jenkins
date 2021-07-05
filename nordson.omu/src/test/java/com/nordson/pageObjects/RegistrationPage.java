@@ -126,9 +126,9 @@ public class RegistrationPage {
 	}
 
 	public void setCompanyType() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		CompanyType.click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		CompanyTypeValue.click();
 
 	}
@@ -140,7 +140,7 @@ public class RegistrationPage {
 	}
 
 	public void selectCountry() throws InterruptedException {
-
+		
 		Country.click();
 		Thread.sleep(1000);
 		CountryValue.click();

@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -96,7 +97,8 @@ public class Flow_System_Settings {
 	}
 	public void clickSetUpToolBtn() {
 		Am.waitForAnElementPresence(By.id("bt"));
-		Am.waitForAnElementToBeClickable(SetUpToolButton);
+		//Am.waitForAnElementToBeClickable(SetUpToolButton);
+		((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getYcoordinatetoclick(SetUpToolButton)+")");
 		SetUpToolButton.click();
 	}
 	public void clickCreateNewBtn() {
@@ -116,8 +118,7 @@ public class Flow_System_Settings {
 		
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
 		Am.waitForAnElementToBeClickable(SystemSettings);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", SystemSettings);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SystemSettings);
 	
 	}
 	
@@ -125,7 +126,8 @@ public class Flow_System_Settings {
 		Am.waitForAnElementPresence(By.xpath("//*[@routerlink='flow-runtime']/div"));
 		Thread.sleep(800);
 		Am.waitForAnElementToBeClickable(Flowruntimesettingsbtn);
-		Flowruntimesettingsbtn.click();
+		//Flowruntimesettingsbtn.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", Flowruntimesettingsbtn);
 	}
 	
 	public void clickFlowSystemsettingsbtn() throws InterruptedException {
@@ -234,8 +236,11 @@ public class Flow_System_Settings {
    
    public void clearSpecificgravity() {
 	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSSpecificGravity']"));
-	   SpecificGravity.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-	}	
+	   SpecificGravity.click();
+		for (int i = 0; i <= 6; i++) {
+			SpecificGravity.sendKeys(Keys.BACK_SPACE);
+		}
+   }	
    public void setSpecificGravity(String specificGravity) {
 	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSSpecificGravity']"));
 	   SpecificGravity.sendKeys(specificGravity);
@@ -246,9 +251,15 @@ public class Flow_System_Settings {
 		return SpecificGravity.getAttribute("value");
 	}
    
-   public void clearCalibrationConstantSetting() {
+   public void clearCalibrationConstantSetting() throws Exception {
+	   
 	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSKFactor']"));
-	   CallibrationConstantSetting.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	  // CallibrationConstantSetting.click();
+	   Am.sleepTime(1800);
+		for (int i = 0; i <= 8; i++) {
+			CallibrationConstantSetting.sendKeys(Keys.BACK_SPACE);
+		}
+	  // CallibrationConstantSetting.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}	
    public void setCalibrationConstantSetting(String calibrationConstantSetting) {
 	   Am.waitForAnElementPresence(By.cssSelector("*[name='ATSKFactor']"));

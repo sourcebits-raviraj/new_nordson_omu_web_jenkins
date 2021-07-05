@@ -126,33 +126,37 @@ public void clickDashboard() {
 	}
 
 	public void clickSetUpToolBtn() {
-		Am.waitForAnElementPresence(By.id("bt"));
-		Am.waitForAnElementToBeClickable(SetUpToolButton);
-		SetUpToolButton.click();
+		Am.waitForAnElementPresence(By.xpath("//*[@id='bt']"));
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SetUpToolButton);
+		//Am.waitForAnElementToBeClickable(SetUpToolButton);
+		//SetUpToolButton.click();
 	}
 	public void clickCreateNewBtn() {
 		Am.waitForAnElementPresence(CreateNewButton);
-		Am.waitForAnElementToBeClickable(CreateNewButton);
-		CreateNewButton.click();
+		//Am.waitForAnElementToBeClickable(CreateNewButton);
+		( (JavascriptExecutor) ldriver).executeScript("arguments[0].click();", CreateNewButton);
+		//CreateNewButton.click();
 	}
 
 	public void clickSubmitBtn() throws InterruptedException {
 		Am.waitForAnElementPresence(SubmitButton);
 		Am.waitForAnElementToBeClickable(SubmitButton);
-		SubmitButton.click();
+		( (JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SubmitButton);
+		//SubmitButton.click();
 	}
 	public void clickSystemSettingsBtn() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
 		Am.waitForAnElementToBeClickable(SystemSettings);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", SystemSettings);
+		( (JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SystemSettings);
 		// SystemSettings.click();
 	}
 
 	public void clickPreferencesBtn() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'Preferences')]"));
-		Am.waitForAnElementToBeClickable(Preferences);
-		Preferences.click();
+		//Am.waitForAnElementToBeClickable(Preferences);
+		//Preferences.click();
+		( (JavascriptExecutor) ldriver).executeScript("arguments[0].click();", Preferences);
+		
 	}
 
 	public Boolean getTemperatureunitstut() {
@@ -172,7 +176,7 @@ public void clickDashboard() {
 	}
 	public String getTemperatureunt() {
 		String tempunt;
-		Am.waitForAnElementPresence(Temperatureunt);
+		Am.waitForAnElementPresence(By.xpath("(//span[@class='min'])[1]"));
 		tempunt = Temperatureunt.getText();
 		return tempunt;
 	}
@@ -186,7 +190,8 @@ public void clickDashboard() {
 
 		Am.waitForAnElementPresence(
 				By.xpath("//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div"));
-		FarhenitTemperatureunit.click();
+		//FarhenitTemperatureunit.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", FarhenitTemperatureunit);
 
 	}
 	public void clickSave() {
@@ -201,7 +206,7 @@ public void clickDashboard() {
 
 		
 		Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
-		Am.waitForAnElementToBeClickable(SAVE1);
+		//Am.waitForAnElementToBeClickable(SAVE1);
 		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SAVE1);
 
 	}
@@ -217,9 +222,10 @@ public void clickDashboard() {
 
 	public void ZoneTemperatureBtn() {
 
-		Am.waitForAnElementPresence(ZoneTemperature);
-		Am.waitForAnElementToBeClickable(ZoneTemperature);
-		ZoneTemperature.click();
+		Am.waitForAnElementPresence(By.xpath("//*[contains(@routerlink,'settings/temp-zone')]"));
+		//Am.waitForAnElementToBeClickable(ZoneTemperature);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", ZoneTemperature);
+		//ZoneTemperature.click();
 
 	}
 
@@ -426,9 +432,8 @@ public void clickDashboard() {
 	}
 
 	public String getToastmsg() {
-
-		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		String toastmsg = "";
+		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		if (Toastmsg.isDisplayed()) {
 			toastmsg = Toastmsg.getText();
 			Am.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
@@ -441,7 +446,7 @@ public void clickDashboard() {
 
 	public Boolean getToastmsgststus() {
 
-		Am.waitForAnElementPresence(Toastmsg);
+		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		Boolean toastmsg = false;
 		if (Toastmsg.isDisplayed()) {
 			toastmsg = true;
@@ -555,28 +560,61 @@ public void clickDashboard() {
 				ldriver.findElement(By.xpath(Applcator)).click();}
 			else
 				System.out.println("applicator"+i+"already enabled");
-			
-			Am.sleepTime(1500);
-			ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-				ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(appsettemp);
-				clickSavebtn();
-				if(getToastmsg().equalsIgnoreCase(Constants.SucssmsgRuntime))
-					System.out.println("applicator"+i+" set to Maxmium values are saved successfully");	 
-				else
-					System.out.println("applicators"+i+"set to Maxmium values are not saved successfully");	
 				
 				  Am.sleepTime(1500);
+				  if(appsettemp!=null)
 				   ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(appsettemp);
 					clickSavebtn();
 					tstmsg = getToastmsg();
 					
-					if((Integer.parseInt(appsettemp)<40||Integer.parseInt(appsettemp)>232)&& tempunt.contains("C")) {
+					if((Integer.parseInt(appsettemp)<40||Integer.parseInt(appsettemp)>232||appsettemp==null)&& tempunt.contains("C")) {
+						Am.sleepTime(1000);
 					VerifyErrToastmsgCelsius(tstmsg,i);}
-					else if((Integer.parseInt(appsettemp)<100||Integer.parseInt(appsettemp)>450)&& tempunt.contains("F"))
+					else if((Integer.parseInt(appsettemp)<100||Integer.parseInt(appsettemp)>450||appsettemp==null)&& tempunt.contains("F"))
 						VerifyErrToastmsgFarnheit(tstmsg,i);	
 					else
 						VerfiySucsstoastmsg(tstmsg);
+					
+					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(bfrval);
+					clickSavebtn();
+					getToastmsgststus();
+		}
+		
+	}
+	
+	
+	public void setApplicatorstempNullValueCheck(String appsettemp,String tempunt) throws Exception {
+		String Applcator="";
+		String tstmsg="";
+		for (int i = 1; i <= Applicator.size(); i++) {
+			String Applcatorsettmp = "//*[@name='applicator" + i + "']";
+			String bfrval=ldriver.findElement(By.xpath(Applcatorsettmp)).getAttribute("value");
+			Applcator = "//*[text()='Applicator " + i
+					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
+			if(ldriver.findElements(By.xpath(Applcator)).size()==1) {
+				Am.sleepTime(1500);
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",ldriver.findElement(By.xpath(Applcator)));
+				Am.sleepTime(1500);
+				ldriver.findElement(By.xpath(Applcator)).click();}
+			else
+				System.out.println("applicator"+i+"already enabled");
+			
+			Am.sleepTime(1000);
+			ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+				clickSavebtn();
+				  Am.sleepTime(1000);
+				   ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+					clickSavebtn();
+					tstmsg = getToastmsg();
+					
+					if(appsettemp==null && tempunt.contains("C")) {
+					VerifyErrToastmsgCelsius(tstmsg,i);}
+					else if(appsettemp==null && tempunt.contains("F"))
+						VerifyErrToastmsgFarnheit(tstmsg,i);	
+					else
+						Assert.assertTrue(false);
 					
 					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 					ldriver.findElement(By.xpath(Applcatorsettmp)).sendKeys(bfrval);
@@ -589,18 +627,18 @@ public void clickDashboard() {
 	public void createNewNORfile() throws InterruptedException {
 		Thread.sleep(1000);
 		clickSetUpToolBtn();
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		clickCreateNewBtn();
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		clickSubmitBtn();
-		clickSystemSettingsBtn();
-		Thread.sleep(800);
+		Thread.sleep(2000);
 	}
 
 	
-	public void setHosestemp(String hosesettemp,String tempunt) throws InterruptedException {
+	public void setHosestemp(String hosesettemp,String tempunt) throws Exception {
 		String hose="";
 		String tstmsg="";
+		
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'Hose')]"));
 		for (int i = 1; i <= Hose.size(); i++) {
 			hose = "//*[text()='Hose " + i
@@ -608,31 +646,75 @@ public void clickDashboard() {
 			String hosesetbx = "//*[@name='hose" + i + "']";
 			String bfrval=ldriver.findElement(By.xpath(hosesetbx)).getAttribute("value");
 			System.out.println(bfrval);
-			if(ldriver.findElements(By.xpath(hose)).size()==1)
-				ldriver.findElement(By.xpath(hose)).click();
+			if(ldriver.findElements(By.xpath(hose)).size()==1) {
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",ldriver.findElement(By.xpath(hose)));
+				((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", ldriver.findElement(By.xpath(hose)));
+				//ldriver.findElement(By.xpath(hose)).click();
+			    Am.sleepTime(1500);}
 			else
 				System.out.println("hose"+i+"already enabled");
 				
 			    ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(hosesettemp);
+			    Am.sleepTime(1500);
+				if(hosesettemp!=null)
+			    ldriver.findElement(By.xpath(hosesetbx)).sendKeys(hosesettemp);
 				clickSavebtn();
 				tstmsg = getToastmsg();
 				
-				if((Integer.parseInt(hosesettemp)<40||Integer.parseInt(hosesettemp)>232)&& tempunt.contains("C")) {
+				if((Integer.parseInt(hosesettemp)<40||Integer.parseInt(hosesettemp)>232||hosesettemp==null)&& tempunt.contains("C")) {
 				VerifyErrToastmsgCelsius(tstmsg,i);}
-				else if((Integer.parseInt(hosesettemp)<100||Integer.parseInt(hosesettemp)>450)&& tempunt.contains("F"))
+				else if((Integer.parseInt(hosesettemp)<100||Integer.parseInt(hosesettemp)>450||hosesettemp==null)&& tempunt.contains("F"))
 					VerifyErrToastmsgFarnheit(tstmsg,i);	
 				else
 					VerfiySucsstoastmsg(tstmsg);
 				
 				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+				Am.sleepTime(1000);
 				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(bfrval);
 				clickSavebtn();
 				getToastmsg();
 		}
-		
-	
 	}
+	
+
+	public void setHosestempNullcheck(String hosesettemp,String tempunt) throws Exception {
+		String hose="";
+		String tstmsg="";
+		
+		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'Hose')]"));
+		for (int i = 1; i <= Hose.size(); i++) {
+			hose = "//*[text()='Hose " + i
+					+ "']/following-sibling::td//*[not(contains(@class,'mat-checked'))]//input[@aria-checked='false']/..";
+			String hosesetbx = "//*[@name='hose" + i + "']";
+			String bfrval=ldriver.findElement(By.xpath(hosesetbx)).getAttribute("value");
+			System.out.println(bfrval);
+			if(ldriver.findElements(By.xpath(hose)).size()==1) {
+				Am.sleepTime(1000);
+				((JavascriptExecutor)ldriver).executeScript("arguments[0].scrollIntoView(true);",ldriver.findElement(By.xpath(hose)));
+				Am.sleepTime(2000);
+				((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", ldriver.findElement(By.xpath(hose)));
+				Am.sleepTime(1000);}
+			else
+				System.out.println("hose"+i+"already enabled");
+				
+			    ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+			    Am.sleepTime(1000);
+				clickSavebtn();
+				tstmsg = getToastmsg();
+				
+				if(hosesettemp==null && tempunt.contains("C")) {
+				VerifyErrToastmsgCelsius(tstmsg,i);}
+				else if(hosesettemp==null && tempunt.contains("F"))
+					VerifyErrToastmsgFarnheit(tstmsg,i);	
+
+				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+				ldriver.findElement(By.xpath(hosesetbx)).sendKeys(bfrval);
+				clickSavebtn();
+				getToastmsg();
+				Am.sleepTime(1000);
+		}
+		
+	}	
 	public void VerfiySucsstoastmsg(String tstmsg) {
 		// TODO Auto-generated method stub
 		if(tstmsg.equalsIgnoreCase(Constants.SucssmsgRuntime))

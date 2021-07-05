@@ -17,7 +17,7 @@ import io.qameta.allure.Feature;
 public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_DDT_001 {
 
 	TemperatureRuntimeSettings trs;
-	ActionMethods Am;
+	ActionMethods Am=new ActionMethods();
 	private SoftAssert softAssert = new SoftAssert();
 	MDSGetterandSetters_Temperature mds = new MDSGetterandSetters_Temperature();
 	RetriveMDSdata_Temperature rmds = new RetriveMDSdata_Temperature();
@@ -88,6 +88,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All the Hoses are set to max value for maxium global set point");
 		trs.getApplicatorsSettempStatus(mds.getMax1());
 		log.info("All the Applicators are set to max value for maximun global set point");
+		
+		softAssert.assertAll();
 
 	}
 
@@ -170,7 +172,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 	@Test(priority = 4,enabled = true)
 	public void Test_RuntimeSetting_HoseAppSetPoint_MDS_Celsius() throws Exception {
 
-		//trs = new TemperatureRuntimeSettings(driver);
+		trs = new TemperatureRuntimeSettings(driver);
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_HoseApp());
 		trs.clickDashboard();
 		Thread.sleep(1000);
@@ -190,11 +192,12 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All Hoses are set to Max MDS value and saved successfully");
 		trs.setApplicatorstemp(mds.getMax1(),mds.getPrmryunt());
 		log.info("All Applicators are set to max value and save successfully");
+		softAssert.assertAll();
 	}
 
 	@Description("Verify the MDS Global Set Point for Fahrenheit Temperature Unit")
 	@Test(priority = 5,enabled = true)
-	public void Test_RuntimeSetting_GlobalSetPoint_MDS_Fahrenheit() throws InterruptedException, IOException {
+	public void Test_RuntimeSetting_GlobalSetPoint_MDS_Fahrenheit() throws Exception {
 
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_GP());
 		trs.clickDashboard();
@@ -202,8 +205,10 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		trs.createNewNORfile();
 		trs.clickPreferencesBtn();
 		log.info("Clicked on Preferences button");
+		Am.sleepTime(2000);
 		trs.clickFarhenitUnit();
 		log.info("Clicked on Fahrenheit temperature button");
+		Am.sleepTime(1000);
 		trs.clickSave();
 		log.info("Temperature Unit Fahrenheit is saved ");
 		if (trs.getToastmsgststus() == true)
@@ -212,7 +217,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 			log.info("Preferences not sucessfully updated");
 		trs.RuntimeSettingsBtn();
 		Thread.sleep(1000);
-		trs.ZoneTemperatureBtn();
+		trs.ZoneTemperatureBtn(); 
 		log.info("Clicked on Runtime settings button");
 		// Verfication default temp unt
 		if (trs.getTemperatureunt().contains(mds.getScndryunt()))
@@ -272,12 +277,14 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All the Hoses are set to max value for maxium global set point");
 		trs.getApplicatorsSettempStatus(mds.getMax2());
 		log.info("All the Applicators are set to max value for maximun global set point");
+		
+		softAssert.assertAll();
 
 	}
 
 	@Description("Verify the MDS Tank Set Point for Fahrenheit Temperature Unit")
 	@Test(priority = 6,enabled = true)
-	public void Test_RuntimeSetting_TankSetPoint_MDS_Fahrenheit() throws InterruptedException, IOException {
+	public void Test_RuntimeSetting_TankSetPoint_MDS_Fahrenheit() throws Exception {
 
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_TP());
 		trs.clickDashboard();
@@ -287,6 +294,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("Clicked on Preferences button");
 		Thread.sleep(2000);
 		trs.clickFarhenitUnit();
+		Am.sleepTime(1000);
 		log.info("Clicked on Fahrenheit temperature button");
 		trs.clickSave();
 		log.info("Temperature Unit Fahrenheit is saved ");
@@ -325,20 +333,25 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		boolean TnkpntSavebtnstutsmax2 = trs.getSavebtnstatus();
 		softAssert.assertEquals(TnkpntSavebtnstutsmax2, false);
 		log.info("Save button is disabled for Tank set point mds max val for Fahrenheit unit");
+		
+		softAssert.assertAll();
 	}
 
 	@Description("Verify the MDS Manifold Set Point for Fahrenheit Temperature Unit")
 	@Test(priority = 7,enabled = true)
-	public void Test_RuntimeSetting_ManifoldSetPoint_MDS_Fahrenheit() throws InterruptedException, IOException {
+	public void Test_RuntimeSetting_ManifoldSetPoint_MDS_Fahrenheit() throws Exception {
 
+		trs=new TemperatureRuntimeSettings(driver);
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_MFP());
 		trs.clickDashboard();
 		Thread.sleep(1000);
 		trs.createNewNORfile();
 		trs.clickPreferencesBtn();
 		log.info("Clicked on Preferences button");
+		Thread.sleep(1500);
 		trs.clickFarhenitUnit();
 		log.info("Clicked on Fahrenheit temperature button");
+		Am.sleepTime(1000);
 		trs.clickSave();
 		log.info("Temperature Unit Fahrenheit is saved ");
 		if (trs.getToastmsgststus() == true)
@@ -351,6 +364,7 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("Clicked on Runtime settings button");
 		
 		// Default Value Validations
+		Am.sleepTime(1500);
 		softAssert.assertEquals(trs.getManifold(), mds.getDefault2(),
 				"Manifold set point is not set to Default value for Fahrenheit unit");
 		log.info("Manifold set point is set to Default value for Fahrenheit unit");
@@ -365,12 +379,15 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		boolean TnkpntSavebtnstutsmin2 = trs.getSavebtnstatus();
 		softAssert.assertEquals(TnkpntSavebtnstutsmin2, false);
 		log.info("Save button is disabled for Manifold set point mds min val for Fahrenheit unit");
+		
 		// Max value validations for Manifold point in Fahrenheit
 		trs.clearManifoldtemperature();
 		log.info("Manifold temperature cleared to enter Max Manifoldset point value for Fahrenheit unit");
 		trs.setManifoldSetPoint(mds.getMax2());
+		Am.sleepTime(1500);
 		trs.clickSavebtn();
-		softAssert.assertEquals(trs.getToastmsg(), Constants.SucssmsgRuntime,
+		Am.sleepTime(1000);
+		softAssert.assertEquals(trs.getToastmsg(),Constants.SucssmsgRuntime,
 				"Toast msg is not shown for MDS max Manifoldset point Fahrenheit unit");
 		log.info("Toast msg is shown for MDS Manifoldset point max value Fahrenheit unit");
 		boolean TnkpntSavebtnstutsmax2 = trs.getSavebtnstatus();
@@ -390,7 +407,9 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		trs.createNewNORfile();
 		trs.clickPreferencesBtn();
 		log.info("Clicked on Preferences button");
+		Am.sleepTime(2000);
 		trs.clickFarhenitUnit();
+		Am.sleepTime(1000);
 		log.info("Clicked on Fahrenheit temperature button");
 		trs.clickSave();
 		log.info("Temperature Unit Fahrenheit is saved ");
@@ -418,6 +437,8 @@ public class TC_RuntimeSettings_Temperature_MDSValidations extends TC_LoginTest_
 		log.info("All Hoses are set to Max MDS value and saved successfully for Fahrenheit unit");
 		trs.setApplicatorstemp(mds.getMax2(),mds.getScndryunt());
 		log.info("All Applicators are set to max MDS value and save successfully for Fahrenheit unit");
+		
+		softAssert.assertAll();
 
 	}
 }

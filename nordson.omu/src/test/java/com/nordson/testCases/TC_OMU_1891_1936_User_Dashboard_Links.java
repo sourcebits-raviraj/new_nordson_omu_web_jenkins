@@ -157,7 +157,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	@Test(priority = 7, enabled = true)
 	public void Registration_Nordson_Privacy_Policy() throws Exception {
-
+		Am.sleepTime(1000);
 		if (lp.PrivacyPolicyDisplayed() == true) {
 
 			log.info("Privacy Link Displayed");
@@ -376,6 +376,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			System.out.println("Cookies link is displayed");
 			Am.drawBorder(lp.ManageLincense, driver);
 			lp.clickManageLincense();
+			Am.sleepTime(4000);
 			Am.switchToNexttab();
 			// tab1 = new ArrayList<String>(driver.getWindowHandles());
 			// driver.switchTo().window(tab1.get(1));
@@ -427,6 +428,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			System.out.println("Help Center link is displayed");
 			Am.drawBorder(lp.HelpCenter, driver);
 			lp.clickHelpCenter();
+			Am.sleepTime(4000);
 			Am.switchToNexttab();
 			// tab1 = new ArrayList<String>(driver.getWindowHandles());
 			// driver.switchTo().window(tab1.get(1));
@@ -440,7 +442,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			Assert.assertTrue(false);
 		}
 
-		if (readconfig.getHelpCenterURL().equals(driver.getCurrentUrl())) {
+		if ((driver.getCurrentUrl().contains(readconfig.getHelpCenterURL()))) {
 
 			// Am = new ActionMethods();
 			softAssert.assertTrue(true);
@@ -470,6 +472,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	@Test(priority = 18, enabled = true)
 	public void Langauges() throws Exception {
 
+		Am.sleepTime(2000);
 		lp.clickLanguage();
 		Am.sleepTime(1000);
 

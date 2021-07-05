@@ -102,7 +102,7 @@ public class TC_Registration_DDT_002 extends BaseClass {
 		String text = rp.getTextSentYouText();
 		softAssert.assertEquals(Constants.SucssText, text);
 
-		if (readconfig.getSignUpURL().equals(driver.getCurrentUrl())) {
+		if ((driver.getCurrentUrl().contains(readconfig.getSignUpURL()))) {
 			System.out.println(driver.getCurrentUrl());
 			log.info("Registration Successful");
 			// Am = new ActionMethods();

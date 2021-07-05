@@ -1,5 +1,6 @@
 package com.nordson.pageObjects;
 
+import java.awt.Robot;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,7 @@ import org.openqa.selenium.Keys;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +21,7 @@ public class TemperatureSystemSettings {
 	WebDriver ldriver;
 	WebDriverWait wait;
 	ActionMethods Am = new ActionMethods();
+	
 
 	// Constructor of the LoginPage to initiate driver
 	public TemperatureSystemSettings(WebDriver rdriver) {
@@ -28,6 +31,7 @@ public class TemperatureSystemSettings {
 		PageFactory.initElements(rdriver, this);
 	}
 
+	
 	@FindBy(id = "bt")
 	public WebElement SetUpToolButton;
 
@@ -36,48 +40,39 @@ public class TemperatureSystemSettings {
 	public WebElement CreateNewButton;
 
 	@FindBy(xpath = "//*[@class='btn-set-up submit-btn-color']")
-
 	public WebElement SubmitButton;
 
 	@FindBy(xpath = "//*[contains(text(),'System Settings')]/ancestor::span")
-
 	public WebElement SystemSettings;
 
 	@FindBy(xpath = "//*[contains(text(),'Preferences')]")
-
 	public WebElement Preferences;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-container']")
-
 	List<WebElement> Temperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']/*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-label-content']")
-
 	public WebElement SelectedTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'C')]//preceding-sibling::div")
-
 	public WebElement CelsiusTemperatureunit;
 
 	@FindBy(xpath = "//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div")
-
 	public WebElement FarhenitTemperatureunit;
 
 	@FindBy(xpath = "(//span[@class='min'])[1]")
 	public WebElement Temperatureunt;
 
 	@FindBy(xpath = "//*[@class='btn apply']")
-
 	public WebElement SAVE;
 
 	@FindBy(xpath = "//*[@class='apply btn submit-bt']")
-
 	public WebElement SAVE1;
 
 	@FindBy(xpath = "//*[contains(text(),'Runtime settings')]")
 	public WebElement RuntimeSettings;
 
-	@FindBy(xpath = "//*[contains(@routerlink,'settings/temperaturesettings')]")
+	@FindBy(xpath = "//*[contains(@routerlink,'settings/temperaturesettings')]/div")
 	public WebElement Temperature;
 
 	@FindBy(xpath = "//*[@formcontrolname='OTDelta']")
@@ -99,7 +94,6 @@ public class TemperatureSystemSettings {
 	public WebElement Tmpstbckemperatureunt;
 
 	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
-	
 	public WebElement Toastmsg;
 	
 	@FindBy(xpath = "//*[@formcontrolname='SmartMeltTime']")
@@ -122,7 +116,6 @@ public class TemperatureSystemSettings {
 	
 	@FindBy(xpath = "//*[contains(text(),'DASHBOARD')]")
 	public WebElement Dashboard;
-
 	
     public void clickDashboard() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'DASHBOARD')]"));
@@ -134,14 +127,15 @@ public class TemperatureSystemSettings {
 		Am.waitForAnElementPresence(By.xpath("//div[contains(text(),'CREATE NEW')]"));
 		Am.waitForAnElementPresence(CreateNewButton);
 		Am.waitForAnElementToBeClickable(CreateNewButton);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", CreateNewButton);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", CreateNewButton);
+		//CreateNewButton.click();
+
 	}
 
 	public void clickSubmitBtn() throws InterruptedException {
-		Thread.sleep(1500);
 		Am.waitForAnElementPresence(By.xpath("//*[@class='btn-set-up submit-btn-color']"));
 		Am.waitForAnElementToBeClickable(SubmitButton);
+		//((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SubmitButton);
 		SubmitButton.click();
 
 	}
@@ -231,59 +225,64 @@ public class TemperatureSystemSettings {
 
 		Am.waitForAnElementPresence(By.xpath("//*[@class='btn apply']"));
 		Am.waitForAnElementPresence(SAVE);
-		Am.waitForAnElementToBeClickable(SAVE);
-		SAVE.click();
+		//Am.waitForAnElementToBeClickable(SAVE);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SAVE);
+		//SAVE.click();
 
 	}
 
 	public void clickSavebtn() {
 		Am.waitForAnElementPresence(SAVE1);
 		Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
+		//((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SAVE1);
 		Am.waitForAnElementToBeClickable(SAVE1);
 		SAVE1.click();
 
 	}
 	public void clickSetUpToolBtn()
 	{
-		Am.waitForAnElementPresence(SetUpToolButton);
 		Am.waitForAnElementPresence(By.id("bt"));
-		Am.waitForAnElementToBeClickable(SetUpToolButton);
-		SetUpToolButton.click();
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SetUpToolButton);
+		////Am.waitForAnElementToBeClickable(SetUpToolButton);
+		//SetUpToolButton.click();
 	}
 	public void RuntimeSettingsBtn() throws InterruptedException {
 
 		Am.waitForAnElementPresence(RuntimeSettings);
 		Am.waitForAnElementToBeClickable(RuntimeSettings);
-		JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-		executor.executeScript("arguments[0].click();", RuntimeSettings);
+		((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", RuntimeSettings);
 		// RuntimeSettings.click();
 	}
 
-	public void clickTemperatureBtn() {
-		Am.waitForAnElementPresence(Temperature);
-		Am.waitForAnElementPresence(By.xpath("//*[contains(@routerlink,'settings/temperaturesettings')]"));
+	public void clickTemperatureBtn() throws Exception {
+		Am.sleepTime(1000);
+		Am.waitForAnElementPresence(By.xpath("//*[contains(@routerlink,'settings/temperaturesettings')]/div"));
 		Am.waitForAnElementToBeClickable(Temperature);
 		Temperature.click();
 	}
 
 	public void setOTTemperature(String OTTtemp) {
-
-		Am.waitForAnElementPresence(OTTemperature);
-		OTTemperature.sendKeys(OTTtemp);
+		Actions performAct = new Actions(ldriver);
+		//Am.waitForAnElementPresence(OTTemperature);
+		// OTTemperature.sendKeys(OTTtemp);
+		performAct.sendKeys(OTTemperature,OTTtemp).build().perform(); 
+		//((JavascriptExecutor) ldriver).executeScript("arguments[0].value='"+OTTtemp+"';", OTTemperature);
 
 	}
 
 	public void setUTTemperature(String UTTtemp) {
-
+		Actions performAct = new Actions(ldriver);
 		Am.waitForAnElementPresence(UTTemperature);
-		UTTemperature.sendKeys(UTTtemp);
+		//UTTemperature.sendKeys(UTTtemp);
+		performAct.sendKeys(UTTemperature,UTTtemp).build().perform(); 
 
 	}
 
 	public void setSetbckTemperature(String tempstbck) {
+		Actions performAct = new Actions(ldriver);
 		Am.waitForAnElementPresence(TemperatureSetback);
 		TemperatureSetback.sendKeys(tempstbck);
-
+		performAct.sendKeys(TemperatureSetback,tempstbck).build().perform(); 
 	}
 
 	public String getOTTemperature() throws InterruptedException {
@@ -320,16 +319,18 @@ public class TemperatureSystemSettings {
 
 	public void clearUTTemperature() {
 
-		Am.waitForAnElementPresence(UTTemperature);
+		Am.waitForAnElementPresence(By.xpath("//*[@formcontrolname='UTDelta']"));
 		UTTemperature.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
 	}
 
 	public void clearTemperaturesetbck() {
-
-		Am.waitForAnElementPresence(TemperatureSetback);
-		TemperatureSetback.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-
+		Am.waitForAnElementPresence(By.xpath("//*[@formcontrolname='StandbyDelta']"));
+		TemperatureSetback.click();
+		for(int i=0;i<=6;i++) {
+			TemperatureSetback.sendKeys(Keys.BACK_SPACE);
+			//TemperatureSetback.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		}
 	}
 
 	public Boolean getSavebtnstatus() {
@@ -338,32 +339,20 @@ public class TemperatureSystemSettings {
 		return sttus;
 	}
 
+public String getToastmsg() {
+	Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
+		String toastmsg = Toastmsg.getText();
+		System.err.println("Value of toast message is"+toastmsg);
+		Am.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
+	return toastmsg;
+}
 
-	public Boolean getToastmsgststus() {
-		Boolean toastmsg = false;
-		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-		if (Toastmsg.isDisplayed()) {
-			toastmsg = true;
-		} else
-			toastmsg = false;
-		return toastmsg;
-	}
+public Boolean getToastmsgststus() {
+	Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
+	return Toastmsg.isDisplayed();
+}
+
 	
-	
-	public String getToastmsg() {
-
-		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-		String toastmsg = "";
-		if (Toastmsg.isDisplayed()) {
-			toastmsg = Toastmsg.getText();
-			Am.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
-
-		} else
-			System.out.println("toast msg not displayed");
-
-		return toastmsg;
-	}
-
 	public void clickCelsiusTempUnit() {
 		Boolean tempvalue = getTemperatureunitstut();
 		if (tempvalue == true) {			
@@ -452,12 +441,14 @@ public class TemperatureSystemSettings {
 		AutoHterOffTimeunt = AutoHterOffTmeunt.getText();
 		return AutoHterOffTimeunt;
 	}
-	public void createNewNORfile() throws InterruptedException {
+	public void createNewNORfile() throws Exception {
+		
 		clickSetUpToolBtn();
-		Thread.sleep(1000);
+		Am.sleepTime(1000);
 		clickCreateNewBtn();
-		Thread.sleep(1000);
+		Am.sleepTime(1000);
 		clickSubmitBtn();
+		Am.sleepTime(1000);
 	}
 
 }

@@ -20,7 +20,7 @@ import io.qameta.allure.Story;
 public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 
 	TemperatureRuntimeSettings Trs;
-	ActionMethods Am;
+	ActionMethods Am=new ActionMethods();
 	TC_LoginTest_DDT_001 lg;
 	SoftAssert softAssert = new SoftAssert();
 	
@@ -30,17 +30,18 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	static String Hosepnt = "";
 	static String Applicatorpnt = "";
 	
-	@Test(priority = 0)
+	@Test(priority = 0, enabled=true)
 	public void ExcelSheetName()
 			throws Exception {
 		XLUtils.setExcelSheetNm("GlobalPointCelsius");
+		//XLUtils.setExcelSheetNm("HoseCelsius");
 	}
 
 	// Global Point Validations
 	@Story("Temperature Runtimesettings Global Point validations with boundary values in celsius unit")
-	@Test(priority = 1, dataProvider = "GlobalPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 1, enabled=true,dataProvider = "GlobalPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void Test_Celsius_RuntimeMinmaxGlobalPointValidations(String lessminval, String moremaxval, String Inrng)
-			throws InterruptedException, IOException {
+			throws Exception {
 
 		Trs = new TemperatureRuntimeSettings(driver);
 
@@ -49,24 +50,31 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 
 		Trs.clickCreateNewBtn();
 		log.info("Clicked on CreateNew button");
+		Am.sleepTime(2000);
 
 		Trs.clickSubmitBtn();
 		log.info("Clicked on Submit button");
+		Am.sleepTime(4000);
 
 		Trs.clickSystemSettingsBtn();
 		log.info("Clicked on System settings button");
+		Am.sleepTime(4000);
 
 		Trs.clickPreferencesBtn();
 		log.info("Clicked on Preferences button");
+		Am.sleepTime(4000);
 
 		Trs.clickCelsiusUnit();
 		log.info("Temperature Unit celsius is selected");
+		Am.sleepTime(4000);
 
 		Trs.RuntimeSettingsBtn();
 		log.info("Clicked on Runtime settings button to verfiy Global set temperature for celsius unit");
+		Am.sleepTime(4500);
 
 		Trs.ZoneTemperatureBtn();
 		log.info("Clicked on Zone temperature button to setglobal min value for celsius unit");
+		Am.sleepTime(4000);
 
 		// setting global point to Min-1 value and validating tank,Manifold,hose and
 		// applicator values
@@ -162,7 +170,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 	}
 
 	// Global Point Farnheit Validations
-	@Test(priority = 2, dataProvider = "GlobalPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 2,  enabled=true,dataProvider = "GlobalPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Global Point validations with boundary values in Farnheit unit")
 	public void Test_Runtime_Farnhit_MinmaxGlobalPointValidations(String lessfhminval, String maxplusfhval,
 			String Inrngfh) throws InterruptedException, IOException {
@@ -297,7 +305,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 
 	// tank field validations
 
-	@Test(priority = 3, dataProvider = "TankPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 3,  enabled=true,dataProvider = "TankPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Tank set Point validations with boundary values in celsius unit")
 	public void Test_Celsius_RuntimeMinmaxTankval(String minlsvalue, String maxplusval, String Inrngval)
 			throws InterruptedException, IOException {
@@ -402,7 +410,7 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 
 	}
 
-	@Test(priority = 4, dataProvider = "TankPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 4, enabled=true, dataProvider = "TankPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Tank set Point validations with boundary values in Farnheit unit")
 	public void Test_Farnhit_RuntimeMinmaxTankval(String minlsvaluefh, String maxplusvalfh, String Inrngvaluefh)
 			throws InterruptedException, IOException {
@@ -506,23 +514,17 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		}
 
 	}
-
-	@Test(priority = 5, dataProvider = "HoseAppPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	
+	@Test(priority = 5, enabled=true, dataProvider = "HoseAppPointValues_Celsius", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	@Story("Temperature Runtimesettings Hoseand Applicator1 set Point validations with boundary values in celsius unit")
 	public void Test_Celsius_RuntimeMinmaxHoseval(String minlsvalue, String maxplusval, String Inrngval)
-			throws InterruptedException, IOException {
+			throws Exception {
 
-		// Verfiying the values by checking the status and enabling hose for celsius
-		// unit
-		Am = new ActionMethods();
-		
-
+		// Verfiying the values by checking the status and enabling hose for celsius unit
+	    
 		Trs.clickSystemSettingsBtn();
 		log.info("Clicked on System settings button");
 		Thread.sleep(1200);
-
-		Trs.clickPreferencesBtn();
-		log.info("Preferences is clicked to opt Unit Farhenit temperature");
 
 		Trs.clickPreferencesBtn();
 		log.info("Preferences is clicked to opt Unit Celsius temperature");
@@ -531,14 +533,14 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.clickCelsiusUnit();
 		log.info("Temperature Unit Celsius is selected by clicking");
 
-		Trs.clickSave();
-		log.info("Clicked on Save button to Opt Celsius Unit temperature");
 		
-		
-		if (Trs.getToastmsgststus() == true) 
-			log.info("Preferences sucessfully updated");
-		else
-			log.info("Preferences not sucessfully updated");
+		  Trs.clickSave();
+		  log.info("Clicked on Save button to Opt Celsius Unit temperature");
+		  
+		  if (Trs.getToastmsgststus() == true)
+		  log.info("Preferences sucessfully updated"); else
+		  log.info("Preferences not sucessfully updated");
+		 
 
 		Trs.RuntimeSettingsBtn();
 
@@ -547,132 +549,47 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		Trs.ZoneTemperatureBtn();
 		log.info("Clicked on Zone temperature button to setglobal min value in Celsius");
 		
-		
-          
-		/*
-		 * // checking the status and enabling hose
-		 * 
-		 * Trs.clickOnHose1toEnable();
-		 * 
-		 * // clearing the hose1
-		 * 
-		 * Trs.clearHosesetTemperature(); Trs.clickSavebtn();
-		 * 
-		 * String stusclrerrmsgtst = Trs.getToastmsg(); softAssert.assertEquals(
-		 * stusclrerrmsgtst,Constants.Hose1,
-		 * "Toast Error message is not shown up for max Celsius val");
-		 * log.info("Toast Error message is shown up for null Celsius val save");
-		 * 
-		 * boolean stusclrerrmsg = Trs.getSavebtnstatus();
-		 * softAssert.assertEquals(stusclrerrmsg,true,
-		 * "Error message is not shown up for max Celsius val");
-		 * log.info("Error message is shown up for null Celsius val save");
-		 */
-
+		//Null values check
 		
 		
-		// min-1 val
-
-		Trs.setHosestemp(minlsvalue,"C");
-		// max+1 val
-		
-        Trs.setHosestemp(maxplusval,"C");
-        softAssert.assertAll();
-
+		  // Null value Validations 
+		  Trs.setHosestempNullcheck(null,"C");
+		  Trs.setApplicatorstempNullValueCheck(null,"C");
+		  
+		  // min-1 val 
+		  Trs.setHosestemp(minlsvalue,"C"); 
+		  log.info("Min-1 values are not updated for all Hoses from 1-10 in Celsius unit");
+		  
+		  // max+1 val 
+		  Trs.setHosestemp(maxplusval,"C");
+		  log.info("Max+1 values are not updated for all Hoses from 1-10 in Celsius unit");
+		 
 		// In Range value testing
-
-		Trs.clearHosesetTemperature();
-		log.info("Tank temperature cleared to enter Inrange value");
-
-		Trs.setHose1emperature(Inrngval);
-		Trs.clickSavebtn();
-
-		String tstsucssmsg = Trs.getToastmsg();
-		softAssert.assertEquals( tstsucssmsg,Constants.SucssmsgRuntime,
-				"Toast msg In range values are not saved for Celsius unit");
-		log.info("Toast msg In range values are saved successfully for Celsius unit");
-
-		boolean stus = Trs.getSavebtnstatus();
-		softAssert.assertEquals(stus,false, "In range values are saved successfully for Celsius unit");
-		log.info("In range values are saved successfully for Celsius unit");
-
-
-		// checking the status and enabling Applicator
-
-		Trs.clickApplicator1toEnable();
-
-		// clearing the Applicator1
-
-		Trs.clearApplicator1setTemperature();
-		Trs.clickSavebtn();
-
-		String appclrerrmsgtst = Trs.getToastmsg();
-		softAssert.assertEquals( appclrerrmsgtst,Constants.ApplictorFH,
-				"Toast Error message is not shown up for null Celsius val for Applicator1");
-		log.info("Toast Error message is shown up for null Celsius val save for Applicator1");
-
-		boolean appclrerrmsg = Trs.getSavebtnstatus();
-		softAssert.assertEquals(appclrerrmsg,true, 
-				"Error message is not shown up for null Celsius val for Applicator1");
-		log.info("Error message is shown up for null Celsius val save for Applicator1");
+		 Trs.setHosestemp(Inrngval,"C");
+		 log.info("All Inrange values are sucessfully updated for all Hoses from 1-10 in Celsius unit");
+		
+		// Applicator values verification
 
 		// min-1 val
-
-		Trs.clearApplicator1setTemperature();
-		Trs.setApplicator1temperature(minlsvalue);
-		Trs.clickSavebtn();
-
-		String apptstminerr = Trs.getToastmsg();
-		softAssert.assertEquals(apptstminerr,Constants.ApplictorFH, 
-				"ToastError message is not shown up for min-1 Celsius unit Applicator1 ");
-		log.info("Toast Error message is shown up for min-1" + minlsvalue + "for Celsius unit Applicator1");
-
-		boolean appstusminerr = Trs.getSavebtnstatus();
-		softAssert.assertEquals(appstusminerr,true,  "Error message is not shown up for Celsius unit Applicator1");
-		log.info("Error message is shown up for min-1" + minlsvalue + "for Celsius unit Applicator1");
-
-		// max+1 val
-
-		Trs.clearApplicator1setTemperature();
-		Trs.setApplicator1temperature(maxplusval);
-		Trs.clickSavebtn();
-
-		String apptstmaxerr = Trs.getToastmsg();
-		softAssert.assertEquals(apptstmaxerr,Constants.ApplictorFH, 
-				"Toast Error message is  not shown up for max plus val for Celsius unit Applicator1");
-		log.info("Toast Error message is shown up for max val plus " + maxplusval + " for Celsius unit Applicator1");
-
-		boolean appstusmaxerr = Trs.getSavebtnstatus();
-		softAssert.assertEquals(appstusmaxerr,true, 
-				"Error message is  not shown up for max plus val for Celsius unit Applicator1");
-		log.info("Error message is shown up for max val plus " + maxplusval + " for Celsius unit Applicator1");
-
-		// In Range value testing
-
-		Trs.clearApplicator1setTemperature();
-		log.info("Tank temperature cleared to enter Inrange value");
-
-		Trs.setApplicator1temperature(Inrngval);
-		Trs.clickSavebtn();
+		Trs.setApplicatorstemp(minlsvalue,"C");
+		log.info("Min-1 values are not updated for all Applicators from 1-10 in Celsius unit");
 		
-
-		String apptstsucssmsg = Trs.getToastmsg();
-		softAssert.assertEquals( apptstsucssmsg,Constants.SucssmsgRuntime,
-				"Toast msg In range values are not saved for Celsius unit Applicator1");
-		log.info("Toast msg In range values are saved successfully for Celsius unit Applicator1");
-
-		boolean appstus = Trs.getSavebtnstatus();
-		softAssert.assertEquals(appstus,false,  "In range values are saved successfully for Celsius unit Applicator1");
-		log.info("In range values are saved successfully for Celsius unit Applicator1");
-
+		// max+1 val
+		Trs.setApplicatorstemp(maxplusval,"C");
+		log.info("Max+1 values are not updated for all Applicators from 1-10 in Celsius unit");
+      
+		// In Range value testing
+		Trs.setApplicatorstemp(Inrngval,"C");
+		 log.info("All Inrange values are sucessfully updated for all Applicators from 1-10 in Celsius unit");
+		
 		XLUtils.setExcelSheetNm("HoseFarnhit");
 		softAssert.assertAll();
 	}
 
-	@Test(priority = 6, dataProvider = "HoseAppPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
-	@Story("Temperature Runtimesettings Hoseand Applicator1 set Point validations with boundary values in Farnheit unit")
-	public void Test_Farnhit_RuntimeMinmaxHoseApplicator1val(String minlsvaluefh, String maxplusvalfh,
-			String Inrngvaluefh) throws InterruptedException, IOException {
+	@Test(priority = 6,enabled=true,dataProvider = "HoseAppPointValues_Farnhenit", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Story("Temperature Runtimesettings Hoseand Applicators set Point validations with boundary values in Farnheit unit")
+	public void Test_Farnhit_RuntimeMinmaxHoseApplicatorval(String minlsvaluefh, String maxplusvalfh,
+			String Inrngvaluefh) throws Exception {
 
 		Thread.sleep(2000);
 		Trs.clickSystemSettingsBtn();
@@ -696,161 +613,47 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 
 		Trs.ZoneTemperatureBtn();
 
+		
 		// Null value Validations
-
-		Trs.clearHosesetTemperature();
-
-		Trs.clickSavebtn();
-		log.info("Cleared the hose to verfiy error toast msg");
-	
-		String tstclrerrmsgfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstclrerrmsgfh,Constants.HoseFH,
-				"Toast Error message is not shown up for null farnheit val");
-		log.info("Toast Error message is shown up for null farnheit val save");
-
-		boolean stusclrerrmsgfh = Trs.getSavebtnstatus();
-		softAssert.assertEquals(stusclrerrmsgfh,true,"Error message is not shown up for null farnheit val");
-		log.info("Error message is shown up for null farnheit val save");
+		Trs.setHosestempNullcheck(null,"F");
+		Trs.setApplicatorstempNullValueCheck(null,"F");
 
 		// min-1 val
+				Trs.setHosestemp(minlsvaluefh,"F");
+				log.info("Min-1 values are not updated for all Hoses from 1-10 in fahrenheit unit");
+				
+				// max+1 val
+		        Trs.setHosestemp(maxplusvalfh,"F");
+		        log.info("Max+1 values are not updated for all Hoses from 1-10 in fahrenheit unit");
+		      
+				// In Range value testing
+				 Trs.setHosestemp(Inrngvaluefh,"F");
+				 log.info("All Inrange values are sucessfully updated for all Hoses from 1-10 in fahrenheit unit");
+				
+				// Applicator values verification
 
-		Trs.clearHosesetTemperature();
-		Trs.setHose1emperature(minlsvaluefh);
-		Trs.clickSavebtn();
-
-		String tstminerrfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstminerrfh,Constants.HoseFH,
-				"Toast error message is not shown up for farnheit unit");
-		log.info("Toast error message is shown up for min-1" + minlsvaluefh + "for farnheit unit");
-
-		boolean stusminerrfh = Trs.getSavebtnstatus();
-		softAssert.assertEquals( stusminerrfh,true, "Error message is not shown up for farnheit unit");
-		log.info("Error message is shown up for min-1" + minlsvaluefh + "for farnheit unit");
-
-		// max+1 val
-
-		Trs.clearHosesetTemperature();
-
-		Trs.setHose1emperature(maxplusvalfh);
-
-		Trs.clickSavebtn();
-
-		String tstmaxerrfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstmaxerrfh,Constants.HoseFH,
-				"Toast error message is  not shown up for max plus val for farnheit unit");
-		log.info("Toast error message is shown up for max val plus " + maxplusvalfh + " for farnheit unit");
-
-		boolean stusmaxerrfh = Trs.getSavebtnstatus();
-		softAssert.assertEquals( stusmaxerrfh,true,
-				"Error message is  not shown up for max plus val for farnheit unit");
-		log.info("Error message is shown up for max val plus " + maxplusvalfh + " for farnheit unit");
-
-		// In Range value testing
-
-		Trs.clearHosesetTemperature();
-
-		log.info("Tank temperature cleared to enter Inrange value for farnheit unit");
-
-		Hosepnt = Inrngvaluefh;
-		Trs.setHose1emperature(Inrngvaluefh);
-
-		Trs.clickSavebtn();
-
-		String tstmsgfh = Trs.getToastmsg();
-		softAssert.assertEquals( tstmsgfh,Constants.SucssmsgRuntime,
-				"Toast msg In range values are saved successfully for farnheit unit");
-		log.info("Toast msg In range values are saved successfully for farnheit unit");
-
-		boolean stusfh = Trs.getSavebtnstatus();
-		softAssert.assertEquals( stusfh,false, "In range values are saved successfully for farnheit unit");
-		log.info("In range values are saved successfully for farnheit unit");
-
-		// checking the status and enabling Applicator
-
-		// clearing the Applicator1
-
-		Trs.clearApplicator1setTemperature();
-
-		Trs.clickSavebtn();
-
-		String appclrerrmsgtst = Trs.getToastmsg();
-		softAssert.assertEquals( appclrerrmsgtst,Constants.ApplictorFH,
-				"Toast Error message is not shown up for max Farnhit val for Applicator1");
-		log.info("Toast Error message is shown up for null Farnhit val save for Applicator1");
-
-		boolean appclrerrmsg = Trs.getSavebtnstatus();
-		softAssert.assertEquals( appclrerrmsg,true,
-				"Error message is not shown up for max Farnhit val for Applicator1");
-		log.info("Error message is shown up for null Farnhit val save for Applicator1");
-
-		// min-1 val
-
-		Trs.clearApplicator1setTemperature();
-
-		Trs.setApplicator1temperature(minlsvaluefh);
-
-		Trs.clickSavebtn();
-
-		String apptstminerr = Trs.getToastmsg();
-		softAssert.assertEquals( apptstminerr,Constants.ApplictorFH,
-				"ToastError message is not shown up for Farnhit unit Applicator1");
-		log.info("Toast Error message is shown up for min-1" + minlsvaluefh + "for Farnhit unit Applicator1");
-
-		boolean appstusminerr = Trs.getSavebtnstatus();
-		softAssert.assertEquals(appstusminerr,true, "Error message is not shown up for Farnhit unit Applicator1");
-		log.info("Error message is shown up for min-1" + minlsvaluefh + "for Farnhit unit Applicator1");
-
-		// max+1 val
-
-		Trs.clearApplicator1setTemperature();
-
-		Trs.setApplicator1temperature(maxplusvalfh);
-
-		Trs.clickSavebtn();
-
-		String apptstmaxerr = Trs.getToastmsg();
-		softAssert.assertEquals( apptstmaxerr,Constants.ApplictorFH,
-				"Toast Error message is  not shown up for max plus val for Farnhit unit Applicator1");
-		log.info("Toast Error message is shown up for max val plus " + maxplusvalfh + " for Farnhit unit Applicator1");
-
-		boolean appstusmaxerr = Trs.getSavebtnstatus();
-		softAssert.assertEquals( appstusmaxerr,true,
-				"Error message is  not shown up for max plus val for Farnhit unit Applicator1");
-		log.info("Error message is shown up for max val plus " + maxplusvalfh + " for Farnhit unit Applicator1");
-
-		// In Range value testing
-
-		Trs.clearApplicator1setTemperature();
-
-		log.info("Applicator1 temperature cleared to enter Inrange value");
-
-		Applicatorpnt = Inrngvaluefh;
-		Trs.setApplicator1temperature(Inrngvaluefh);
-
-		Trs.clickSavebtn();
-
-		String apptstsucssmsg = Trs.getToastmsg();
-		softAssert.assertEquals( apptstsucssmsg,Constants.SucssmsgRuntime,
-				"Toast msg In range values are not saved for Farnhit unit Applicator1");
-		log.info("Toast msg In range values are saved successfully for Farnhit unit Applicator1");
-
-		boolean appstus = Trs.getSavebtnstatus();
-		softAssert.assertEquals(false, appstus, "In range values are saved successfully for Farnhit unit Applicator1");
-		log.info("In range values are saved successfully for Farnhit unit Applicator1");
-
-		softAssert.assertAll();
+				// min-1 val
+				Trs.setApplicatorstemp(minlsvaluefh,"F");
+				log.info("Min-1 values are not updated for all Applicators from 1-10 in fahrenheit unit");
+				
+				// max+1 val
+				Trs.setApplicatorstemp(maxplusvalfh,"F");
+				log.info("Max+1 values are not updated for all Applicators from 1-10 in fahrenheit unit");
+		      
+				// In Range value testing
+				Trs.setApplicatorstemp(Inrngvaluefh,"F");
+				 log.info("All Inrange values are sucessfully updated for all Applicators from 1-10 in fahrenheit unit");
+		         softAssert.assertAll();
 
 	}
 
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 7)
+	@Test(priority = 7, enabled=true)
 	@Story("Temperature Runtimesettings Farnheit  to celsius unit conversion")
 	public void Test_farnhit_ToCelsius_RuntimeSetttings_Conversion() throws InterruptedException {
 
 		Trs.clickSystemSettingsBtn();
-
 		Trs.clickPreferencesBtn();
-
 		Trs.clickCelsiusUnit();
 		log.info("Temperature Unit Farhenit is selected by clicking to verfiy conversion");
 
@@ -875,24 +678,25 @@ public class TC_RuntimeMinmax_TemperatureTest extends TC_LoginTest_DDT_001 {
 		log.info("Celsius" + Tankpoint + "is converted to Farnhit unit" + Tnkclspnt
 				+ " conversion for Tank point is correct");
 
-		// Hose Point
-		String hosetemp1 = Trs.getHosetemp1();
-		System.out.println(hosetemp1);
-		String hoseclspnt = ActionMethods.getConversionToCelsius(Hosepnt);
-		softAssert.assertEquals(hoseclspnt, hosetemp1, "Celsius to Farnhit unit conversion not correct for Hose point");
-		log.info("Celsius" + Hosepnt + "is converted to Farnhit unit" + hoseclspnt
-				+ " conversion for Tank point is correct");
-
-		// Applicator
-
-		String Applicatorpntcvtd = ActionMethods.getConversionToCelsius(Applicatorpnt);
-		String apptemp1 = Trs.getAPP1temp1();
-		System.out.println(apptemp1);
-		softAssert.assertEquals(Applicatorpntcvtd, apptemp1,
-				"Celsius to Farnhit unit conversion not correct for applicator point");
-		log.info("Celsius" + Hosepnt + "is converted to Farnhit unit" + Applicatorpntcvtd
-				+ " conversion for applicator point is correct");
-
+		/*
+		 * // Hose Point String hosetemp1 = Trs.getHosetemp1();
+		 * System.out.println(hosetemp1); String hoseclspnt =
+		 * ActionMethods.getConversionToCelsius(Hosepnt);
+		 * softAssert.assertEquals(hoseclspnt, hosetemp1,
+		 * "Celsius to Farnhit unit conversion not correct for Hose point");
+		 * log.info("Celsius" + Hosepnt + "is converted to Farnhit unit" + hoseclspnt +
+		 * " conversion for Tank point is correct");
+		 * 
+		 * // Applicator
+		 * 
+		 * String Applicatorpntcvtd =
+		 * ActionMethods.getConversionToCelsius(Applicatorpnt); String apptemp1 =
+		 * Trs.getAPP1temp1(); System.out.println(apptemp1);
+		 * softAssert.assertEquals(Applicatorpntcvtd, apptemp1,
+		 * "Celsius to Farnhit unit conversion not correct for applicator point");
+		 * log.info("Celsius" + Hosepnt + "is converted to Farnhit unit" +
+		 * Applicatorpntcvtd + " conversion for applicator point is correct");
+		 */
 		softAssert.assertAll();
 
 	}

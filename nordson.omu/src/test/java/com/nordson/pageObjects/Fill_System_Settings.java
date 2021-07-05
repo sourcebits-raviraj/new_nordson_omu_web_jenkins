@@ -78,27 +78,29 @@ public class Fill_System_Settings {
 		}
 		public void clickCreateNewBtn() {
 			Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'CREATE NEW')]"));
-			Am.waitForAnElementToBeClickable(CreateNewButton);
-			CreateNewButton.click();
+			//Am.waitForAnElementToBeClickable(CreateNewButton);
+			//CreateNewButton.click();
+			((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", CreateNewButton);
 		}
 		public void clickSubmitBtn() throws InterruptedException {
 			Am.waitForAnElementPresence(By.xpath("//*[@class='btn-set-up submit-btn-color']"));
-			Am.waitForAnElementToBeClickable(SubmitButton);
-			SubmitButton.click();
+		    Am.waitForAnElementToBeClickable(SubmitButton); 
+		   ((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getXcoordinatetoclick(SubmitButton)+")");
+		    SubmitButton.click();
+		 //((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SubmitButton);
 		}
 		public void clickSystemSettingsBtn() {
 			Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
 			Am.waitForAnElementToBeClickable(SystemSettings);
-			JavascriptExecutor executor = (JavascriptExecutor) ldriver;
-			executor.executeScript("arguments[0].click();", SystemSettings);
+			((JavascriptExecutor) ldriver).executeScript("arguments[0].click();", SystemSettings);
 			// SystemSettings.click();
 		}
 		
 		public void clickFillbtn() throws InterruptedException {
 			Am.waitForAnElementPresence(By.xpath("//a[contains(@class,'uppercase')]//*[normalize-space()='Fill']"));
 			Thread.sleep(800);
-			//Am.waitForAnElementToBeClickable(Fillbtn);
-			((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getXcoordinatetoclick(Fillbtn)+")");
+			Am.waitForAnElementToBeClickable(Fillbtn);
+			//((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getXcoordinatetoclick(Fillbtn)+")");
 			Fillbtn.click();
 		}
 		
@@ -195,9 +197,10 @@ public class Fill_System_Settings {
 			((JavascriptExecutor)ldriver).executeScript("window.scrollTo(0,"+Am.getYcoordinatetoclick(SAVE)+")");
 			SAVE.click();
 		}
-		public void createNewNORfile() throws InterruptedException {
+		public void createNewNORfile() throws Exception {
 			clickSetUpToolBtn();
 			clickCreateNewBtn();
+			Am.sleepTime(2000);
 			clickSubmitBtn();
 			clickSystemSettingsBtn();
 		}

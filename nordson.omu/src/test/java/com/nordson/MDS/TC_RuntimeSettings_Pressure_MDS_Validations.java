@@ -489,7 +489,7 @@ public class TC_RuntimeSettings_Pressure_MDS_Validations extends TC_LoginTest_DD
 		log.info("Clicked on Pressure Link");
 		Thread.sleep(1200);
 		rsp.SelectMainPressureModeSelectionDropdown("Runup");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		// Validation of Pressure mode runup mode fields
 		// Default value validations

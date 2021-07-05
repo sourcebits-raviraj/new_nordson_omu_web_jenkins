@@ -133,7 +133,8 @@ public class Runtime_Settings_Pressure_Validations {
 		Thread.sleep(2000);
 		customwait.waitForAnElementPresence(
 				By.xpath("//span[@class='heading-text-sidenav']/following::mat-expansion-panel-header[2]"));
-		SystemSettingsLink.click();
+		//SystemSettingsLink.click();
+		((JavascriptExecutor)ldriver).executeScript("arguments[0].click()", SystemSettingsLink);
 		Thread.sleep(2000);
 
 	}
@@ -142,7 +143,7 @@ public class Runtime_Settings_Pressure_Validations {
 		Thread.sleep(4000);
 		customwait.waitForAnElementPresence(By.xpath("//div[contains(text(),'Preferences')]"));
 		PreferencesLink.click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 	}
 
@@ -290,7 +291,7 @@ public class Runtime_Settings_Pressure_Validations {
 		// "//div[contains(@class,'row
 		// row-margin')]//span[contains(@class,'min')][normalize-space()='PSI']/preceding::input[1]"));
 		// MinSetPoint.click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		// boolean bool = PSIMinSetPoint.isDisplayed();
 		// System.out.println("Min Set Point for PSI text box is displayed=" + bool);
 		String min = PSIMinSetPoint.getAttribute("value");

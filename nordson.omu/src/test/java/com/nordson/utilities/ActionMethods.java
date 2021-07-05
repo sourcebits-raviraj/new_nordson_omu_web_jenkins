@@ -272,7 +272,7 @@ public class ActionMethods extends BaseClass {
 	  public String getlatestDownloadedNorFilenm() throws Exception
 		{
 			String flnm="";
-			   String norfilpth=rcf.getDownloadPath();
+			   String norfilpth=System.getProperty("user.home")+rcf.getDownloadPath();
 				File dir = new File(norfilpth);
 				FileFilter fileFilter = new WildcardFileFilter("*.nor");
 				File[] fileList = dir.listFiles(fileFilter);
@@ -304,7 +304,7 @@ public class ActionMethods extends BaseClass {
 		{
 			// creating two channels
 	        // one input and other output  
-			String srcfilepth=rcf.getDownloadPath()+filnm;
+			String srcfilepth=System.getProperty("user.home")+rcf.getDownloadPath()+filnm;
 			String destnationpth=System.getProperty("user.dir")+"\\src\\test\\java\\com\\nordson\\BDGTest\\";
 	        File src = new File(srcfilepth);
 	        sleepTime(2500);

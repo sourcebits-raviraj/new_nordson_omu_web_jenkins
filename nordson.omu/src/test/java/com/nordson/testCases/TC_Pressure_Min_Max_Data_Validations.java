@@ -113,6 +113,7 @@ public class TC_Pressure_Min_Max_Data_Validations extends TC_LoginTest_DDT_001 {
 		}
 
 		XLUtils.setExcelSheetNm("kpaMin_0_Max_691");
+		Am.sleepTime(2000);
 		pmv.clearMinSetPoint();
 		pmv.clearMaxSetPoint();
 	}

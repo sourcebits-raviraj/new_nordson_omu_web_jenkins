@@ -15,7 +15,7 @@ import io.qameta.allure.Feature;
 public class TC_SystemSettings_Flow_MDSValues extends TC_LoginTest_DDT_001 {
 
 	Flow_System_Settings fss;
-	ActionMethods Am;
+	ActionMethods Am=new ActionMethods();
 	private SoftAssert softAssert = new SoftAssert();
 	MDSGetterandSetters_Flow fmds = new MDSGetterandSetters_Flow();
 	RetriveMDSdata_Flow rmds = new RetriveMDSdata_Flow();
@@ -304,7 +304,7 @@ public class TC_SystemSettings_Flow_MDSValues extends TC_LoginTest_DDT_001 {
 
 	@Test(priority = 16, enabled = true)
 	@Description("Verification of default,min and max value for Specific gravity in System Settings")
-	public void TC_OMU_Verify_SpecificGravity_MDSvalidation_default_min_max() throws InterruptedException, IOException {
+	public void TC_OMU_Verify_SpecificGravity_MDSvalidation_default_min_max() throws Exception {
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_SpecificGravity());
 		// Verifying the Default value of Specific gravity field
 		softAssert.assertEquals(fss.getSpecificGravity(), fmds.getDefault1(),
@@ -312,6 +312,7 @@ public class TC_SystemSettings_Flow_MDSValues extends TC_LoginTest_DDT_001 {
 		log.info("Specific gravity is set to Default value  :" + fmds.getDefault1());
 		// Verifying the Min value of Specific gravity field
 		fss.clearSpecificgravity();
+		Am.sleepTime(2200);
 		fss.setSpecificGravity(fmds.getMin1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(), Constants.FlowSucssmsg,
@@ -322,6 +323,7 @@ public class TC_SystemSettings_Flow_MDSValues extends TC_LoginTest_DDT_001 {
 		log.info("Save button is disabled for Specific gravity MDS minimum value");
 		// Verifying the Max value of Specific gravity field
 		fss.clearSpecificgravity();
+		Am.sleepTime(2200);
 		fss.setSpecificGravity(fmds.getMax1());
 		fss.clickSavebtn();
 		softAssert.assertEquals(fss.getToastmsg(), Constants.FlowSucssmsg,
@@ -336,7 +338,7 @@ public class TC_SystemSettings_Flow_MDSValues extends TC_LoginTest_DDT_001 {
 	@Test(priority = 17, enabled = true)
 	@Description("Verification of default,min and max value for Calibration Constant Setting in System Settings")
 	public void TC_OMU_Verify_CalibrationConstantSetting_MDSvalidation_default_min_max()
-			throws InterruptedException, IOException {
+			throws Exception {
 		rmds.getMDSDataVal(rcf.getUIfieldTobefetched_CalibrationConstantSetting());
 		// Verifying the Default value of Calibration Constant Setting field
 		softAssert.assertEquals(fss.getCalibrationConstantSetting(), fmds.getDefault1(),

@@ -111,6 +111,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 	@Test(priority = 3, enabled = true)
 	public void Registration_Nordson_Privacy_Policy() throws Exception {
 
+		Am.sleepTime(1500);
 		if (rpl.PrivacyPolicyDisplayed() == true) {
 
 			Am.drawBorder(rpl.PrivacyPolicy, driver);
@@ -121,6 +122,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 			System.out.println("Privacy Policy link is displayed");
 
 			rpl.clickPrivacy();
+			Am.sleepTime(4000);
 			Am.switchToNexttab();
 
 		}
@@ -189,6 +191,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 			softAssert.assertEquals(Constants.CookiesText, CookiesText);
 			System.out.println("Cookies link is displayed");
 			rpl.clickCookies();
+			Am.sleepTime(4000);
 			Am.switchToNexttab();
 
 		}
@@ -244,6 +247,7 @@ public class TC_OMU_1849_1880_User_Registration_Links extends BaseClass {
 		}
 
 		rpl.clickContactUs();
+		Am.sleepTime(4000);
 		String ContactHeader = rpl.getContactUsHeaderText();
 		softAssert.assertEquals(Constants.ContactUsHeader, ContactHeader);
 		Assert.assertTrue(true);

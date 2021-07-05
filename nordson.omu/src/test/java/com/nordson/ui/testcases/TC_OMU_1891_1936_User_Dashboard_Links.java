@@ -27,6 +27,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	ActionMethods Am = new ActionMethods();
 	XMLClass xmlval = new XMLClass();
+	 Robot robot;
 
 	
 	private SoftAssert softAssert = new SoftAssert();
@@ -215,7 +216,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				Am.drawBorder(lp.LoadFromUSBText, driver);
 				lp.clickLoadFromUSB();
 				Am.sleepTime(2500);
-				Robot robot = new Robot();
+			    robot = new Robot();
 				robot.keyPress(KeyEvent.VK_ESCAPE);
 				robot.keyRelease(KeyEvent.VK_ESCAPE);
 				Am.sleepTime(2000);
@@ -660,7 +661,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	}
 	
 	
-	@Test(priority = 22, enabled = true)
+	@Test(priority = 23, enabled = true)
 	public void TC_Verficiation_Pressure_ManualAdjust_PSI_Default_Values_InNORFile() throws Exception {
 		
 		lp=new User_Dashboard_Details_Landing_Page(driver);
@@ -692,6 +693,18 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		// Downloading the .Nor file
 				lp.clickdownload();
 				Am.sleepTime(3000);
+				
+				// check for windows popup
+				 robot.delay(2000);
+				 robot.keyPress(KeyEvent.VK_DOWN);
+			     robot.delay(4000);
+			     robot.keyPress(KeyEvent.VK_TAB);
+			     robot.keyPress(KeyEvent.VK_TAB);
+			     robot.keyPress(KeyEvent.VK_TAB);
+			     robot.keyPress(KeyEvent.VK_ENTER);
+			     robot.delay(2000);
+				
+				
 				// Storing the downloaded file to the projec tlocation and converting it to XML
 		
 		  String flnm = Am.getlatestDownloadedNorFilenm(); 
@@ -749,14 +762,14 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				
 	}
 	
-	@Test(priority = 23)
+	@Test(priority = 24,enabled=true)
 	public void setExcelSheetNameforMinPSIValues()
 	{
 		XLUtils.setExcelSheetNm("Input_Min_PSI_manualadjust");
 	}
 	
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert Min values in downloaded NOR file for PSI Unit")
-	@Test(priority = 24, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 25, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Manualadjust_Min_Pressure_Value_comparision_with_NorFile_PSI(String MinPressurealrtminval, String MaxPressurealrtminval)
 			throws Exception {
 
@@ -779,7 +792,16 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		
 		// Downloading the .Nor file
 		lp.clickdownload();
-		Thread.sleep(4000);
+		Am.sleepTime(3000);
+
+		// Downloading the .Nor file
+	     robot.delay(4000);
+	     robot.keyPress(KeyEvent.VK_TAB);
+	     robot.keyPress(KeyEvent.VK_TAB);
+	     robot.keyPress(KeyEvent.VK_TAB);
+	     robot.keyPress(KeyEvent.VK_ENTER);
+	     robot.delay(2000);
+	
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		 Am.sleepTime(4000);
@@ -835,14 +857,14 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 				.XMLParser(XMLTagConstants.MaximumPressureAlertNative));
 	}
 	
-	@Test(priority = 25)
+	@Test(priority = 26,enabled=true)
 	public void setExcelSheetNameforMaxPSIValues()
 	{
 		XLUtils.setExcelSheetNm("Input_Max_PSI_manualadjust");
 	}
 	
 	@Description("Verify the Minimum Pressure Alert and Maximum Pressure Alert Max values in downloaded NOR file for PSI Unit")
-	@Test(priority = 26, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
+	@Test(priority = 27, enabled = true, dataProvider = "min_max_Presure_for_norfile_PSI_manualadjust", dataProviderClass = com.nordson.utilities.XLUtils.class)
 	public void TC_Pneumatic_Manualadjust_Max_Pressure_Value_comparision_with_NorFile_PSI(String MinPressurealrtmaxval, String MaxPressurealrtmaxval)
 			throws Exception {
 
@@ -867,6 +889,15 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		// Downloading the .Nor file
 		lp.clickdownload();
 		Thread.sleep(2500);
+		
+		// Window Popup while downloading .Nor file
+	     robot.delay(4000);
+	     robot.keyPress(KeyEvent.VK_TAB);
+	     robot.keyPress(KeyEvent.VK_TAB);
+	     robot.keyPress(KeyEvent.VK_TAB);
+	     robot.keyPress(KeyEvent.VK_ENTER);
+	     robot.delay(2000);
+		
 		// Storing the downloaded file to the project location and converting it to XML
 		String flnm = Am.getlatestDownloadedNorFilenm();
 		  Am.sleepTime(4000);
