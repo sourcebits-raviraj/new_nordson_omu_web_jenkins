@@ -689,6 +689,28 @@ public class XLUtils {
 		return logindata;
 	}
 
+	@DataProvider(name = "SubRegistrationContine")
+	public static String[][] getSubRegistrationContinue() throws IOException {
+
+		String path = System.getProperty("user.dir")
+				+ "/src/test/java/com/nordson/testData/SubRegistrationContinue.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "SubRegistration");
+		int colcount = XLUtils.getCellCount(path, "SubRegistration", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String subregdata[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				subregdata[i - 1][j] = XLUtils.getCellData(path, "SubRegistration", i, j);// 1 0
+			}
+
+		}
+		return subregdata;
+	}
+
 	@DataProvider(name = "RegistrationContine")
 	public static String[][] getRegistrationContinue() throws IOException {
 
@@ -731,6 +753,28 @@ public class XLUtils {
 		return subuser;
 	}
 
+	@DataProvider(name = "AddSubUserRegistration")
+	public static String[][] getAddSubUSerReg() throws IOException {
+
+		String path = System.getProperty("user.dir")
+				+ "/src/test/java/com/nordson/testData/AddSubUserRegistration.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, "AddSubUserReg");
+		int colcount = XLUtils.getCellCount(path, "AddSubUserReg", 1);
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcount);
+		String subuser[][] = new String[rownum][colcount];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 0; j < colcount; j++) {
+				subuser[i - 1][j] = XLUtils.getCellData(path, "AddSubUserReg", i, j);// 1 0
+			}
+
+		}
+		return subuser;
+	}
+
 	@DataProvider(name = "SubUserData")
 	public static String[][] getAddSubUSerLoginData() throws IOException {
 
@@ -751,8 +795,7 @@ public class XLUtils {
 		}
 		return subuser;
 	}
-	
-	
+
 	@DataProvider(name = "min_max_Presure_for_norfile_PSI_manualadjust")
 	public static String[][] setminmaxPressureForNorFilePSI() throws IOException {
 		String path = System.getProperty("user.dir") + "./src/test/java/com/nordson/testData/NorfilePressure.xlsx";
@@ -768,7 +811,6 @@ public class XLUtils {
 		return minpressueDataforNor;
 	}
 
-	
 	public static void setNorXMLValues_Pressure_Min_and_Max(String sheetnm, String mintag, String maxtag,
 			String mindata, String maxdata) throws IOException {
 		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/NorfilePressure.xlsx";
@@ -798,8 +840,5 @@ public class XLUtils {
 
 		fo.close();
 	}
-	
-	
-	
 
 }

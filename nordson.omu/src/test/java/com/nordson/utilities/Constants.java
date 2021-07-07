@@ -67,7 +67,7 @@ public class Constants {
 	public static final String ContactUs = "Cookies";
 	public static final String ContactUsHeader = "Contact Us";
 
-	// Sucessfull message for Flow
+	// Sucessful message for Flow
 	public static final String FlowSucssmsg = "Flow Updated Successfully";
 
 	public static final String CreateNewNor = "CREATE NEW";
@@ -75,8 +75,8 @@ public class Constants {
 	public static final String LoadFromUSB = "LOAD FROM USB/COMPUTER";
 
 	public static final String MediaCenterText = "MEDIA CENTER";
-	public static final String HelpCenterText = "MANAGE LICENSES";
-	public static final String LincenseText = "HELP CENTER";
+	public static final String LincenseText = "MANAGE LICENSES";
+	public static final String HelpCenterText = "HELP CENTER";
 	public static final String ProfileText = "Profile";
 	public static final String FullName = "Full Name";
 	public static final String Email = "Email";
@@ -97,13 +97,15 @@ public class Constants {
 	public static final String ReadWriteText = "Read/Write";
 	public static final String ReadOnly = "Read Only";
 	public static final String SubUsersmsg = "Sub User Added Successfully";
-	
+	public static final String SubUserRegistration = "Sub User Registered Successfully";
 
 	// Pressure preferences message
 	public static final String Pressuresucssmsg = "Pressure updated successfully";
 	public static final String Preferencessucssmsg = "Preferences updated successfully";
-	public static final String ElctnicadjstPSImaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
-	public static final String ElctnicadjstBARmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
-	public static final String ElctnicadjstKPAmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
+	public static final String ElctnicadjstPSImaxerrormsg = "Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
+	public static final String ElctnicadjstBARmaxerrormsg = "Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
+	public static final String ElctnicadjstKPAmaxerrormsg = "Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
 
+	// Password for setting up password
+	public static final String pass = "12345678";
 }
