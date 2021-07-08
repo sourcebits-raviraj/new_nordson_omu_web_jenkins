@@ -31,6 +31,14 @@ public class Constants {
 	public static final String UTTemp = "25";
 	public static final String Tempsetback = "56";
 
+	// Pressure Default value
+	public static final String PSIMinsetpointdefaultValue = "15";
+	public static final String PSIMaxsetpointdefaultValue = "100";
+	public static final String KPAMinsetpointdefaultValue = "103";
+	public static final String KPAMaxsetpointdefaultValue = "690";
+	public static final String BARMinsetpointdefaultValue = "1.03";
+	public static final String BARMaxsetpointdefaultValue = "6.9";
+
 	// Runtime Setting Toast msgs
 
 	public static final String TnkpntnullErrmsg = "Enter Valid Tank Set Points";
@@ -67,7 +75,7 @@ public class Constants {
 	public static final String ContactUs = "Cookies";
 	public static final String ContactUsHeader = "Contact Us";
 
-	// Sucessfull message for Flow
+	// Sucessful message for Flow
 	public static final String FlowSucssmsg = "Flow Updated Successfully";
 
 	public static final String CreateNewNor = "CREATE NEW";
@@ -75,8 +83,8 @@ public class Constants {
 	public static final String LoadFromUSB = "LOAD FROM USB/COMPUTER";
 
 	public static final String MediaCenterText = "MEDIA CENTER";
-	public static final String HelpCenterText = "MANAGE LICENSES";
-	public static final String LincenseText = "HELP CENTER";
+	public static final String LincenseText = "MANAGE LICENSES";
+	public static final String HelpCenterText = "HELP CENTER";
 	public static final String ProfileText = "Profile";
 	public static final String FullName = "Full Name";
 	public static final String Email = "Email";
@@ -97,11 +105,12 @@ public class Constants {
 	public static final String ReadWriteText = "Read/Write";
 	public static final String ReadOnly = "Read Only";
 	public static final String SubUsersmsg = "Sub User Added Successfully";
-	
+	public static final String SubUserRegistration = "Sub User Registered Successfully";
 
 	// Pressure preferences message
 	public static final String Pressuresucssmsg = "Pressure updated successfully";
 	public static final String Preferencessucssmsg = "Preferences updated successfully";
+
 	public static final String ElctnicadjstPSImaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
 	public static final String ElctnicadjstBARmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
 	public static final String ElctnicadjstKPAmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
@@ -138,4 +147,21 @@ public class Constants {
 	
 	public static final String ElctnicadjstMaxlessMinPressuresetpointRangeerrormsg="Minimum Pressure Setpoint Range should be less than Maximum Pressure Setpoint Range";
 	
+
+
+	
+	public static final String MinpresssetptPSIerrormsg = "Minimum Pressure Alert should be between 0 and 95 PSI";
+	public static final String MinpresssetptKPAerrormsg = "Minimum Pressure Alert should be between 0 and 655 kPa";
+	public static final String MinpresssetptBARerrormsg = "Minimum Pressure Alert should be between 0 and 6.55 BAR";
+	public static final String MaxpresssetptPSIerrormsg = "Maximum Pressure Alert should be between 5 and 100 PSI";
+	public static final String MaxpresssetptKPAerrormsg = "Maximum Pressure Alert should be between 34 and 690 kPa";
+	public static final String MaxpresssetptBARerrormsg = "Maximum Pressure Alert should be between 0.34 and 6.9 BAR";
+	public static final String Maxsetptbelowminsetpterrormsg = "Minimum Pressure Alert Range should be less than Maximum Pressure Alert Range";
+	public static final String PressalrtrangediffPSIerrormsg = "Pressure Alert range should have a minimum difference of 5 PSI";
+	public static final String PressalrtrangediffKPAerrormsg = "Pressure Alert range should have a minimum difference of 34 kPa";
+	public static final String PressalrtrangediffBARerrormsg = "Pressure Alert range should have a minimum difference of 0.34 BAR";
+
+	// Password for setting up password
+	public static final String pass = "12345678";
+
 }

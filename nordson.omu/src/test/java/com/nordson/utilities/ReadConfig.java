@@ -34,6 +34,11 @@ public class ReadConfig {
 		return url;
 	}
 
+	public String getYopMailURL() {
+		String url = pro.getProperty("YopMailURL");
+		return url;
+	}
+
 	public String getSuperAdminUsername() {
 		String uname = pro.getProperty("superadminusername");
 		return uname;
@@ -303,9 +308,9 @@ public class ReadConfig {
 	public String getLocaleLanguage() {
 		return pro.getProperty("locale.language");
 	}
-	
+
 	public String getDownloadPath() {
 		return pro.getProperty("downloadpath");
 	}
-	
+
 }

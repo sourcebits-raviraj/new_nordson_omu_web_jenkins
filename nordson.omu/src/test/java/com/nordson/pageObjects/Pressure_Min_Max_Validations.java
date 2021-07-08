@@ -262,6 +262,10 @@ public class Pressure_Min_Max_Validations {
 			System.out.println("Unable to click on Pressure link");
 		}
 	}
+
+	
+	
+
 	
 	public void clickPressureToggle() throws Exception {
 		try {
@@ -739,5 +743,5 @@ public class Pressure_Min_Max_Validations {
     	String pressureAlertTogglebuttonStatus = PressureToggle.getAttribute("aria-checked");
 		return pressureAlertTogglebuttonStatus;
     }
-       
+
 }

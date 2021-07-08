@@ -377,7 +377,7 @@ public class ActionMethods extends BaseClass {
 		email.setMsg("Please find the attached Nordson Test Automation Reports");
 
 		// add the attachment
-		//email.attach(attachment);
+		// email.attach(attachment);
 		email.attach(attachment1);
 
 		// send the email

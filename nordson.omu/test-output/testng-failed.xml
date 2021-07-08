@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Nordson OMU Web App Regression Tests on Chrome]">
+<suite name="Failed suite [Nordson OMU Web App Regression Tests on Chrome]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.nordson.utilities.Reporting"/>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="com.listeners.TestJiraListener"/>
   </listeners>
   <test thread-count="5" name="Nordson OMU Web App Regression Tests on Chrome(failed)">
-    <parameter name="environment" value="Preprod"/>
+    <parameter name="environment" value="preprod"/>
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links">
+      <class name="com.nordson.testCases.OMU_1638_TC_Sub_User_Account_Registration">
         <methods>
-          <include name="TC_Verficiation_CreateNewNorfile_Popup_Elements"/>
+          <include name="Add_Sub_User_Read_Only_Forms" invocation-numbers="0"/>
+          <include name="Third_Screen_Email_and_Password_Agree_Terms_SignUp" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.nordson.ui.testcases.TC_OMU_1891_1936_User_Dashboard_Links -->
+      </class> <!-- com.nordson.testCases.OMU_1638_TC_Sub_User_Account_Registration -->
     </classes>
   </test> <!-- Nordson OMU Web App Regression Tests on Chrome(failed) -->
 </suite> <!-- Failed suite [Nordson OMU Web App Regression Tests on Chrome] -->
