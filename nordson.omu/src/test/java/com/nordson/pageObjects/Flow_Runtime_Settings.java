@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.nordson.utilities.ActionMethods;
 
 public class Flow_Runtime_Settings {
-	
+
 	WebDriver ldriver;
 	WebDriverWait wait;
 	ActionMethods Am = new ActionMethods();
@@ -22,9 +22,10 @@ public class Flow_Runtime_Settings {
 		ldriver = rdriver;
 		PageFactory.initElements(rdriver, this);
 	}
+
 	@FindBy(xpath = "//*[contains(text(),'DASHBOARD')]")
 	WebElement Dashboard;
-	
+
 	@FindBy(id = "bt")
 	WebElement SetUpToolButton;
 
@@ -36,40 +37,43 @@ public class Flow_Runtime_Settings {
 
 	@FindBy(xpath = "//*[contains(text(),'System Settings')]/ancestor::span")
 	WebElement SystemSettings;
-	
+
 	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
 	WebElement Toastmsg;
-	
+
 	@FindBy(xpath = "//*[@routerlink='flow-runtime']/div")
 	WebElement Flowruntimesettingsbtn;
-	
-	@FindBy(css ="*[formcontrolname='ATSTargetAddon']")
+
+	@FindBy(css = "*[formcontrolname='ATSTargetAddon']")
 	WebElement TargetAddOn;
-	
+
 	@FindBy(css = "*[class='apply btn']")
 	WebElement SAVE;
-	
+
 	public void clickDashboard() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'DASHBOARD')]"));
 		Am.waitForAnElementToBeClickable(Dashboard);
 		Dashboard.click();
 	}
+
 	public void clickSetUpToolBtn() {
 		Am.waitForAnElementPresence(By.id("bt"));
-	    Am.waitForAnElementToBeClickable(SetUpToolButton);
+		Am.waitForAnElementToBeClickable(SetUpToolButton);
 		SetUpToolButton.click();
 	}
+
 	public void clickCreateNewBtn() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'CREATE NEW')]"));
 		Am.waitForAnElementToBeClickable(CreateNewButton);
 		CreateNewButton.click();
 	}
+
 	public void clickSubmitBtn() throws InterruptedException {
 		Am.waitForAnElementPresence(By.xpath("//*[@class='btn-set-up submit-btn-color']"));
 		Am.waitForAnElementToBeClickable(SubmitButton);
 		SubmitButton.click();
 	}
-	
+
 	public void clickSystemSettingsBtn() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'System Settings')]/ancestor::span"));
 		Am.waitForAnElementToBeClickable(SystemSettings);
@@ -77,28 +81,30 @@ public class Flow_Runtime_Settings {
 		executor.executeScript("arguments[0].click();", SystemSettings);
 		// SystemSettings.click();
 	}
-	
+
 	public void clickFlowRuntimesettingsbtn() throws InterruptedException {
 		Am.waitForAnElementPresence(By.xpath("//*[@routerlink='flow-runtime']/div"));
 		Thread.sleep(800);
 		Am.waitForAnElementToBeClickable(Flowruntimesettingsbtn);
 		Flowruntimesettingsbtn.click();
 	}
-	
-   public void clearTargetAddon() {
-	   Am.waitForAnElementPresence(By.cssSelector("*[formcontrolname='ATSTargetAddon']"));
+
+	public void clearTargetAddon() {
+		Am.waitForAnElementPresence(By.cssSelector("*[formcontrolname='ATSTargetAddon']"));
 		TargetAddOn.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-	}	
-   public void setTargetAddon(String targetAddOn) {
-	   Am.waitForAnElementPresence(By.cssSelector("*[formcontrolname='ATSTargetAddon']"));
+	}
+
+	public void setTargetAddon(String targetAddOn) {
+		Am.waitForAnElementPresence(By.cssSelector("*[formcontrolname='ATSTargetAddon']"));
 		TargetAddOn.sendKeys(targetAddOn);
 	}
-   public String getTargetAddOn() throws InterruptedException {
+
+	public String getTargetAddOn() throws InterruptedException {
 		Am.waitForAnElementPresence(By.cssSelector("*[formcontrolname='ATSTargetAddon']"));
 		Am.waitFortexttoBePresent(By.cssSelector("*[formcontrolname='ATSTargetAddon']"));
 		return TargetAddOn.getAttribute("value");
 	}
-   
+
 	public String getToastmsg() {
 		Am.waitForAnElementPresence(Toastmsg);
 		String toastmsg = "";
@@ -109,6 +115,7 @@ public class Flow_Runtime_Settings {
 			System.out.println("toast msg not displayed");
 		return toastmsg;
 	}
+
 	public Boolean getToastmsgststus() {
 		Am.waitForAnElementPresence(Toastmsg);
 		Boolean toastmsg = false;
@@ -118,18 +125,21 @@ public class Flow_Runtime_Settings {
 		} else
 			toastmsg = false;
 		return toastmsg;
-	}	
+	}
+
 	public void clickSavebtn() {
 		Am.waitForAnElementPresence(By.cssSelector("*[class='apply btn']"));
 		Am.waitForAnElementToBeClickable(SAVE);
 		SAVE.click();
 	}
+
 	public void createNewNORfile() throws InterruptedException {
 		clickSetUpToolBtn();
 		clickCreateNewBtn();
 		clickSubmitBtn();
 		clickSystemSettingsBtn();
 	}
+
 	public Boolean getSavebtnstatus() {
 		Am.waitForAnElementPresence(SAVE);
 		Boolean sttus = SAVE.isEnabled();
@@ -137,4 +147,3 @@ public class Flow_Runtime_Settings {
 	}
 
 }
-
