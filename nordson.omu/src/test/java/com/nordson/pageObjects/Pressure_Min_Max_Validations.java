@@ -67,6 +67,9 @@ public class Pressure_Min_Max_Validations {
 
 	@FindBy(xpath = "//div[normalize-space()='Pressure']")
 	public WebElement Pressure;
+	
+	@FindBy(xpath="//*[@class='mat-slide-toggle-input cdk-visually-hidden']")
+	public  WebElement PressureToggle;
 
 	@FindBy(xpath = "//input[contains(@name,'ulPressureMinSetPoint')]")
 	public WebElement clearKPAMinSetPoint;
@@ -259,6 +262,15 @@ public class Pressure_Min_Max_Validations {
 			System.out.println("Unable to click on Pressure link");
 		}
 	}
+	
+	public void clickPressureToggle() throws Exception {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor)ldriver;
+			js.executeScript("arguments[0].click();", PressureToggle);
+		} catch (Exception e) {
+			System.out.println("Unable to click on PressureToggle button");
+		}
+	}
 
 	public void clearMinSetPoint() throws Exception {
 
@@ -402,7 +414,7 @@ public class Pressure_Min_Max_Validations {
 		WebElement tstmsg=ldriver.findElement(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		String tm = tstmsg.getText();
 		System.out.println("Value of the toast message is=" + tm);
-		//customwait.waitForAnElementIsInVisible(By.cssSelector("div#toast-container"));
+		customwait.waitForAnElementIsInVisible(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
 		return tm;
 	}
 
@@ -449,10 +461,11 @@ public class Pressure_Min_Max_Validations {
 		return PressureSetPoint.getAttribute("value");
 	}
 
-	public void clearPressureSetPoint() {
+	public void clearPressureSetPoint() throws Exception {
 		PressureSetPoint.click();
 		for (int i = 0; i <= 4; i++) {
 			PressureSetPoint.sendKeys(Keys.BACK_SPACE);
+			customwait.sleepTime(1000);
 		}
 	}
 
@@ -467,10 +480,11 @@ public class Pressure_Min_Max_Validations {
 		return LowPressureAlertThreshold.getAttribute("value");
 	}
 
-	public void clearLowPressureAlertThreshold() {
+	public void clearLowPressureAlertThreshold() throws Exception {
 		LowPressureAlertThreshold.click();
 		for (int i = 0; i <= 4; i++) {
 			LowPressureAlertThreshold.sendKeys(Keys.BACK_SPACE);
+			customwait.sleepTime(1000);
 		}
 	}
 
@@ -485,10 +499,11 @@ public class Pressure_Min_Max_Validations {
 		return HighPressureAlertThreshold.getAttribute("value");
 	}
 
-	public void clearHighPressureAlertThreshold() {
+	public void clearHighPressureAlertThreshold() throws Exception {
 		HighPressureAlertThreshold.click();
 		for (int i = 0; i <= 4; i++) {
 			HighPressureAlertThreshold.sendKeys(Keys.BACK_SPACE);
+			customwait.sleepTime(1000);
 		}
 	}
 
@@ -503,10 +518,11 @@ public class Pressure_Min_Max_Validations {
 		return MinimumPressureSetPointRange.getAttribute("value");
 	}
 
-	public void clearPressureMinimumSetPointRange() {
+	public void clearPressureMinimumSetPointRange() throws Exception {
 		MinimumPressureSetPointRange.click();
 		for (int i = 0; i <= 4; i++) {
 			MinimumPressureSetPointRange.sendKeys(Keys.BACK_SPACE);
+			customwait.sleepTime(1000);
 		}
 	}
 
@@ -521,10 +537,11 @@ public class Pressure_Min_Max_Validations {
 		return MaximumPressureSetPointRange.getAttribute("value");
 	}
 
-	public void clearMaximumPressureSetPointRange() {
+	public void clearMaximumPressureSetPointRange() throws Exception {
 		MaximumPressureSetPointRange.click();
 		for (int i = 0; i <= 3; i++) {
 			MaximumPressureSetPointRange.sendKeys(Keys.BACK_SPACE);
+			customwait.sleepTime(1000);
 		}
 	}
 
@@ -718,5 +735,9 @@ public class Pressure_Min_Max_Validations {
     		else
     			SelectBARUnit();
     	}
+    public String pressureAlertTogglebuttonStatus() {
+    	String pressureAlertTogglebuttonStatus = PressureToggle.getAttribute("aria-checked");
+		return pressureAlertTogglebuttonStatus;
+    }
        
 }

@@ -751,6 +751,32 @@ public class XLUtils {
 		}
 		return subuser;
 	}
+
+	
+	@DataProvider(name = "ElectronicPressureAdjust")
+	public static String[][] electronicPressureAdjust() throws IOException
+
+	{
+
+		String path = System.getProperty("user.dir") + "/src/test/java/com/nordson/testData/ElectronicPressureValue.xlsx";
+
+		int rownum = XLUtils.getRowCount(path, sheetNm);
+		int colcount = XLUtils.getCellCount(path, sheetNm, 1);
+		int colcnt = colcount - 1;
+
+		System.out.println("No of Rows= " + rownum);
+		System.out.println("No of Columns= " + colcnt);
+		String ePressValue[][] = new String[rownum][colcnt];
+
+		for (int i = 1; i <= rownum; i++) {
+			for (int j = 1; j <= colcnt; j++) {
+				ePressValue[i - 1][j - 1] = XLUtils.getCellData(path, sheetNm, i, j);// 1 1
+
+			}
+
+		}
+		return ePressValue;
+	}
 	
 	
 	@DataProvider(name = "min_max_Presure_for_norfile_PSI_manualadjust")
