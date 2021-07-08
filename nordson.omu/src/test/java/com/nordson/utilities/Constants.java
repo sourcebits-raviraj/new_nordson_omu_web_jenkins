@@ -72,7 +72,7 @@ public class Constants {
 	public static final String privacyPolicy = "Privacy Policy";
 	public static final String termsOfServices = "Terms of Service";
 	public static final String CookiesText = "Cookies";
-	public static final String ContactUs = "Cookies";
+	public static final String ContactUs = "Contact Us";
 	public static final String ContactUsHeader = "Contact Us";
 
 	// Sucessful message for Flow
@@ -95,7 +95,7 @@ public class Constants {
 	public static final String CompanyType = "Company Type";
 	public static final String Address = "Address";
 	public static final String NordosnAccountNumber = "Nordson Account Number";
-	public static final String ChangePassword = "Change Password ";
+	public static final String ChangePassword = "Change Password";
 	public static final String EditProfile = "Edit Profile";
 	public static final String AddSubUserHeader = "ADD SUB-USER";
 	public static final String SubUserFullName = " Full Name ";

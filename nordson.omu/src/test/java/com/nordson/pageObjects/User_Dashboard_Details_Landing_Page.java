@@ -43,7 +43,7 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//div[contains(text(),'Recently Created or Imported Setting Files')]")
 	public WebElement EventLogFiles;
 
-	//@FindBy(xpath = "//div[normalize-space()='DASHBOARD']")
+	// @FindBy(xpath = "//div[normalize-space()='DASHBOARD']")
 	@FindBy(xpath = "(//*[@routerlink='/dashboard']//div)[3]")
 	public WebElement DashBoard;
 
@@ -68,7 +68,7 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//div[contains(text(),'Use Previous File')]")
 	public WebElement PreviousFile;
 
-	@FindBy(xpath = "//div[normalize-space()='Media Center']")
+	@FindBy(xpath = "//*[contains(@routerlink,'media-center')]/div")
 	public WebElement MediaCenter;
 
 	@FindBy(xpath = "//div[contains(text(),'Manage Licenses')]")
@@ -92,31 +92,31 @@ public class User_Dashboard_Details_Landing_Page {
 	@FindBy(xpath = "//div/div/div/div/article[1]/div[1]/div")
 	public WebElement ProfileDetails;
 
-	@FindBy(xpath = "//article[1]/div[2]/div")
+	@FindBy(xpath = "//article[1]/div[2]/div/div[1]")
 	public WebElement FullName;
 
-	@FindBy(xpath = "//article[2]/div[1]/div[1]")
+	@FindBy(xpath = "//article[2]/div[1]/div[1]/div[1]/div[1]")
 	public WebElement Email;
 
-	@FindBy(xpath = "//article[2]/div[1]/div[2]")
+	@FindBy(xpath = "//article[2]/div[1]/div[2]/div[1]/div[1]")
 	public WebElement Country;
 
-	@FindBy(xpath = "//article[2]/div[2]/div[1]")
+	@FindBy(xpath = "//article[2]/div[2]/div[1]/div[1]/div[1]")
 	public WebElement PhoneNumber;
 
-	@FindBy(xpath = "//article/div[2]/div[2]")
+	@FindBy(xpath = "//article/div[2]/div[2]/div[1]/div[1]")
 	public WebElement PlantName;
 
-	@FindBy(xpath = "//article/div[3]/div[1]")
+	@FindBy(xpath = "//article/div[3]/div[1]/div[1]/div[1]")
 	public WebElement CompanyName;
 
-	@FindBy(xpath = "//div[@class='col m12 s12 l6 xl6 responsive-pad-top']/following::div[16]")
+	@FindBy(xpath = "//div[@class='col m12 s12 l6 xl6 responsive-pad-top']/following::div[16]/div[1]")
 	public WebElement CompanyType;
 
-	@FindBy(xpath = "//div[@class='col m12 s12 l6 xl6 responsive-pad-top']/following::div[20]")
+	@FindBy(xpath = "//div[@class='col m12 s12 l6 xl6 responsive-pad-top']/following::div[20]/div[1]")
 	public WebElement Address;
 
-	@FindBy(xpath = "//div[@class='col m12 s12 l6 xl6 responsive-pad-top']/following::div[25]")
+	@FindBy(xpath = "//div[@class='col m12 s12 l6 xl6 responsive-pad-top']/following::div[25]/div[1]")
 	public WebElement NordsonAccountNumber;
 
 	@FindBy(xpath = "//span[@class='pointer ng-star-inserted']")

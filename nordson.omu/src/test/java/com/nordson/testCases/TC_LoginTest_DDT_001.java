@@ -1,25 +1,21 @@
 package com.nordson.testCases;
 
-import com.nordson.pageObjects.LoginPage;
-import com.nordson.utilities.ActionMethods;
-import com.nordson.utilities.XLUtils;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-
-
+import com.nordson.pageObjects.LoginPage;
+import com.nordson.utilities.ActionMethods;
+import com.nordson.utilities.XLUtils;
 
 public class TC_LoginTest_DDT_001 extends BaseClass {
 
 	LoginPage lp;
 	ActionMethods Am;
-	private SoftAssert softAssert = new SoftAssert();
+	// private SoftAssert softAssert = new SoftAssert();
 
 	@Test(dataProvider = "LoginTestData")
 	public void loginDDT(String user, String pwd) throws InterruptedException, IOException {
@@ -41,38 +37,39 @@ public class TC_LoginTest_DDT_001 extends BaseClass {
 		// verify the login is successful
 
 		if (driver.getPageSource().contains(" Sub User Account ")) {
-			
-			System.out.println("Login Successful");
+
+			System.out.println("Login Successful, page source conatins Sub user account");
 			Am = new ActionMethods();
 			Am.captureScreen(driver, "loginDDT");
 			Assert.assertTrue(true);
-			//lp.clickLogoutBtn();
+			// lp.clickLogoutBtn();
 
-		if (driver.getPageSource().contains("Welcome")) {
+			if (driver.getPageSource().contains("Welcome")) {
 
-			if (driver.getPageSource().contains(" Sub User Account ")) {
+				if (driver.getPageSource().contains(" Sub User Account ")) {
 
-				System.out.println("Login Successful");
-				Am = new ActionMethods();
-				Am.captureScreen(driver, "loginDDT");
-				Assert.assertTrue(true);
+					System.out.println("Login Successful");
+					Am = new ActionMethods();
+					Am.captureScreen(driver, "loginDDT");
+					Assert.assertTrue(true);
 
-				// lp.clickLogoutBtn();
+					// lp.clickLogoutBtn();
 
-				// lp.clickLogoutBtn();
+					// lp.clickLogoutBtn();
+
+				}
+
+				else {
+
+					Am = new ActionMethods();
+					Am.captureScreen(driver, "loginDDT");
+					System.out.println("Login Failed");
+					Assert.assertTrue(false);
+
+				}
 
 			}
-
-			else {
-
-				Am = new ActionMethods();
-				Am.captureScreen(driver, "loginDDT");
-				System.out.println("Login Failed");
-				softAssert.assertTrue(false);
-
-			}
-		
-		} }
+		}
 	}
 
 	@DataProvider(name = "LoginTestData")
