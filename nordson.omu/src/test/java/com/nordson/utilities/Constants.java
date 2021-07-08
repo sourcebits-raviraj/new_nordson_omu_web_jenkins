@@ -111,9 +111,45 @@ public class Constants {
 	public static final String Pressuresucssmsg = "Pressure updated successfully";
 	public static final String Preferencessucssmsg = "Preferences updated successfully";
 
-	public static final String ElctnicadjstPSImaxerrormsg = "Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
-	public static final String ElctnicadjstBARmaxerrormsg = "Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
-	public static final String ElctnicadjstKPAmaxerrormsg = "Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
+	public static final String ElctnicadjstPSImaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 5 PSI";
+	public static final String ElctnicadjstBARmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 0.34 BAR";
+	public static final String ElctnicadjstKPAmaxerrormsg="Minimum and Maximum Pressure Set Point Range difference should be minimum 34 kPa";
+	public static final String ElctnicadjstPSIlowpressurethholderrormsg="Low Pressure Alert Threshold should be between 5 and 70 PSI";
+	public static final String ElctnicadjstPSIhighpressurethholderrormsg="High Pressure Alert Threshold should be between 5 and 70 PSI";
+	public static final String ElctnicadjstKPAlowpressurethholderrormsg="Low Pressure Alert Threshold should be between 34 and 483 kPa";
+	public static final String ElctnicadjstKPAhighpressurethholderrormsg="High Pressure Alert Threshold should be between 34 and 483 kPa";
+	public static final String ElctnicadjstBARlowpressurethholderrormsg="Low Pressure Alert Threshold should be between 0.34 and 4.83 BAR";
+	public static final String ElctnicadjstBARhighpressurethholderrormsg="High Pressure Alert Threshold should be between 0.34 and 4.83 BAR";
+	
+	public static final String ElctnicadjstBARPressuresetpointerrormsg="Pressure Set Point should be between 0.69 and 6.9 BAR";
+	public static final String ElctnicadjstBARPressuresetpointerrormsg2="Pressure Set Point should be between 0.7 and 6.9 BAR";
+	public static final String ElctnicadjstBARPressuresetpointerrormsg3="Pressure Set Point should be between 0.9 and 6.9 BAR";
+	public static final String ElctnicadjstBARPressuresetpointerrormsg4="Pressure Set Point should be 2.2 BAR";
+	
+	public static final String ElctnicadjstBARMinPressuresetpointRangeerrormsg="Minimum Pressure Set Point Range should be 0.69 BAR";
+	public static final String ElctnicadjstBARMaxPressuresetpointRangeerrormsg="Maximum Pressure Set Point Range should be between 1.38 and 6.9 BAR";
+	
+	public static final String ElctnicadjstKPAPressuresetpointerrormsg="Pressure Set Point should be between 69 and 690 kPa";
+	public static final String ElctnicadjstKPAPressuresetpointerrormsg2="Pressure Set Point should be between 70 and 690 kPa";
+	public static final String ElctnicadjstKPAPressuresetpointerrormsg3="Pressure Set Point should be between 90 and 690 kPa";
+	public static final String ElctnicadjstKPAPressuresetpointerrormsg4="Pressure Set Point should be 220 kPa";
+	
+	public static final String ElctnicadjstKPAMinPressuresetpointRangeerrormsg="Minimum Pressure Set Point Range should be 69 kPa";
+	public static final String ElctnicadjstKPAMaxPressuresetpointRangeerrormsg="Maximum Pressure Set Point Range should be between 138 and 690 kPa";
+	
+	public static final String ElctnicadjstPSIPressuresetpointerrormsg="Pressure Set Point should be between 10 and 100 PSI";
+	public static final String ElctnicadjstPSIPressuresetpointerrormsg2="Pressure Set Point should be between 11 and 100 PSI";
+	public static final String ElctnicadjstPSIPressuresetpointerrormsg3="Pressure Set Point should be between 21 and 100 PSI";
+	public static final String ElctnicadjstPSIPressuresetpointerrormsg4="Pressure Set Point should be 50 PSI";
+	
+	public static final String ElctnicadjstPSIMinPressuresetpointRangeerrormsg="Minimum Pressure Set Point Range should be 10 PSI";
+	public static final String ElctnicadjstPSIMaxPressuresetpointRangeerrormsg="Maximum Pressure Set Point Range should be between 20 and 100 PSI";
+	
+	public static final String ElctnicadjstMaxlessMinPressuresetpointRangeerrormsg="Minimum Pressure Setpoint Range should be less than Maximum Pressure Setpoint Range";
+	
+
+
+	
 	public static final String MinpresssetptPSIerrormsg = "Minimum Pressure Alert should be between 0 and 95 PSI";
 	public static final String MinpresssetptKPAerrormsg = "Minimum Pressure Alert should be between 0 and 655 kPa";
 	public static final String MinpresssetptBARerrormsg = "Minimum Pressure Alert should be between 0 and 6.55 BAR";
@@ -127,4 +163,5 @@ public class Constants {
 
 	// Password for setting up password
 	public static final String pass = "12345678";
+
 }
