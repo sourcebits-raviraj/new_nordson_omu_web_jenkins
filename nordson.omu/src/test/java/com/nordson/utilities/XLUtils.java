@@ -839,7 +839,7 @@ public class XLUtils {
 		return minpressueDataforNor;
 	}
 	@DataProvider(name = "Pressure boundry value data")
-	public static String[][] PSIAboveRange() throws IOException
+	public static String[][] PressureBoundryValueData() throws IOException
 
 	{
 
