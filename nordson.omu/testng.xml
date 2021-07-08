@@ -16,7 +16,7 @@
        <classes>
             
             
-               <class name="com.nordson.testCases.OMU_1638_TC_Sub_User_Account_Registration"/>
+                <class name="com.nordson.testCases.TC_OMU_1891_1936_User_Dashboard_Links"/>
             
             <!-- Failed Test Cases
             <class name="com.nordson.MDS.TC_SystemSettings_Temperature_MDSValidations"/>  
