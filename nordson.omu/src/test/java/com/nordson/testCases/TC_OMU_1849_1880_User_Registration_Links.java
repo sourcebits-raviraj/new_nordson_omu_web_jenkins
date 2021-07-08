@@ -1,6 +1,5 @@
 package com.nordson.testCases;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.interactions.Actions;

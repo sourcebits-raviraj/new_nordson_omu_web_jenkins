@@ -24,13 +24,13 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	User_Dashboard_Details_Landing_Page lp;
 	ReadConfig readconfig = new ReadConfig();
 
-	@JiraPolicy(logTicketReady = true)
+	@JiraPolicy(logTicketReady = false)
 	@Test(priority = 1, enabled = true)
 	public void Logo_Displayed() throws Exception {
 
 		lp = new User_Dashboard_Details_Landing_Page(driver);
 		Am.sleepTime(2000);
-		if (lp.logoDisplayed() == false) {
+		if (lp.logoDisplayed() == true) {
 			Am.drawBorder(lp.logo, driver);
 			Am.sleepTime(1000);
 			log.info("Nordosn Logo is displayed");
@@ -48,10 +48,10 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	}
 
 	@JiraPolicy(logTicketReady = false)
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void Welcome_Displayed() throws Exception {
 
-		if (lp.welcomeDisplayed() == false) {
+		if (lp.welcomeDisplayed() == true) {
 
 			Am.drawBorder(lp.welcome, driver);
 			Am.sleepTime(1000);
@@ -126,7 +126,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public void CopyRightText() throws Exception {
 
 		// lp.pageRefresh();
@@ -158,7 +158,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void Registration_Nordson_Privacy_Policy() throws Exception {
 
 		if (lp.PrivacyPolicyDisplayed() == true) {
@@ -181,7 +181,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public void Registration_Nordosn_Terms_of_Services() throws Exception {
 
 		if (lp.TermsOfServiceDisplayed() == true) {
@@ -204,7 +204,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9, enabled = true)
 	public void Registration_Nordson_Cookies() throws Exception {
 
 		if (lp.cookiesDisplayed() == true) {
@@ -227,7 +227,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 10, enabled = false)
+	@Test(priority = 10, enabled = true)
 	public void Registration_Nordson_Contact_Us() throws Exception {
 
 		if (lp.contactUsDisplayed() == true) {
@@ -252,10 +252,10 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 	}
 
 	@JiraPolicy(logTicketReady = false)
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = true)
 	public void View_DashBoard() throws Exception {
 
-		if (lp.Dashboard_Text().equalsIgnoreCase("xxxx")) {
+		if (lp.Dashboard_Text().equalsIgnoreCase("Dashboard")) {
 
 			Am.drawBorder(lp.DashBoard, driver);
 			Am.sleepTime(1000);
@@ -269,7 +269,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 12, enabled = false)
+	@Test(priority = 12, enabled = true)
 	public void Model_Registration() throws Exception {
 
 		if (lp.Model_Registration().equalsIgnoreCase("Model Registration")) {
@@ -286,7 +286,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 13, enabled = false)
+	@Test(priority = 13, enabled = true)
 	public void Sub_User_Account_Link() throws Exception {
 
 		if (lp.SubUserAccount().equalsIgnoreCase("Sub User Account")) {
@@ -303,7 +303,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 14, enabled = false)
+	@Test(priority = 14, enabled = true)
 	public void Set_Up_Tool() throws Exception {
 
 		if (lp.SetUpTool().equalsIgnoreCase("SETUP TOOL")) {
@@ -324,7 +324,8 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 			log.info("Set Up tool Displayed");
 			Am.sleepTime(1000);
-			driver.navigate().back();
+			// driver.navigate().back();
+			driver.navigate().refresh();
 
 			softAssert.assertTrue(true);
 
@@ -340,7 +341,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 15, enabled = false)
+	@Test(priority = 15, enabled = true)
 	public void MediaCenter() throws Exception {
 
 		if (lp.MediaCenterText().equalsIgnoreCase("Media Center")) {
@@ -368,20 +369,23 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		}
 	}
 
-	@Test(priority = 16, enabled = false)
+	@Test(priority = 16, enabled = true)
 	public void Manage_Lincenses() throws Exception {
 
 		if (lp.manageLincenseDisplayed() == true) {
 
 			log.info("Manage License Link Displayed");
-			softAssert.assertTrue(true);
+
 			String LincenseText = lp.getLincenseText();
 			softAssert.assertEquals(Constants.LincenseText, LincenseText);
 			System.out.println("Cookies link is displayed");
 			Am.drawBorder(lp.ManageLincense, driver);
+
 			lp.clickManageLincense();
 			Am.switchToNexttab();
-			// tab1 = new ArrayList<String>(driver.getWindowHandles());
+			// Am.closeCurrentTab_SwitchtoPrevioustab();
+			// Am.switchToNexttab();
+			// ArrayList<String> tab1 = new ArrayList<String>(driver.getWindowHandles());
 			// driver.switchTo().window(tab1.get(1));
 
 		}
@@ -395,14 +399,15 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 		if (readconfig.getManageLincenseURL().equals(driver.getCurrentUrl())) {
 
-			// Am = new ActionMethods();
+			Am = new ActionMethods();
 			softAssert.assertTrue(true);
 			Am.captureScreen(driver, "ManageLicensePass");
 			System.out.println(driver.getCurrentUrl());
 			System.out.println("Manage Lincense link is opened and navigated");
 			log.info("Manage Lincense link is opened and navigated");
+			// Am.switchToNexttab();
 			Am.closeCurrentTab_SwitchtoPrevioustab();
-			// driver.close();
+			driver.close();
 			// driver.switchTo().window(tabs.get(0));
 
 		}
@@ -410,7 +415,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		else {
 
 			log.info("Manage Lincense link is not displayed ");
-			// Am = new ActionMethods();
+			Am = new ActionMethods();
 			Am.captureScreen(driver, "ManageLicenseFail");
 			System.out.println("Manage Lincense Link not opened");
 			Assert.assertTrue(false);
@@ -419,7 +424,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 17, enabled = false)
+	@Test(priority = 17, enabled = true)
 	public void Help_Center() throws Exception {
 
 		if (lp.helpCenterDisplayed() == true) {
@@ -432,6 +437,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 			Am.drawBorder(lp.HelpCenter, driver);
 			lp.clickHelpCenter();
 			Am.switchToNexttab();
+			// Am.closeCurrentTab_SwitchtoPrevioustab();
 			// tab1 = new ArrayList<String>(driver.getWindowHandles());
 			// driver.switchTo().window(tab1.get(1));
 
@@ -446,14 +452,14 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 		if (readconfig.getHelpCenterURL().equals(driver.getCurrentUrl())) {
 
-			// Am = new ActionMethods();
+			Am = new ActionMethods();
 			softAssert.assertTrue(true);
 			Am.captureScreen(driver, "ManageLicensePass");
 			System.out.println(driver.getCurrentUrl());
 			System.out.println("Manage Lincense link is opened and navigated");
 			log.info("Manage Lincense link is opened and navigated");
 			Am.closeCurrentTab_SwitchtoPrevioustab();
-			// driver.close();
+			driver.close();
 			// driver.switchTo().window(tabs.get(0));
 
 		}
@@ -461,7 +467,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 		else {
 
 			log.info("Manage Lincense link is not displayed ");
-			// Am = new ActionMethods();
+			Am = new ActionMethods();
 			Am.captureScreen(driver, "ManageLicenseFail");
 			System.out.println("Manage Lincense Link not opened");
 			Assert.assertTrue(false);
@@ -471,7 +477,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 18, enabled = false)
+	@Test(priority = 18, enabled = true)
 	public void Langauges() throws Exception {
 
 		lp.clickLanguage();
@@ -507,7 +513,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 			System.out.println("English Language is not present");
 			log.info("English Language is not present ");
-			// Am = new ActionMethods();
+			Am = new ActionMethods();
 			Am.captureScreen(driver, "EnglisDropdownFail");
 			System.out.println("English Language is not present");
 			Assert.assertTrue(false);
@@ -516,7 +522,7 @@ public class TC_OMU_1891_1936_User_Dashboard_Links extends TC_LoginTest_DDT_001 
 
 	}
 
-	@Test(priority = 19, enabled = false)
+	@Test(priority = 19, enabled = true)
 	public void Profile() throws Exception {
 
 		lp.LanaguageDropdowns.get(0).click();

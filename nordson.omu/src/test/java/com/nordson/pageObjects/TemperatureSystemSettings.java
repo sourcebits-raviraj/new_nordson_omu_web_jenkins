@@ -5,7 +5,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +29,6 @@ public class TemperatureSystemSettings {
 
 	@FindBy(id = "bt")
 	public WebElement SetUpToolButton;
-
 
 	@FindBy(xpath = "//div[contains(text(),'CREATE NEW')]")
 	public WebElement CreateNewButton;
@@ -82,53 +80,53 @@ public class TemperatureSystemSettings {
 
 	@FindBy(xpath = "//*[@formcontrolname='OTDelta']")
 	public WebElement OTTemperature;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='OTDelta']/../span")
 	public WebElement OTTemperatureunt;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='UTDelta']")
 	public WebElement UTTemperature;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='UTDelta']/../span")
 	public WebElement UTTemperatureunt;
 
 	@FindBy(xpath = "//*[@formcontrolname='StandbyDelta']")
 	public WebElement TemperatureSetback;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='StandbyDelta']/../span")
 	public WebElement Tmpstbckemperatureunt;
 
 	@FindBy(xpath = "//div[contains(@class,'toast-message ng-star-inserted')]")
-	
+
 	public WebElement Toastmsg;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='SmartMeltTime']")
 	public WebElement SmrtMeltTmeDly;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='AutoHeatersOffTime']")
 	public WebElement AutoHterOffTme;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='AutoStandbyTime']")
 	public WebElement SystemsetBckDly;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='SmartMeltTime']//../following-sibling::span")
 	public WebElement SmrtMeltTmeDlyunt;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='AutoHeatersOffTime']//../following-sibling::span")
 	public WebElement AutoHterOffTmeunt;
-	
+
 	@FindBy(xpath = "//*[@formcontrolname='AutoStandbyTime']//../following-sibling::span")
 	public WebElement SystemsetBckDlyunt;
-	
+
 	@FindBy(xpath = "//*[contains(text(),'DASHBOARD')]")
 	public WebElement Dashboard;
 
-	
-    public void clickDashboard() {
+	public void clickDashboard() {
 		Am.waitForAnElementPresence(By.xpath("//*[contains(text(),'DASHBOARD')]"));
 		Am.waitForAnElementToBeClickable(Dashboard);
 		Dashboard.click();
 	}
+
 	public void clickCreateNewBtn() {
 
 		Am.waitForAnElementPresence(By.xpath("//div[contains(text(),'CREATE NEW')]"));
@@ -161,10 +159,10 @@ public class TemperatureSystemSettings {
 		Preferences.click();
 	}
 
-	public Boolean getTemperatureunitstut()
-	{
+	public Boolean getTemperatureunitstut() {
 		Boolean tempvalue = false;
-		Am.waitForAnElementPresence(By.xpath("//*[@formcontrolname='TempUnits']//*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-container']"));
+		Am.waitForAnElementPresence(By.xpath(
+				"//*[@formcontrolname='TempUnits']//*[contains(@class,'mat-radio-checked')]//div[@class='mat-radio-container']"));
 		if (Temperatureunit.size() == 1)
 			tempvalue = true;
 		else
@@ -184,27 +182,26 @@ public class TemperatureSystemSettings {
 		return tempunt;
 
 	}
-	
+
 	public String getOTTTemperatureunt() {
 		String Ottempunt;
 		Ottempunt = OTTemperatureunt.getText();
 		return Ottempunt;
 
 	}
-	
+
 	public String getUTTemperatureunt() {
 		String Uttempunt;
 		Uttempunt = UTTemperatureunt.getText();
 		return Uttempunt;
 
 	}
-	
+
 	public String getTempsetbckTemperatureunt() {
 		String tempstbcktempunt;
 		tempstbcktempunt = UTTemperatureunt.getText();
 		return tempstbcktempunt;
 	}
-
 
 	public void clickCelsiusUnit() {
 
@@ -214,12 +211,14 @@ public class TemperatureSystemSettings {
 		CelsiusTemperatureunit.click();
 
 	}
+
 	public void clickFahrenheit() {
 		Am.waitForAnElementPresence(
 				By.xpath("//*[@formcontrolname='TempUnits']//*[contains(text(),'F')]//preceding-sibling::div"));
 		Am.waitForAnElementToBeClickable(CelsiusTemperatureunit);
 		FarhenitTemperatureunit.click();
 	}
+
 	public void clickFarhenitUnit() {
 
 		Am.waitForAnElementPresence(
@@ -237,19 +236,20 @@ public class TemperatureSystemSettings {
 	}
 
 	public void clickSavebtn() {
-		Am.waitForAnElementPresence(SAVE1);
-		Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
-		Am.waitForAnElementToBeClickable(SAVE1);
+		// Am.waitForAnElementPresence(SAVE1);
+		// Am.waitForAnElementPresence(By.xpath("//*[@class='apply btn submit-bt']"));
+		// Am.waitForAnElementToBeClickable(SAVE1);
 		SAVE1.click();
 
 	}
-	public void clickSetUpToolBtn()
-	{
+
+	public void clickSetUpToolBtn() {
 		Am.waitForAnElementPresence(SetUpToolButton);
 		Am.waitForAnElementPresence(By.id("bt"));
 		Am.waitForAnElementToBeClickable(SetUpToolButton);
 		SetUpToolButton.click();
 	}
+
 	public void RuntimeSettingsBtn() throws InterruptedException {
 
 		Am.waitForAnElementPresence(RuntimeSettings);
@@ -338,7 +338,6 @@ public class TemperatureSystemSettings {
 		return sttus;
 	}
 
-
 	public Boolean getToastmsgststus() {
 		Boolean toastmsg = false;
 		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
@@ -348,8 +347,7 @@ public class TemperatureSystemSettings {
 			toastmsg = false;
 		return toastmsg;
 	}
-	
-	
+
 	public String getToastmsg() {
 
 		Am.waitForAnElementPresence(By.xpath("//div[contains(@class,'toast-message ng-star-inserted')]"));
@@ -366,7 +364,7 @@ public class TemperatureSystemSettings {
 
 	public void clickCelsiusTempUnit() {
 		Boolean tempvalue = getTemperatureunitstut();
-		if (tempvalue == true) {			
+		if (tempvalue == true) {
 			String tempunt = getSelectedTemperatureunit();
 			if (!(tempunt.equalsIgnoreCase("oC"))) {
 				clickCelsiusUnit();
@@ -383,10 +381,11 @@ public class TemperatureSystemSettings {
 			String tempunt = getSelectedTemperatureunit();
 			if (!(tempunt.equalsIgnoreCase("oF"))) {
 				clickFahrenheit();
-		} else
-			System.out.println("Temperature not selected");
-	                           }
+			} else
+				System.out.println("Temperature not selected");
+		}
 	}
+
 	public String getSmartMeltTimeDly() throws InterruptedException {
 
 		Am.waitForAnElementPresence(SmrtMeltTmeDly);
@@ -394,7 +393,7 @@ public class TemperatureSystemSettings {
 		String smartmelttmdly = SmrtMeltTmeDly.getAttribute("value");
 		return smartmelttmdly;
 	}
-	
+
 	public String getAutoHeatersOffTme() throws InterruptedException {
 
 		Am.waitForAnElementPresence(AutoHterOffTme);
@@ -402,7 +401,7 @@ public class TemperatureSystemSettings {
 		String autohtrofftme = AutoHterOffTme.getAttribute("value");
 		return autohtrofftme;
 	}
-	
+
 	public String getSystemSetbackTmeDly() throws InterruptedException {
 
 		Am.waitForAnElementPresence(SystemsetBckDly);
@@ -410,48 +409,55 @@ public class TemperatureSystemSettings {
 		String systemsetbckdly = SystemsetBckDly.getAttribute("value");
 		return systemsetbckdly;
 	}
-	
+
 	public void clearSmartMeltTimeDly() {
 		Am.waitForAnElementPresence(SmrtMeltTmeDly);
 		SmrtMeltTmeDly.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
-	
+
 	public void clearAutoHeatersOffTme() {
 		Am.waitForAnElementPresence(AutoHterOffTme);
 		AutoHterOffTme.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
-	
+
 	public void clearSystemsetbckTmeDly() {
 		Am.waitForAnElementPresence(SystemsetBckDly);
 		SystemsetBckDly.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
+
 	public void setSmartMeltTimeDly(String smarttimedly) {
 		Am.waitForAnElementPresence(SmrtMeltTmeDly);
 		SmrtMeltTmeDly.sendKeys(smarttimedly);
 	}
+
 	public void setAutoHeatersOffTme(String autohtrofftme) {
 		Am.waitForAnElementPresence(AutoHterOffTme);
 		AutoHterOffTme.sendKeys(autohtrofftme);
 	}
+
 	public void setSystemsetbckTmeDly(String Systmsetbckdly) {
 		Am.waitForAnElementPresence(SystemsetBckDly);
 		SystemsetBckDly.sendKeys(Systmsetbckdly);
 	}
+
 	public String getSmartMeltTimeDlyunt() {
 		String smartmlttimedly;
 		smartmlttimedly = SmrtMeltTmeDlyunt.getText();
 		return smartmlttimedly;
 	}
+
 	public String getSystemsetbckdlyunt() {
 		String systmsetbckdly;
 		systmsetbckdly = SystemsetBckDlyunt.getText();
 		return systmsetbckdly;
 	}
+
 	public String getAutoheaterofftimeunt() {
 		String AutoHterOffTimeunt;
 		AutoHterOffTimeunt = AutoHterOffTmeunt.getText();
 		return AutoHterOffTimeunt;
 	}
+
 	public void createNewNORfile() throws InterruptedException {
 		clickSetUpToolBtn();
 		Thread.sleep(1000);
